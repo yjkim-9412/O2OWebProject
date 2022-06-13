@@ -10,7 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="584195b9-1430-40ec-ba2f-9c79b81c39a3" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/java/test5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/java/test6.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,6 +47,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/java" />
   </component>
@@ -172,6 +174,7 @@
       <workItem from="1654966707296" duration="2380000" />
       <workItem from="1655118358715" duration="1441000" />
       <workItem from="1655120229654" duration="160000" />
+      <workItem from="1655120926318" duration="73000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1654968954759</created>
