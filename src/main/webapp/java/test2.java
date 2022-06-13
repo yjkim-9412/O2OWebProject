@@ -23,10 +23,4 @@ public class test1 {
         GitHub gitHub = githubService.connect();
         return 0;
     }
-
-    public void test(){
-       public void and(){
-
-        }
-    }
 }
