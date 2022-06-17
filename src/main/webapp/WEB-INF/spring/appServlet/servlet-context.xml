@@ -21,7 +21,14 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+<<<<<<< HEAD
 	<context:component-scan base-package="my.sec.spring" />
+=======
+	<context:component-scan base-package="com.itwillbs.myweb2" />
+	<context:component-scan base-package="com.itwillbs.controller" />
+	<context:component-scan base-package="com.itwillbs.service" />
+	<context:component-scan base-package="com.itwillbs.dao" />
+>>>>>>> 2769aff9b5ac27883c02ca88da9e1a761db3562f
 	
 	
 	

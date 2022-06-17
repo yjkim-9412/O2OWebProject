@@ -11,7 +11,11 @@
 	</appender>
 	
 	<!-- Application Loggers -->
+<<<<<<< HEAD
 	<logger name="my.sec.spring">
+=======
+	<logger name="com.itwillbs.myweb2">
+>>>>>>> 2769aff9b5ac27883c02ca88da9e1a761db3562f
 		<level value="info" />
 	</logger>
 	

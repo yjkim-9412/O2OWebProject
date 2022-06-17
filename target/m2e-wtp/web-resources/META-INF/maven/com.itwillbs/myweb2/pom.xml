@@ -2,24 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-<<<<<<< HEAD
-	<groupId>my.sec</groupId>
-	<artifactId>spring</artifactId>
-=======
 	<groupId>com.itwillbs</groupId>
 	<artifactId>myweb2</artifactId>
->>>>>>> 2769aff9b5ac27883c02ca88da9e1a761db3562f
-	<name>O2OWebProject</name>
+	<name>SpringProject2</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-<<<<<<< HEAD
-		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
-=======
 		<java-version>1.8</java-version>
 		<org.springframework-version>4.1.7.RELEASE</org.springframework-version>
->>>>>>> 2769aff9b5ac27883c02ca88da9e1a761db3562f
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -42,8 +32,6 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-<<<<<<< HEAD
-=======
 			
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 <dependency>
@@ -75,7 +63,6 @@
 		
 			
 			
->>>>>>> 2769aff9b5ac27883c02ca88da9e1a761db3562f
 				
 		<!-- AspectJ -->
 		<dependency>
