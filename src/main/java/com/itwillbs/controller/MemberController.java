@@ -2,7 +2,6 @@ package com.itwillbs.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.service.MemberService;
+
 
 @Controller
 public class MemberController {
@@ -82,20 +82,5 @@ public class MemberController {
 		return "redirect:/member/login";
 	}
 
-	// 카카오 로그인 API //
-		
-	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
-	public String kakaoLogin(@RequestParam(value = "code", required = false) String code) throws Exception {
-	System.out.println("#########" + code);
 
-	 String access_Token = ms.getAccessToken(code);
-	 System.out.println("###access_Token#### : " + access_Token);
-	
-	 HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
-		System.out.println("###access_Token#### : " + access_Token);
-		System.out.println("###nickname#### : " + userInfo.get("nickname"));
-		System.out.println("###email#### : " + userInfo.get("email"));
-     
-	  return "member/kakaologin";
-	}
 }
