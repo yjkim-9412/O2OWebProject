@@ -1,5 +1,5 @@
-// 예제활용 pull request 테스트
-// git
+// 예제활용 테스트
+// git push origin master test
 
 import java.util.Random;
 import java.util.Set;
