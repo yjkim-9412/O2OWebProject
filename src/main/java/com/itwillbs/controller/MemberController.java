@@ -81,5 +81,24 @@ public class MemberController {
 		memberService.updateMember(memberDTO);
 		return "redirect:/member/login";
 	}
+
+		// 카카오 로그인 API //
+		
+
+
+	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code) throws Exception {
+	System.out.println("#########" + code);
+
+	 String access_Token = ms.getAccessToken(code);
+	 System.out.println("###access_Token#### : " + access_Token);
+	
+	 HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
+		System.out.println("###access_Token#### : " + access_Token);
+		System.out.println("###nickname#### : " + userInfo.get("nickname"));
+		System.out.println("###email#### : " + userInfo.get("email"));
+     
+	  return "member/kakaologin";
+}
 	
 }

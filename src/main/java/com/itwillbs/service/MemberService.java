@@ -11,4 +11,8 @@ public interface MemberService {
 	public MemberDTO getMember(String id);
 	
 	public void updateMember(MemberDTO memberDTO);
+
+	//  ----------- 카카오 API ----------- 
+	public String getAccessToken (String authorize_code);
+	public HashMap<String, Object> getUserInfo(String access_Token);
 }
