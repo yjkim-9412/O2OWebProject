@@ -1,5 +1,7 @@
 package com.itwillbs.service;
 
+import java.util.HashMap;
+
 import com.itwillbs.domain.MemberDTO;
 
 public interface MemberService {
