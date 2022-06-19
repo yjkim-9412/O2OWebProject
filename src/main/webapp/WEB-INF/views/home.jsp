@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="resources/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="resources/css/theme.css">
-
+ 
 </head>
 <body>
 
