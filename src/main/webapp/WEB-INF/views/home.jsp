@@ -1,6 +1,14 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -81,42 +89,18 @@
   <div class="page-section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-4">
-          <div class="card-service wow fadeInUp">
-            <div class="header">
-              <img src="resources/img/services/service-1.svg" alt="">
-            </div>
-            <div class="body">
-              <h5 class="text-secondary">SEO Consultancy</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card-service wow fadeInUp">
-            <div class="header">
-              <img src="resources/img/services/service-2.svg" alt="">
-            </div>
-            <div class="body">
-              <h5 class="text-secondary">Content Marketing</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card-service wow fadeInUp">
-            <div class="header">
-              <img src="resources/img/services/service-3.svg" alt="">
-            </div>
-            <div class="body">
-              <h5 class="text-secondary">Keyword Research</h5>
-              <p>We help you define your SEO objective & develop a realistic strategy with you</p>
-              <a href="service.html" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
+		
+<!-- 아이콘 카테고리 -->
+<div class="icon-bar">
+  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/1.png"><figcaption>카테고리1</figcaption></figure></a>
+  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/2.png"><figcaption>카테고리2</figcaption></figure></a>
+  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/3.png"><figcaption>카테고리3</figcaption></figure></a>
+  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/4.png"><figcaption>카테고리4</figcaption></figure></a>
+  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/5.png"><figcaption>카테고리5</figcaption></figure></a>
+</div>
+<!-- 아이콘 카테고리 끝-->		
+
+		
       </div>
     </div> <!-- .container -->
   </div> <!-- .page-section -->
@@ -142,107 +126,76 @@
     </div> <!-- .container -->
   </div> <!-- .page-section -->
 
-  <div class="page-section bg-light">
-    <div class="container">
-      <div class="text-center wow fadeInUp">
-        <div class="subhead">Our services</div>
-        <h2 class="title-section">How SEO Team Can Help</h2>
-        <div class="divider mx-auto"></div>
+<!-- 인기 서비스 -->
+<div class="container">
+    <h4 class="text-left"><b>인기 서비스</b></h4>
+    <div class="row">
+	    <div class="col-sm-4">
+	        <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service1.png" class="img-thumbnail"><figcaption>서비스1</figcaption></figure></a></div>
+		    
+	    </div>
+	    <div class="col-sm-4">
+		    <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service2.png" class="img-thumbnail"><figcaption>서비스2</figcaption></figure></a></div>
+	    </div>
+	    <div class="col-sm-4">
+		    <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service3.png" class="img-thumbnail"><figcaption>서비스3</figcaption></figure></a></div>
+	    </div>
+    </div>
+</div>
+<!-- 인기 서비스 끝 --> 
+
+<!-- 인기 숨은고수 -->
+<br><br><br><br>
+ <div class="container">
+      <h4 class="text-left"><b>인기 숨은고수</b></h4>	
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+        </div>
+        <div class="team-content">
+          <h3 class="name">Michele Miller</h3>
+          <h4 class="title">레슨/보컬</h4>
+        </div>
       </div>
-
-        <div class="row">
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 col-xl-3 py-3 wow zoomIn">
-            <div class="features">
-              <div class="header mb-3">
-                <span class="mai-business"></span>
-              </div>
-              <h5>OnSite SEO</h5>
-              <p>We analyse your website's structure, internal architecture & other key</p>
-            </div>
-          </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="https://picsum.photos/130/130?image=839">
         </div>
-
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
-
-  <div class="page-section banner-seo-check">
-    <div class="wrap bg-image" style="background-image: url(../assets/img/bg_pattern.svg);">
-      <div class="container text-center">
-        <div class="row justify-content-center wow fadeInUp">
-          <div class="col-lg-8">
-            <h2 class="mb-4">Check your Website SEO</h2>
-            <form action="#">
-              <input type="text" class="form-control" placeholder="E.g google.com">
-              <button type="submit" class="btn btn-success">Check Now</button>
-            </form>
-          </div>
+        <div class="team-content">
+          <h3 class="name">Patricia Knott</h3>
+          <h4 class="title">청소/이사</h4>
         </div>
-      </div> <!-- .container -->
-    </div> <!-- .wrap -->
-  </div> <!-- .page-section -->
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
+        </div>
+        <div class="team-content">
+          <h3 class="name">Justin Ramos</h3>
+          <h4 class="title">건강/헬스</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="our-team">
+        <div class="picture">
+          <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
+        </div>
+        <div class="team-content">
+          <h3 class="name">Mary Huntley</h3>
+          <h4 class="title">차량/수리</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 인기 숨은고수 끝 -->
 
   <div class="page-section">
     <div class="container">
@@ -348,7 +301,7 @@
           </div>
           <div class="col-lg-6 py-3 wow fadeInRight">
             <div class="img-fluid text-center">
-              <img src="resources/assets/img/banner_image_2.svg" alt="">
+              <img src="resources/img/banner_image_2.svg" alt="">
             </div>
           </div>
         </div>
@@ -359,14 +312,14 @@
   <!-- Blog -->
   <div class="page-section">
     <div class="container">
-      <div class="text-center wow fadeInUp">
-        <div class="subhead">Our Blog</div>
-        <h2 class="title-section">Read Latest News</h2>
+      <div class="text-center wow">
+        <h2 class="title-section">크몽을 200% 활용하는 법</h2>
+        <div class="subhead">크몽까지 내 능력으로 만드는 콘텐츠</div>
         <div class="divider mx-auto"></div>
       </div>
 
       <div class="row mt-5">
-        <div class="col-lg-4 py-3 wow fadeInUp">
+        <div class="col-lg-4 py-3 wow">
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
@@ -374,13 +327,13 @@
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+              <h5 class="post-title"><a href="#">크몽 전문가 가이드</a></h5>
+              <div class="post-date">전문가 인증부터 정산까지 크몽 전문가 등록의 모든 것</div>
             </div>
           </div>
         </div>
         
-        <div class="col-lg-4 py-3 wow fadeInUp">
+        <div class="col-lg-4 py-3 wow">
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
@@ -388,13 +341,13 @@
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+              <h5 class="post-title"><a href="#">마켓? 엔터프라이즈?</a></h5>
+              <div class="post-date">내 프로젝트에 더 맞는 서비스를 쉽게 고르는 방법</div>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4 py-3 wow fadeInUp">
+        <div class="col-lg-4 py-3 wow">
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
@@ -402,20 +355,20 @@
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">Source of Content Inspiration</a></h5>
-              <div class="post-date">Posted on <a href="#">27 Jan 2020</a></div>
+              <h5 class="post-title"><a href="#">6월 신규 전문가 소개</a></h5>
+              <div class="post-date">카테고리 매니저가 추천하는 라이징 전문가</div>
             </div>
           </div>
         </div>
 
-        <div class="col-12 mt-4 text-center wow fadeInUp">
-          <a href="blog.html" class="btn btn-primary">View More</a>
+        <div class="col-12 mt-4 text-center wow">
+          <a href="blog.html" class="btn btn-primary">더 보러가기</a>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="page-footer bg-image" style="background-image: url(../assets/img/world_pattern.svg);">
+  <footer class="page-footer bg-image" style="background-image: url(resources/img/world_pattern.svg);">
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
