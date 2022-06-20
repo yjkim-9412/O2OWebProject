@@ -2,7 +2,6 @@ package com.itwillbs.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.service.MemberService;
+
 
 @Controller
 public class MemberController {
@@ -59,7 +59,7 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
-		String id = (String)session.getAttribute("id");
+		int id = Integer.parseInt((String) session.getAttribute("id"));
 		
 		
 		MemberDTO memberDTO = memberService.getMember(id);
@@ -69,8 +69,8 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/update", method = RequestMethod.GET)
 	public String update(HttpSession session,Model model) {
-		String id = (String)session.getAttribute("id");
-		
+		int id = Integer.parseInt((String) session.getAttribute("id"));
+
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		return "member/updateForm";
@@ -82,20 +82,5 @@ public class MemberController {
 		return "redirect:/member/login";
 	}
 
-//	 카카오 로그인 API //
-		
-//	@REQUESTMAPPING(VALUE="/MEMBER/KAKAOLOGIN", METHOD=REQUESTMETHOD.GET)
-//	PUBLIC STRING KAKAOLOGIN(@REQUESTPARAM(VALUE = "CODE", REQUIRED = FALSE) STRING CODE) THROWS EXCEPTION {
-//	SYSTEM.OUT.PRINTLN("#########" + CODE);
-//
-//	 STRING ACCESS_TOKEN = MS.GETACCESSTOKEN(CODE);
-//	 SYSTEM.OUT.PRINTLN("###ACCESS_TOKEN#### : " + ACCESS_TOKEN);
-//	
-//	 HASHMAP<STRING, OBJECT> USERINFO = MS.GETUSERINFO(ACCESS_TOKEN);
-//		SYSTEM.OUT.PRINTLN("###ACCESS_TOKEN#### : " + ACCESS_TOKEN);
-//		SYSTEM.OUT.PRINTLN("###NICKNAME#### : " + USERINFO.GET("NICKNAME"));
-//		SYSTEM.OUT.PRINTLN("###EMAIL#### : " + USERINFO.GET("EMAIL"));
-//     
-//	  RETURN "MEMBER/KAKAOLOGIN";
-//	}
+
 }
