@@ -59,7 +59,7 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
-		String id = (String)session.getAttribute("id");
+		int id = Integer.parseInt((String) session.getAttribute("id"));
 		
 		
 		MemberDTO memberDTO = memberService.getMember(id);
@@ -69,8 +69,8 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/update", method = RequestMethod.GET)
 	public String update(HttpSession session,Model model) {
-		String id = (String)session.getAttribute("id");
-		
+		int id = Integer.parseInt((String) session.getAttribute("id"));
+
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		return "member/updateForm";

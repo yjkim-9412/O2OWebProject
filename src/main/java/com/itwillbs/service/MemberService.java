@@ -12,7 +12,7 @@ public interface MemberService {
 	
 	public MemberDTO userCheck(MemberDTO memberDTO);
 	
-	public MemberDTO getMember(String id);
+	public MemberDTO getMember(int id);
 	
 	public void updateMember(MemberDTO memberDTO);
 

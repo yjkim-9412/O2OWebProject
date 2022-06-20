@@ -31,7 +31,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public MemberDTO getMember(String id) {
+	public MemberDTO getMember(int id) {
 		
 		return sqlSession.selectOne(namespace+".getMember", id);
 	}
