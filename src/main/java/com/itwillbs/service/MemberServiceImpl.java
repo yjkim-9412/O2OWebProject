@@ -1,13 +1,16 @@
 package com.itwillbs.service;
 
+
 import java.sql.Timestamp;
+
 
 import javax.inject.Inject;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.MemberDAO;
-import com.itwillbs.dao.MemberDAOImpl;
 import com.itwillbs.domain.MemberDTO;
 
 @Service
@@ -16,7 +19,7 @@ public class MemberServiceImpl implements MemberService{
 	//객체생성 
 	@Inject
 	private MemberDAO memberDAO;
-	
+
 	@Override
 	public void insertMember(MemberDTO memberDTO) {
 		System.out.println("MemberServiceImpl insertMember()");
@@ -43,8 +46,9 @@ public class MemberServiceImpl implements MemberService{
 		memberDAO.updateMember(memberDTO);
 		
 	}
-	
-	
+
+
+
 	
 
 }

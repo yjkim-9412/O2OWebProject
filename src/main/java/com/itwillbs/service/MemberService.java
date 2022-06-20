@@ -1,6 +1,10 @@
 package com.itwillbs.service;
 
+import java.util.HashMap;
+
 import com.itwillbs.domain.MemberDTO;
+
+
 
 public interface MemberService {
 	//추상메서드 정의
@@ -11,4 +15,6 @@ public interface MemberService {
 	public MemberDTO getMember(String id);
 	
 	public void updateMember(MemberDTO memberDTO);
+
+
 }
