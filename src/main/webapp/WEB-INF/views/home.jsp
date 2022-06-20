@@ -1,7 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko-KR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -26,65 +32,488 @@
 
   <link rel="stylesheet" href="resources/css/theme.css">
  
+ 
+<!-- 부트스트랩  -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<style type="text/css">
+.search {
+  position: relative;
+  width: 300px;
+  left: 5px;
+  
+}
+
+input {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+}
+
+#img1 {
+  position : absolute;
+  width: 17px;
+  top: 10px;
+  right: 7px;
+  margin: 0;
+}
+/* 이미지 슬라이드 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+  @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+
+ul{
+	margin: 0; padding: 0;
+}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0px solid silver;
+  }
+
+  img {
+    width: 100px;
+  }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    line-height: 1.1rem;
+    color: #222;
+    letter-spacing: 0.1px;
+    cursor: url(), auto;
+  }
+
+  
+  h2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    background: none;
+    color: white;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  button.snip1099 {
+    border: 1px solid white;
+    background-color: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  button.snip1099 span {
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  button.snip1099 i {
+    font-size: 21px;
+    left: 22px;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  button.snip1099:hover span,
+  button.snip1099.hover span {
+    transform: translate3d(10px, 0px, 0px);
+    opacity: 1;
+  }
+
+  button.snip1099:hover i,
+  button.snip1099.hover i {
+    opacity: 0.8;
+  }
+
+  button.snip1099:active span {
+    transform: translate3d(14px, 0px, 0px);
+  }
+
+  button.snip1099:active i {
+    left: 18px;
+  }
+
+  .solid {
+    font-size: 3rem;
+    line-height: 1rem;
+    color: #8BEC3B;
+  }
+
+  .orange {
+    color: #F58220;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+
+
+  /* mobile start */
+
+
+  
+
+  header img {
+    width: 140px;
+    margin-bottom: 5px;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  header section {
+    display: none;
+  }
+
+
+main{
+	position: relative;
+	bottom: 0px;
+}
+
+
+  main ul,
+  main ol,
+  main li {
+    list-style: none;
+  }
+
+  main a {
+    text-decoration: none;
+  }
+
+  main img {
+    vertical-align: top;
+    border: none;
+  }
+
+  .slide {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1em;
+  }
+
+  .panel {
+    width: 400%;
+
+  }
+
+  .panel:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .panel>li {
+    width: 25%;
+    height: 350px;
+    float: left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    text-align: center;
+  }
+
+  .panel>li>:nth-child(1) {
+    padding: 70px;
+    position: absolute;
+    top: 18%;
+    line-height: 3rem;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: lighter;
+  }
+
+  .panel>li>:nth-child(2) {
+    display: none;
+  }
+
+  .panel>li>:nth-child(3) {
+    display: none;
+  }
+
+
+  .panel img {
+    width: 50px;
+    margin: 0 5px;
+    border-radius:1em;
+  }
+
+
+  .panel>li:nth-of-type(1) {
+    background: url('https://images.unsplash.com/photo-1506606401543-2e73709cebb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center center;
+    border-radius:1em;
+  }
+
+  .panel>li:nth-of-type(2) {
+    background: url('https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center center;
+    border-radius:1em;
+  }
+
+  .panel>li:nth-of-type(3) {
+    background: url('https://images.unsplash.com/photo-1570101945621-945409a6370f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center center;
+    border-radius: 1em;
+  }
+
+  .panel>li>:nth-child(1) img {
+    width: 50px;
+    margin: 0 5px;
+    border-radius: 1em;
+  }
+
+  .dot:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .dot {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+  }
+
+  .dot>li {
+    float: left;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-left: 5px;
+    margin-right: 5px;
+    text-indent: -9999px;
+    cursor: pointer;
+  }
+
+  .dot>li.on {
+    background-color: white;
+    width: 40px;
+    height: 15px;
+    border-radius: 10px;
+    transition: .5s;
+  }
+
+  .prev {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2%;
+    cursor: pointer;
+  }
+
+  .next {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2%;
+    cursor: pointer;
+  }
+
+  
+  /* laptop start */
+@media screen and (min-width: 1366px) {
+
+main{
+	position: relative;
+	bottom: 0px;
+}
+	.slide {
+	  border-radius: 1em;
+	}
+	
+    header section {
+      padding: 1.2rem 0;
+    }
+
+    header img {
+      width: 150px;
+    }
+
+    .panel>li {
+      height: 450px;
+      border-radius: 1em;
+    }
+
+    .panel>li>:nth-child(1) {
+      padding: 0;
+      width: 750px;
+      position: absolute;
+      top: 25%;
+      left: 10%;
+      line-height: 3.5rem;
+      font-size: 3.2rem;
+      font-weight: lighter;
+      text-align: left;
+      border-radius: 1em;
+    }
+
+    .panel>li>:nth-child(2) {
+      display: block;
+      position: absolute;
+      top: 47%;
+      left: 10%;
+      line-height: 3rem;
+      color: white;
+      border-radius: 1em;
+    }
+
+    .panel>li>:nth-child(3) {
+      display: block;
+      position: absolute;
+      top: 61%;
+      left: 10%;
+      border-radius: 1em;
+    }
+
+    .orange {
+      font-size: 3.5rem;
+    }
+
+    .prev,
+    .next {
+      font-size: 2.5rem;
+    }
+
+
+
+
+
+
+</style> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 </head>
 <body>
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
 
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+<header>
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="#" class="navbar-brand">Seo<span class="text-primary">Gram.</span></a>
+        <a href="#" class="navbar-brand">Cat<span class="text-primary">ch</span></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="navbar-collapse collapse" id="navbarContent">
+           
+           <!--search바  -->
+           <div class="search">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?">
+              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+            </div>
+            
           <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">고수찾기</a>
+            </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.html">로그인</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="service.html">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog.html">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="#">Free Analytics</a>
+              <a class="btn btn-primary ml-lg-2" href="#">회원가입</a>
             </li>
           </ul>
         </div>
 
       </div>
     </nav>
+    
 
+<!-- 이미지슬라이드 -->
+<!--  <div class="page-section"> -->
     <div class="container">
-      <div class="page-banner home-banner">
-        <div class="row align-items-center flex-wrap-reverse h-100">
-          <div class="col-md-6 py-5 wow fadeInLeft">
-            <h1 class="mb-4">Let's Check and Optimize your website!</h1>
-            <p class="text-lg text-grey mb-5">Ignite the most powerfull growth engine you have ever built for your company</p>
-            <a href="#" class="btn btn-primary btn-split">Watch Video <div class="fab"><span class="mai-play"></span></div></a>
+ <main>
+    <div class="slide">
+      <ul class="panel">
+        <li>
+          <h2><span class="orange">플랫폼</span><img src="https://v.miraeassetdaewoo.com/resources/img/main/ico_main_v.png"> 로 전자투표/전자위임장 서비스의
+            새 지평을 엽니다.</h2>
+          <div>
+            <p>미래에셋대우 고객에게는 주주총회 등 의결권 관련 안내 서비스가 제공됩니다.</p>
           </div>
-          <div class="col-md-6 py-5 wow zoomIn">
-            <div class="img-fluid text-center">
-              <img src="resources/img/banner_image_1.svg" alt="">
-            </div>
+          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
+        </li>
+        <li>
+          <h2>미래에셋대우는 <span class="orange"> &nbsp;젊은 당신에게!</span> 투자하고 싶습니다!</h2>
+          <div>
+            <p>미래에셋대우는 도전정신과 열정을 가진 인재를 기다립니다.</p>
           </div>
-        </div>
-        <a href="#about" class="btn-scroll" data-role="smoothscroll"><span class="mai-arrow-down"></span></a>
-      </div>
+          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
+        </li>
+        <li>
+          <h2>전자투표/전자위임장을 <span class="orange">간편하게!</span>
+            V 모바일을 만나보세요!</h2>
+          <div>
+            <p>자금조달 및 자금운용 등 다양한 기업 컨설팅, V가 함께 합니다.</p>
+          </div>
+          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
+        </li>
+      </ul>
+      <ul class="dot">
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="prev">〈</div>
+      <div class="next">〉</div>
     </div>
+  </main>
+     </div> <!-- .container -->
+<!--   </div> .page-section -->
   </header>
+
+
+
+
+
+
+
+
+
+
 
   <div class="page-section">
     <div class="container">
@@ -422,6 +851,183 @@
 <script src="resources/vendor/wow/wow.min.js"></script>
 
 <script src="resources/js/theme.js"></script>
-  
+
+<!-- 이미지 슬라이드 -->
+<script type="text/javascript">
+$( document ).ready( function() {
+	  var navOffset = $( 'header' ).offset();
+	  $( window ).scroll( function() {
+	    if ( $( document ).scrollTop() > navOffset.top ) {
+	      $( 'header' ).addClass( 'active' );
+	    }
+	    else {
+	      $( 'header' ).removeClass( 'active' );
+	    }
+	  });
+	});
+
+
+
+
+	function openNav() {
+	  document.getElementById("open").style.display = "none";
+	  document.getElementById("sub").style.width = "100%";
+	}
+
+	function closeNav() {
+	  document.getElementById("sub").style.width = "0%";
+	  document.getElementById("open").style.display = "block";
+	}
+
+
+
+
+	$(document).ready(function() {
+	  slide();
+	});
+
+
+	// 슬라이드 
+	function slide() {
+	  var wid = 0;
+	  var now_num = 0;
+	  var slide_length = 0;
+	  var auto = null;
+	  var $dotli = $('.dot>li');
+	  var $panel = $('.panel');
+	  var $panelLi = $panel.children('li');
+
+	  // 변수 초기화
+	  function init() {
+	    wid = $('.slide').width();
+	    now_num = $('.dot>li.on').index();
+	    slide_length = $dotli.length;
+	  }
+
+	  // 이벤트 묶음
+	  function slideEvent() {
+
+	    // 슬라이드 하단 dot버튼 클릭했을때
+	    $dotli.click(function() {
+	      now_num = $(this).index();
+	      slideMove();
+	    });
+
+	    // 이후 버튼 클릭했을때
+	    $('.next').click(function() {
+	      nextChkPlay();
+	    });
+
+	    // 이전 버튼 클릭했을때
+	    $('.prev').click(function() {
+	      prevChkPlay();
+	    });
+
+	    // 오토플레이
+	    autoPlay();
+
+	    // 오토플레이 멈춤
+	    autoPlayStop();
+
+	    // 오토플레이 재시작
+	    autoPlayRestart();
+
+	    // 화면크기 재설정 되었을때
+	    resize();
+	  }
+
+	  // 자동실행 함수
+	  function autoPlay() {
+	    auto = setInterval(function() {
+	      nextChkPlay();
+	    }, 3500);
+	  }
+
+	  // 자동실행 멈춤
+	  function autoPlayStop() {
+	    $panelLi.mouseenter(function() {
+	      clearInterval(auto);
+	    });
+	  }
+
+
+	  // 자동실행 멈췄다가 재실행
+	  function autoPlayRestart() {
+	    $panelLi.mouseleave(function() {
+	      auto = setInterval(function() {
+	        nextChkPlay();
+	      }, 3500);
+	    });
+	  }
+
+	  // 이전 버튼 클릭시 조건 검사후 슬라이드 무브
+	  function prevChkPlay() {
+	    if (now_num == 0) {
+	      now_num = slide_length - 1;
+	    } else {
+	      now_num--;
+	    }
+	    slideMove();
+	  }
+
+	  // 이후 버튼 클릭시 조건 검사후 슬라이드 무브
+	  function nextChkPlay() {
+	    if (now_num == slide_length - 1) {
+	      now_num = 0;
+	    } else {
+	      now_num++;
+	    }
+	    slideMove();
+	  }
+
+	  // 슬라이드 무브
+	  function slideMove() {
+	    $panel.stop().animate({
+	      'margin-left': -wid * now_num
+	    });
+	    $dotli.removeClass('on');
+	    $dotli.eq(now_num).addClass('on');
+	  }
+
+	  // 화면크기 조정시 화면 재설정
+	  function resize() {
+	    $(window).resize(function() {
+	      init();
+	      $panel.css({
+	        'margin-left': -wid * now_num
+	      });
+	    });
+	  }
+	  init();
+	  slideEvent();
+	}
+
+
+
+	$("p.title").on('click',function(){
+	  $(this).next(".con").slideToggle(100);
+	});
+
+
+
+
+	$(function() {
+	    $(window).scroll(function() {
+	        if ($(this).scrollTop() > 280) {
+	            $('#Top_Bt').fadeIn();
+	        } else {
+	            $('#Top_Bt').fadeOut();
+	        }
+	    });
+	    $("#Top_Bt").click(function() {
+	        $('html, body').animate({
+	            scrollTop : 0
+	        }, 280);
+	        return false;
+	    });
+	});
+</script>
+
+
 </body>
 </html>
