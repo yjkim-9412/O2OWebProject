@@ -59,7 +59,7 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="#">Free Analytics</a>
+              <a class="btn btn-primary ml-lg-2" href="<%=request.getContextPath() %>/member/insert">회원가입</a>
             </li>
           </ul>
         </div>
