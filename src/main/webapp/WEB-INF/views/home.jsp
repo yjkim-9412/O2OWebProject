@@ -22,7 +22,7 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>SeoGram - SEO Agency Template</title>
+  <title>MaRoo</title>
 
   <link rel="stylesheet" href="resources/css/maicons.css">
 
@@ -76,6 +76,7 @@ ul{
 
   img {
     width: 100px;
+    
   }
 
   body {
@@ -190,6 +191,7 @@ ul{
 main{
 	position: relative;
 	bottom: 0px;
+	
 }
 
 
@@ -197,6 +199,7 @@ main{
   main ol,
   main li {
     list-style: none;
+    
   }
 
   main a {
@@ -206,6 +209,7 @@ main{
   main img {
     vertical-align: top;
     border: none;
+     
   }
 
   .slide {
@@ -262,10 +266,10 @@ main{
 
 
   .panel>li:nth-of-type(1) {
-    background: url('https://images.unsplash.com/photo-1506606401543-2e73709cebb4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
+    border-radius:1em; 
+    background-image: url("resources/img/banner1.jpg");
     background-position: center center;
-    border-radius:1em;
+    background-size: contain;
   }
 
   .panel>li:nth-of-type(2) {
@@ -408,7 +412,13 @@ main{
       font-size: 2.5rem;
     }
 
-
+/* 배너 */
+.img-banner-1{
+	width:1238px; height: 160px;
+	position: relative;
+	left: 30px;
+	
+}
 
 
 
@@ -430,7 +440,7 @@ main{
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="#" class="navbar-brand">Cat<span class="text-primary">ch</span></a>
+        <a href="#" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -469,12 +479,7 @@ main{
     <div class="slide">
       <ul class="panel">
         <li>
-          <h2><span class="orange">플랫폼</span><img src="https://v.miraeassetdaewoo.com/resources/img/main/ico_main_v.png"> 로 전자투표/전자위임장 서비스의
-            새 지평을 엽니다.</h2>
-          <div>
-            <p>미래에셋대우 고객에게는 주주총회 등 의결권 관련 안내 서비스가 제공됩니다.</p>
-          </div>
-          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
+        
         </li>
         <li>
           <h2>미래에셋대우는 <span class="orange"> &nbsp;젊은 당신에게!</span> 투자하고 싶습니다!</h2>
@@ -742,8 +747,8 @@ main{
   <div class="page-section">
     <div class="container">
       <div class="text-center wow">
-        <h2 class="title-section">크몽을 200% 활용하는 법</h2>
-        <div class="subhead">크몽까지 내 능력으로 만드는 콘텐츠</div>
+        <h2 class="title-section">마루를 200% 활용하는 법</h2>
+        <div class="subhead">마루까지 내 능력으로 만드는 콘텐츠</div>
         <div class="divider mx-auto"></div>
       </div>
 
@@ -752,12 +757,12 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/blog/blog-1.jpg" alt="">
+                <img src="resources/img/200-1.jpg" >
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">크몽 전문가 가이드</a></h5>
-              <div class="post-date">전문가 인증부터 정산까지 크몽 전문가 등록의 모든 것</div>
+              <h5 class="post-title"><a href="#">마루 전문가 가이드</a></h5>
+              <div class="post-date">주고 인증부터 정산까지 마루 주고 등록의 모든 것</div>
             </div>
           </div>
         </div>
@@ -766,7 +771,7 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/blog/blog-2.jpg" alt="">
+                <img src="resources/img/200-3.jpg" >
               </div>
             </div>
             <div class="body">
@@ -780,22 +785,25 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/blog/blog-3.jpg" alt="">
+                <img src="resources/img/200-2.jpg" >
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">6월 신규 전문가 소개</a></h5>
+              <h5 class="post-title"><a href="#">6월 신규 주고 소개</a></h5>
               <div class="post-date">카테고리 매니저가 추천하는 라이징 전문가</div>
             </div>
           </div>
         </div>
-
-        <div class="col-12 mt-4 text-center wow">
-          <a href="blog.html" class="btn btn-primary">더 보러가기</a>
-        </div>
+   
+	<!-- 배너 -->
+  <div class="banner-1">
+  <p><img src="resources/img/banner-1.jpg" class="img-banner-1"></p>
+  </div>
+       
       </div>
     </div>
   </div>
+
 
   <footer class="page-footer bg-image" style="background-image: url(resources/img/world_pattern.svg);">
     <div class="container">
