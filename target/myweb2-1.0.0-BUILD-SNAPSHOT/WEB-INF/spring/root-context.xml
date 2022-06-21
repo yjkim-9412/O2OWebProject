@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+		<!-- 		디비연결 -->
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+			<property name="url" value="jdbc:mysql://o2owebproject.cljtd97l7e0o.ap-northeast-2.rds.amazonaws.com:3306/O2OWebSite?serverTimezone=Asia/Seoul"></property>
+			<property name="username" value="JDBC"></property>
+			<property name="password" value="qwer1234"></property>
+		</bean>
+		
+<!-- 		https://mybatis.org/mybatis-3/    
+https://mybatis.org/mybatis-3/getting-started.html-->
+		<!-- 마이바티스 설정 -->
+		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="dataSource" ref="dataSource"></property>
+			<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+			<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
+		</bean>
+		
+		<!-- 마이바티스 객체생성 -->
+		<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+			<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
+		</bean>
+		
+</beans>
