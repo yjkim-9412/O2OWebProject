@@ -97,7 +97,7 @@
 
 <br>
 <!-- 카카오 로그인 -->
-	<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=b28c257d1c3a9f7b60f4ede210556e5a&redirect_uri=http://localhost:8080/myweb2/member/kakaologin&response_type=code">	
+	<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=b28c257d1c3a9f7b60f4ede210556e5a&redirect_uri=http://localhost:8080/myweb2/member/main&response_type=code">	
 		<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png">
 	</a>
 	

@@ -8,9 +8,9 @@
 		<!-- 		디비연결 -->
 		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 			<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
-			<property name="url" value="jdbc:mysql://localhost:3306/jspdb7?serverTimezone=Asia/Seoul"></property>
-			<property name="username" value="root"></property>
-			<property name="password" value="1234"></property>
+			<property name="url" value="jdbc:mysql://o2owebproject.cljtd97l7e0o.ap-northeast-2.rds.amazonaws.com:3306/O2OWebSite?serverTimezone=Asia/Seoul"></property>
+			<property name="username" value="JDBC"></property>
+			<property name="password" value="qwer1234"></property>
 		</bean>
 		
 <!-- 		https://mybatis.org/mybatis-3/    
