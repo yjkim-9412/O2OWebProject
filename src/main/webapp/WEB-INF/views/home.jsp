@@ -408,7 +408,13 @@ main{
       font-size: 2.5rem;
     }
 
-
+	.img-thumbnail{
+	border:0px;
+	border-radius:30px;
+	width: 500px;
+	height: 200px;
+	
+}
 
 
 
@@ -520,13 +526,46 @@ main{
       <div class="row">
 		
 <!-- 아이콘 카테고리 -->
-<div class="icon-bar">
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/1.png"><figcaption>카테고리1</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/2.png"><figcaption>카테고리2</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/3.png"><figcaption>카테고리3</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/4.png"><figcaption>카테고리4</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/5.png"><figcaption>카테고리5</figcaption></figure></a>
-</div>
+<!-- 카테고리 -->
+<section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                        <div class="card-body">
+                            <img src="https://img.icons8.com/nolan/64/coin-in-hand.png">                            
+                            <h2 class="card-title display-1" style="font-size:2.0vmin;">레슨</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                        <div class="card-body">
+                            <img src="https://img.icons8.com/nolan/64/payment-history.png">                            
+                            <h2 class="card-title display-1" style="font-size:2.0vmin;">건강</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" >
+                        <div class="card-body">
+                            <img src="https://img.icons8.com/nolan/64/receive-cash.png">
+                            <h2 class="card-title display-1" style="font-size:2.0vmin;">이벤트</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                        <div class="card-body">
+                            <img src="https://img.icons8.com/nolan/64/safe-ok.png">
+                            <h2 class="card-title display-1" style="font-size:2.0vmin;">청소</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- 카테고리 끝 -->	
 <!-- 아이콘 카테고리 끝-->		
 
 		
