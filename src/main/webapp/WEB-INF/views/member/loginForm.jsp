@@ -3,6 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+ <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('JAVASCRIPT_KEY');
+        Kakao.isInitialized();
+        console.log(Kakao.isInitialized());
+
+    </script>
 <meta charset="UTF-8">
 <title>member/loginForm.jsp</title>
 </head>

@@ -15,7 +15,8 @@ String id=(String)session.getAttribute("id");
 // 	response.sendRedirect("loginForm.jsp");
 // }
 %>
-<%=id %>님 로그인 하셨습니다.<br>
+<!-- <%=id %>님 로그인 하셨습니다.  -->
+${ac}님 로그인 하셨습니다.<br>
 <a href="<%=request.getContextPath() %>/member/logout">로그아웃</a><br>
 <a href="<%=request.getContextPath() %>/member/info">회원정보조회</a><br>
 <a href="<%=request.getContextPath() %>/member/update">회원정보수정</a><br>

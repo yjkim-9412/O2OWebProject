@@ -1,15 +1,20 @@
 package com.itwillbs.controller;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.service.MemberService;
+
 
 @Controller
 public class MemberController {
@@ -17,6 +22,10 @@ public class MemberController {
 	//MemberService memberService=new MemberServiceImpl()객체생성
 	@Inject
 	private MemberService memberService;
+	
+	@Autowired
+	private MemberService ms;
+	
 	
 	@RequestMapping(value = "/member/insert", method = RequestMethod.GET)
 	public String insert() {
@@ -49,7 +58,19 @@ public class MemberController {
 		return "redirect:/member/main";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
-	public String main() {
+	public String main(@RequestParam(value = "code", required = false) String code,Model m) {
+		
+System.out.println("#########" + code);
+        
+		// 위에서 만든 코드 아래에 코드 추가
+		String access_Token = ms.getAccessToken(code);
+	
+        
+		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
+		System.out.println("###access_Token#### : " + access_Token);
+		System.out.println("###nickname#### : " + userInfo.get("nickname"));
+		System.out.println("###email#### : " + userInfo.get("email"));
+		m.addAttribute("ac", userInfo.get("nickname"));
 		return "member/main";
 	}
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
@@ -59,7 +80,7 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
-		String id = (String)session.getAttribute("id");
+		int id = Integer.parseInt((String) session.getAttribute("id"));
 		
 		
 		MemberDTO memberDTO = memberService.getMember(id);
@@ -69,8 +90,8 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/update", method = RequestMethod.GET)
 	public String update(HttpSession session,Model model) {
-		String id = (String)session.getAttribute("id");
-		
+		int id = Integer.parseInt((String) session.getAttribute("id"));
+
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		return "member/updateForm";
@@ -81,21 +102,13 @@ public class MemberController {
 		memberService.updateMember(memberDTO);
 		return "redirect:/member/login";
 	}
-
-//	 카카오 로그인 API //
+	
+	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
+	public String kakaologin() {
+	
+		return "member/kakaologin";
 		
-//	@REQUESTMAPPING(VALUE="/MEMBER/KAKAOLOGIN", METHOD=REQUESTMETHOD.GET)
-//	PUBLIC STRING KAKAOLOGIN(@REQUESTPARAM(VALUE = "CODE", REQUIRED = FALSE) STRING CODE) THROWS EXCEPTION {
-//	SYSTEM.OUT.PRINTLN("#########" + CODE);
-//
-//	 STRING ACCESS_TOKEN = MS.GETACCESSTOKEN(CODE);
-//	 SYSTEM.OUT.PRINTLN("###ACCESS_TOKEN#### : " + ACCESS_TOKEN);
-//	
-//	 HASHMAP<STRING, OBJECT> USERINFO = MS.GETUSERINFO(ACCESS_TOKEN);
-//		SYSTEM.OUT.PRINTLN("###ACCESS_TOKEN#### : " + ACCESS_TOKEN);
-//		SYSTEM.OUT.PRINTLN("###NICKNAME#### : " + USERINFO.GET("NICKNAME"));
-//		SYSTEM.OUT.PRINTLN("###EMAIL#### : " + USERINFO.GET("EMAIL"));
-//     
-//	  RETURN "MEMBER/KAKAOLOGIN";
-//	}
+		}
+
+
 }

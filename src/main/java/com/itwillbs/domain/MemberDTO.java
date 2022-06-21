@@ -7,10 +7,16 @@ public class MemberDTO {
 	
 	// 멤버변수 정의=> 디비열 이름 일치
 	// private : 외부에서 접근 못하게 막아줌 => 은닉
-	private String id;
+	private int id;
 	private String pass;
 	private String name;
 	private Timestamp date;
+	private String email;
+	private int kakaoid;
+
+
+
+
 	//추가
 //	String gender;
 //	String email;
@@ -21,10 +27,10 @@ public class MemberDTO {
 	// 멤버변수를 외부에서 접근할수 있게 메서드 정의 set() get() 
 	//  alt shift s => r
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getPass() {
@@ -45,6 +51,10 @@ public class MemberDTO {
 	public void setDate(Timestamp date) {
 		this.date = date;
 	}
+	public String getEmail() {return email;}
+	public void setEmail(String email) {this.email = email;}
+	public int getKakaoid() {return kakaoid;}
+	public void setKakaoid(int kakaoid) {this.kakaoid = kakaoid;}
 	
 
 	
