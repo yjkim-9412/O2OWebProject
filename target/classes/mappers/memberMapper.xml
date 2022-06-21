@@ -5,7 +5,7 @@
 <mapper namespace="com.itwillbs.member.MemberMapper">
 
 	<insert id="insertMember">
-		insert into member(id,pass,name,date) values(#{id},#{pass},#{name},#{date})
+		insert into member(name,email,pass) values(#{name},#{email},#{pass})
 	</insert>
 	
 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO">
