@@ -80,14 +80,15 @@ System.out.println("#########" + code);
 	}
 	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
-		int id = Integer.parseInt((String) session.getAttribute("id"));
-		
-		
-		MemberDTO memberDTO = memberService.getMember(id);
-		model.addAttribute("memberDTO", memberDTO);
+//		int id = Integer.parseInt((String) session.getAttribute("id"));
+//		
+//		
+//		MemberDTO memberDTO = memberService.getMember(id);
+//		model.addAttribute("memberDTO", memberDTO);
 		
 		return "member/info";
 	}
+<<<<<<< HEAD
 	@RequestMapping(value = "/member/update", method = RequestMethod.GET)
 	public String update(HttpSession session,Model model) {
 		int id = Integer.parseInt((String) session.getAttribute("id"));
@@ -102,6 +103,8 @@ System.out.println("#########" + code);
 		memberService.updateMember(memberDTO);
 		return "redirect:/member/login";
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/ksbb1126/O2OWebProject.git
 	
 	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
 	public String kakaologin() {
