@@ -255,7 +255,7 @@ header img {
       <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
     </div>
   </footer>
-
+ 
 <script src="../resources/js/jquery-3.5.1.min.js"></script>
 
 <script src="../resources/js/bootstrap.bundle.min.js"></script>
