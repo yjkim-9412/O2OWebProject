@@ -9,7 +9,7 @@
 <body>
 <%
 // //session "id" 가져오기
-String id=(String)session.getAttribute("id");
+String id= Integer.toString((Integer) session.getAttribute("id"));
 // // 세션값 없으면 (세션값이 null이면 ) => loginForm.jsp 이동
 // if(id==null){
 // 	response.sendRedirect("loginForm.jsp");
