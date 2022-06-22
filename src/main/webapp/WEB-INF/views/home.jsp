@@ -15,12 +15,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
 <!--   구글폰트(버튼) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
