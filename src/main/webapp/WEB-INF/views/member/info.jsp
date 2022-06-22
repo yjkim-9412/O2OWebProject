@@ -250,7 +250,7 @@ header img {
             <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
           </form>
         </div>
-      </div>
+      </div> 
 
       <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
     </div>
