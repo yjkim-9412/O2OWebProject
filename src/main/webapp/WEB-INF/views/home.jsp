@@ -21,6 +21,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  
+<!--   구글폰트(버튼) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
 
   <title>MaRoo</title>
 
@@ -51,13 +56,16 @@ input {
   padding: 10px 12px;
   font-size: 12px;
 }
-
+input:focus{
+	outline:1px solid #FFCD4A;
+}
 #img1 {
   position : absolute;
   width: 17px;
   top: 10px;
   right: 7px;
   margin: 0;
+  
 }
 /* 이미지 슬라이드 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
@@ -75,7 +83,7 @@ ul{
   }
 
   img {
-    width: 100px;
+    width: 70px;
     
   }
 
@@ -273,14 +281,14 @@ main{
   }
 
   .panel>li:nth-of-type(2) {
-    background: url('https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-image: url("resources/img/banner2.jpg");
     background-size: cover;
     background-position: center center;
     border-radius:1em;
   }
 
   .panel>li:nth-of-type(3) {
-    background: url('https://images.unsplash.com/photo-1570101945621-945409a6370f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-image: url("resources/img/banner3.jpg");
     background-size: cover;
     background-position: center center;
     border-radius: 1em;
@@ -420,8 +428,61 @@ main{
 	
 }
 
+/* 인기 서비스 */
+.img-thumbnail{
+	border:0px;
+	border-radius:20px;
+	width: 500px;
+	height: 200px;
+	
+}
 
 
+/* 버튼 */
+
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #FFCD4A;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+  
+}
+
+}
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+  
+}
 
 </style> 
  
@@ -463,7 +524,7 @@ main{
               <a class="nav-link" href="index.html">로그인</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="#">회원가입</a>
+              <button class="button-55" role="button" >회원가입</button>
             </li>
           </ul>
         </div>
@@ -479,22 +540,13 @@ main{
     <div class="slide">
       <ul class="panel">
         <li>
-        
+			<!-- css이미지삽입 -->
         </li>
         <li>
-          <h2>미래에셋대우는 <span class="orange"> &nbsp;젊은 당신에게!</span> 투자하고 싶습니다!</h2>
-          <div>
-            <p>미래에셋대우는 도전정신과 열정을 가진 인재를 기다립니다.</p>
-          </div>
-          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
+            <!-- css이미지삽입 -->
         </li>
         <li>
-          <h2>전자투표/전자위임장을 <span class="orange">간편하게!</span>
-            V 모바일을 만나보세요!</h2>
-          <div>
-            <p>자금조달 및 자금운용 등 다양한 기업 컨설팅, V가 함께 합니다.</p>
-          </div>
-          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
+          <!-- css이미지삽입 -->
         </li>
       </ul>
       <ul class="dot">
@@ -514,24 +566,49 @@ main{
 
 
 
-
-
-
-
-
-
   <div class="page-section">
     <div class="container">
       <div class="row">
 		
 <!-- 아이콘 카테고리 -->
-<div class="icon-bar">
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/1.png"><figcaption>카테고리1</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/2.png"><figcaption>카테고리2</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/3.png"><figcaption>카테고리3</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/4.png"><figcaption>카테고리4</figcaption></figure></a>
-  <a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/icon/5.png"><figcaption>카테고리5</figcaption></figure></a>
-</div>
+<section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                        <div class="card-body">
+                            <img src="resources/img/icon/lesson.png">                            
+                            <h2 class="card-title display-1" style="font-size:2.5vmin;">레슨</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                        <div class="card-body">
+                            <img src="resources/img/icon/health.png">                            
+                            <h2 class="card-title display-1" style="font-size:2.5vmin;">건강</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                        <div class="card-body">
+                            <img src="resources/img/icon/event.png">
+                            <h2 class="card-title display-1" style="font-size:2.5vmin;">이벤트</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                        <div class="card-body">
+                            <img src="resources/img/icon/cleaning.png">
+                            <h2 class="card-title display-1" style="font-size:2.5vmin;">청소</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <!-- 아이콘 카테고리 끝-->		
 
 		
@@ -581,7 +658,7 @@ main{
 <!-- 인기 숨은고수 -->
 <br><br><br><br>
  <div class="container">
-      <h4 class="text-left"><b>인기 숨은고수</b></h4>	
+      <h4 class="text-left"><b>인기 주고</b></h4>	
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="our-team">
