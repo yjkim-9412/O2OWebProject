@@ -12,7 +12,7 @@
 <img src="<%=request.getContextPath() %>/resources/img/1.jpg" style="width: 100px; height: 100px;"><br>
 
 아이디 : ${memberDTO.id} <br>
-비밀번호 : ${memberDTO.pass}<br>
+비밀번호 : ${memberDTO.password}<br>
 이름 : ${memberDTO.name}<br>
 가입날짜 : ${memberDTO.date }<br>
 
