@@ -80,7 +80,7 @@ System.out.println("#########" + code);
 	}
 	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
-		int id = Integer.parseInt((String) session.getAttribute("id"));
+		int id = (Integer)session.getAttribute("id");
 		
 		
 		MemberDTO memberDTO = memberService.getMember(id);
@@ -90,7 +90,7 @@ System.out.println("#########" + code);
 	}
 	@RequestMapping(value = "/member/update", method = RequestMethod.GET)
 	public String update(HttpSession session,Model model) {
-		int id = Integer.parseInt((String) session.getAttribute("id"));
+		Integer id = (Integer)session.getAttribute("id");
 
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
