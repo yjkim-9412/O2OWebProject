@@ -4,21 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwillbs.member.MemberMapper">
 
-	<insert id="insertMember">
-		insert into member(name,email,pass) values(#{name},#{email},#{pass})
-	</insert>
-	
 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO">
-		select * from member where id=#{id} and pass=#{pass}
+		select * from ACCOUNTS where id=#{id} and password=#{password}
 	</select>
 	
-	<select id="getMember" resultType="com.itwillbs.domain.MemberDTO">
-		select * from member where id=#{id}
-	</select>
-	
-	<update id="updateMember">
-		update member set pass=#{pass}, name=#{name} where id=#{id}
-	</update>
+
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->
 <!-- 	<select id=""></select> -->

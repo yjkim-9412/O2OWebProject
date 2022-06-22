@@ -8,7 +8,7 @@ public class MemberDTO {
 	// 멤버변수 정의=> 디비열 이름 일치
 	// private : 외부에서 접근 못하게 막아줌 => 은닉
 	private int id;
-	private String pass;
+	private String password;
 	private String name;
 	private Timestamp date;
 	private String email;
@@ -33,12 +33,15 @@ public class MemberDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getPass() {
-		return pass;
+
+	public String getPassword() {
+		return password;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
 	public String getName() {
 		return name;
 	}
