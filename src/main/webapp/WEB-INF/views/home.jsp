@@ -23,9 +23,6 @@
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   
 <!--   구글폰트(버튼) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@700&display=swap" rel="stylesheet">
 
   <title>MaRoo</title>
 
@@ -96,73 +93,6 @@ ul{
     cursor: url(), auto;
   }
 
-  
-  h2 {
-    font-size: 2.5rem;
-    line-height: 2.5rem;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  button {
-    font-size: 0.8rem;
-    padding: 10px 30px;
-    border: 1px solid #ccc;
-    background: none;
-    color: white;
-    transition: 0.3s;
-  }
-
-  button:hover {
-    color: white;
-    cursor: pointer;
-  }
-
-  button.snip1099 {
-    border: 1px solid white;
-    background-color: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 20px;
-    display: inline-block;
-    text-transform: uppercase;
-    font-size: 1rem;
-    outline: none;
-    position: relative;
-    transition: all 0.3s;
-  }
-
-  button.snip1099 span {
-    display: inline-block;
-    transition: all 0.3s;
-  }
-
-  button.snip1099 i {
-    font-size: 21px;
-    left: 22px;
-    position: absolute;
-    opacity: 0;
-    transition: all 0.3s;
-  }
-
-  button.snip1099:hover span,
-  button.snip1099.hover span {
-    transform: translate3d(10px, 0px, 0px);
-    opacity: 1;
-  }
-
-  button.snip1099:hover i,
-  button.snip1099.hover i {
-    opacity: 0.8;
-  }
-
-  button.snip1099:active span {
-    transform: translate3d(14px, 0px, 0px);
-  }
-
-  button.snip1099:active i {
-    left: 18px;
-  }
 
   .solid {
     font-size: 3rem;
@@ -281,14 +211,14 @@ main{
   }
 
   .panel>li:nth-of-type(2) {
-    background-image: url("resources/img/banner2.jpg");
+    background-image: url("resources/img/banner22.jpg");
     background-size: cover;
     background-position: center center;
     border-radius:1em;
   }
 
   .panel>li:nth-of-type(3) {
-    background-image: url("resources/img/banner3.jpg");
+    background-image: url("resources/img/banner33.jpg");
     background-size: cover;
     background-position: center center;
     border-radius: 1em;
@@ -438,7 +368,7 @@ main{
 }
 
 
-/* 버튼 */
+/* 회원가입 버튼 */
 
 .button-55 {
   align-self: center;
@@ -483,7 +413,24 @@ main{
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   
 }
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+/* 마루 200% 활욜하는 법 h2 */
+.title-section1{
+	font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-bottom: 1rem;
+    color:#292B2F;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+
+}
+/* h5 폰트 컬러 수정 */
+.post-title{
+	font-family: 'Nanum Gothic', sans-serif;
+	color:#292B2F;
+	font-weight: bold;
+}
 </style> 
  
  
@@ -824,7 +771,7 @@ main{
   <div class="page-section">
     <div class="container">
       <div class="text-center wow">
-        <h2 class="title-section">마루를 200% 활용하는 법</h2>
+        <h2 class="title-section1">마루를 200% 활용하는 법</h2>
         <div class="subhead">마루까지 내 능력으로 만드는 콘텐츠</div>
         <div class="divider mx-auto"></div>
       </div>
@@ -838,7 +785,7 @@ main{
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">마루 전문가 가이드</a></h5>
+              <h5 class="post-title">마루 전문가 가이드</h5>
               <div class="post-date">주고 인증부터 정산까지 마루 주고 등록의 모든 것</div>
             </div>
           </div>
@@ -848,11 +795,11 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-3.jpg" >
+                <img src="resources/img/200-2.jpg" >
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">마켓? 엔터프라이즈?</a></h5>
+              <h5 class="post-title">마켓? 엔터프라이즈?</h5>
               <div class="post-date">내 프로젝트에 더 맞는 서비스를 쉽게 고르는 방법</div>
             </div>
           </div>
@@ -862,11 +809,11 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-2.jpg" >
+                <img src="resources/img/200-3.jpg" >
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title"><a href="#">6월 신규 주고 소개</a></h5>
+              <h5 class="post-title">6월 신규 주고 소개</h5>
               <div class="post-date">카테고리 매니저가 추천하는 라이징 전문가</div>
             </div>
           </div>
