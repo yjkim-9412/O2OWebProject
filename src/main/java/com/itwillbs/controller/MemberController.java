@@ -80,11 +80,11 @@ System.out.println("#########" + code);
 	}
 	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
-		int id = Integer.parseInt((String) session.getAttribute("id"));
-		
-		
-		MemberDTO memberDTO = memberService.getMember(id);
-		model.addAttribute("memberDTO", memberDTO);
+//		int id = Integer.parseInt((String) session.getAttribute("id"));
+//		
+//		
+//		MemberDTO memberDTO = memberService.getMember(id);
+//		model.addAttribute("memberDTO", memberDTO);
 		
 		return "member/info";
 	}
