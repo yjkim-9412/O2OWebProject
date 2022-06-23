@@ -59,11 +59,28 @@
         <div class="container">
             <div class="row">
 
-<form action="<%=request.getContextPath() %>/member/insertPro" method="post">
-아이디 : <input type="text" name="id"><br>
-비밀번호 : <input type="password" name="pass"><br>
-이름 : <input type="text" name="name"><br>
-<input type="submit" value="회원가입">
+
+
+<form action="<%=request.getContextPath() %>/member/insertPro" id="insert" method="post">
+<label> 아이디 </label>
+ <input type="text" name="id" id="id"><br>
+ 
+<label> 이메일  </label>
+<input type="email" name="email" id="email"> <br>
+
+<label> 비밀번호 </label>
+ <input type="password" name="password" id="password"><br>
+ 
+<label> 이름 </label> 
+<input type="text" name="name" id="name"><br>
+
+<input type="submit" value="회원가입"> <br>
+
+		<!-- 카카오 로그인 -->
+	<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=b28c257d1c3a9f7b60f4ede210556e5a&redirect_uri=http://localhost:8080/myweb2/member/main&response_type=code">	
+		<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png">
+	</a>
+
 </form>
 </body>
 </html>
