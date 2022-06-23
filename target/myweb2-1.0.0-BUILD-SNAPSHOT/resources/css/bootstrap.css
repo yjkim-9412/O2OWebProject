@@ -4784,6 +4784,7 @@ input[type="button"].btn-block {
 
 .card-title {
   margin-bottom: 0.75rem;
+  margin-top: 0.5em;
 }
 
 .card-subtitle {
@@ -10305,14 +10306,6 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 /* 인기 서비스 */
-.img-thumbnail{
-	border:0px;
-	border-radius:20px;
-	width: 500px;
-	height: 200px;
-	
-}
-
 .item{
 	left: 0;
 	top: 0;
@@ -10321,9 +10314,6 @@ a.text-dark:hover, a.text-dark:focus {
 	margin:20px 10px;
 			
 }
-
-
-
 
 /* 인기 숨은고수 */
 
@@ -10361,4 +10351,3 @@ a.text-dark:hover, a.text-dark:focus {
 .name {
 	font-size: 15px;
 }
-
