@@ -1,9 +1,9 @@
 O2OWebProject.iml
 
 *.idea
-<<<<<<< HEAD
 
-/target/
+
+
 
 =======
 *.class
@@ -16,4 +16,4 @@ target/*
 temp/
 bin/*.txt
 doc/**/*.pdf
->>>>>>> branch 'master' of https://github.com/xxt1205/O2OWebProject.git
+

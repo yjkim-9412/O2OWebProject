@@ -15,6 +15,9 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<!-- 파비콘 변경 -->
+<link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
   
 <!--   구글폰트(버튼) -->
 
@@ -381,6 +384,7 @@ main{
   display: inline-block;
   font-family: Neucha, sans-serif;
   font-size: 1rem;
+  font-weight:bold;
   line-height: 23px;
   outline: none;
   padding: .75rem;
@@ -425,6 +429,63 @@ main{
 	color:#292B2F;
 	font-weight: bold;
 }
+
+/* 아이콘 카테고리 section */
+#row1{
+	background-color: rgb(250, 250, 252);
+	border-radius: 1em;
+}
+.card-body{
+	background-color: rgb(250, 250, 252);
+}
+.card{
+	background-color: rgb(250, 250, 252);
+}
+.icontext{
+	color: black;
+	font-weight: bold;
+ }
+/*  푸터  */
+.callnumber{
+    padding-bottom: 0.1875rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-stretch: normal;
+    color: #FFCD4A;
+ }
+.callnumberdown{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+}
+#footermenu1{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    position: absolute;
+    bottom:49px;
+}
+#footermenu2{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}
+#footermenu3{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}
+
 </style> 
  
  
@@ -462,7 +523,7 @@ main{
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
+              <a class="nav-link" href="member/login">로그인</a>
             </li>
             <li class="nav-item">
               <button class="button-55" role="button" >회원가입</button>
@@ -508,13 +569,16 @@ main{
 
 
   <div class="page-section">
+  
     <div class="container">
       <div class="row">
 		
 <!-- 아이콘 카테고리 -->
-<section>
-        <div class="container">
-            <div class="row">
+	
+<section >
+        <div class="container" >
+        <h5 class="icontext">다양한 서비스를 찾아보세요!</h5>
+            <div class="row" id="row1">
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
                     <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
                         <div class="card-body">
@@ -775,7 +839,7 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-1.jpg" >
+                <img src="resources/img/200-4.jpg" >
               </div>
             </div>
             <div class="body">
@@ -789,7 +853,7 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-2.jpg" >
+                <img src="resources/img/200-5.jpg" >
               </div>
             </div>
             <div class="body">
@@ -803,7 +867,7 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-3.jpg" >
+                <img src="resources/img/200-6.jpg" >
               </div>
             </div>
             <div class="body">
@@ -821,15 +885,15 @@ main{
       </div>
     </div>
   </div>
+<!-- 푸터 -->
 
-
-  <footer class="page-footer bg-image" style="background-image: url(resources/img/world_pattern.svg);">
+  <footer class="page-footer bg-image" style="background-image: url(resources/img/footer1.jpg);">
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
-          <h3>SEOGram</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
-
+          
+          <div class="callnumber">1600-8282</div>
+			<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
           <div class="social-media-button">
             <a href="#"><span class="mai-logo-facebook-f"></span></a>
             <a href="#"><span class="mai-logo-twitter"></span></a>
@@ -840,31 +904,38 @@ main{
         </div>
         <div class="col-lg-3 py-3">
           <h5>Company</h5>
-          <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Career</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Help & Support</a></li>
+          <ul class="footer-menu" id="footermenu1">
+            <li><b>마루소개</b></li>
+            <li>마루메인</li>
+            <li>Prime</li>
+            <li>엔터프라이즈</li>
+            <li>프리랜서 클럽</li>
+          </ul>
+          
+         
+        </div>
+        <div class="col-lg-3 py-3">
+          <ul class="footer-menu" id="footermenu2">
+          	<li><b>고객안내</b></li>
+            <li>이용안내</li>
+            <li>안전정책</li>
+            <li>예상금액</li>
+            <li>고수찾기</li>
+            <li>마루보증</li>
           </ul>
         </div>
         <div class="col-lg-3 py-3">
-          <h5>Contact Us</h5>
-          <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
-          <a href="#" class="footer-link">+00 1122 3344 5566</a>
-          <a href="#" class="footer-link">seogram@temporary.com</a>
-        </div>
-        <div class="col-lg-3 py-3">
-          <h5>Newsletter</h5>
-          <p>Get updates, news or events on your mail.</p>
-          <form action="#">
-            <input type="text" class="form-control" placeholder="Enter your email..">
-            <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
-          </form>
+           <ul class="footer-menu" id="footermenu3">
+          	<li><b>주고안내</b></li>
+            <li>이용안내</li>
+            <li>주고가이드</li>
+            <li>주고가입</li>
+            <li>주고센터</li>
+            </ul>
         </div>
       </div>
 
-      <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
+      <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
     </div>
   </footer>
 
