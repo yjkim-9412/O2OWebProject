@@ -165,10 +165,10 @@ header img {
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 650px; margin: auto;">
+          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
             <h2 class="text-black"><b>계정 설정</b></h2>
             <div class="row form-group" style="margin-top:50px;">
-              <div class="col-md-12" style="cursor: pointer;" onclick="location.href='#';">
+              <div class="col-md-12" style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/name';">
                 <label style="cursor: pointer;" onclick="location.href='#';"><b>이름</b></label><br>
  				<label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.name}</label><hr>
               </div>
