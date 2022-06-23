@@ -166,43 +166,46 @@ header img {
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 650px; margin: auto;">
-            <h2 class="text-black"><b>마이페이지</b></h2>
-            <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px; cursor: pointer;" onclick="location.href='#';">
+            <h2 class="text-black"><b>계정 설정</b></h2>
+            <div class="row form-group"  style="margin-top:50px; pointer;" onclick="location.href='#';">
               <div class="col-md-12">
-                <label class="text-black" for="fname" style="font-size: 18px; cursor: pointer;" onclick="location.href='#';"><b>${memberDTO.name} 고객님</b></label>
-
-              </div>
-            </div>
-    
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              <div class="col-md-12">
-                <label class="text-black" for="email" style="font-size: 18px; margin-bottom: 15px"><b>마루페이</b></label><br>
-                거래내역<br>
+                <label style="cursor: pointer;" onclick="location.href='#';"><b>이름</b></label><br>
+ 				<label class="text-black" for="fname">${memberDTO.name}</label><br>
                 <hr>
-                쿠폰/이벤트
               </div>
             </div>
     
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-    
+            <div class="row form-group">
               <div class="col-md-12">
-                <label class="text-black" for="subject"  style="font-size: 18px; margin-bottom: 15px"><b>마켓</b></label><br>
-                구매내역<br>
+                <label style="margin-bottom:5px"><b>아이디</b></label><br>
+                <label class="text-black" for="fname">${memberDTO.id}</label><br>
                 <hr>
-                문의내역
+                
               </div>
             </div>
     
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
+            <div class="row form-group">
+    
               <div class="col-md-12">
-                <label class="text-black" for="message"  style="font-size: 18px; margin-bottom: 15px"><b>커뮤니티</b></label><br>
-                마루생활 작성글/댓글
+                <label style="margin-bottom: 5px"><b>이메일</b></label><br>
+                <label class="text-black" for="fname"></label><br>
+                <br>
+                <hr>
+                
+              </div>
+            </div>
+    
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label style="margin-bottom: 5px"><b>비밀번호</b></label><br>
+                <label class="text-black" for="fname">${memberDTO.password}</label><br>
+                <hr>
               </div>
             </div>
     
             <div class="row form-group mt-4">
-              <div class="col-md-12">
-                
+              <div>
+                <label class="text-black" for="message" style="margin-top:30px;">계정탈퇴</label><hr>
               </div>
             </div>
           </form>

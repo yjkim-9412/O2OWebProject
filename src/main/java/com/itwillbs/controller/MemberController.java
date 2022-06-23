@@ -89,6 +89,17 @@ System.out.println("#########" + code);
 		return "member/info";
 	}
 	
+	@RequestMapping(value = "/member/account-info", method = RequestMethod.GET)
+	public String account_info(HttpSession session,Model model) {
+		int id = (Integer)session.getAttribute("id");
+		
+		
+		MemberDTO memberDTO = memberService.getMember(id);
+		model.addAttribute("memberDTO", memberDTO);
+		
+		return "member/account-info";
+	}
+	
 	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
 	public String kakaologin() {
 	
