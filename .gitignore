@@ -1,9 +1,17 @@
 O2OWebProject.iml
 
 *.idea
-
-
-
+*.class
+!lib.class
+temp-*.json
 /myweb2.iml
 /classes/
+<<<<<<< HEAD
 /target/*
+=======
+target/*
+/build.log
+temp/
+bin/*.txt
+doc/**/*.pdf
+>>>>>>> refs/remotes/upstream/master
