@@ -12,7 +12,7 @@ public class MemberDTO {
 	private String name;
 	private Timestamp date;
 	private String email;
-	private int kakaoid;
+	private int kakao_id;
 
 
 
@@ -56,8 +56,8 @@ public class MemberDTO {
 	}
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
-	public int getKakaoid() {return kakaoid;}
-	public void setKakaoid(int kakaoid) {this.kakaoid = kakaoid;}
+	public int getKakao_id() {return kakao_id;}
+	public void setKakao_id(int kakao_id) {this.kakao_id = kakao_id;}
 	
 
 	
