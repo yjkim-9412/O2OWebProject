@@ -124,6 +124,7 @@ header img {
 </head>
 <body>
 
+<<<<<<< HEAD
   <!-- Back to top button -->
   <div class="back-to-top"></div>
   
@@ -267,6 +268,12 @@ header img {
 <script src="../resources/js/theme.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
+=======
+아이디 : ${memberDTO.id} <br>
+비밀번호 : ${memberDTO.password}<br>
+이름 : ${memberDTO.name}<br>
+가입날짜 : ${memberDTO.date }<br>
+>>>>>>> 91fb4eb35eecce40087f77c83cc5e547009a44d2
 
 </body>
 </html>

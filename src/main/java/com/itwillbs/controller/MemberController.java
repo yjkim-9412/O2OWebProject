@@ -80,27 +80,13 @@ System.out.println("#########" + code);
 	}
 	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
-		int id = Integer.parseInt((String) session.getAttribute("id"));
+		int id = (Integer)session.getAttribute("id");
 		
 		
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		
 		return "member/info";
-	}
-	@RequestMapping(value = "/member/update", method = RequestMethod.GET)
-	public String update(HttpSession session,Model model) {
-		int id = Integer.parseInt((String) session.getAttribute("id"));
-
-		MemberDTO memberDTO = memberService.getMember(id);
-		model.addAttribute("memberDTO", memberDTO);
-		return "member/updateForm";
-	}
-	@RequestMapping(value = "/member/updatePro", method = RequestMethod.POST)
-	public String updatePro(MemberDTO memberDTO) {
-		
-		memberService.updateMember(memberDTO);
-		return "redirect:/member/login";
 	}
 	
 	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
