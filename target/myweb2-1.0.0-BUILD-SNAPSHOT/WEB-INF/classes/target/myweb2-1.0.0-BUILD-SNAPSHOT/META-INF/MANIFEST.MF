@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Created-By: IntelliJ IDEA
-Built-By: kim young jun
-Build-Jdk: Amazon Corretto version 1.8.0_332
-
