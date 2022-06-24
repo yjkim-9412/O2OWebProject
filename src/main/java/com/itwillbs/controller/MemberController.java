@@ -52,7 +52,7 @@ public class MemberController {
 		
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
-			session.setAttribute("id",memberDTO.getId());
+			session.setAttribute("email",memberDTO.getEmail());
 		}else {
 			return "member/msg";
 		}
@@ -112,12 +112,7 @@ System.out.println("#########" + code);
 		return "mypage/settings/name";
 	}
 	
-	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
-	public String kakaologin() {
 	
-		return "member/kakaologin";
-		
-		}
 
 
 }
