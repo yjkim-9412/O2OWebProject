@@ -11,3 +11,4 @@ target/*
 temp/
 bin/*.txt
 doc/**/*.pdf
+>>>>>>> refs/remotes/upstream/master
