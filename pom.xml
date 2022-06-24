@@ -68,7 +68,7 @@
     <artifactId>mybatis-spring</artifactId>
     <version>1.2.2</version>
 </dependency>
-		
+
 			
 			
 				
@@ -149,11 +149,11 @@
 		</dependency>
 	
 		<!-- Test -->
+		
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt-spring31</artifactId>
+			<version>1.9.2</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
