@@ -1,15 +1,8 @@
 O2OWebProject.iml
+
+*.settings
 *.idea
-<<<<<<< HEAD
-
-/target/
-
-
-
-=======
 *.class
-!lib.class
-temp-*.json
 /myweb2.iml
 /classes/
 target/*
@@ -17,5 +10,6 @@ target/*
 temp/
 bin/*.txt
 doc/**/*.pdf
->>>>>>> refs/remotes/upstream/master
->>>>>>> upstream/master
+/src/main/webapp/WEB-INF/config/database.properties
+/src/main/webapp/WEB-INF/config/
+

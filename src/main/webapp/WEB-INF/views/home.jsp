@@ -486,6 +486,114 @@ main{
     
 }
 
+/* 리뷰 */
+.container-review{
+	width: 100%;
+   height: 300px;
+}
+.h4-review{
+	font-size: 1.55rem;
+    line-height: 1.75rem;
+    font-weight: 900;
+    word-break: keep-all;
+    color: #484848;
+    text-align: center;
+}
+
+.intro-reviews__text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.reviewdiv{
+	 position: relative;
+    width: 90%;
+}
+.leftdiv{
+	position:absolute;
+	left:16%;
+	bottom:3%;
+    padding: 2rem 1.5rem;
+    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
+    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
+    border: 1px solid rgba(0,0,0,0.09);
+    background: #fff;
+    border-radius: 1rem;
+    color: #484848; 
+    min-height: 240px;
+    width: 395px;
+}
+.centerdiv{
+	position:absolute;
+     left:35%; 
+     bottom:3%;
+	width:30%;
+    margin: 0px 5%;
+    padding: 2rem 1.5rem;
+    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
+    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
+    border: 1px solid rgba(0,0,0,0.09);
+    background: #fff;
+    border-radius: 1rem;
+    color: #484848; 
+    min-height: 240px;
+    width: 395px;
+}
+.rightdiv{
+	position:absolute;
+	right:15%;
+	bottom:3%;
+    width:30%;
+   
+    padding: 2rem 1.5rem;
+    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
+    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
+    border: 1px solid rgba(0,0,0,0.09);
+    background: #fff;
+    border-radius: 1rem;
+    color: #484848; 
+    min-height: 240px;
+    width: 395px;
+}
+.classes-sub-box__content{
+	font-size: 1rem;
+    line-height: 1.5rem;
+    word-break: initial;
+}
+.classes-sub-box__content-footer {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-top: 2rem;
+    font-weight: 600;
+    text-align: right;
+}
+/* 리뷰별점 */
+.mb-2 {
+    margin-bottom: 0.5rem !important;    
+}
+.rating-stars{
+	display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+}
+.rating-star--selected .feather, .rating-star--hover .feather {
+    fill: #ff2d55;
+}
+.rating-star .feather {
+    stroke: transparent;
+    fill: #ccc;
+}
+.feather--sm {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+
 </style> 
  
  
@@ -503,7 +611,7 @@ main{
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="#" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -526,7 +634,7 @@ main{
               <a class="nav-link" href="member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='member/insert' ">회원가입</button>
             </li>
           </ul>
         </div>
@@ -621,26 +729,7 @@ main{
     </div> <!-- .container -->
   </div> <!-- .page-section -->
 
-  <div class="page-section" id="about">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 py-3 wow fadeInUp">
-          <span class="subhead">About us</span>
-          <h2 class="title-section">The number #1 SEO Service Company</h2>
-          <div class="divider"></div>
-
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-          <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-          <a href="about.html" class="btn btn-primary mt-3">Read More</a>
-        </div>
-        <div class="col-lg-6 py-3 wow fadeInRight">
-          <div class="img-fluid py-3 text-center">
-            <img src="resources/img/about_frame.png" alt="">
-          </div>
-        </div>
-      </div>
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
+  
 
 <!-- 인기 서비스 -->
 <div class="container">
@@ -713,115 +802,81 @@ main{
 </div>
 <!-- 인기 숨은고수 끝 -->
 
-  <div class="page-section">
-    <div class="container">
-      <div class="text-center wow fadeInUp">
-        <div class="subhead">Pricing Plan</div>
-        <h2 class="title-section">Choose plan the right for you</h2>
-        <div class="divider mx-auto"></div>
-      </div>
-      <div class="row mt-5">
-        <div class="col-lg-4 py-3 wow zoomIn">
-          <div class="card-pricing">
-            <div class="header">
-              <div class="pricing-type">Basic</div>
-              <div class="price">
-                <span class="dollar">$</span>
-                <h1>39<span class="suffix">.99</span></h1>
-              </div>
-              <h5>Per Month</h5>
-            </div>
-            <div class="body">
-              <p>25 Analytics <span class="suffix">Campaign</span></p>
-              <p>1,300 Change <span class="suffix">Keywords</span></p>
-              <p>Social Media <span class="suffix">Reviews</span></p>
-              <p>1 Free <span class="suffix">Optimization</span></p>
-              <p>24/7 <span class="suffix">Support</span></p>
-            </div>
-            <div class="footer">
-              <a href="#" class="btn btn-pricing btn-block">Subscribe</a>
-            </div>
-          </div>
-        </div>
+  
 
-        <div class="col-lg-4 py-3 wow zoomIn">
-          <div class="card-pricing marked">
-            <div class="header">
-              <div class="pricing-type">Standar</div>
-              <div class="price">
-                <span class="dollar">$</span>
-                <h1>59<span class="suffix">.99</span></h1>
-              </div>
-              <h5>Per Month</h5>
-            </div>
-            <div class="body">
-              <p>25 Analytics <span class="suffix">Campaign</span></p>
-              <p>1,300 Change <span class="suffix">Keywords</span></p>
-              <p>Social Media <span class="suffix">Reviews</span></p>
-              <p>1 Free <span class="suffix">Optimization</span></p>
-              <p>24/7 <span class="suffix">Support</span></p>
-            </div>
-            <div class="footer">
-              <a href="#" class="btn btn-pricing btn-block">Subscribe</a>
-            </div>
-          </div>
-        </div>
+      
 
-        <div class="col-lg-4 py-3 wow zoomIn">
-          <div class="card-pricing">
-            <div class="header">
-              <div class="pricing-type">Professional</div>
-              <div class="price">
-                <span class="dollar">$</span>
-                <h1>99<span class="suffix">.99</span></h1>
-              </div>
-              <h5>Per Month</h5>
-            </div>
-            <div class="body">
-              <p>25 Analytics <span class="suffix">Campaign</span></p>
-              <p>1,300 Change <span class="suffix">Keywords</span></p>
-              <p>Social Media <span class="suffix">Reviews</span></p>
-              <p>1 Free <span class="suffix">Optimization</span></p>
-              <p>24/7 <span class="suffix">Support</span></p>
-            </div>
-            <div class="footer">
-              <a href="#" class="btn btn-pricing btn-block">Subscribe</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
-
-  <!-- Banner info -->
+  <!-- 리뷰 -->
   <div class="page-section banner-info">
-    <div class="wrap bg-image" style="background-image: url(../assets/img/bg_pattern.svg);">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 py-3 pr-lg-5 wow fadeInUp">
-            <h2 class="title-section">SEO to Improve Brand <br> Visibility</h2>
-            <div class="divider"></div>
-            <p>We're an experienced and talented team of passionate consultants who breathe with search engine marketing.</p>
-            
-            <ul class="theme-list theme-list-light text-white">
-              <li>
-                <div class="h5">SEO Content Strategy</div>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
-              </li>
-              <li>
-                <div class="h5">B2B SEO</div>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6 py-3 wow fadeInRight">
-            <div class="img-fluid text-center">
-              <img src="resources/img/banner_image_2.svg" alt="">
+    <div class="wrap bg-image" style="background-image: url(resources/img/background1.jpg);">
+    <div class="h4-review">참여자들의 솔직한 후기를 들어보세요<div>
+      
+       <div class="intro-reviews__text">
+      <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--lg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span></div> 4.88점 총 3527개의 후기가 있어요!
+    </div>
+    
+      <div class="container-review">	
+      	<div class="divreview">
+        <div   class="leftdiv">
+         <div class="classes-sub-box__content">
+              <div class="mb-2">
+                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span></div>
+              </div>
+
+				
+              <span class="text-strong">이렇게까지 도움 될지 몰랐어요.</span> 눈으로 보고 귀로 들으니까 더 와닿아요. 요점으로 짚어주듯이 써주시니까 이해도가 높아요. 많이 배워가고 <span class="text-strong">감 잡는 데 큰 도움이 돼요!</span>
+            </div>
+
+            <div class="classes-sub-box__content-footer">
+              대학생 재연님
             </div>
           </div>
         </div>
-      </div>
+          <div  class="centerdiv">
+          	<div class="classes-sub-box__content">
+              <div class="mb-2">
+                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span></div>
+              </div>
+
+              인터넷에서 찾던 정보와는 다르게 너무 <span class="text-strong">와닿는 지식</span>을 얻게 되었습니다. <span class="text-strong">현직자의 시점에서 필요한 점과 진솔한 부분</span>을 알게 되어 너무나 유익한 시간이었습니다.
+            </div>
+
+            <div class="classes-sub-box__content-footer">
+              취업준비생 수민님
+            </div>
+          </div>
+        </div>
+          </div>
+           <div   class="rightdiv">
+           	<div class="classes-sub-box__content">
+              <div class="mb-2">
+                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+</span></div>
+              </div>
+
+              면접에서 계속 탈락해서 그 이유와 원인에 대해서 몰라 매우 답답하였는데 <span class="text-strong">정확하고 체계적인 피드백을 통해 문제점을 알게 되어서 매우 좋았습니다.</span> 다시 해보면 붙을 수 있을 것 같다는 자신감도 생겼습니다. 감사합니다!
+            </div>
+
+            <div class="classes-sub-box__content-footer">
+              중고신입 지명님
+            </div>
+          </div>
+        </div>
     </div> <!-- .wrap -->
   </div> <!-- .page-section -->
 
