@@ -6,9 +6,6 @@ O2OWebProject.iml
 temp-*.json
 /myweb2.iml
 /classes/
-<<<<<<< HEAD
-/target/*
-=======
 target/*
 /build.log
 temp/
