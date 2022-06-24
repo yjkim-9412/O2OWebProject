@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.member.MemberMapper">
+
+	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO">
+		select * from ACCOUNTS where id=#{id} and password=#{password}
+	</select>
+
+	<select id="getMember" resultType="com.itwillbs.domain.MemberDTO">
+		select * from ACCOUNTS where id=#{id}
+	</select>
+
+<!-- 	<update id=""></update> -->
+<!-- 	<delete id=""></delete> -->
+<!-- 	<select id=""></select> -->
+
+</mapper>
