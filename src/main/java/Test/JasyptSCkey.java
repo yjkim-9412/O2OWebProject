@@ -22,7 +22,7 @@ public class JasyptSCkey {
         encryptor.setAlgorithm("PBEWITHMD5ANDTRIPLEDES");
         encryptor.setPassword("DB_KEY");
 
-        String URL = encryptor.encrypt("jdbc:mysql://o2owebproject.cljtd97l7e0o.ap-northeast-2.rds.amazonaws.com");
+        String URL = encryptor.encrypt("jdbc:mysql://o2owebproject.cljtd97l7e0o.ap-northeast-2.rds.amazonaws.com:3306/O2OWebSite");
         String decryptedURL = encryptor.decrypt(URL);
         String username = encryptor.encrypt("JDBC");
         String decryptedName = encryptor.decrypt(username);

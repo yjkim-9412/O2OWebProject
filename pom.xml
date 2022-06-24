@@ -161,6 +161,13 @@
 			<version>4.11</version>
 			<scope>compile</scope>
 		</dependency>
+		<!-- Jasypt -->
+		<dependency>
+			<groupId>org.jasypt</groupId>
+			<artifactId>jasypt-spring31</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+
 	</dependencies>
     <build>
         <plugins>
