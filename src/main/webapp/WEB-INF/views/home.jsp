@@ -487,14 +487,25 @@ main{
 }
 
 /* 리뷰 */
-.container-review{
-	width: 100%;
-   height: 300px;
+.intro-reviews {
+    margin-top: 2rem;
+    padding: 4rem 0;
+    padding: 3rem 0;
+    background-color:#FEEBB6;
+   
 }
-.h4-review{
-	font-size: 1.55rem;
+.page-container--large {
+	
+    width: 1248px;
+    margin: 0 auto;
+}
+
+.intro-reviews__title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-size: 1.25rem;
     line-height: 1.75rem;
-    font-weight: 900;
+    font-weight: 700;
     word-break: keep-all;
     color: #484848;
     text-align: center;
@@ -507,61 +518,55 @@ main{
     margin-bottom: 3rem;
     text-align: center;
 }
-.reviewdiv{
-	 position: relative;
-    width: 90%;
+
+.row--inset {
+
+	display:flex;
+	flex-wrap: nowrap;
+	 margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
-.leftdiv{
-	position:absolute;
-	left:16%;
-	bottom:3%;
+.row {
+	
+    -ms-flex-wrap: wrap;
+/*     align-items: flex-start; */
+    justify-content: flex-start;
+}
+.box12{
+	float:left;
+	display: flex;
+}
+.classes-sub-box {
+    position: relative;
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 1rem !important;
     padding: 2rem 1.5rem;
     -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
     box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
     border: 1px solid rgba(0,0,0,0.09);
     background: #fff;
     border-radius: 1rem;
-    color: #484848; 
-    min-height: 240px;
-    width: 395px;
+    color: #484848;
 }
-.centerdiv{
-	position:absolute;
-     left:35%; 
-     bottom:3%;
-	width:30%;
-    margin: 0px 5%;
-    padding: 2rem 1.5rem;
-    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    border: 1px solid rgba(0,0,0,0.09);
-    background: #fff;
-    border-radius: 1rem;
-    color: #484848; 
-    min-height: 240px;
-    width: 395px;
+.col-100 desktop-33{
+	float:left;
 }
-.rightdiv{
-	position:absolute;
-	right:15%;
-	bottom:3%;
-    width:30%;
+.classes-sub-box--wide {
+	
+	width: 33.333333333333336%;
+    min-height: 240px;
    
-    padding: 2rem 1.5rem;
-    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    border: 1px solid rgba(0,0,0,0.09);
-    background: #fff;
-    border-radius: 1rem;
-    color: #484848; 
-    min-height: 240px;
-    width: 395px;
 }
-.classes-sub-box__content{
-	font-size: 1rem;
+
+.classes-sub-box__content {
+    font-size: 1rem;
     line-height: 1.5rem;
     word-break: initial;
 }
+
+
 .classes-sub-box__content-footer {
     position: absolute;
     bottom: 1.5rem;
@@ -807,19 +812,21 @@ main{
       
 
   <!-- 리뷰 -->
-  <div class="page-section banner-info">
-    <div class="wrap bg-image" style="background-image: url(resources/img/background1.jpg);">
-    <div class="h4-review">참여자들의 솔직한 후기를 들어보세요<div>
-      
-       <div class="intro-reviews__text">
+   <div class="intro-reviews">
+  <div class="page-container page-container--large">
+    <div class="intro-reviews__title">
+      참여자들의 솔직한 후기를 들어보세요
+    </div>
+
+    <div class="intro-reviews__text">
       <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--lg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
 </span></div> 4.88점 총 3527개의 후기가 있어요!
     </div>
-    
-      <div class="container-review">	
-      	<div class="divreview">
-        <div   class="leftdiv">
-         <div class="classes-sub-box__content">
+
+    <div class="row no-gap row--inset">
+        
+          <div class="classes-sub-box classes-sub-box--wide">
+            <div class="classes-sub-box__content">
               <div class="mb-2">
                 <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
 </span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -829,7 +836,6 @@ main{
 </span></div>
               </div>
 
-				
               <span class="text-strong">이렇게까지 도움 될지 몰랐어요.</span> 눈으로 보고 귀로 들으니까 더 와닿아요. 요점으로 짚어주듯이 써주시니까 이해도가 높아요. 많이 배워가고 <span class="text-strong">감 잡는 데 큰 도움이 돼요!</span>
             </div>
 
@@ -837,9 +843,10 @@ main{
               대학생 재연님
             </div>
           </div>
-        </div>
-          <div  class="centerdiv">
-          	<div class="classes-sub-box__content">
+        
+        
+          <div class="classes-sub-box classes-sub-box--wide">
+            <div class="classes-sub-box__content">
               <div class="mb-2">
                 <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
 </span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -856,10 +863,10 @@ main{
               취업준비생 수민님
             </div>
           </div>
-        </div>
-          </div>
-           <div   class="rightdiv">
-           	<div class="classes-sub-box__content">
+        
+        
+          <div class="classes-sub-box classes-sub-box--wide">
+            <div class="classes-sub-box__content">
               <div class="mb-2">
                 <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
 </span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -876,9 +883,9 @@ main{
               중고신입 지명님
             </div>
           </div>
+          </div>
         </div>
-    </div> <!-- .wrap -->
-  </div> <!-- .page-section -->
+    </div>
 
   <!-- Blog -->
   <div class="page-section">
