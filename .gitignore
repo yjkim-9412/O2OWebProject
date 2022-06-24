@@ -1,14 +1,11 @@
 O2OWebProject.iml
-
+*.settings
 *.idea
 *.class
-!lib.class
-temp-*.json
 /myweb2.iml
 /classes/
 target/*
-/build.log
-temp/
-bin/*.txt
-doc/**/*.pdf
+database.properties
+
+
 >>>>>>> refs/remotes/upstream/master
