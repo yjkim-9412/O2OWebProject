@@ -524,7 +524,7 @@ main{
               <a class="nav-link" href="index.html">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button">회원가입</button>
             </li>
           </ul>
         </div>
