@@ -611,7 +611,7 @@ main{
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="#" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -729,26 +729,7 @@ main{
     </div> <!-- .container -->
   </div> <!-- .page-section -->
 
-  <div class="page-section" id="about">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 py-3 wow fadeInUp">
-          <span class="subhead">About us</span>
-          <h2 class="title-section">The number #1 SEO Service Company</h2>
-          <div class="divider"></div>
-
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-          <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
-          <a href="about.html" class="btn btn-primary mt-3">Read More</a>
-        </div>
-        <div class="col-lg-6 py-3 wow fadeInRight">
-          <div class="img-fluid py-3 text-center">
-            <img src="resources/img/about_frame.png" alt="">
-          </div>
-        </div>
-      </div>
-    </div> <!-- .container -->
-  </div> <!-- .page-section -->
+  
 
 <!-- 인기 서비스 -->
 <div class="container">
