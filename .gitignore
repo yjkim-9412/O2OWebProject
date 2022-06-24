@@ -1,6 +1,7 @@
 O2OWebProject.iml
-
 *.idea
+
+/target/
 
 
 

@@ -20,8 +20,10 @@
 	${sessionScope.email}님 환영합니다!
 </c:if>
 
-<c:if test="${! empty ac }">
-	${ac}님 환영합니다!
+<c:if test="${! empty ka_email }">
+	 <!-- ${ka_img} --> 
+	 
+	${ka_email}님 환영합니다!
 </c:if>
 
 
