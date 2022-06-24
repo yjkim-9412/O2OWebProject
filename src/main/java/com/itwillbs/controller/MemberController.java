@@ -1,3 +1,4 @@
+
 package com.itwillbs.controller;
 
 import java.util.HashMap;
@@ -81,7 +82,7 @@ System.out.println("#########" + code);
 		return "redirect:/member/login";
 		
 	}
-	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
@@ -89,10 +90,33 @@ System.out.println("#########" + code);
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		
-		return "member/info";
+		return "mypage/info";
+	}
+	
+	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)
+	public String account_info(HttpSession session,Model model) {
+		int id = (Integer)session.getAttribute("id");
+		
+		
+		MemberDTO memberDTO = memberService.getMember(id);
+		model.addAttribute("memberDTO", memberDTO);
+		
+		return "mypage/account-info";
+	}
+	
+	@RequestMapping(value = "/mypage/settings/name", method = RequestMethod.GET)
+	public String name(HttpSession session,Model model) {
+		int id = (Integer)session.getAttribute("id");
+		
+		
+		MemberDTO memberDTO = memberService.getMember(id);
+		model.addAttribute("memberDTO", memberDTO);
+		
+		return "mypage/settings/name";
 	}
 	
 	
 
 
 }
+

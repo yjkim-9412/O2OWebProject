@@ -16,7 +16,6 @@ public class testMySqlConnection {
             System.out.println("성공");System.out.println(con);
     }catch (Exception e) {
             System.out.println("에러발생");e.printStackTrace();
-            System.out.println();
         }
 
     }
