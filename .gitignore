@@ -8,5 +8,3 @@ target/*
 
 /src/main/webapp/WEB-INF/config/database.properties
 
-
-/src/main/webapp/WEB-INF/config/
