@@ -5,7 +5,7 @@ O2OWebProject.iml
 /myweb2.iml
 /classes/
 target/*
-database.properties
+src/main/webapp/WEB-INF/config/database.properties
 
 
 
