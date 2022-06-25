@@ -52,7 +52,7 @@ public class MemberController {
 		
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
-			session.setAttribute("id",memberDTO.getId());
+			session.setAttribute("email",memberDTO.getEmail());
 		}else {
 			return "member/msg";
 		}
@@ -71,13 +71,16 @@ System.out.println("#########" + code);
 		System.out.println("###access_Token#### : " + access_Token);
 		System.out.println("###nickname#### : " + userInfo.get("nickname"));
 		System.out.println("###email#### : " + userInfo.get("email"));
-		m.addAttribute("ac", userInfo.get("nickname"));
+		System.out.println("###profile_image#### : " + userInfo.get("profile_image"));
+		m.addAttribute("ka_email", userInfo.get("email"));
+		m.addAttribute("ka_img", userInfo.get("profile_image"));
 		return "member/main";
 	}
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/member/login";
+		
 	}
 	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
@@ -112,12 +115,7 @@ System.out.println("#########" + code);
 		return "mypage/settings/name";
 	}
 	
-	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
-	public String kakaologin() {
 	
-		return "member/kakaologin";
-		
-		}
 
 
 }
