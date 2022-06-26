@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src="" id="lesson"></a>
+<a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src="" id="lesson">레슨</a>
 <a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src=""></a>
 <a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src=""></a>
 <a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src=""></a>

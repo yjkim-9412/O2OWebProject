@@ -8,11 +8,12 @@
     
 </head>
 <body onload="sample3_execDaumPostcode()">
+<form action="<%=request.getContextPath() %>/pro/proinsert">
 <!-- <input type="text" id="sample3_postcode" placeholder="우편번호"> -->
 <input type="button" onclick="fun1()" value="우편번호 찾기"><br>
-<input type="text" id="sample3_address" placeholder="주소"><br>
+<input type="text" id="sample3_address" name="sample3_address" placeholder="주소"><br>
 <!-- <input type="text" id="sample3_detailAddress" placeholder="상세주소"> -->
-<input type="hidden" id="sample3_extraAddress" placeholder="참고항목">
+<input type="hidden" id="sample3_extraAddress" name="sample3_extraAddress" placeholder="참고항목">
 
 <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative;">
 <!-- <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼"> -->
@@ -65,7 +66,7 @@
                     }
                     // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
                     if(extraAddr !== ''){
-                        extraAddr = ' (' + extraAddr + ')';
+                        extraAddr =extraAddr;
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
                     document.getElementById("sample3_extraAddress").value = extraAddr;
@@ -104,5 +105,7 @@
 </script>
 <iframe style="display: none;" id="iframe_body_map" name="ifrm" src="<%=request.getContextPath() %>/pro/iframe_map" width="500" height="500">
 </iframe>
+<input type="submit" value="다음">
+</form>
 </body>
 </html>
