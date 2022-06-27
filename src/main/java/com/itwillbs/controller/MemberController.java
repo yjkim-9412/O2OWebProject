@@ -52,7 +52,7 @@ public class MemberController {
 		
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
-			session.setAttribute("email",memberDTO.getEmail());
+			session.setAttribute("id",memberDTO.getId());
 		}else {
 			return "member/msg";
 		}
