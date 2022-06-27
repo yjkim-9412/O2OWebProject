@@ -230,7 +230,7 @@ font-weight: bold;
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="<%=request.getContextPath() %>/mypage/settings/name-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
+          <form action="<%=request.getContextPath() %>/mypage/deletePro" method="get" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" >
             <h2 class="text-black"><b>계정 탈퇴</b></h2>
             <div class="input-group">
               <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
@@ -243,7 +243,7 @@ font-weight: bold;
               <div class="col-md-12" style="width: 100%; padding-bottom: 50px;">
                 <label class="text-black" style="margin-bottom:5px"><b>비밀번호</b></label>
                 <div class="input-group" data-validate="email">
-						<input type="text" class="form-control" name="name" value="${memberDTO.name}" required style="border-radius: 0.25rem;">
+						<input type="password" name="password" class="form-control"  style="border-radius: 0.25rem;">
 						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
 					</div>
               </div>
@@ -254,8 +254,8 @@ font-weight: bold;
 			   of them. Grab their code and just edit the text as you wish to. * Follow me twitter.com/Impresiun -->
 			  
 		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
-		  <input type="submit" class="btn update" value="수정 완료">
-		  <input type="hidden" name="id" value="${memberDTO.id }">
+		  <input type="submit" class="btn update" value="계정 탈퇴">
+		  <input type="hidden" name="email" value="${memberDTO.email }">
 		  
 		  </div>
           </form>

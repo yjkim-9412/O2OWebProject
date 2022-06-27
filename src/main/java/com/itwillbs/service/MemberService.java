@@ -15,6 +15,8 @@ public interface MemberService {
 	public MemberDTO getMember(int id);
 	
 	public void updateMember(MemberDTO memberDTO);
+	
+	public void deleteMember(MemberDTO memberDTO);
 
 //  ----------- 카카오 API ----------- 
 	public String getAccessToken (String authorize_code);

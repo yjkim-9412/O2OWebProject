@@ -56,6 +56,11 @@ public class MemberServiceImpl implements MemberService{
 		memberDAO.updateMember(memberDTO);
 		
 	}
+	
+	@Override
+	public void deleteMember(MemberDTO memberDTO) {
+		memberDAO.deleteMember(memberDTO);
+	}
 
 	// 카카오 로그인 API //
 	@Override

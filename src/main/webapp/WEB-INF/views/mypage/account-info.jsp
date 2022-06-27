@@ -204,6 +204,9 @@ header img {
     </nav>
   </header>
 
+  <input type="hidden" name="id" value="${sessionScope.id }">
+  <input type="hidden" name="email" value="${memberDTO.email }">
+  <input type="hidden" name="password" value="${memberDTO.password }">
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
@@ -217,13 +220,6 @@ header img {
  				</div>
                 </a>
                 <hr>
-              </div>
-            </div>
-    
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label style="margin-bottom:5px"><b>아이디</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.id}</label><hr>
               </div>
             </div>
     
@@ -258,6 +254,7 @@ header img {
     <div class="container-fluid mt-4">
 
     </div>
+    
   </div>
 
   <!-- 푸터 -->

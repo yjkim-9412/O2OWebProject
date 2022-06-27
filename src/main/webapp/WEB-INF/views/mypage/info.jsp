@@ -264,7 +264,9 @@ header img {
     </nav>
   </header>
 
-  <input type="hidden" name="id" value="${memberDTO.id }">
+  <input type="hidden" name="id" value="${sessionScope.id }">
+  <input type="hidden" name="email" value="${memberDTO.email }">
+  <input type="hidden" name="password" value="${memberDTO.password }">
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">

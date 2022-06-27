@@ -255,7 +255,8 @@ font-weight: bold;
 			  
 		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
 		  <input type="submit" class="btn update" value="수정 완료">
-		  <input type="hidden" name="id" value="${memberDTO.id }">
+		  <input type="hidden" name="email" value="${memberDTO.email }">
+  		  <input type="hidden" name="password" value="${memberDTO.password }">
 		  
 		  </div>
           </form>

@@ -94,7 +94,7 @@ System.out.println("#########" + code);
 	}
 	
 	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)
-	public String account_info(HttpSession session,Model model) {
+	public String account_info(HttpSession session, Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
 		
@@ -105,7 +105,7 @@ System.out.println("#########" + code);
 	}
 	
 	@RequestMapping(value = "/mypage/settings/name", method = RequestMethod.GET)
-	public String name(HttpSession session,Model model) {
+	public String name(HttpSession session, Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
 		
@@ -124,24 +124,35 @@ System.out.println("#########" + code);
 		return "redirect:/mypage/account-info";
 	}
 	
-	@RequestMapping(value = "/mypage/deletePro", method = RequestMethod.GET)
-	public String delete(MemberDTO memberDTO, HttpSession session) {
+	
+	@RequestMapping(value = "/mypage/delete", method = RequestMethod.GET)
+	public String delete(HttpSession session, Model model) {
+		int id = (Integer)session.getAttribute("id");
 		
+		
+		MemberDTO memberDTO = memberService.getMember(id);
+		model.addAttribute("memberDTO", memberDTO);
+
+		return "mypage/delete";
+		
+	}
+	
+	@RequestMapping(value = "/mypage/deletePro", method = RequestMethod.GET)
+	public String deletePro(MemberDTO memberDTO, Model model) {
+
 		MemberDTO memberDTO2=memberService.userCheck(memberDTO);
+		
 		if(memberDTO2!=null) {
 			//아이디 비밀번호 일치
+			System.out.println("비번 일치");
 			//삭제작업
-//			memberService.deleteMember(memberDTO);
-			//세션값 초기화
-			session.invalidate();
-			return "redirect:/member/main";
+			memberService.deleteMember(memberDTO);
+
+			return "redirect:/home";
 		}else {
 			//아이디 비밀번호 틀림
 			return "member/msg";
 		}
-		
-		
-//		return "mypage/delete";
 	}
 	
 	
