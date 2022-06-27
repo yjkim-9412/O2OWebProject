@@ -159,7 +159,64 @@ header img {
   
 }  
 
+/* 회원정보 */
+.thumb {
+    width: 4.375rem;
+    height: 4.375rem;
+    min-width: 4.375rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 0.0625rem solid #f2f2f2;
+}
 
+.user-info {
+    flex: auto;
+    text-align: left;
+    padding-left: 0.75rem;
+}
+
+.user-name {
+    display: flex;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #323232;
+    position: relative;
+    font-weight: bold;
+    left: 70px;
+    bottom: 60px;
+}
+  
+.name-length {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 0.3125rem;
+    max-width: 8.45rem;
+}  
+  
+.user-id {
+    display: flex;
+    font-size: .75rem;
+    color: #b5b5b5;
+    position: relative;
+    left: 70px;
+    bottom: 58px;
+    
+}  
+ 
+.id-length {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 11.6875rem;
+    padding-left: 5px;
+} 
+
+.arrow {
+	position: relative;
+	left: 600px;
+    bottom: 80px;
+}
   
 </style>
   
@@ -207,15 +264,31 @@ header img {
     </nav>
   </header>
 
+  <input type="hidden" name="id" value="${memberDTO.id }">
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
             <h2 class="text-black"><b>마이페이지</b></h2>
-            <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px; cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/mypage/account-info';">
-              <div class="col-md-12">
-                <label class="text-black" for="fname" style="font-size: 18px; cursor: pointer;" onclick="location.href='#';"><b>${memberDTO.name} 고객님</b></label>
-
-              </div>
+            <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px;">
+            <a href="<%=request.getContextPath() %>/mypage/account-info" style="text-decoration: none; height: 30px; margin-bottom: 60px;">
+            	<div class="thumb">
+            		<div class="user-profile"></div>
+            	</div>
+            	<div class="user-info">
+            		<div class="user-name">
+            			<span class="name-length">${memberDTO.name}</span> 고객님
+            		</div>
+            		<div class="user-id">
+            			<img alt="kakao" src="https://assets.cdn.soomgo.com/icons/icon-mypage-kakaotalk-signin.svg">
+            			<span class="id-length">${memberDTO.email }</span>
+            		</div>
+            	</div>
+            	<div class="arrow">
+            		<span class="right-arrow">
+            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+            		</span>
+            	</div>
+            </a>
             </div>
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">

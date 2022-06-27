@@ -124,6 +124,26 @@ System.out.println("#########" + code);
 		return "redirect:/mypage/account-info";
 	}
 	
+	@RequestMapping(value = "/mypage/deletePro", method = RequestMethod.GET)
+	public String delete(MemberDTO memberDTO, HttpSession session) {
+		
+		MemberDTO memberDTO2=memberService.userCheck(memberDTO);
+		if(memberDTO2!=null) {
+			//아이디 비밀번호 일치
+			//삭제작업
+//			memberService.deleteMember(memberDTO);
+			//세션값 초기화
+			session.invalidate();
+			return "redirect:/member/main";
+		}else {
+			//아이디 비밀번호 틀림
+			return "member/msg";
+		}
+		
+		
+//		return "mypage/delete";
+	}
+	
 	
 
 

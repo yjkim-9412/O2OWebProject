@@ -15,6 +15,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
   
   
   <!--   구글폰트(버튼) -->
@@ -24,13 +27,13 @@
 
   <title>MaRoo</title>
 
-  <link rel="stylesheet" href="../resources/css/maicons.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/maicons.css">
 
-  <link rel="stylesheet" href="../resources/css/bootstrap.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/bootstrap.css">
 
-  <link rel="stylesheet" href="../resources/vendor/animate/animate.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/vendor/animate/animate.css">
 
-  <link rel="stylesheet" href="../resources/css/theme.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme.css">
   
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -116,6 +119,26 @@ header img {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   
 }  
+  
+.cancle {
+background-color: white; 
+border-color: #F2F2F2; 
+color: #FFCD4A; 
+width: 142px; 
+height: 48px;
+padding: 11px 12px;
+}
+
+.update {
+background-color: #FFCD4A; 
+border-color: transparent; 
+color: white; 
+width: 142px; 
+height: 48px;
+padding: 11px 12px;
+margin: 0px 0px 0px 12px;
+font-weight: bold;
+}
 
 /*  푸터  */
 .callnumber{
@@ -157,7 +180,8 @@ header img {
     color: #737373;
     
 }
-  
+
+
 </style>
   
   
@@ -172,7 +196,7 @@ header img {
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -206,52 +230,34 @@ header img {
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
-            <h2 class="text-black"><b>계정 설정</b></h2>
-            <div class="row form-group" style="margin-top:50px;"> 
-              <div class="col-md-12">
-              	<a href="<%=request.getContextPath() %>/mypage/settings/name" style="text-decoration: none;">
-                <div>
-                <div style="color: #898798; margin-bottom: 5px;"><b>이름</b></div>
- 				<div class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.name}</div>
- 				</div>
-                </a>
-                <hr>
+          <form action="<%=request.getContextPath() %>/mypage/settings/name-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
+            <h2 class="text-black"><b>계정 탈퇴</b></h2>
+            <div class="input-group">
+              <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
+ 				<label class="text-black" for="fname" style="margin-bottom: 0px; padding-top: 12px;"><img alt="icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwyMCAwIDIwIDIwIDAgMjB6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIgLTMwMSkgdHJhbnNsYXRlKDE2IDI4MSkgdHJhbnNsYXRlKDE2IDIwKSIvPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEwIDJjLTQuNDE2IDAtOCAzLjU4NC04IDhzMy41ODQgOCA4IDggOC0zLjU4NCA4LTgtMy41ODQtOC04LTh6bS44IDEySDkuMlY5LjJoMS42VjE0em0wLTYuNEg5LjJWNmgxLjZ2MS42eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyIC0zMDEpIHRyYW5zbGF0ZSgxNiAyODEpIHRyYW5zbGF0ZSgxNiAyMCkiLz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==">
+ 				계정 탈퇴 시 모든 개인정보가 삭제됩니다.</label>
               </div>
             </div>
     
             <div class="row form-group">
-              <div class="col-md-12">
-                <label style="margin-bottom:5px"><b>아이디</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.id}</label><hr>
+              <div class="col-md-12" style="width: 100%; padding-bottom: 50px;">
+                <label class="text-black" style="margin-bottom:5px"><b>비밀번호</b></label>
+                <div class="input-group" data-validate="email">
+						<input type="text" class="form-control" name="name" value="${memberDTO.name}" required style="border-radius: 0.25rem;">
+						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+					</div>
               </div>
             </div>
-    
-            <div class="row form-group">
-    
-              <div class="col-md-12">
-                <label style="margin-bottom: 5px"><b>이메일</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.email}</label><hr>
-              </div>
-            </div>
-    
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label style="margin-bottom: 5px"><b>비밀번호</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.password}</label><hr>
-              </div>
-            </div>
-    
-            <div class="row form-group" style="margin-top:50px;"> 
-              <div class="col-md-12">
-              	<a href="<%=request.getContextPath() %>/mypage/delete" style="text-decoration: none;">
-                <div>
-                <div style="color: black; margin-bottom: 5px;"><b>계정탈퇴</b></div>
- 				</div>
-                </a>
-                <hr>
-              </div>
-            </div>
+            <div class="button-group" align="right">
+			
+		  <!-- This is a comment text, these buttons are the default bootstrap buttons with icons in front
+			   of them. Grab their code and just edit the text as you wish to. * Follow me twitter.com/Impresiun -->
+			  
+		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
+		  <input type="submit" class="btn update" value="수정 완료">
+		  <input type="hidden" name="id" value="${memberDTO.id }">
+		  
+		  </div>
           </form>
     </div>
 
@@ -314,15 +320,15 @@ header img {
     </div>
   </footer>
  
-<script src="../resources/js/jquery-3.5.1.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
 
-<script src="../resources/js/bootstrap.bundle.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/bootstrap.bundle.min.js"></script>
 
-<script src="../resources/js/google-maps.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/google-maps.js"></script>
 
-<script src="../resources/vendor/wow/wow.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/vendor/wow/wow.min.js"></script>
 
-<script src="../resources/js/theme.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/theme.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
