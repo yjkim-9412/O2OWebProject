@@ -52,7 +52,7 @@ public class MemberController {
 		
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
-			session.setAttribute("email",memberDTO.getEmail());
+			session.setAttribute("id",memberDTO.getId());
 		}else {
 			return "member/msg";
 		}
@@ -113,6 +113,15 @@ System.out.println("#########" + code);
 		model.addAttribute("memberDTO", memberDTO);
 		
 		return "mypage/settings/name";
+	}
+	
+	@RequestMapping(value = "/mypage/settings/name-update", method = RequestMethod.POST)
+	public String updateName(@RequestParam("name") String name, MemberDTO memberDTO) {
+				
+		memberDTO.setName(name);
+		memberService.updateMember(memberDTO);
+		
+		return "redirect:/mypage/account-info";
 	}
 	
 	
