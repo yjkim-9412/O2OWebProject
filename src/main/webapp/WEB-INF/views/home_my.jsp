@@ -15,11 +15,12 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- 파비콘 변경 -->
-<link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
-<!--   구글폰트(버튼) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
   <title>MaRoo</title>
 
@@ -50,16 +51,13 @@ input {
   padding: 10px 12px;
   font-size: 12px;
 }
-input:focus{
-	outline:1px solid #FFCD4A;
-}
+
 #img1 {
   position : absolute;
   width: 17px;
   top: 10px;
   right: 7px;
   margin: 0;
-  
 }
 /* 이미지 슬라이드 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
@@ -90,6 +88,73 @@ ul{
     cursor: url(), auto;
   }
 
+  
+  h2 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 10px 30px;
+    border: 1px solid #ccc;
+    background: none;
+    color: white;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+  button.snip1099 {
+    border: 1px solid white;
+    background-color: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1rem;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  button.snip1099 span {
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  button.snip1099 i {
+    font-size: 21px;
+    left: 22px;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+  button.snip1099:hover span,
+  button.snip1099.hover span {
+    transform: translate3d(10px, 0px, 0px);
+    opacity: 1;
+  }
+
+  button.snip1099:hover i,
+  button.snip1099.hover i {
+    opacity: 0.8;
+  }
+
+  button.snip1099:active span {
+    transform: translate3d(14px, 0px, 0px);
+  }
+
+  button.snip1099:active i {
+    left: 18px;
+  }
 
   .solid {
     font-size: 3rem;
@@ -208,14 +273,14 @@ main{
   }
 
   .panel>li:nth-of-type(2) {
-    background-image: url("resources/img/banner22.jpg");
+    background: url('https://images.unsplash.com/photo-1573164713712-03790a178651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center center;
     border-radius:1em;
   }
 
   .panel>li:nth-of-type(3) {
-    background-image: url("resources/img/banner33.jpg");
+    background: url('https://images.unsplash.com/photo-1570101945621-945409a6370f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center center;
     border-radius: 1em;
@@ -365,234 +430,6 @@ main{
 }
 
 
-/* 회원가입 버튼 */
-
-.button-55 {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #FFCD4A;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  font-weight:bold;
-  line-height: 23px;
-  outline: none;
-  padding: .75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
-
-.button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-  
-}
-
-}
-.button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  
-}
-@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
-/* 마루 200% 활욜하는 법 h2 */
-.title-section1{
-	font-size: 2.5rem;
-    line-height: 2.5rem;
-    margin-bottom: 1rem;
-    color:#292B2F;
-    font-family: 'Nanum Gothic', sans-serif;
-    font-weight: bold;
-
-}
-/* h5 폰트 컬러 수정 */
-.post-title{
-	font-family: 'Nanum Gothic', sans-serif;
-	color:#292B2F;
-	font-weight: bold;
-}
-
-/* 아이콘 카테고리 section */
-#row1{
-	background-color: rgb(250, 250, 252);
-	border-radius: 1em;
-}
-.card-body{
-	background-color: rgb(250, 250, 252);
-}
-.card{
-	background-color: rgb(250, 250, 252);
-}
-.icontext{
-	color: black;
-	font-weight: bold;
- }
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-}
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-
-/* 리뷰 */
-.container-review{
-	width: 100%;
-   height: 300px;
-}
-.h4-review{
-	font-size: 1.55rem;
-    line-height: 1.75rem;
-    font-weight: 900;
-    word-break: keep-all;
-    color: #484848;
-    text-align: center;
-}
-
-.intro-reviews__text {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-top: 0.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-}
-.reviewdiv{
-	 position: relative;
-    width: 90%;
-}
-.leftdiv{
-	position:absolute;
-	left:16%;
-	bottom:3%;
-    padding: 2rem 1.5rem;
-    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    border: 1px solid rgba(0,0,0,0.09);
-    background: #fff;
-    border-radius: 1rem;
-    color: #484848; 
-    min-height: 240px;
-    width: 395px;
-}
-.centerdiv{
-	position:absolute;
-     left:35%; 
-     bottom:3%;
-	width:30%;
-    margin: 0px 5%;
-    padding: 2rem 1.5rem;
-    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    border: 1px solid rgba(0,0,0,0.09);
-    background: #fff;
-    border-radius: 1rem;
-    color: #484848; 
-    min-height: 240px;
-    width: 395px;
-}
-.rightdiv{
-	position:absolute;
-	right:15%;
-	bottom:3%;
-    width:30%;
-   
-    padding: 2rem 1.5rem;
-    -webkit-box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    box-shadow: 0 0 20px -1px rgb(0 0 0 / 25%);
-    border: 1px solid rgba(0,0,0,0.09);
-    background: #fff;
-    border-radius: 1rem;
-    color: #484848; 
-    min-height: 240px;
-    width: 395px;
-}
-.classes-sub-box__content{
-	font-size: 1rem;
-    line-height: 1.5rem;
-    word-break: initial;
-}
-.classes-sub-box__content-footer {
-    position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    margin-top: 2rem;
-    font-weight: 600;
-    text-align: right;
-}
-/* 리뷰별점 */
-.mb-2 {
-    margin-bottom: 0.5rem !important;    
-}
-.rating-stars{
-	display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-}
-.rating-star--selected .feather, .rating-star--hover .feather {
-    fill: #ff2d55;
-}
-.rating-star .feather {
-    stroke: transparent;
-    fill: #ccc;
-}
-.feather--sm {
-    width: 14px !important;
-    height: 14px !important;
-}
-
 
 </style> 
  
@@ -611,7 +448,7 @@ main{
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
+        <a href="#" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -631,10 +468,10 @@ main{
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="member/login">로그인</a>
+              <a class="nav-link" href="index.html">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" onclick="location.href='member/insert' ">회원가입</button>
+              <a class="btn btn-primary ml-lg-2" href="#">회원가입</a>
             </li>
           </ul>
         </div>
@@ -650,13 +487,22 @@ main{
     <div class="slide">
       <ul class="panel">
         <li>
-			<!-- css이미지삽입 -->
+        
         </li>
         <li>
-            <!-- css이미지삽입 -->
+          <h2>미래에셋대우는 <span class="orange"> &nbsp;젊은 당신에게!</span> 투자하고 싶습니다!</h2>
+          <div>
+            <p>미래에셋대우는 도전정신과 열정을 가진 인재를 기다립니다.</p>
+          </div>
+          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
         </li>
         <li>
-          <!-- css이미지삽입 -->
+          <h2>전자투표/전자위임장을 <span class="orange">간편하게!</span>
+            V 모바일을 만나보세요!</h2>
+          <div>
+            <p>자금조달 및 자금운용 등 다양한 기업 컨설팅, V가 함께 합니다.</p>
+          </div>
+          <button class="snip1099"><span>로그인</span><i class="ion-android-arrow-forward"></i></button>
         </li>
       </ul>
       <ul class="dot">
@@ -676,17 +522,20 @@ main{
 
 
 
+
+
+
+
+
+
   <div class="page-section">
-  
     <div class="container">
       <div class="row">
 		
 <!-- 아이콘 카테고리 -->
-	
-<section >
-        <div class="container" >
-        <h5 class="icontext">다양한 서비스를 찾아보세요!</h5>
-            <div class="row" id="row1">
+<section>
+        <div class="container">
+            <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
                     <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
                         <div class="card-body">
@@ -729,7 +578,26 @@ main{
     </div> <!-- .container -->
   </div> <!-- .page-section -->
 
-  
+  <div class="page-section" id="about">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 py-3 wow fadeInUp">
+          <span class="subhead">About us</span>
+          <h2 class="title-section">The number #1 SEO Service Company</h2>
+          <div class="divider"></div>
+
+          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+          <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+          <a href="about.html" class="btn btn-primary mt-3">Read More</a>
+        </div>
+        <div class="col-lg-6 py-3 wow fadeInRight">
+          <div class="img-fluid py-3 text-center">
+
+          </div>
+        </div>
+      </div>
+    </div> <!-- .container -->
+  </div> <!-- .page-section -->
 
 <!-- 인기 서비스 -->
 <div class="container">
@@ -752,7 +620,7 @@ main{
 <!-- 인기 숨은고수 -->
 <br><br><br><br>
  <div class="container">
-      <h4 class="text-left"><b>인기 주고</b></h4>	
+      <h4 class="text-left"><b>인기 숨은고수</b></h4>	
   <div class="row">
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="our-team">
@@ -802,81 +670,115 @@ main{
 </div>
 <!-- 인기 숨은고수 끝 -->
 
-  
+  <div class="page-section">
+    <div class="container">
+      <div class="text-center wow fadeInUp">
+        <div class="subhead">Pricing Plan</div>
+        <h2 class="title-section">Choose plan the right for you</h2>
+        <div class="divider mx-auto"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-4 py-3 wow zoomIn">
+          <div class="card-pricing">
+            <div class="header">
+              <div class="pricing-type">Basic</div>
+              <div class="price">
+                <span class="dollar">$</span>
+                <h1>39<span class="suffix">.99</span></h1>
+              </div>
+              <h5>Per Month</h5>
+            </div>
+            <div class="body">
+              <p>25 Analytics <span class="suffix">Campaign</span></p>
+              <p>1,300 Change <span class="suffix">Keywords</span></p>
+              <p>Social Media <span class="suffix">Reviews</span></p>
+              <p>1 Free <span class="suffix">Optimization</span></p>
+              <p>24/7 <span class="suffix">Support</span></p>
+            </div>
+            <div class="footer">
+              <a href="#" class="btn btn-pricing btn-block">Subscribe</a>
+            </div>
+          </div>
+        </div>
 
-      
+        <div class="col-lg-4 py-3 wow zoomIn">
+          <div class="card-pricing marked">
+            <div class="header">
+              <div class="pricing-type">Standar</div>
+              <div class="price">
+                <span class="dollar">$</span>
+                <h1>59<span class="suffix">.99</span></h1>
+              </div>
+              <h5>Per Month</h5>
+            </div>
+            <div class="body">
+              <p>25 Analytics <span class="suffix">Campaign</span></p>
+              <p>1,300 Change <span class="suffix">Keywords</span></p>
+              <p>Social Media <span class="suffix">Reviews</span></p>
+              <p>1 Free <span class="suffix">Optimization</span></p>
+              <p>24/7 <span class="suffix">Support</span></p>
+            </div>
+            <div class="footer">
+              <a href="#" class="btn btn-pricing btn-block">Subscribe</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- 리뷰 -->
+        <div class="col-lg-4 py-3 wow zoomIn">
+          <div class="card-pricing">
+            <div class="header">
+              <div class="pricing-type">Professional</div>
+              <div class="price">
+                <span class="dollar">$</span>
+                <h1>99<span class="suffix">.99</span></h1>
+              </div>
+              <h5>Per Month</h5>
+            </div>
+            <div class="body">
+              <p>25 Analytics <span class="suffix">Campaign</span></p>
+              <p>1,300 Change <span class="suffix">Keywords</span></p>
+              <p>Social Media <span class="suffix">Reviews</span></p>
+              <p>1 Free <span class="suffix">Optimization</span></p>
+              <p>24/7 <span class="suffix">Support</span></p>
+            </div>
+            <div class="footer">
+              <a href="#" class="btn btn-pricing btn-block">Subscribe</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div> <!-- .container -->
+  </div> <!-- .page-section -->
+
+  <!-- Banner info -->
   <div class="page-section banner-info">
-    <div class="wrap bg-image" style="background-image: url(resources/img/background1.jpg);">
-    <div class="h4-review">참여자들의 솔직한 후기를 들어보세요<div>
-      
-       <div class="intro-reviews__text">
-      <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--lg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div> 4.88점 총 3527개의 후기가 있어요!
-    </div>
-    
-      <div class="container-review">	
-      	<div class="divreview">
-        <div   class="leftdiv">
-         <div class="classes-sub-box__content">
-              <div class="mb-2">
-                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div>
-              </div>
-
-				
-              <span class="text-strong">이렇게까지 도움 될지 몰랐어요.</span> 눈으로 보고 귀로 들으니까 더 와닿아요. 요점으로 짚어주듯이 써주시니까 이해도가 높아요. 많이 배워가고 <span class="text-strong">감 잡는 데 큰 도움이 돼요!</span>
-            </div>
-
-            <div class="classes-sub-box__content-footer">
-              대학생 재연님
+    <div class="wrap bg-image" style="background-image: url(../assets/img/bg_pattern.svg);">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 py-3 pr-lg-5 wow fadeInUp">
+            <h2 class="title-section">SEO to Improve Brand <br> Visibility</h2>
+            <div class="divider"></div>
+            <p>We're an experienced and talented team of passionate consultants who breathe with search engine marketing.</p>
+            
+            <ul class="theme-list theme-list-light text-white">
+              <li>
+                <div class="h5">SEO Content Strategy</div>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+              </li>
+              <li>
+                <div class="h5">B2B SEO</div>
+                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 py-3 wow fadeInRight">
+            <div class="img-fluid text-center">
+              <img src="resources/img/banner_image_2.svg" alt="">
             </div>
           </div>
         </div>
-          <div  class="centerdiv">
-          	<div class="classes-sub-box__content">
-              <div class="mb-2">
-                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div>
-              </div>
-
-              인터넷에서 찾던 정보와는 다르게 너무 <span class="text-strong">와닿는 지식</span>을 얻게 되었습니다. <span class="text-strong">현직자의 시점에서 필요한 점과 진솔한 부분</span>을 알게 되어 너무나 유익한 시간이었습니다.
-            </div>
-
-            <div class="classes-sub-box__content-footer">
-              취업준비생 수민님
-            </div>
-          </div>
-        </div>
-          </div>
-           <div   class="rightdiv">
-           	<div class="classes-sub-box__content">
-              <div class="mb-2">
-                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div>
-              </div>
-
-              면접에서 계속 탈락해서 그 이유와 원인에 대해서 몰라 매우 답답하였는데 <span class="text-strong">정확하고 체계적인 피드백을 통해 문제점을 알게 되어서 매우 좋았습니다.</span> 다시 해보면 붙을 수 있을 것 같다는 자신감도 생겼습니다. 감사합니다!
-            </div>
-
-            <div class="classes-sub-box__content-footer">
-              중고신입 지명님
-            </div>
-          </div>
-        </div>
+      </div>
     </div> <!-- .wrap -->
   </div> <!-- .page-section -->
 
@@ -884,7 +786,7 @@ main{
   <div class="page-section">
     <div class="container">
       <div class="text-center wow">
-        <h2 class="title-section1">마루를 200% 활용하는 법</h2>
+        <h2 class="title-section">마루를 200% 활용하는 법</h2>
         <div class="subhead">마루까지 내 능력으로 만드는 콘텐츠</div>
         <div class="divider mx-auto"></div>
       </div>
@@ -894,11 +796,11 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-4.jpg" >
+                <img src="resources/img/200-1.jpg" >
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title">마루 전문가 가이드</h5>
+              <h5 class="post-title"><a href="#">마루 전문가 가이드</a></h5>
               <div class="post-date">주고 인증부터 정산까지 마루 주고 등록의 모든 것</div>
             </div>
           </div>
@@ -908,11 +810,11 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-5.jpg" >
+                <img src="resources/img/200-3.jpg" >
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title">마켓? 엔터프라이즈?</h5>
+              <h5 class="post-title"><a href="#">마켓? 엔터프라이즈?</a></h5>
               <div class="post-date">내 프로젝트에 더 맞는 서비스를 쉽게 고르는 방법</div>
             </div>
           </div>
@@ -922,11 +824,11 @@ main{
           <div class="card-blog">
             <div class="header">
               <div class="post-thumb">
-                <img src="resources/img/200-6.jpg" >
+                <img src="resources/img/200-2.jpg" >
               </div>
             </div>
             <div class="body">
-              <h5 class="post-title">6월 신규 주고 소개</h5>
+              <h5 class="post-title"><a href="#">6월 신규 주고 소개</a></h5>
               <div class="post-date">카테고리 매니저가 추천하는 라이징 전문가</div>
             </div>
           </div>
@@ -940,15 +842,15 @@ main{
       </div>
     </div>
   </div>
-<!-- 푸터 -->
 
-  <footer class="page-footer bg-image" style="background-image: url(resources/img/footer1.jpg);">
+
+  <footer class="page-footer bg-image" style="background-image: url(resources/img/world_pattern.svg);">
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
-          
-          <div class="callnumber">1600-8282</div>
-			<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
+          <h3>SEOGram</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
+
           <div class="social-media-button">
             <a href="#"><span class="mai-logo-facebook-f"></span></a>
             <a href="#"><span class="mai-logo-twitter"></span></a>
@@ -959,38 +861,31 @@ main{
         </div>
         <div class="col-lg-3 py-3">
           <h5>Company</h5>
-          <ul class="footer-menu" id="footermenu1">
-            <li><b>마루소개</b></li>
-            <li>마루메인</li>
-            <li>Prime</li>
-            <li>엔터프라이즈</li>
-            <li>프리랜서 클럽</li>
-          </ul>
-          
-         
-        </div>
-        <div class="col-lg-3 py-3">
-          <ul class="footer-menu" id="footermenu2">
-          	<li><b>고객안내</b></li>
-            <li>이용안내</li>
-            <li>안전정책</li>
-            <li>예상금액</li>
-            <li>고수찾기</li>
-            <li>마루보증</li>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help & Support</a></li>
           </ul>
         </div>
         <div class="col-lg-3 py-3">
-           <ul class="footer-menu" id="footermenu3">
-          	<li><b>주고안내</b></li>
-            <li>이용안내</li>
-            <li>주고가이드</li>
-            <li>주고가입</li>
-            <li>주고센터</li>
-            </ul>
+          <h5>Contact Us</h5>
+          <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
+          <a href="#" class="footer-link">+00 1122 3344 5566</a>
+          <a href="#" class="footer-link">seogram@temporary.com</a>
+        </div>
+        <div class="col-lg-3 py-3">
+          <h5>Newsletter</h5>
+          <p>Get updates, news or events on your mail.</p>
+          <form action="#">
+            <input type="text" class="form-control" placeholder="Enter your email..">
+            <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
+          </form>
         </div>
       </div>
 
-      <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
+      <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
     </div>
   </footer>
 

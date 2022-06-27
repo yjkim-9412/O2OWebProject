@@ -1,10 +1,15 @@
 O2OWebProject.iml
+
 *.settings
 *.idea
 *.class
 /myweb2.iml
 /classes/
 target/*
-
+/build.log
+temp/
+bin/*.txt
+doc/**/*.pdf
 /src/main/webapp/WEB-INF/config/database.properties
+/src/main/webapp/WEB-INF/config/
 
