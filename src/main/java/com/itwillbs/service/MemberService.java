@@ -14,7 +14,11 @@ public interface MemberService {
 	
 	public MemberDTO getMember(int id);
 	
-	public void updateMember(MemberDTO memberDTO);
+	public void updateName(MemberDTO memberDTO);
+	
+	public void updateEmail(MemberDTO memberDTO);
+	
+	public void updatePass(MemberDTO memberDTO);
 	
 	public void deleteMember(MemberDTO memberDTO);
 

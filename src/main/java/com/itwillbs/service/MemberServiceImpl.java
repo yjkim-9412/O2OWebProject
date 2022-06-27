@@ -52,8 +52,20 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void updateMember(MemberDTO memberDTO) {
-		memberDAO.updateMember(memberDTO);
+	public void updateName(MemberDTO memberDTO) {
+		memberDAO.updateName(memberDTO);
+		
+	}
+	
+	@Override
+	public void updateEmail(MemberDTO memberDTO) {
+		memberDAO.updateEmail(memberDTO);
+		
+	}
+	
+	@Override
+	public void updatePass(MemberDTO memberDTO) {
+		memberDAO.updatePass(memberDTO);
 		
 	}
 	

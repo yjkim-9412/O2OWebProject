@@ -157,6 +157,63 @@ header img {
     color: #737373;
     
 }
+
+* {
+	box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.item {
+    color: #323232;
+    width: 600px;
+}
+
+.item-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0 1rem 0.5rem;
+    border-bottom: 0.0625rem solid #f2f2f2;
+    font-size: 15.8px;
+    height: 80px;
+}
+
+.item-title{
+    color: #b5b5b5;
+    font-weight: bold;
+}
+
+.item-info {
+    padding-top: 0.25rem;
+
+}
+
+.profile-image {
+    width: 6.25rem;
+    height: 6.25rem;
+    min-width: 4.375rem;
+    border-radius: 70%;
+    overflow: hidden;
+    border: 0.0625rem solid #f2f2f2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/profile-default/soomgo_70.jpg?h=320&w=320");
+}
+
+.camera-icon {
+    cursor: pointer;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    right: 0;
+    bottom: 0;
+}
+
+
   
 </style>
   
@@ -171,7 +228,7 @@ header img {
   
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
+      <div class="container" style="box-sizing: border-box;">
         <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -209,44 +266,47 @@ header img {
   <input type="hidden" name="password" value="${memberDTO.password }">
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
+          <form action="#" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto">
             <h2 class="text-black"><b>계정 설정</b></h2>
-            <div class="row form-group" style="margin-top:50px;"> 
-              <div class="col-md-12">
-              	<a href="<%=request.getContextPath() %>/mypage/settings/name" style="text-decoration: none;">
-                <div>
-                <div style="color: #898798; margin-bottom: 5px;"><b>이름</b></div>
- 				<div class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.name}</div>
+            <div class="profile-image"></div>
+          
+            <li class="item-container" style="margin-top:50px;" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/name'"> 
+                <div class="item">
+                <div class="item-title">이름</div>
+ 				<div class="item-info">${memberDTO.name}</div>
  				</div>
-                </a>
-                <hr>
-              </div>
-            </div>
-    
-            <div class="row form-group">
-    
-              <div class="col-md-12">
-                <label style="margin-bottom: 5px"><b>이메일</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.email}</label><hr>
-              </div>
-            </div>
-    
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label style="margin-bottom: 5px"><b>비밀번호</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.password}</label><hr>
-              </div>
-            </div>
-    
-            <div class="row form-group" style="margin-top:50px;"> 
-              <div class="col-md-12">
-              	<a href="<%=request.getContextPath() %>/mypage/delete" style="text-decoration: none;">
-                <div>
-                <div style="color: black; margin-bottom: 5px;"><b>계정탈퇴</b></div>
+ 				<div>
+            		<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+            	</div>
+            </li>
+ 
+            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/email'"> 
+                <div class="item">
+                <div class="item-title">이메일</div>
+ 				<div class="item-info">${memberDTO.email}</div>
  				</div>
-                </a>
-                <hr>
-              </div>
+ 				<div>
+            		<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+            	</div>
+            </li>
+    
+            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/password'"> 
+                <div class="item">
+                <div class="item-title">비밀번호</div>
+ 				<div class="item-info">${memberDTO.password}</div>
+ 				</div>
+ 				<div>
+            		<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+            	</div>
+            </li>
+    
+            <div class="item-container" style="margin-top:50px; height: 50px;" onclick="location.href='<%=request.getContextPath() %>/mypage/delete'"> 
+                <div class="item">
+                <div class="text-black">계정 탈퇴</div>
+ 				</div>
+ 				<div>
+            		<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+            	</div>
             </div>
           </form>
     </div>

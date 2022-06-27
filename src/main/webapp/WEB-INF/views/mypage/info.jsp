@@ -274,7 +274,9 @@ header img {
             <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px;">
             <a href="<%=request.getContextPath() %>/mypage/account-info" style="text-decoration: none; height: 30px; margin-bottom: 60px;">
             	<div class="thumb">
-            		<div class="user-profile"></div>
+            		<div class="user-profile">
+            			<img alt="profile" src="https://dmmj3ljielax6.cloudfront.net/upload/profile-default/soomgo_70.jpg?h=320&w=320">
+            		</div>
             	</div>
             	<div class="user-info">
             		<div class="user-name">
