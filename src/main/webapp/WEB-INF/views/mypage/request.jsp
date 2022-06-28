@@ -37,48 +37,6 @@
   
   <style type="text/css">
   
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-}
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}  
-  
-  
 /* nav */
 .search {
   position: relative;
@@ -159,101 +117,106 @@ header img {
   
 }  
 
-/* 회원정보 */
-.thumb {
-    width: 4.375rem;
-    height: 4.375rem;
+/*  푸터  */
+.callnumber{
+    padding-bottom: 0.1875rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-stretch: normal;
+    color: #FFCD4A;
+ }
+.callnumberdown{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+}
+#footermenu1{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    position: absolute;
+    bottom:49px;
+}
+#footermenu2{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}
+#footermenu3{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}
+
+* {
+	box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+.item {
+    color: #323232;
+    width: 600px;
+}
+
+.item-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0 1rem 0.5rem;
+    font-size: 15.8px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.item-title{
+    color: #b5b5b5;
+    font-weight: bold;
+}
+
+.item-info {
+    padding-top: 0.25rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+
+}
+
+.profile-image {
+    width: 6.25rem;
+    height: 6.25rem;
     min-width: 4.375rem;
-    border-radius: 0.75rem;
+    border-radius: 70%;
     overflow: hidden;
     border: 0.0625rem solid #f2f2f2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/profile-default/soomgo_70.jpg?h=320&w=320");
 }
 
-.user-info {
-    flex: auto;
-    text-align: left;
-    padding-left: 0.75rem;
+.camera-icon {
+    cursor: pointer;
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    right: 0;
+    bottom: 0;
 }
 
-.user-name {
-    display: flex;
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: #323232;
-    position: relative;
-    font-weight: bold;
-    left: 70px;
-    bottom: 60px;
-}
+
   
-.name-length {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    padding-right: 0.3125rem;
-    max-width: 8.45rem;
-}  
-  
-.user-id {
-    display: flex;
-    font-size: .75rem;
-    color: #b5b5b5;
-    position: relative;
-    left: 70px;
-    bottom: 58px;
-    
-}  
- 
-.id-length {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 11.6875rem;
-    padding-left: 5px;
-} 
-
-.arrow {
-	position: relative;
-	left: 600px;
-    bottom: 80px;
-}
-
-.main-menu {
-    display: flex;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #323232;
-}
-
-.sub-menu {
-    font-size: 16px;
-    font-weight: 500;
-    color: #737373;
-    padding: 0;
- 
-}
-
-.sub-menu-container {
-    padding: 1rem 0;
-}
-
-.sub-menu-container .sub-menu-list {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-  
-.underline {
-    border-bottom: 0.0625rem solid;
-    border-color: #f2f2f2;
-}  
-  
-ul li {
-    list-style: none;
-}
-
- 
 </style>
   
   
@@ -267,7 +230,7 @@ ul li {
   
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
+      <div class="container" style="box-sizing: border-box;">
         <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -305,106 +268,53 @@ ul li {
   <input type="hidden" name="password" value="${memberDTO.password }">
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
-            <h2 class="text-black"><b>마이페이지</b></h2>
-            <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px;">
-            <a href="<%=request.getContextPath() %>/mypage/account-info" style="text-decoration: none; height: 30px; margin-bottom: 60px;">
-            	<div class="thumb">
-            		<div class="user-profile">
-            			<img alt="profile" src="https://dmmj3ljielax6.cloudfront.net/upload/profile-default/soomgo_70.jpg?h=320&w=320">
-            		</div>
-            	</div>
-            	<div class="user-info">
-            		<div class="user-name">
-            			<span class="name-length">${memberDTO.name}</span> 고객님
-            		</div>
-            		<div class="user-id">
-            			<img alt="kakao" src="https://assets.cdn.soomgo.com/icons/icon-mypage-kakaotalk-signin.svg">
-            			<span class="id-length">${memberDTO.email }</span>
-            		</div>
-            	</div>
-            	<div class="arrow">
-            		<span class="right-arrow">
-            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-            		</span>
-            	</div>
-            </a>
-            </div>
+          <form action="#" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto">
+            <h2 class="text-black"><b>내 요청서</b></h2>
+            
+          
+            <li class="item-container" style="margin-top:50px;"> 
+                <div class="item">
+                <div class="item-title">질문1</div>
+ 				<div class="item-info">답변1</div>
+ 				</div>
+            </li>
+ 
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문2</div>
+ 				<div class="item-info">답변2</div>
+ 				</div>
+            </li>
     
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              	<ul>
-              		<li class="main-menu">숨고페이</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none; " class="sub-menu">거래내역
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
-              		</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="<%=request.getContextPath() %>/mypage/request" style="text-decoration: none;" class="sub-menu">내 요청서 보기
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
-              		</li>
-              	</ul>
-            </div>
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문3</div>
+ 				<div class="item-info">답변3</div>
+ 				</div>
+            </li>
+            
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문4</div>
+ 				<div class="item-info">답변4</div>
+ 				</div>
+            </li>
+            
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문5</div>
+ 				<div class="item-info">답변5</div>
+ 				</div>
+            </li>
     
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              	<ul>
-              		<li class="main-menu">마켓</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">구매내역
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
-              		</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">문의내역
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
-              		</li>
-              	</ul>
-            </div>
-    
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              	<ul>
-              		<li class="main-menu">커뮤니티</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">마루생활 작성글/댓글
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
-              		</li>
-             	</ul> 
-            </div>			
-    
-            <div class="row form-group mt-4">
-              <div class="col-md-12">
-                
-              </div>
-            </div>
+            
           </form>
     </div>
 
     <div class="container-fluid mt-4">
 
     </div>
+    
   </div>
 
   <!-- 푸터 -->
