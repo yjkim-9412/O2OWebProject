@@ -52,7 +52,7 @@ public class MemberController {
 		
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
-			session.setAttribute("email",memberDTO.getEmail());
+			session.setAttribute("id",memberDTO.getId());
 		}else {
 			return "member/msg";
 		}
@@ -82,7 +82,7 @@ System.out.println("#########" + code);
 		return "redirect:/member/login";
 		
 	}
-	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
@@ -90,7 +90,7 @@ System.out.println("#########" + code);
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		
-		return "mypage/info";
+		return "member/info";
 	}
 	
 	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)
