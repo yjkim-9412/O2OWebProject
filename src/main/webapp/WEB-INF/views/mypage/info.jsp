@@ -217,6 +217,42 @@ header img {
 	left: 600px;
     bottom: 80px;
 }
+
+.main-menu {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #323232;
+}
+
+.sub-menu {
+    font-size: 16px;
+    font-weight: 500;
+    color: #737373;
+    padding: 0;
+ 
+}
+
+.sub-menu-container {
+    padding: 1rem 0;
+}
+
+.sub-menu-container .sub-menu-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+  
+.underline {
+    border-bottom: 0.0625rem solid;
+    border-color: #f2f2f2;
+}  
+  
+ul li {
+    list-style: none;
+}
+
   
 </style>
   
@@ -296,30 +332,67 @@ header img {
             </div>
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              <div class="col-md-12">
-                <label class="text-black" for="email" style="font-size: 18px; margin-bottom: 15px"><b>마루페이</b></label><br>
-                거래내역<br>
-                <hr>
-                쿠폰/이벤트
-              </div>
+              	<ul>
+              		<li class="main-menu">숨고페이</li>
+              		<li class="sub-menu sub-menu-container underline">
+              			<a href="#" style="text-decoration: none;" class="sub-menu">거래내역
+<!-- 	              			<div class="arrow"> -->
+<!-- 	            			<span class="right-arrow"> -->
+<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
+<!-- 	            			</span> -->
+<!-- 	            			</div> -->
+              			</a>
+              		</li>
+              		<li class="sub-menu sub-menu-container underline">
+              			<a href="#" style="text-decoration: none;" class="sub-menu">내 요청서 보기
+<!-- 	              			<div class="arrow"> -->
+<!-- 	            			<span class="right-arrow"> -->
+<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
+<!-- 	            			</span> -->
+<!-- 	            			</div> -->
+              			</a>
+              		</li>
+              	</ul>
             </div>
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-    
-              <div class="col-md-12">
-                <label class="text-black" for="subject"  style="font-size: 18px; margin-bottom: 15px"><b>마켓</b></label><br>
-                구매내역<br>
-                <hr>
-                문의내역
-              </div>
+              	<ul>
+              		<li class="main-menu">마켓</li>
+              		<li class="sub-menu sub-menu-container underline">
+              			<a href="#" style="text-decoration: none;" class="sub-menu">구매내역
+<!-- 	              			<div class="arrow"> -->
+<!-- 	            			<span class="right-arrow"> -->
+<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
+<!-- 	            			</span> -->
+<!-- 	            			</div> -->
+              			</a>
+              		</li>
+              		<li class="sub-menu sub-menu-container underline">
+              			<a href="#" style="text-decoration: none;" class="sub-menu">문의내역
+<!-- 	              			<div class="arrow"> -->
+<!-- 	            			<span class="right-arrow"> -->
+<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
+<!-- 	            			</span> -->
+<!-- 	            			</div> -->
+              			</a>
+              		</li>
+              	</ul>
             </div>
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              <div class="col-md-12">
-                <label class="text-black" for="message"  style="font-size: 18px; margin-bottom: 15px"><b>커뮤니티</b></label><br>
-                마루생활 작성글/댓글
-              </div>
-            </div>
+              	<ul>
+              		<li class="main-menu">커뮤니티</li>
+              		<li class="sub-menu sub-menu-container underline">
+              			<a href="#" style="text-decoration: none;" class="sub-menu">마루생활 작성글/댓글
+<!-- 	              			<div class="arrow"> -->
+<!-- 	            			<span class="right-arrow"> -->
+<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
+<!-- 	            			</span> -->
+<!-- 	            			</div> -->
+              			</a>
+              		</li>
+             	</ul> 
+            </div>			
     
             <div class="row form-group mt-4">
               <div class="col-md-12">
