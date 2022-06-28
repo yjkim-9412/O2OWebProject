@@ -2,78 +2,91 @@ package com.itwillbs.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.web.socket.*;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.websocket.*;
-import javax.websocket.server.ServerEndpoint;
-import java.util.ArrayList;
-import java.util.List;
 
-@Controller
-@ServerEndpoint(value = "/chat")
-public class ChatController {
 
-    private static final List<Session> sessionList= new ArrayList<Session>();
+public class ChatController extends TextWebSocketHandler implements InitializingBean {
+
+    private static final Set<WebSocketSession> sessionSet= new HashSet<WebSocketSession>();
     private  static  final Logger logger = LoggerFactory.getLogger(ChatController.class);
+
     public ChatController() {
-        System.out.println("웹소켓 실행 객체생성");
+        super();
+        logger.info("create SocketHandler instance");
+    }
+
+    @Override
+    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+        super.afterConnectionEstablished(session);
+
+        sessionSet.add(session);
+        logger.info("add session");
+    }
+
+    @Override
+    public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
+        super.handleMessage(session, message);
+        logger.info("receive message"+message.toString());
+    }
+
+    @Override
+    public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
+        super.handleTransportError(session, exception);
+        logger.error("web socket error");
+    }
+
+    @Override
+    public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+        super.afterConnectionClosed(session, status);
+        sessionSet.remove(session);
+        logger.info("remove session");
 
     }
 
+    @Override
+    public boolean supportsPartialMessages() {
+        logger.info("call method");
 
-    @OnOpen
-
-    public void onOpen(Session session){
-        logger.info("Open session id:"+session.getId());
-        try {
-            final RemoteEndpoint.Basic basic=session.getBasicRemote();
-            basic.sendText("대화방이 열렸습니다");
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        sessionList.add(session);
-
+        return super.supportsPartialMessages();
     }
 
-    private void sendAllSessionToMessage(Session self, String sender, String message) {
-        try {
-            for (Session session : ChatController.sessionList){
-                if(!self.getId().equals(session.getId())){
-                    session.getBasicRemote().sendText(sender+" : "+message);
+    public void sendMessage(String message) {
+        for (WebSocketSession session : sessionSet) {
+            if (session.isOpen()) {
+                try {
+                    session.sendMessage(new TextMessage(message));
+                } catch (Exception ignored) {
+                    logger.error("fail to send message!", ignored);
                 }
             }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
         }
+    }
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        Thread thread = new Thread(){
+            int i=0;
+            @Override
+            public void run() {
+                while (true){
+                    try {
+                        sendMessage ("send message index "+i++);
 
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        break;
+                    }
+                }
+            }
+        };
+        thread.start();
     }
 
-    @OnMessage
-    public void onMessage(String message, Session session) {
-
-        String sender = message.split(",")[1];
-        message = message.split(",")[0];
-
-        logger.info("Message From"+sender+" : "+message);
-        try{
-            final RemoteEndpoint.Basic basic = session.getBasicRemote();
-            basic.sendText("자신 : "+message);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-
-        sendAllSessionToMessage(session, sender, message);
-    }
-
-    @OnError
-    public void onError(Throwable e,Session session){
-
-    }
-    @OnClose
-    public void onClose(Session session) {
-        logger.info("Session"+session.getId()+" has ended");
-        sessionList.remove(session);
-    }
-}
+}//Chatcontroller
 
 

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 
 <html>
 <head>
@@ -23,47 +23,59 @@
     let ws;
     let messages = document.getElementById("messages");
 
-    function openSocket(){
-        if (ws !== undefined && ws.readyState !== WebSocket.CLOSED){
-            writeResponse("WebSocket is already opened.");
-            return;
-        }
+    function init() {
+        output = document.getElementById("output")
+    }
 
-        // 웹소켓 객체 만드는 코드
-        ws = new WebSocket("ws://localhost:8080/member/chat");
 
-        ws.onopen = function (event){
-            if(event.data === undefined){
-                return;
-            }
-            writeResponse("event.data");
+    // 웹소켓 객체 만드는 코드
+
+
+    function send_message() {
+        ws = new WebSocket("ws://localhost:8080/websocket/member/echo.do");
+        websocket.onopen = function (evt) {
+            onOpen(evt)
         };
-        ws.onclose = function (event){
-            writeResponse("대화종료");
-        }
-
-
+        websocket.onmessage = function (evt) {
+            onMessage(evt)
+        };
+        websocket.onerror = function (evt) {
+            onError(evt)
+        };
     }
 
-    function send() {
-        let text = document.getElementById("messageinput").value+","+document.getElementById("sender").value;
-            ws.send(text);
-            text = "";
+    function onOpen(evt) {
+        writeToScreen("Connected to Endpoint!");
+        doSend(textID.value);
     }
 
-    function closeSocket(){
-        ws.close();
+    function onMessage(evt) {
+        writeToScreen("Message Received: " + evt.data);
     }
-
-    function writeResponse(text){
-        messages.innerHTML += "<br/>"+text;
+    function onError(evt) {
+        writeToScreen('ERROR: ' + evt.data);
     }
-
-    function clearText() {
-        console.log(messages.parentNode);
-        messages.parentNode.replaceChild(messages)
+    function doSend(message) {
+        writeToScreen("Message Sent: " + message);
+        websocket.send(message);
     }
+    function writeToScreen(message){
+        let pre = document.createElement("p");
+        pre.style.wordWrap = "break-word";
+        pre.innerHTML = message;
 
+        output.appendChild(pre);
+    }
+    window.addEventListener("load", init, false);
 </script>
+<h1 style="text-align: center;">Hello World WebSocket Client</h1>
+<br>
+<div style="text-align: center;">
+    <form action="">
+        <input onclick="send_message()" value="Send" type="button">
+        <input id="textID" name="message" value="Hello WebSocket!" type="text"><br>
+    </form>
+</div>
+<div id="output"></div>
 </body>
 </html>
