@@ -230,20 +230,13 @@ font-weight: bold;
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="<%=request.getContextPath() %>/mypage/settings/name-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
-            <h2 class="text-black"><b>이름 수정</b></h2>
-            <div class="input-group">
-              <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
- 				<label class="text-black" for="fname" style="margin-bottom: 0px; padding-top: 12px;"><img alt="icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwyMCAwIDIwIDIwIDAgMjB6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIgLTMwMSkgdHJhbnNsYXRlKDE2IDI4MSkgdHJhbnNsYXRlKDE2IDIwKSIvPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEwIDJjLTQuNDE2IDAtOCAzLjU4NC04IDhzMy41ODQgOCA4IDggOC0zLjU4NCA4LTgtMy41ODQtOC04LTh6bS44IDEySDkuMlY5LjJoMS42VjE0em0wLTYuNEg5LjJWNmgxLjZ2MS42eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyIC0zMDEpIHRyYW5zbGF0ZSgxNiAyODEpIHRyYW5zbGF0ZSgxNiAyMCkiLz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==">
- 				이름(실명)을 사용하시면 고용율이 150% 상승합니다</label>
-              </div>
-            </div>
-    
+          <form action="<%=request.getContextPath() %>/mypage/settings/email-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
+            <h2 class="text-black"><b>이메일 수정</b></h2>
             <div class="row form-group">
-              <div class="col-md-12" style="width: 100%; padding-bottom: 50px;">
-                <label class="text-black" style="margin-bottom:5px"><b>이름</b></label>
+              <div class="col-md-12" style="width: 100%; padding-bottom: 50px; margin-top: 50px;">
+                <label class="text-black" style="margin-bottom:5px"><b>이메일</b></label>
                 <div class="input-group" data-validate="email">
-						<input type="text" class="form-control" name="name" value="${memberDTO.name}" required style="border-radius: 0.25rem;">
+						<input type="text" class="form-control" name="email" value="${memberDTO.email}" required style="border-radius: 0.25rem;">
 						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
 					</div>
               </div>
@@ -255,7 +248,6 @@ font-weight: bold;
 			  
 		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
 		  <input type="submit" class="btn update" value="수정 완료">
-		  <input type="hidden" name="email" value="${memberDTO.email }">
   		  <input type="hidden" name="password" value="${memberDTO.password }">
   		  <input type="hidden" name="id" value="${sessionScope.id }">
 		  

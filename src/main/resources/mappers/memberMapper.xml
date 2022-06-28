@@ -10,12 +10,29 @@
 	</insert>
 
 	<select id="userCheck" resultType="com.itwillbs.domain.MemberDTO">
-		select * from ACCOUNTS where id=#{id} and password=#{password} and email=#{email}
+		select * from ACCOUNTS where password=#{password} and email=#{email}
 	</select>
 
 	<select id="getMember" resultType="com.itwillbs.domain.MemberDTO">
 		select * from ACCOUNTS where id=#{id}
 	</select>
+	
+	<update id="updateName">
+		update ACCOUNTS set name=#{name} where id=#{id}
+	</update>
+	
+	<update id="updateEmail">
+		update ACCOUNTS set email=#{email} where id=#{id}
+	</update>
+	
+	<update id="updatePass">
+		update ACCOUNTS set password=#{password} where id=#{id}
+	</update>
+	
+	<delete id="deleteMember">
+		delete from ACCOUNTS where id=#{id}
+	</delete>
+	
 
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->

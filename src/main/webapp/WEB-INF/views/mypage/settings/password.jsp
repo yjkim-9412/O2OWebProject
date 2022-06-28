@@ -181,10 +181,80 @@ font-weight: bold;
     
 }
 
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.5rem);
+    padding: 0.6875rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #323232;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.0625rem solid #e1e1e1;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.invalid-feedback{
+    display: block;
+    width: auto;
+    font-size: .875rem;
+    margin-top: 0.25rem;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+
+
 
 </style>
-  
-  
+
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#update').submit(function() {
+		if($('#pass').val() == "") {
+			$('#passdiv').html("비밀번호를 입력해주세요.").css('color', 'red');
+			$('#passdiv').focus();
+			return false;
+		}else{
+			$('#passdiv').html("");
+		}
+		
+		if($('#newPass').val() == "") {
+			$('#newPassdiv1').html("비밀번호를 입력해주세요.").css('color', 'red');
+			$('#newPassdiv1').focus();
+			return false;
+		}else{
+			$('#newPassdiv1').html("");
+		}
+		
+		if($('#newPass2').val() == "") {
+			$('#newPassdiv2').html("비밀번호를 한번 더 입력해주세요.").css('color', 'red');
+			$('#newPassdiv2').focus();
+			return false;
+		}else{
+			$('#newPassdiv2').html("");
+		}
+		
+		if($('#newPass').val() != $('#newPass2').val()) {
+			$('#newPassdiv2').html("비밀번호가 일치하지 않습니다.").css('color','red');
+			$('#newPassdiv2').focus();
+			return false;
+		}else{
+			$('#newPassdiv2').html("");
+		}
+
+	});
+});
+
+
+
+
+</script>
   
 </head>
 <body>
@@ -230,23 +300,33 @@ font-weight: bold;
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="<%=request.getContextPath() %>/mypage/settings/name-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
-            <h2 class="text-black"><b>이름 수정</b></h2>
-            <div class="input-group">
-              <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
- 				<label class="text-black" for="fname" style="margin-bottom: 0px; padding-top: 12px;"><img alt="icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwyMCAwIDIwIDIwIDAgMjB6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIgLTMwMSkgdHJhbnNsYXRlKDE2IDI4MSkgdHJhbnNsYXRlKDE2IDIwKSIvPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEwIDJjLTQuNDE2IDAtOCAzLjU4NC04IDhzMy41ODQgOCA4IDggOC0zLjU4NCA4LTgtMy41ODQtOC04LTh6bS44IDEySDkuMlY5LjJoMS42VjE0em0wLTYuNEg5LjJWNmgxLjZ2MS42eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyIC0zMDEpIHRyYW5zbGF0ZSgxNiAyODEpIHRyYW5zbGF0ZSgxNiAyMCkiLz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==">
- 				이름(실명)을 사용하시면 고용율이 150% 상승합니다</label>
-              </div>
-            </div>
-    
+          <form action="<%=request.getContextPath() %>/mypage/settings/password-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="get" id="update">
+            <h2 class="text-black"><b>비밀번호 변경</b></h2>
             <div class="row form-group">
-              <div class="col-md-12" style="width: 100%; padding-bottom: 50px;">
-                <label class="text-black" style="margin-bottom:5px"><b>이름</b></label>
+              <div class="col-md-12" style="width: 100%; padding-bottom: 30px; margin-top: 50px;">
+                <label class="text-black" style="margin-bottom:5px"><b>기존 비밀번호</b></label>
                 <div class="input-group" data-validate="email">
-						<input type="text" class="form-control" name="name" value="${memberDTO.name}" required style="border-radius: 0.25rem;">
-						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
-					</div>
+					<input type="password" class="form-control" name="password" placeholder="현재 비밀번호를 입력해주세요"  style="border-radius: 0.25rem;" id="pass" autocomplete="false">
+				</div>
+					<div id="passdiv" class="invalid-feedback"></div>
               </div>
+              
+              <div class="col-md-12" style="width: 100%; margin-top: 30px;">
+                <label class="text-black" style="margin-bottom:5px"><b>새로운 비밀번호</b></label>
+                <div class="input-group" data-validate="newEmail1">
+					<input type="password" class="form-control" name="newPass" placeholder="영문+숫자 조합 8자리 이상 입력해주세요"  style="border-radius: 0.25rem;" id="newPass">
+				</div>
+					<div id="newPassdiv1"  class="invalid-feedback"></div>
+              </div>
+              
+              <div class="col-md-12" style="width: 100%; margin-top: 30px; padding-bottom: 50px;">
+                <label class="text-black" style="margin-bottom:5px"><b>새로운 비밀번호 확인</b></label>
+                <div class="input-group" data-validate="newEmail2">
+					<input type="password" class="form-control" placeholder="비밀번호를 한번 더 입력해주세요" style="border-radius: 0.25rem;" id="newPass2">
+				</div>
+					<div id="newPassdiv2" class="invalid-feedback"></div>
+              </div>
+              
             </div>
             <div class="button-group" align="right">
 			
@@ -254,9 +334,8 @@ font-weight: bold;
 			   of them. Grab their code and just edit the text as you wish to. * Follow me twitter.com/Impresiun -->
 			  
 		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
-		  <input type="submit" class="btn update" value="수정 완료">
-		  <input type="hidden" name="email" value="${memberDTO.email }">
-  		  <input type="hidden" name="password" value="${memberDTO.password }">
+		  <input type="submit" class="btn update" value="변경 완료">
+  		  <input type="hidden" name="email" value="${memberDTO.email }">
   		  <input type="hidden" name="id" value="${sessionScope.id }">
 		  
 		  </div>
