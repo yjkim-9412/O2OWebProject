@@ -251,13 +251,14 @@ body {
   text-align: center;
 }
 .form-wizard .form-wizard-next-btn, .form-wizard .form-wizard-previous-btn, .form-wizard .form-wizard-submit {
-  background-color: #d65470;
+  background-color: #ffcd4a;
   color: #ffffff;
   display: inline-block;
   min-width: 100px;
   min-width: 120px;
   padding: 10px;
   text-align: center;
+  font-weight: bold;
 }
 .form-wizard .form-wizard-next-btn:hover, .form-wizard .form-wizard-next-btn:focus, .form-wizard .form-wizard-previous-btn:hover, .form-wizard .form-wizard-previous-btn:focus, .form-wizard .form-wizard-submit:hover, .form-wizard .form-wizard-submit:focus {
   color: #ffffff;
@@ -281,7 +282,7 @@ body {
   width: 100%;
 }
 .form-wizard .form-wizard-previous-btn {
-  background-color: #fb1647;
+  background-color: #ffcd4a;
 }
 .form-wizard .form-control {
   font-weight: 300;
@@ -346,18 +347,18 @@ body {
   width: 50%;
 }
 .form-wizard .form-wizard-steps li.active span, .form-wizard .form-wizard-steps li.activated span {
-  background-color: #d65470;
+  background-color: #ffcd4a;
   color: #ffffff;
 }
 .form-wizard .form-wizard-steps li.active::after, .form-wizard .form-wizard-steps li.activated::after {
-  background-color: #d65470;
+  background-color: #ffcd4a;
   left: 50%;
   width: 50%;
-  border-color: #d65470;
+  border-color: #ffcd4a;
 }
 .form-wizard .form-wizard-steps li.activated::after {
   width: 100%;
-  border-color: #d65470;
+  border-color: #ffcd4a;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
   left: 0;
@@ -400,6 +401,10 @@ body {
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
+}
+
+a {
+	text-decoration: none;
 }
 
 
