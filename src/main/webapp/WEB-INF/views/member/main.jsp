@@ -16,7 +16,7 @@
 // 	response.sendRedirect("loginForm.jsp");
 // }
 %>
-<c:if test="${! empty sessionScope.email }">
+<c:if test="${! empty sessionScope.id }">
 	${sessionScope.email}님 환영합니다!
 </c:if>
 
