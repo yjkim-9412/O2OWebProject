@@ -11,11 +11,10 @@
   
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
   
   <!--   구글폰트(버튼) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +34,7 @@
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   
-  <style type="text/css">
+<style type="text/css">
   
 /*  푸터  */
 .callnumber{
@@ -253,20 +252,137 @@ ul li {
     list-style: none;
 }
 
- 
+/* 모달창 */
+.modal-confirm {		
+	color: #434e65;
+	width: 525px;
+}
+.modal-confirm .modal-content {
+	padding: 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: none;
+}
+.modal-confirm .modal-header {
+	background: #47c9a2;
+	border-bottom: none;   
+	position: relative;
+	text-align: center;
+	margin: -20px -20px 0;
+	border-radius: 5px 5px 0 0;
+	padding: 35px;
+}
+.modal-confirm h4 {
+	text-align: center;
+	font-size: 36px;
+	margin: 10px 0;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+	min-height: 40px;
+	border-radius: 3px; 
+}
+.modal-confirm .close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	color: #b5b5b5;
+	text-shadow: none;
+	opacity: 0.5;
+}
+.modal-confirm .close:hover {
+	opacity: 0.8;
+}
+.modal-confirm .icon-box {
+	color: #fff;		
+	width: 95px;
+	height: 95px;
+	display: inline-block;
+	border-radius: 50%;
+	z-index: 9;
+	border: 5px solid #fff;
+	padding: 15px;
+	text-align: center;
+}
+.modal-confirm .icon-box i {
+	font-size: 64px;
+	margin: -4px 0 0 -4px;
+}
+.modal-confirm.modal-dialog {
+	margin-top: 80px;
+}
+.modal-confirm .btn, .modal-confirm .btn:active {
+	color: #fff;
+	border-radius: 4px;
+	background: #eeb711 !important;
+	text-decoration: none;
+	transition: all 0.4s;
+	line-height: normal;
+	border-radius: 30px;
+	margin-top: 10px;
+	padding: 6px 20px;
+	border: none;
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+	background: #eda645 !important;
+	outline: none;
+}
+.modal-confirm .btn span {
+	margin: 1px 3px 0;
+	float: left;
+}
+.modal-confirm .btn i {
+	margin-left: 1px;
+	font-size: 20px;
+	float: right;
+}
+.trigger-btn {
+	display: inline-block;
+	margin: 100px auto;
+}
+
+.item {
+    color: #323232;
+    width: 600px;
+}
+
+.item-container {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0 1rem 0.5rem;
+    font-size: 15.8px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+.item-title{
+    color: #b5b5b5;
+    font-weight: bold;
+}
+
+.item-info {
+    padding-top: 0.25rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+
+}
+
+
 </style>
   
-  
+
   
 </head>
 <body>
+
+
 
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+    <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
       <div class="container">
         <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
 
@@ -303,9 +419,11 @@ ul li {
   <input type="hidden" name="id" value="${sessionScope.id }">
   <input type="hidden" name="email" value="${memberDTO.email }">
   <input type="hidden" name="password" value="${memberDTO.password }">
+  
+
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
+          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="info">
             <h2 class="text-black"><b>마이페이지</b></h2>
             <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px;">
             <a href="<%=request.getContextPath() %>/mypage/account-info" style="text-decoration: none; height: 30px; margin-bottom: 60px;">
@@ -333,48 +451,71 @@ ul li {
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
               	<ul>
-              		<li class="main-menu">숨고페이</li>
+              		<li class="main-menu">주고받고</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none; " class="sub-menu">거래내역
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
+              			<a href="#myModal" style="text-decoration: none;" class="sub-menu" data-toggle="modal">내 요청서 보기</a>
               		</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="<%=request.getContextPath() %>/mypage/request" style="text-decoration: none;" class="sub-menu">내 요청서 보기
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
+					<a href="#" style="text-decoration: none; " class="sub-menu">거래내역</a>
               		</li>
               	</ul>
             </div>
+            
+            
+    <!-- 모달 창 시작 -->
+	<div id="myModal" class="modal fade" style="position: fixed;">
+		<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+				<h2 class="text-black" style="margin-top: 20px; margin-bottom: 40px; margin-left: 20px;"><b>내 요청서</b></h2>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문1</div>
+ 				<div class="item-info">답변1</div>
+ 				</div>
+            </li>
+ 
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문2</div>
+ 				<div class="item-info">답변2</div>
+ 				</div>
+            </li>
     
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문3</div>
+ 				<div class="item-info">답변3</div>
+ 				</div>
+            </li>
+            
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문4</div>
+ 				<div class="item-info">답변4</div>
+ 				</div>
+            </li>
+            
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문5</div>
+ 				<div class="item-info">답변5</div>
+ 				</div>
+            </li>
+		</div>
+		</div>
+	</div>     
+	<!-- 모달창 끝 -->
+
+            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px;">
               	<ul>
               		<li class="main-menu">마켓</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">구매내역
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
+              			<a href="#" style="text-decoration: none;" class="sub-menu">구매내역</a>
               		</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">문의내역
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
+              			<a href="#" style="text-decoration: none;" class="sub-menu">문의내역</a>
               		</li>
               	</ul>
             </div>
@@ -383,29 +524,16 @@ ul li {
               	<ul>
               		<li class="main-menu">커뮤니티</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">마루생활 작성글/댓글
-<!-- 	              			<div class="arrow"> -->
-<!-- 	            			<span class="right-arrow"> -->
-<!-- 	            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg"> -->
-<!-- 	            			</span> -->
-<!-- 	            			</div> -->
-              			</a>
+              			<a href="#" style="text-decoration: none;" class="sub-menu">마루생활 작성글/댓글</a>
               		</li>
              	</ul> 
             </div>			
     
             <div class="row form-group mt-4">
-              <div class="col-md-12">
-                
-              </div>
+
             </div>
           </form>
     </div>
-
-    <div class="container-fluid mt-4">
-
-    </div>
-  </div>
 
   <!-- 푸터 -->
 
@@ -456,7 +584,6 @@ ul li {
             </ul>
         </div>
       </div>
-
       <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
     </div>
   </footer>
@@ -473,7 +600,8 @@ ul li {
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
-
-
 </body>
 </html>
+
+
+
