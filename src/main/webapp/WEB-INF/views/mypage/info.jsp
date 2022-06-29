@@ -503,6 +503,20 @@ ul li {
  				<div class="item-info">답변5</div>
  				</div>
             </li>
+            
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문6</div>
+ 				<div class="item-info">답변6</div>
+ 				</div>
+            </li>
+            
+            <li class="item-container"> 
+                <div class="item">
+                <div class="item-title">질문7</div>
+ 				<div class="item-info">답변7</div>
+ 				</div>
+            </li>
 		</div>
 		</div>
 	</div>     
