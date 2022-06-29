@@ -158,9 +158,7 @@ header img {
   
 }  
 
-/* 폼 */
-
-
+/* wizard form */
 body {
   background-color: #ffffff;
   color: #444444;
@@ -170,15 +168,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.wizard-content-left {
-  background-blend-mode: darken;
-  background-color: rgba(0, 0, 0, 0.45);
-  background-image: url("https://i.ibb.co/X292hJF/form-wizard-bg-2.jpg");
-  background-position: center center;
-  background-size: cover;
-  height: 100vh;
-  padding: 30px;
-}
+
 .wizard-content-left h1 {
   color: #ffffff;
   font-size: 38px;
@@ -188,7 +178,7 @@ body {
 }
 
 .form-wizard {
-  color: black;
+  color: #888888;
   padding: 30px;
 }
 .form-wizard .wizard-form-radio {
@@ -251,14 +241,13 @@ body {
   text-align: center;
 }
 .form-wizard .form-wizard-next-btn, .form-wizard .form-wizard-previous-btn, .form-wizard .form-wizard-submit {
-  background-color: #ffcd4a;
+  background-color: #d65470;
   color: #ffffff;
   display: inline-block;
   min-width: 100px;
   min-width: 120px;
   padding: 10px;
   text-align: center;
-  font-weight: bold;
 }
 .form-wizard .form-wizard-next-btn:hover, .form-wizard .form-wizard-next-btn:focus, .form-wizard .form-wizard-previous-btn:hover, .form-wizard .form-wizard-previous-btn:focus, .form-wizard .form-wizard-submit:hover, .form-wizard .form-wizard-submit:focus {
   color: #ffffff;
@@ -282,7 +271,7 @@ body {
   width: 100%;
 }
 .form-wizard .form-wizard-previous-btn {
-  background-color: #ffcd4a;
+  background-color: #fb1647;
 }
 .form-wizard .form-control {
   font-weight: 300;
@@ -297,7 +286,7 @@ body {
 }
 .form-wizard .form-group {
   position: relative;
-  margin: 25px 50px;
+  margin: 25px 0;
 }
 .form-wizard .wizard-form-text-label {
   position: absolute;
@@ -315,22 +304,22 @@ body {
   margin: 30px 0;
 }
 .form-wizard .form-wizard-steps li {
-  width: 25%;
+  width: 7%;
   float: left;
   position: relative;
 }
 .form-wizard .form-wizard-steps li::after {
-  background-color: #f3f3f3;
   content: "";
   height: 5px;
   left: 0;
   position: absolute;
   right: 0;
+  
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  border-bottom: 1px solid #dddddd;
-  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #ce687e;
+  border-top: 1px solid #ce687e;
 }
 .form-wizard .form-wizard-steps li span {
   background-color: #dddddd;
@@ -347,18 +336,18 @@ body {
   width: 50%;
 }
 .form-wizard .form-wizard-steps li.active span, .form-wizard .form-wizard-steps li.activated span {
-  background-color: #ffcd4a;
+  background-color: #d65470;
   color: #ffffff;
 }
 .form-wizard .form-wizard-steps li.active::after, .form-wizard .form-wizard-steps li.activated::after {
-  background-color: #ffcd4a;
-  left: 50%;
-  width: 50%;
-  border-color: #ffcd4a;
+  background-color: #ce687e;
+  left: 70%;
+  width: 70%;
+  border-color: #ce687e;
 }
 .form-wizard .form-wizard-steps li.activated::after {
   width: 100%;
-  border-color: #ffcd4a;
+  border-color: #d65470;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
   left: 0;
@@ -378,7 +367,7 @@ body {
     position: relative;
   }
   100% {
-    width: 60px;
+    width: 8px;
     height: 60px;
     margin-left: -15px;
     margin-top: -15px;
@@ -390,6 +379,15 @@ body {
     height: auto;
   }
 }
+
+
+
+
+
+
+
+
+
 
 .title {
 	margin: 50px;
@@ -407,10 +405,13 @@ a {
 	text-decoration: none;
 }
 
-
 </style>
   
-
+<script type="text/javascript">
+function lbFunc() {
+	  document.getElementById( 'lb' ).value = '80';
+	}
+</script>
   
 </head>
 <body>
@@ -464,132 +465,248 @@ a {
   <section class="form-contents">
     <div class="container">
     <div class="title">
-    <h2>레슨 / 개인 PT</h2>
+    	<h2>레슨 / 개인 PT</h2>
     </div>
-<section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
-				<div class="form-wizard" style="border: 1px solid #f0eded; border-radius: 0.8em;">
-					<form action="#" method="post" role="form">
-						<div class="form-wizard-header">
-							<ul class="list-unstyled form-wizard-steps clearfix">
-								<li class="active"><span>1</span></li>
-								<li><span>2</span></li>
-								<li><span>3</span></li>
-								<li><span>4</span></li>
-							</ul>
-						</div>
-						<fieldset class="wizard-fieldset show">
-							<div class="sub-title">PT 목적이 무엇인가요?</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">다이어트</label>
-								</div>
-							</div>
-							<div class="form-group">
-							<div class="wizard-form-radio">
-									<input name="radio-name" id="radio2" type="radio">
-									<label for="radio2">바디프로필</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">대회 준비</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">재활/체형교정</label>
-								</div>
-							</div>
-							
-							<div class="form-group clearfix">
-								<a href="javascript:;" class="form-wizard-next-btn float-right" style="margin-top: 50px">Next</a>
-							</div>
-						</fieldset>	
-						<fieldset class="wizard-fieldset">
-							<div class="sub-title">레슨생의 연령대는 어떻게 되나요?</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">10대</label>
-								</div>
-							</div>
-							<div class="form-group">
-							<div class="wizard-form-radio">
-									<input name="radio-name" id="radio2" type="radio">
-									<label for="radio2">20대</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">30대</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">40대</label>
-								</div>
-							</div>
-							<div class="form-group clearfix">
-								<a href="javascript:;" class="form-wizard-previous-btn float-left" style="margin-top: 50px"> Previous</a>
-								<a href="javascript:;" class="form-wizard-next-btn float-right" style="margin-top: 50px">Next</a>
-							</div>
-						</fieldset>	
-						<fieldset class="wizard-fieldset">
-							<div class="sub-title">레슨생의 성별은 무엇인가요?</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">남</label>
-								</div>
-							</div>
-							<div class="form-group">
-							<div class="wizard-form-radio">
-									<input name="radio-name" id="radio2" type="radio">
-									<label for="radio2">여</label>
-								</div>
-							</div>
-							<div class="form-group clearfix">
-								<a href="javascript:;" class="form-wizard-previous-btn float-left" style="margin-top: 50px">Previous</a>
-								<a href="javascript:;" class="form-wizard-next-btn float-right" style="margin-top: 50px">Next</a>
-							</div>
-						</fieldset>	
-						<fieldset class="wizard-fieldset">
-							<div class="sub-title">선호하는 주고의 성별이 있나요?</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">남</label>
-								</div>
-							</div>
-							<div class="form-group">
-							<div class="wizard-form-radio">
-									<input name="radio-name" id="radio2" type="radio">
-									<label for="radio2">여</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="wizard-form-radio">
-									<input name="radio-name" id="radio1" type="radio" style="">
-									<label for="radio1">무관</label>
-								</div>
-							</div>
-							<div class="form-group clearfix">
-								<a href="javascript:;" class="form-wizard-previous-btn float-left" style="margin-top: 50px">Previous</a>
-								<a href="javascript:;" class="form-wizard-submit float-right" style="margin-top: 50px">Submit</a>
-							</div>
-						</fieldset>	
-					</form>
-				</div>
-	</section>
-</div>
-	</section>
-  
-  
+<section class="wizard-section" style="width: 800px; height:800px; margin: 0 auto;">
+<div class="form-wizard">
+          <form action="" method="post" role="form">
+            <div class="form-wizard-header">
+              <ul class="list-unstyled form-wizard-steps clearfix">
+                <li class="active"><span>1</span></li>
+                <li><span>2</span></li>
+                <li><span>3</span></li>
+                <li><span>4</span></li>
+                <li><span>5</span></li>
+                <li><span>6</span></li>
+                <li><span>7</span></li>
+                <li><span>8</span></li>
+                <li><span>9</span></li>
+                <li><span>10</span></li>
+                <li><span>11</span></li>
+                <li><span>12</span></li>
+                <li><span>13</span></li>
+              </ul>
+            </div>
+            <fieldset class="wizard-fieldset show">
+              <h5>PT 목적이 무엇인가요?</h5>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="fname">
+                <label for="fname" class="wizard-form-text-label">First Name*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="lname">
+                <label for="lname" class="wizard-form-text-label">Last Name*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group">
+                Gender
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio1" type="radio">
+                  <label for="radio1">Male</label>
+                </div>
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="zcode">
+                <label for="zcode" class="wizard-form-text-label">Zip Code*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group clearfix">
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+              </div>
+            </fieldset> 
+            <fieldset class="wizard-fieldset">
+              <h5>Account Information</h5>
+              <div class="form-group">
+                <input type="email" class="form-control wizard-required" id="email">
+                <label for="email" class="wizard-form-text-label">Email*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="username">
+                <label for="username" class="wizard-form-text-label">User Name*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control wizard-required" id="pwd">
+                <label for="pwd" class="wizard-form-text-label">Password*</label>
+                <div class="wizard-form-error"></div>
+                <span class="wizard-password-eye"><i class="far fa-eye"></i></span>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control wizard-required" id="cpwd">
+                <label for="cpwd" class="wizard-form-text-label">Confirm Password*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group clearfix">
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+              </div>
+            </fieldset> 
+            <fieldset class="wizard-fieldset">
+              <h5>Bank Information</h5>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="bname">
+                <label for="bname" class="wizard-form-text-label">Bank Name*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="brname">
+                <label for="brname" class="wizard-form-text-label">Branch Name*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="acname">
+                <label for="acname" class="wizard-form-text-label">Account Name*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="acon">
+                <label for="acon" class="wizard-form-text-label">Account Number*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="form-group clearfix">
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+              </div>
+            </fieldset> 
+            <fieldset class="wizard-fieldset">
+              <h5>Payment Information</h5>
+              <div class="form-group">
+                Payment Type
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="mastercard" type="radio">
+                  <label for="mastercard">Master Card</label>
+                </div>
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="visacard" type="radio">
+                  <label for="visacard">Visa Card</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control wizard-required" id="honame">
+                <label for="honame" class="wizard-form-text-label">Holder Name*</label>
+                <div class="wizard-form-error"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control wizard-required" id="cardname">
+                    <label for="cardname" class="wizard-form-text-label">Card Number*</label>
+                    <div class="wizard-form-error"></div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control wizard-required" id="cvc">
+                    <label for="cvc" class="wizard-form-text-label">CVC*</label>
+                    <div class="wizard-form-error"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">Expiry Date</div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option value="">Date</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                      <option value="">5</option>
+                      <option value="">6</option>
+                      <option value="">7</option>
+                      <option value="">8</option>
+                      <option value="">9</option>
+                      <option value="">10</option>
+                      <option value="">11</option>
+                      <option value="">12</option>
+                      <option value="">13</option>
+                      <option value="">14</option>
+                      <option value="">15</option>
+                      <option value="">16</option>
+                      <option value="">17</option>
+                      <option value="">18</option>
+                      <option value="">19</option>
+                      <option value="">20</option>
+                      <option value="">21</option>
+                      <option value="">22</option>
+                      <option value="">23</option>
+                      <option value="">24</option>
+                      <option value="">25</option>
+                      <option value="">26</option>
+                      <option value="">27</option>
+                      <option value="">28</option>
+                      <option value="">29</option>
+                      <option value="">30</option>
+                      <option value="">31</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option value="">Month</option>
+                      <option value="">jan</option>
+                      <option value="">Feb</option>
+                      <option value="">March</option>
+                      <option value="">April</option>
+                      <option value="">May</option>
+                      <option value="">June</option>
+                      <option value="">Jully</option>
+                      <option value="">August</option>
+                      <option value="">Sept</option>
+                      <option value="">Oct</option>
+                      <option value="">Nov</option>
+                      <option value="">Dec</option> 
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="form-group">
+                    <select class="form-control">
+                      <option value="">Years</option>
+                      <option value="">2019</option>
+                      <option value="">2020</option>
+                      <option value="">2021</option>
+                      <option value="">2022</option>
+                      <option value="">2023</option>
+                      <option value="">2024</option>
+                      <option value="">2025</option>
+                      <option value="">2026</option>
+                      <option value="">2027</option>
+                      <option value="">2028</option>
+                      <option value="">2029</option>
+                      <option value="">2030</option>
+                      <option value="">2031</option>
+                      <option value="">2032</option>
+                      <option value="">2033</option>
+                      <option value="">2034</option>
+                      <option value="">2035</option>
+                      <option value="">2036</option>
+                      <option value="">2037</option>
+                      <option value="">2038</option>
+                      <option value="">2039</option>
+                      <option value="">2040</option>  
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group clearfix">
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
+                <a href="javascript:;" class="form-wizard-submit float-right">Submit</a>
+              </div>
+            </fieldset> 
+          </form>
+ 
+</section>
+  </div>
+</section>  
   
   
   

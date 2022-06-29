@@ -243,7 +243,7 @@ section .section-title {
     background-size: cover;
     background-position: 50% 50%;
     position: relative;
-    height: 28.125rem;
+    height: 20rem;
     z-index: 1;
 } 
 
@@ -260,6 +260,8 @@ section .section-title {
 
 .card-title {
 	font-size: 16px;
+	margin: 16px;
+	text-align: center;
 }
 
 .card-img {
