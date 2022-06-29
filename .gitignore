@@ -11,5 +11,5 @@ temp/
 bin/*.txt
 doc/**/*.pdf
 /src/main/webapp/WEB-INF/config/database.properties
-/src/main/webapp/WEB-INF/config/
+
 
