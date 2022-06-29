@@ -25,8 +25,7 @@ public class MemberController {
 	@Inject
 	private MemberService memberService;
 	
-	@Autowired
-	private MemberService ms;
+
 	
 	
 	@RequestMapping(value = "/member/insert", method = RequestMethod.GET)
@@ -54,6 +53,7 @@ public class MemberController {
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
 			session.setAttribute("id",memberDTO.getId());
+			session.setAttribute("email", memberDTO.getEmail());
 		}else {
 			return "member/msg";
 		}
@@ -65,10 +65,10 @@ public class MemberController {
 System.out.println("#########" + code);
         
 		// 위에서 만든 코드 아래에 코드 추가
-		String access_Token = ms.getAccessToken(code);
+		String access_Token = memberService.getAccessToken(code);
 	
         
-		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
+		HashMap<String, Object> userInfo = memberService.getUserInfo(access_Token);
 		System.out.println("###access_Token#### : " + access_Token);
 		System.out.println("###nickname#### : " + userInfo.get("nickname"));
 		System.out.println("###email#### : " + userInfo.get("email"));
@@ -83,7 +83,7 @@ System.out.println("#########" + code);
 		return "redirect:/member/login";
 		
 	}
-	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
+	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
@@ -91,7 +91,7 @@ System.out.println("#########" + code);
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		
-		return "mypage/info";
+		return "member/info";
 	}
 	
 	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)

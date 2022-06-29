@@ -31,4 +31,10 @@ public class ProController {
         proService.insertPro(proDTO);
         return "redirect:/pro/login";
     }
+    
+    @RequestMapping(value = "/pro/info", method = RequestMethod.GET)
+    public String info(ProDTO proDTO) {
+        
+        return "pro/info";
+    }
 }
