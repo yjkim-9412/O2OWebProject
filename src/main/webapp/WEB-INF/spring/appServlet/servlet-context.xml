@@ -27,15 +27,20 @@
 	<context:component-scan base-package="com.itwillbs.service" />
 	<context:component-scan base-package="com.itwillbs.dao" />
 
+
+	<beans:bean id="myHandler" class="com.itwillbs.controller.ChatController"/>
 	<websocket:handlers>
 
-		<websocket:mapping path="/resources/echo" handler="myHandler"/>
-		<websocket:sockjs />
+		<websocket:mapping path="/chat" handler="myHandler"/>
+		<websocket:handshake-interceptors>
+			<beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+
+		</websocket:handshake-interceptors>
 	</websocket:handlers>
 
 
 
-	<beans:bean id="myHandler" class="com.itwillbs.controller.ChatController"/>
+
 
 
 
