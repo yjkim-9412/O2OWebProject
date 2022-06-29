@@ -29,8 +29,8 @@
 
 	<websocket:handlers>
 
-		<websocket:mapping path="/resources/echo.do" handler="myHandler"/>
-
+		<websocket:mapping path="/resources/echo" handler="myHandler"/>
+		<websocket:sockjs />
 	</websocket:handlers>
 
 
@@ -39,11 +39,4 @@
 
 
 
-
-
-
-
-
-	
-	
 </beans:beans>

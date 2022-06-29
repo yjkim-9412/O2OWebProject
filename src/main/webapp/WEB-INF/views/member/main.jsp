@@ -16,8 +16,8 @@
 // 	response.sendRedirect("loginForm.jsp");
 // }
 %>
-<c:if test="${! empty sessionScope.email }">
-	${sessionScope.email}님 환영합니다!
+<c:if test="${! empty sessionScope.id }">
+	${memberDTO.email}님 환영합니다!
 </c:if>
 
 <c:if test="${! empty ka_email }">

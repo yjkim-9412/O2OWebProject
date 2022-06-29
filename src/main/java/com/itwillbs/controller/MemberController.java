@@ -59,21 +59,24 @@ public class MemberController {
 		return "redirect:/member/main";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
-	public String main(@RequestParam(value = "code", required = false) String code,Model m) {
+	public String main(@RequestParam(value = "code", required = false) String code,Model m,HttpSession session) {
 		
 System.out.println("#########" + code);
-        
+		int id = (Integer)session.getAttribute("id");
+		System.out.println(id + " 불러오기 완료");
+		MemberDTO memberDTO = memberService.getMember(id);
+		m.addAttribute("memberDTO", memberDTO);
 		// 위에서 만든 코드 아래에 코드 추가
-		String access_Token = ms.getAccessToken(code);
+//		String access_Token = ms.getAccessToken(code);
 	
         
-		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
-		System.out.println("###access_Token#### : " + access_Token);
-		System.out.println("###nickname#### : " + userInfo.get("nickname"));
-		System.out.println("###email#### : " + userInfo.get("email"));
-		System.out.println("###profile_image#### : " + userInfo.get("profile_image"));
-		m.addAttribute("ka_email", userInfo.get("email"));
-		m.addAttribute("ka_img", userInfo.get("profile_image"));
+//		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
+//		System.out.println("###access_Token#### : " + access_Token);
+//		System.out.println("###nickname#### : " + userInfo.get("nickname"));
+//		System.out.println("###email#### : " + userInfo.get("email"));
+//		System.out.println("###profile_image#### : " + userInfo.get("profile_image"));
+//		m.addAttribute("ka_email", userInfo.get("email"));
+//		m.addAttribute("ka_img", userInfo.get("profile_image"));
 		return "member/main";
 	}
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
