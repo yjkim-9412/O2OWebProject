@@ -185,6 +185,9 @@ body {
   display: inline-block;
   margin-left: 5px;
   position: relative;
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
 }
 .form-wizard .wizard-form-radio input[type="radio"] {
   -webkit-appearance: none;
@@ -193,8 +196,8 @@ body {
   -o-appearance: none;
   appearance: none;
   background-color: #dddddd;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
@@ -248,6 +251,8 @@ body {
   min-width: 120px;
   padding: 10px;
   text-align: center;
+  margin: 40px;
+  margin-right: 0px;
 }
 .form-wizard .form-wizard-next-btn:hover, .form-wizard .form-wizard-next-btn:focus, .form-wizard .form-wizard-previous-btn:hover, .form-wizard .form-wizard-previous-btn:focus, .form-wizard .form-wizard-submit:hover, .form-wizard .form-wizard-submit:focus {
   color: #ffffff;
@@ -286,7 +291,8 @@ body {
 }
 .form-wizard .form-group {
   position: relative;
-  margin: 25px 0;
+  padding: 20px;
+  border: 0.0625rem solid #f2f2f2;
 }
 .form-wizard .wizard-form-text-label {
   position: absolute;
@@ -304,7 +310,7 @@ body {
   margin: 30px 0;
 }
 .form-wizard .form-wizard-steps li {
-  width: 7%;
+  width: 10%;			/*숫자 사이 간격 조절*/
   float: left;
   position: relative;
 }
@@ -325,11 +331,11 @@ body {
   background-color: #dddddd;
   border-radius: 50%;
   display: inline-block;
-  height: 40px;
-  line-height: 40px;
+  height: 30px;
+  line-height: 30px;
   position: relative;
   text-align: center;
-  width: 40px;
+  width: 30px;
   z-index: 1;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
@@ -380,14 +386,16 @@ body {
   }
 }
 
+h5 {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 70px;
+	color: black;
+	font-size: 25px;
+	font-weight: 600;
+}
 
-
-
-
-
-
-
-
+/* wizard form 끝 */
 
 .title {
 	margin: 50px;
@@ -406,12 +414,6 @@ a {
 }
 
 </style>
-  
-<script type="text/javascript">
-function lbFunc() {
-	  document.getElementById( 'lb' ).value = '80';
-	}
-</script>
   
 </head>
 <body>
@@ -467,9 +469,9 @@ function lbFunc() {
     <div class="title">
     	<h2>레슨 / 개인 PT</h2>
     </div>
-<section class="wizard-section" style="width: 800px; height:800px; margin: 0 auto;">
+<section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="" method="post" role="form">
+          <form action="#" method="post" role="form">
             <div class="form-wizard-header">
               <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
@@ -482,65 +484,73 @@ function lbFunc() {
                 <li><span>8</span></li>
                 <li><span>9</span></li>
                 <li><span>10</span></li>
-                <li><span>11</span></li>
-                <li><span>12</span></li>
-                <li><span>13</span></li>
               </ul>
             </div>
             <fieldset class="wizard-fieldset show">
               <h5>PT 목적이 무엇인가요?</h5>
               <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="fname">
-                <label for="fname" class="wizard-form-text-label">First Name*</label>
-                <div class="wizard-form-error"></div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="lname">
-                <label for="lname" class="wizard-form-text-label">Last Name*</label>
-                <div class="wizard-form-error"></div>
-              </div>
-              <div class="form-group">
-                Gender
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
                   <label for="radio2">Female</label>
                 </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="zcode">
-                <label for="zcode" class="wizard-form-text-label">Zip Code*</label>
-                <div class="wizard-form-error"></div>
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
               </div>
-              <div class="form-group clearfix">
+              <div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio1" type="radio">
+                  <label for="radio1">Male</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
+              </div>
+				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
+              </div>
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-              </div>
             </fieldset> 
             <fieldset class="wizard-fieldset">
-              <h5>Account Information</h5>
+              <h5>PT 목적이 무엇인가요?</h5>
               <div class="form-group">
-                <input type="email" class="form-control wizard-required" id="email">
-                <label for="email" class="wizard-form-text-label">Email*</label>
-                <div class="wizard-form-error"></div>
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="username">
-                <label for="username" class="wizard-form-text-label">User Name*</label>
-                <div class="wizard-form-error"></div>
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
               </div>
               <div class="form-group">
-                <input type="password" class="form-control wizard-required" id="pwd">
-                <label for="pwd" class="wizard-form-text-label">Password*</label>
-                <div class="wizard-form-error"></div>
-                <span class="wizard-password-eye"><i class="far fa-eye"></i></span>
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio1" type="radio">
+                  <label for="radio1">Male</label>
+                </div>
               </div>
               <div class="form-group">
-                <input type="password" class="form-control wizard-required" id="cpwd">
-                <label for="cpwd" class="wizard-form-text-label">Confirm Password*</label>
-                <div class="wizard-form-error"></div>
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
+              </div>
+				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">Female</label>
+                </div>
               </div>
               <div class="form-group clearfix">
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
@@ -703,7 +713,7 @@ function lbFunc() {
               </div>
             </fieldset> 
           </form>
- 
+ 	</div>
 </section>
   </div>
 </section>  
