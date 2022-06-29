@@ -29,7 +29,7 @@
 
 
 <a href="<%=request.getContextPath() %>/member/logout">로그아웃</a><br>
-<a href="<%=request.getContextPath() %>/member/info">회원정보조회</a><br>
+<a href="<%=request.getContextPath() %>/mypage/info">회원정보조회</a><br>
 <a href="<%=request.getContextPath() %>/member/update">회원정보수정</a><br>
 <a href="<%=request.getContextPath() %>/member/delete">회원정보삭제</a><br>
 <%
