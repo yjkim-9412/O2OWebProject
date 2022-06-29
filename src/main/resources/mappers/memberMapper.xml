@@ -16,6 +16,9 @@
 	<select id="getMember" resultType="com.itwillbs.domain.MemberDTO">
 		select * from ACCOUNTS where id=#{id}
 	</select>
+	
+
+
 
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->
