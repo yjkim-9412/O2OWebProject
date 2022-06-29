@@ -30,6 +30,16 @@ body#insertForm{  background-repeat:no-repeat; background-position:center; backg
   height: 50px;
   line-height: 50px;
 }
+
+#img1 {
+  position : absolute;
+  width: 17px;
+  top: 10px;
+  
+  margin: 0;
+}
+
+
 .main-div {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 2px;
@@ -47,7 +57,7 @@ body#insertForm{  background-repeat:no-repeat; background-position:center; backg
   font-size: 14px;
   text-decoration: underline;
 }
-.insert-form  .btn.btn-primary {
+.insert-form  .btn.btn-primary  {
   background: #f0ad4e none repeat scroll 0 0;
   border-color: #f0ad4e;
   color: #ffffff;
@@ -64,11 +74,23 @@ body#insertForm{  background-repeat:no-repeat; background-position:center; backg
   font-size: 14px;
   margin: auto;
 }
-.insert-form .btn.btn-primary.reset {
+.insert-form .btn.btn-primary.reset  {
   background: #ff9900 none repeat scroll 0 0;
 }
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+.kaimg {
+
+ width: 100%;
+  height: 50px;
+  
+  padding: 0px 0px 0px 0px;
+font-size: 14px;
+
+	
+}
+
 
 
 </style>
@@ -77,39 +99,7 @@ body#insertForm{  background-repeat:no-repeat; background-position:center; backg
 
 <body id="insertForm">
 
-<header>
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
-        <a href="#" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
 
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse" id="navbarContent">
-           
-           <!--search바  -->
-           <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?">
-              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-            </div>
-            
-          <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-primary ml-lg-2" href="#">회원가입</a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
 <div class="container">
 
 <div class="insert-form">
@@ -224,11 +214,14 @@ $(document).ready(function(){
 </div>
 
 <input type="submit" class="btn btn-primary " value="회원가입"> <br>
-
+	<br>
+	
+	
 		<!-- 카카오 로그인 -->
-	<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=b28c257d1c3a9f7b60f4ede210556e5a&redirect_uri=http://localhost:8080/myweb2/member/main&response_type=code">	
-		<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png">
+	<a href="https://kauth.kakao.com/oauth/authorize?client_id=b28c257d1c3a9f7b60f4ede210556e5a&redirect_uri=http://localhost:8080/myweb2/member/main&response_type=code">	
+		<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png" id="kaimg" class="kaimg">
 	</a>
+	
 
 </form>
 </div>
