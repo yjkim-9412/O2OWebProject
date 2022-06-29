@@ -226,6 +226,18 @@ System.out.println("#########" + code);
 		
 	}
 	
+	@RequestMapping(value = "/member/estimates", method = RequestMethod.GET)
+	public String estimates(HttpSession session, Model model) {
+		int id = (Integer)session.getAttribute("id");
+		
+		
+		MemberDTO memberDTO = memberService.getMember(id);
+		model.addAttribute("memberDTO", memberDTO);
+		
+		return "member/estimates";
+		
+	}
+	
 	
 	
 
