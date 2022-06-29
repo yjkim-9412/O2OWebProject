@@ -190,7 +190,7 @@
 			<version>4.11</version>
 			<scope>compile</scope>
 		</dependency>
-		<!-- Jasypt -->
+		<!-- Jasypt  -->
 		<dependency>
 			<groupId>org.jasypt</groupId>
 			<artifactId>jasypt-spring31</artifactId>
