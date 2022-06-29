@@ -593,6 +593,185 @@ main{
     height: 14px !important;
 }
 
+/* 챗봇 */
+
+.title1{
+  margin:auto;
+  font-size:x-large;
+  font-family: Raleway, sans-serif;
+  color:#FFCD4A;
+  
+}
+@media (min-width: 450px) {
+      .main-card {
+        width: 96%;
+        max-width: 400px;
+        height: calc(100% - 32px) !important;
+        border-radius: 8px !important;
+        max-height: 600px;
+      margin: 16px!important;
+      }
+    }
+
+    .collapsed {
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: 24px !important;
+      margin: 16px!important;
+    }
+
+    .main-card {
+      background: white;
+      color: white;
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      border-radius: 0px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      right: 0;
+      bottom: 0;
+      position: fixed;
+      transition: all 0.5s;
+      box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+#chatbot_toggle {
+  position: absolute;
+  margin: auto !important;
+  flex:0 0 auto;
+  cursor:pointer;
+  z-index:1100;
+  opacity: 1;
+  border: none;
+  height: 48px;
+  width: 48px;
+  background: #FFCD4A;
+  padding: 14px;
+  color:white;
+  
+}
+#chatbot_toggle:hover {
+  background: #7d56a5;
+ 
+}
+.line {
+  height: 1px;
+  background-color: rebeccapurple;
+  width: 100%;
+  opacity: 0.2;
+}
+.main-title {
+  background-color: #FFCD4A;
+  font-size: large;
+  font-weight: bold;
+  display: flex;
+  height: 48px;
+  
+}
+.main-title>div{
+  height:48px;
+  width:48px;
+  display:flex;
+  margin-left:8px;
+}
+.main-title svg {
+  height: 24px;
+  margin: auto;
+}
+.main-title > span {
+  margin: auto auto auto 8px;
+}
+.chat-area {
+  flex-grow: 1;
+  overflow: auto;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.input-message {
+  padding: 8px 48px 8px 16px;
+  flex-grow: 1;
+  border: none;
+}
+.input-message:focus {
+  outline: none;
+}
+.input-div {
+  height: 48px;
+  display: flex;
+}
+
+.input-send {
+  background: transparent;
+  width: 48px;
+  height: 48px;
+  right: 0%;
+  border: none;
+  cursor: pointer;
+}
+.input-send:hover {
+  background: lavender;
+}
+.input-send svg {
+  fill: rebeccapurple;
+  margin: 11px 8px;
+}
+.chat-message-div {
+  display: flex;
+}
+
+.chat-message-sent {
+  background-color: white;
+  margin: 8px 16px 8px 64px;
+  padding: 8px 16px;
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 100ms;
+  color: black;
+  border-radius: 8px 8px 2px 8px;
+  background-color: lavender;
+}
+
+.chat-message-received {
+  background-color: white;
+  margin: 8px 64px 8px 16px;
+  padding: 8px 16px;
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 100ms;
+  color: black;
+  border-radius: 8px 8px 8px 2px;
+  background-color: lavender;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 </style> 
  
@@ -604,9 +783,6 @@ main{
  
 </head>
 <body>
-
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
 
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
@@ -940,6 +1116,8 @@ main{
       </div>
     </div>
   </div>
+  
+
 <!-- 푸터 -->
 
   <footer class="page-footer bg-image" style="background-image: url(resources/img/footer1.jpg);">
@@ -993,6 +1171,40 @@ main{
       <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
     </div>
   </footer>
+   <!-- 챗봇 -->
+<div class="title1">
+ 
+  
+
+<div id="chatbot" class="main-card collapsed">
+  <button id="chatbot_toggle">
+    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+</svg>
+  </button>
+  <div class="main-title">
+    <div>
+      <svg viewBox="0 0 640 512" title="robot">
+        <path fill="currentColor" d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z" />
+      </svg>
+    </div>
+    <span>Chatbot</span>
+
+  </div>
+  <div class="chat-area" id="message-box">
+  </div>
+  <div class="line"></div>
+  <div class="input-div">
+    <input class="input-message" name="message" type="text" id="message" placeholder="Type your message ..." />
+    <button class="input-send" onclick="send()">
+      <svg style="width:24px;height:24px">
+        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+      </svg>
+    </button>
+  </div>
+</div>
+</div>
+<!-- 챗봇끝 --> 
 
 <script src="resources/js/jquery-3.5.1.min.js"></script>
 
@@ -1178,6 +1390,62 @@ $( document ).ready( function() {
 	        return false;
 	    });
 	});
+	
+// 	챗봇
+var running = false;
+function send() {
+  if (running == true) return;
+  var msg = document.getElementById("message").value;
+  if (msg == "") return;
+  running = true;
+  addMsg(msg);
+  //DELEAY MESSAGE RESPOSE Echo
+  window.setTimeout(addResponseMsg, 1000, msg);
+}
+function addMsg(msg) {
+  var div = document.createElement("div");
+  div.innerHTML =
+    "<span style='flex-grow:1'></span><div class='chat-message-sent'>" +
+    msg +
+    "</div>";
+  div.className = "chat-message-div";
+  document.getElementById("message-box").appendChild(div);
+  //SEND MESSAGE TO API
+  document.getElementById("message").value = "";
+  document.getElementById("message-box").scrollTop = document.getElementById(
+    "message-box"
+  ).scrollHeight;
+}
+function addResponseMsg(msg) {
+  var div = document.createElement("div");
+  div.innerHTML = "<div class='chat-message-received'>" + msg + "</div>";
+  div.className = "chat-message-div";
+  document.getElementById("message-box").appendChild(div);
+  document.getElementById("message-box").scrollTop = document.getElementById(
+    "message-box"
+  ).scrollHeight;
+  running = false;
+}
+document.getElementById("message").addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    send();
+  }
+});
+ document.getElementById("chatbot_toggle").onclick = function () {
+    if (document.getElementById("chatbot").classList.contains("collapsed")) {
+      document.getElementById("chatbot").classList.remove("collapsed")
+      document.getElementById("chatbot_toggle").children[0].style.display = "none"
+      document.getElementById("chatbot_toggle").children[1].style.display = ""
+      setTimeout(addResponseMsg,1000,"Hi")
+    }
+    else {
+      document.getElementById("chatbot").classList.add("collapsed")
+      document.getElementById("chatbot_toggle").children[0].style.display = ""
+      document.getElementById("chatbot_toggle").children[1].style.display = "none"
+    }
+  }
+
 </script>
 
 
