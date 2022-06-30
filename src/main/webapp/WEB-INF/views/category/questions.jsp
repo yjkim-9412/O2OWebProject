@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -210,7 +211,7 @@ body {
   outline: 0;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked {
-  background-color: #fb1647;
+  background-color: #FFCD4A;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::before {
   content: "";
@@ -220,10 +221,10 @@ body {
   display: inline-block;
   background-color: #ffffff;
   border-radius: 50%;
-  left: 1px;
+  left: 0.8px;
   right: 0;
   margin: 0 auto;
-  top: 8px;
+  top: 4px;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::after {
   content: "";
@@ -311,11 +312,13 @@ body {
 }
 .form-wizard .form-wizard-steps {
   margin: 30px 0;
+  
 }
 .form-wizard .form-wizard-steps li {
-  width: 10%;			/*숫자 사이 간격 조절*/
+  width: 13%;			/*숫자 사이 간격 조절*/
   float: left;
   position: relative;
+  
 }
 .form-wizard .form-wizard-steps li::after {
   content: "";
@@ -356,7 +359,7 @@ body {
 }
 .form-wizard .form-wizard-steps li.activated::after {
   width: 100%;
-  border-color: #FFCD4A;
+  border-color: #f3f3f3;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
   left: 0;
@@ -414,6 +417,11 @@ h5 {
 
 a {
 	text-decoration: none;
+}
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+body{
+    padding:5%;
 }
 
 </style>
@@ -476,263 +484,43 @@ a {
 <div class="form-wizard">
           <form action="#" method="post" role="form">
             <div class="form-wizard-header">
-              <ul class="list-unstyled form-wizard-steps clearfix">
+             <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
-                <li><span>2</span></li>
-                <li><span>3</span></li>
-                <li><span>4</span></li>
-                <li><span>5</span></li>
-                <li><span>6</span></li>
-                <li><span>7</span></li>
-                <li><span>8</span></li>
-                <li><span>9</span></li>
-                <li><span>10</span></li>
-              </ul>
+             <c:forEach var="i" begin="2" end="${questions.size()}" step="1">
+             	<li><span>${i }</span></li>
+             </c:forEach>
+             </ul>
             </div>
+            
+            
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0) }</h5>
-              <div class="form-group">
+   			<c:forEach var="i" begin="0" end="3" step="1">
+   				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
                   <label for="radio2">Female</label>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
+   			</c:forEach>           
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
             </fieldset> 
-            <fieldset class="wizard-fieldset">
-              <h5>${questions.get(1) }</h5>
-              <div class="form-group">
+            
+       <c:forEach var="i" begin="1" end="${questions.size() - 1 }" step="1">
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(i) }</h5>
+   			<c:forEach var="i" begin="0" end="3" step="1">
+   				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
                   <label for="radio2">Female</label>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
+   			</c:forEach>           
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
             </fieldset> 
-            <fieldset class="wizard-fieldset">
-              <h5>${questions.get(2) }</h5>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-            </fieldset> 
-            <fieldset class="wizard-fieldset">
-              <h5>${questions.get(3) }</h5>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-            </fieldset>
-            <fieldset class="wizard-fieldset">
-              <h5>${questions.get(4) }</h5>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-            </fieldset> 
-            <fieldset class="wizard-fieldset">
-              <h5>${questions.get(5) }</h5>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-            </fieldset>  
-            <fieldset class="wizard-fieldset">
-              <h5>${questions.get(6) }</h5>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Submit</a>
-            </fieldset> 
+       </c:forEach>
           </form>
  	</div>
 </section>

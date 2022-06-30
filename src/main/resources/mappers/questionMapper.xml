@@ -6,4 +6,9 @@
 	<select id="getQuestions" resultType="String">
 		select contents from QUESTIONS where services_id=#{services_id};
 	</select>
+	
+	<select id="getQuestions_id" resultType="Integer">
+		select id from QUESTIONS where services_id=#{services_id};
+	</select>
+
 </mapper>

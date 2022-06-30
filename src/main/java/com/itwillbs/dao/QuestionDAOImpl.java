@@ -18,8 +18,17 @@ public class QuestionDAOImpl implements QuestionDAO{
 
 	@Override
 	public List<String> getQuestions(int services_id) {
+		
 		return sqlSession.selectList(namespace+".getQuestions", services_id);
 	}
+
+	@Override
+	public List<Integer> getQuestions_id(int services_id) {
+		
+		return sqlSession.selectList(namespace+".getQuestions_id", services_id);
+	}
+	
+	
 	
 	
 }

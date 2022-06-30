@@ -16,7 +16,16 @@ public class QuestionServiceImpl implements QuestionService{
 	
 	@Override
 	public List<String> getQuestions(int services_id) {
+		
 		return questionDAO.getQuestions(services_id);
 	}
+
+	@Override
+	public List<Integer> getQuestions_id(int services_id) {
+		
+		return questionDAO.getQuestions_id(services_id);
+	}
+	
+	
 
 }

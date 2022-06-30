@@ -24,16 +24,27 @@ public class QuestionController {
 		return "category/lesson";
 	}
 	
-	@RequestMapping(value = "/category/estimates", method = RequestMethod.GET)
+	@RequestMapping(value = "/category/questions", method = RequestMethod.GET)
 	public String estimates(Integer services_id1, Model model) {
 		int services_id = services_id1.intValue();
 		
 		List<String> questions = questionService.getQuestions(services_id);
+		List<Integer> questions_id = questionService.getQuestions_id(services_id);
+		System.out.println(questions);
+		System.out.println(questions_id);
+		
+		for(int i = 0; i < questions_id.size(); i++) {
+			
+			
+		}
+		
+		
 		
 		model.addAttribute("questions", questions);
+		
 
 		
-		return "category/estimates";
+		return "category/questions";
 		
 	}
 	
