@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -180,6 +181,8 @@ body {
 .form-wizard {
   color: #888888;
   padding: 30px;
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
 }
 .form-wizard .wizard-form-radio {
   display: inline-block;
@@ -208,7 +211,7 @@ body {
   outline: 0;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked {
-  background-color: #fb1647;
+  background-color: #FFCD4A;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::before {
   content: "";
@@ -218,10 +221,10 @@ body {
   display: inline-block;
   background-color: #ffffff;
   border-radius: 50%;
-  left: 1px;
+  left: 0.8px;
   right: 0;
   margin: 0 auto;
-  top: 8px;
+  top: 4px;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::after {
   content: "";
@@ -244,7 +247,7 @@ body {
   text-align: center;
 }
 .form-wizard .form-wizard-next-btn, .form-wizard .form-wizard-previous-btn, .form-wizard .form-wizard-submit {
-  background-color: #d65470;
+  background-color: #FFCD4A;
   color: #ffffff;
   display: inline-block;
   min-width: 100px;
@@ -253,6 +256,7 @@ body {
   text-align: center;
   margin: 40px;
   margin-right: 0px;
+  margin-left: 0px;
 }
 .form-wizard .form-wizard-next-btn:hover, .form-wizard .form-wizard-next-btn:focus, .form-wizard .form-wizard-previous-btn:hover, .form-wizard .form-wizard-previous-btn:focus, .form-wizard .form-wizard-submit:hover, .form-wizard .form-wizard-submit:focus {
   color: #ffffff;
@@ -276,7 +280,7 @@ body {
   width: 100%;
 }
 .form-wizard .form-wizard-previous-btn {
-  background-color: #fb1647;
+  background-color: #FFCD4A;
 }
 .form-wizard .form-control {
   font-weight: 300;
@@ -308,11 +312,13 @@ body {
 }
 .form-wizard .form-wizard-steps {
   margin: 30px 0;
+  
 }
 .form-wizard .form-wizard-steps li {
-  width: 10%;			/*숫자 사이 간격 조절*/
+  width: 13%;			/*숫자 사이 간격 조절*/
   float: left;
   position: relative;
+  
 }
 .form-wizard .form-wizard-steps li::after {
   content: "";
@@ -324,8 +330,8 @@ body {
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  border-bottom: 1px solid #ce687e;
-  border-top: 1px solid #ce687e;
+  border-bottom: 1px solid #f3f3f3; /* 줄 색깔 */
+  border-top: 1px solid #f3f3f3;
 }
 .form-wizard .form-wizard-steps li span {
   background-color: #dddddd;
@@ -342,18 +348,18 @@ body {
   width: 50%;
 }
 .form-wizard .form-wizard-steps li.active span, .form-wizard .form-wizard-steps li.activated span {
-  background-color: #d65470;
+  background-color: #FFCD4A;
   color: #ffffff;
 }
 .form-wizard .form-wizard-steps li.active::after, .form-wizard .form-wizard-steps li.activated::after {
-  background-color: #ce687e;
+  background-color: #FFCD4A;
   left: 70%;
   width: 70%;
-  border-color: #ce687e;
+  border-color: #FFCD4A;
 }
 .form-wizard .form-wizard-steps li.activated::after {
   width: 100%;
-  border-color: #d65470;
+  border-color: #f3f3f3;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
   left: 0;
@@ -473,245 +479,43 @@ a {
 <div class="form-wizard">
           <form action="#" method="post" role="form">
             <div class="form-wizard-header">
-              <ul class="list-unstyled form-wizard-steps clearfix">
+             <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
-                <li><span>2</span></li>
-                <li><span>3</span></li>
-                <li><span>4</span></li>
-                <li><span>5</span></li>
-                <li><span>6</span></li>
-                <li><span>7</span></li>
-                <li><span>8</span></li>
-                <li><span>9</span></li>
-                <li><span>10</span></li>
-              </ul>
+             <c:forEach var="i" begin="2" end="${questions.size()}" step="1">
+             	<li><span>${i }</span></li>
+             </c:forEach>
+             </ul>
             </div>
+            
+            
             <fieldset class="wizard-fieldset show">
-              <h5>PT 목적이 무엇인가요?</h5>
-              <div class="form-group">
+              <h5>${questions.get(0) }</h5>
+   			<c:forEach var="i" begin="0" end="3" step="1">
+   				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
                   <label for="radio2">Female</label>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
+   			</c:forEach>           
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
             </fieldset> 
-            <fieldset class="wizard-fieldset">
-              <h5>PT 목적이 무엇인가요?</h5>
-              <div class="form-group">
+            
+       <c:forEach var="i" begin="1" end="${questions.size() - 1 }" step="1">
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(i) }</h5>
+   			<c:forEach var="i" begin="0" end="3" step="1">
+   				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
                   <label for="radio2">Female</label>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio1" type="radio">
-                  <label for="radio1">Male</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
-                </div>
-              </div>
-              <div class="form-group clearfix">
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
+   			</c:forEach>           
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-              </div>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
             </fieldset> 
-            <fieldset class="wizard-fieldset">
-              <h5>Bank Information</h5>
-              <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="bname">
-                <label for="bname" class="wizard-form-text-label">Bank Name*</label>
-                <div class="wizard-form-error"></div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="brname">
-                <label for="brname" class="wizard-form-text-label">Branch Name*</label>
-                <div class="wizard-form-error"></div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="acname">
-                <label for="acname" class="wizard-form-text-label">Account Name*</label>
-                <div class="wizard-form-error"></div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="acon">
-                <label for="acon" class="wizard-form-text-label">Account Number*</label>
-                <div class="wizard-form-error"></div>
-              </div>
-              <div class="form-group clearfix">
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-              </div>
-            </fieldset> 
-            <fieldset class="wizard-fieldset">
-              <h5>Payment Information</h5>
-              <div class="form-group">
-                Payment Type
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="mastercard" type="radio">
-                  <label for="mastercard">Master Card</label>
-                </div>
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="visacard" type="radio">
-                  <label for="visacard">Visa Card</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control wizard-required" id="honame">
-                <label for="honame" class="wizard-form-text-label">Holder Name*</label>
-                <div class="wizard-form-error"></div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control wizard-required" id="cardname">
-                    <label for="cardname" class="wizard-form-text-label">Card Number*</label>
-                    <div class="wizard-form-error"></div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                  <div class="form-group">
-                    <input type="text" class="form-control wizard-required" id="cvc">
-                    <label for="cvc" class="wizard-form-text-label">CVC*</label>
-                    <div class="wizard-form-error"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">Expiry Date</div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option value="">Date</option>
-                      <option value="">1</option>
-                      <option value="">2</option>
-                      <option value="">3</option>
-                      <option value="">4</option>
-                      <option value="">5</option>
-                      <option value="">6</option>
-                      <option value="">7</option>
-                      <option value="">8</option>
-                      <option value="">9</option>
-                      <option value="">10</option>
-                      <option value="">11</option>
-                      <option value="">12</option>
-                      <option value="">13</option>
-                      <option value="">14</option>
-                      <option value="">15</option>
-                      <option value="">16</option>
-                      <option value="">17</option>
-                      <option value="">18</option>
-                      <option value="">19</option>
-                      <option value="">20</option>
-                      <option value="">21</option>
-                      <option value="">22</option>
-                      <option value="">23</option>
-                      <option value="">24</option>
-                      <option value="">25</option>
-                      <option value="">26</option>
-                      <option value="">27</option>
-                      <option value="">28</option>
-                      <option value="">29</option>
-                      <option value="">30</option>
-                      <option value="">31</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option value="">Month</option>
-                      <option value="">jan</option>
-                      <option value="">Feb</option>
-                      <option value="">March</option>
-                      <option value="">April</option>
-                      <option value="">May</option>
-                      <option value="">June</option>
-                      <option value="">Jully</option>
-                      <option value="">August</option>
-                      <option value="">Sept</option>
-                      <option value="">Oct</option>
-                      <option value="">Nov</option>
-                      <option value="">Dec</option> 
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4">
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option value="">Years</option>
-                      <option value="">2019</option>
-                      <option value="">2020</option>
-                      <option value="">2021</option>
-                      <option value="">2022</option>
-                      <option value="">2023</option>
-                      <option value="">2024</option>
-                      <option value="">2025</option>
-                      <option value="">2026</option>
-                      <option value="">2027</option>
-                      <option value="">2028</option>
-                      <option value="">2029</option>
-                      <option value="">2030</option>
-                      <option value="">2031</option>
-                      <option value="">2032</option>
-                      <option value="">2033</option>
-                      <option value="">2034</option>
-                      <option value="">2035</option>
-                      <option value="">2036</option>
-                      <option value="">2037</option>
-                      <option value="">2038</option>
-                      <option value="">2039</option>
-                      <option value="">2040</option>  
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group clearfix">
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
-                <a href="javascript:;" class="form-wizard-submit float-right">Submit</a>
-              </div>
-            </fieldset> 
+       </c:forEach>
           </form>
  	</div>
 </section>

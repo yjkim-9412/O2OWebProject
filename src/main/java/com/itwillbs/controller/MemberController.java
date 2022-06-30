@@ -2,6 +2,7 @@
 package com.itwillbs.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -223,38 +224,7 @@ System.out.println("#########" + code);
 		model.addAttribute("memberDTO", memberDTO);
 		
 		return "mypage/request";
-		
 	}
-	
-	@RequestMapping(value = "/member/estimates", method = RequestMethod.GET)
-	public String estimates(HttpSession session, Model model) {
-		int id = (Integer)session.getAttribute("id");
-		
-		
-		MemberDTO memberDTO = memberService.getMember(id);
-		model.addAttribute("memberDTO", memberDTO);
-		
-		return "member/estimates";
-		
-	}
-	
-	@RequestMapping(value = "/category/lesson", method = RequestMethod.GET)
-	public String lesson(HttpSession session, Model model) {
-		int id = (Integer)session.getAttribute("id");
-		
-		
-		MemberDTO memberDTO = memberService.getMember(id);
-		model.addAttribute("memberDTO", memberDTO);
-		
-		return "category/lesson";
-		
-	}
-	
-	
-	
-	
-	
-
 
 }
 

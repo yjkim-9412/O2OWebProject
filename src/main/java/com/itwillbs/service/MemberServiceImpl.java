@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 

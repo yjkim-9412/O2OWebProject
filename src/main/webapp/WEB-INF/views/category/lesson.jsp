@@ -279,6 +279,14 @@ ul li {
 	color: inherit;
 }
 
+.categories {
+	font-size: 18px;
+}
+
+.frontside {
+	font-weight: 700;
+}
+
 
 
 </style>
@@ -387,7 +395,7 @@ ul li {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=1'">
                                 <div class="card-body">
                                 	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
@@ -404,7 +412,7 @@ ul li {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=2'">
                                 <div class="card-body">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
@@ -491,20 +499,41 @@ ul li {
 <!-- Team -->
   
 <section>
-<div class="container">
-	<h2 style="text-align: center; font-weight: bold; padding-bottom: 30px;">모든 서비스</h2>
-	<ul>
-	<li>
-		개인PT
-		<ul>
-		<li><a href="#" class="href">웨이트 트레이닝</a></li>
-		<li><a href="#" class="href">필라테스</a></li>
-		<li><a href="#" class="href">요가</a></li>
-		</ul>
-	</li>	
-	</ul>
-
-</div>
+<h2 style="text-align: center; margin: 50px; font-weight: bold;">모든 서비스</h2>
+    <div class="container" >
+      <div class="row mb-5">
+        <div class="col-lg-3 py-3" style="width: 450px;">
+          <ul class="footer-menu" id="categories">
+            <li><h4><b>개인PT</b></h4></li>
+            <li>웨이트 트레이닝</li>
+            <li>필라테스</li>
+            <li>요가</li>
+          </ul>
+          
+         
+        </div>
+        <div class="col-lg-3 py-3" style="width: 450px;">
+          <ul class="footer-menu" id="categories">
+          	 <li><h4><b>언어</b></h4></li>
+            <li>한국어</li>
+            <li>일본어</li>
+            <li>중국어</li>
+            <li>영어</li>
+   		</ul>
+        </div>
+        <div class="col-lg-3 py-3" style="width: 400px;">
+           <ul class="footer-menu" id="categories">
+          	 <li><h4><b>음악</b></h4></li>
+            <li>보컬</li>
+            <li>피아노</li>
+            <li>드럼</li>
+            <li>베이스</li>
+            <li>어쿠스틱기타</li>
+            <li>일렉기타</li>
+            </ul>
+        </div>
+      </div>
+    </div>
 </section>
   
   
