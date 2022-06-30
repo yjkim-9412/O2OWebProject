@@ -10,5 +10,7 @@
 	<select id="getQuestions_id" resultType="Integer">
 		select id from QUESTIONS where services_id=#{services_id};
 	</select>
+	
+	
 
 </mapper>
