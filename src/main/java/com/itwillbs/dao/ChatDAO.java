@@ -9,7 +9,7 @@ public interface ChatDAO {
     public void createRoom(ChatRoomDTO chatRoomDTO)throws Exception;
     public ChatRoomDTO isRoom(ChatRoomDTO chatRoomDTO)throws Exception;
     public void insertMessage(MessageDTO messageDTO)throws Exception;
-    public String getPartner(ChatRoomDTO chatRoomDTO)throws Exception;
+    //public String getPartner(ChatRoomDTO chatRoomDTO)throws Exception;
     public String getProfile(String str)throws Exception;
     public String getName(String str)throws Exception;
     public List<MessageDTO> getMessageList(String str)throws Exception;

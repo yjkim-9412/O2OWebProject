@@ -25,9 +25,9 @@
 	 
 	${ka_email}님 환영합니다!
 </c:if>
+<br>
 
-
-
+<a href="<%=request.getContextPath() %>/chatting?id=${memberDTO.email}">채팅</a><br>
 <a href="<%=request.getContextPath() %>/member/logout">로그아웃</a><br>
 <a href="<%=request.getContextPath() %>/member/info">회원정보조회</a><br>
 <a href="<%=request.getContextPath() %>/member/update">회원정보수정</a><br>

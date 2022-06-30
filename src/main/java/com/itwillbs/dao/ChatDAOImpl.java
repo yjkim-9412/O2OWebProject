@@ -37,13 +37,13 @@ public class ChatDAOImpl implements ChatDAO{
         sqlSession.insert(namespace+".insertMessage", messageDTO);
     }
 
-    @Override
-    public String getPartner(ChatRoomDTO chatRoomDTO) throws Exception {
-
-        List<MessageDTO> messageDTOList = sqlSession.selectList(namespace+".getPartner",chatRoomDTO);
-
-        return messageDTOList.get(0).getMember_user_email();
-    }
+//    @Override
+//    public String getPartner(ChatRoomDTO chatRoomDTO) throws Exception {
+//
+//        List<MessageDTO> messageDTOList = sqlSession.selectList(namespace+".getPartner",chatRoomDTO);
+//
+//        return messageDTOList.get(0).getMember_email();
+//    }
 
     @Override
     public String getProfile(String str) throws Exception {
