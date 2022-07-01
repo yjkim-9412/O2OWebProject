@@ -5,11 +5,19 @@
 <mapper namespace="com.itwillbs.member.ProMapper">
 
 	<insert id="insertMember">
-		insert into PROS(serviceId,addressId,genderId,name,pass,email,phone,carrer,employees,identity,business,certificate)
-		values(#{serviceId},#{addressId},#{genderId},#{name},#{pass},#{email},#{phone},#{carrer},#{employees},#{identity},
+		insert into PROS(serviceId,addressId,genderId,name,pass,email,phone,career,employees,identity,business,certificate)
+		values(#{serviceId},#{addressId},#{genderId},#{name},#{pass},#{email},#{phone},#{career},#{employees},#{identity},
 			   #{business},#{certificate})
 	</insert>
 	
+<!-- 	<select id="ProCheck" resultType="com.itwillbs.domain.ProDTO"> -->
+<!-- 		select * from PROS where services_id=#{services_id} and address_id=#{address_id} and name=#{name} and email=#{email} and -->
+<!-- 		phone=#{phone} and career = #{career} and employees = #{employees} and identity = #{identity} and business = #{business } -->
+<!-- 	</select> -->
+	
+	<select id="proCheck" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where id = 8 
+	</select>
 
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->

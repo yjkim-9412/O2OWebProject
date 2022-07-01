@@ -143,18 +143,7 @@ $(document).ready(function(){
 			$('#emaildiv').html("");
 		}
 		
-// 		var re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
-// 		var passVal = $('#password').val();
-		
-// 		if(passVal.match(re) == null ) {
-// 			$('#passworddiv').html("영문 + 숫자 혼용 8자 이상 입력하세요.");
-// 			$('#passworddiv').css("color","red");
-// 			$('#password').focus();
-// 			return false;
-// 		} else {
-// 			$('#passworddiv').html("");
-// 		}
-		
+
 	
 		
 		

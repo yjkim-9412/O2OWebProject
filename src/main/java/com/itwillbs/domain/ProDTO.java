@@ -4,12 +4,12 @@ import java.sql.Timestamp;
 
 public class ProDTO {
     private int id;
-    private int serviceId;
-    private int addressId;
-    private int gender;
+    private int services_id;
+    private int address_id;
+    private int gender_id;
     private int career;
-    private int employees;
-    private Boolean identity;
+    private int employee_number;
+    private Boolean identify;
     private Boolean business;
     private Boolean certificate;
     private String pass;
@@ -25,31 +25,49 @@ public class ProDTO {
         this.id = id;
     }
 
-    public int getServiceId() {
-        return serviceId;
-    }
+    public int getServices_id() {
+		return services_id;
+	}
 
-    public void setServiceId(int serviceId) {
-        this.serviceId = serviceId;
-    }
+	public void setServices_id(int services_id) {
+		this.services_id = services_id;
+	}
 
-    public int getAddressId() {
-        return addressId;
-    }
+    public int getAddress_id() {
+		return address_id;
+	}
 
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
-    }
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
 
-    public int getGender() {
-        return gender;
-    }
 
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
 
-    public int getCareer() {
+    public int getGender_id() {
+		return gender_id;
+	}
+
+	public void setGender_id(int gender_id) {
+		this.gender_id = gender_id;
+	}
+
+	public int getEmployee_number() {
+		return employee_number;
+	}
+
+	public void setEmployee_number(int employee_number) {
+		this.employee_number = employee_number;
+	}
+
+	public Boolean getIdentify() {
+		return identify;
+	}
+
+	public void setIdentify(Boolean identify) {
+		this.identify = identify;
+	}
+
+	public int getCareer() {
         return career;
     }
 
@@ -57,21 +75,8 @@ public class ProDTO {
         this.career = career;
     }
 
-    public int getEmployees() {
-        return employees;
-    }
+   
 
-    public void setEmployees(int employees) {
-        this.employees = employees;
-    }
-
-    public Boolean getIdentity() {
-        return identity;
-    }
-
-    public void setIdentity(Boolean identity) {
-        this.identity = identity;
-    }
 
     public Boolean getBusiness() {
         return business;

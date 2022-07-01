@@ -33,8 +33,13 @@ public class ProController {
     }
     
     @RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-    public String info(ProDTO proDTO) {
-        
+    public String info(Model m) {
+    	System.out.println("ProController info()");
+//        proService.proCheck();
+        ProDTO proDTO = new ProDTO(); 
+        proDTO =  proService.proCheck();
+        m.addAttribute("proDTO" , proDTO);
+   
         return "pro/info";
     }
 }

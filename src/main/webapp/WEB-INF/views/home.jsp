@@ -938,7 +938,7 @@ main{
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <div class="our-team">
         <div class="picture">
-          <img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
+          <img class="img-fluid" src="https://picsum.photos/130/130?image=1027" onclick="location.href='pro/info'">
         </div>
         <div class="team-content">
           <h3 class="name">Michele Miller</h3>
