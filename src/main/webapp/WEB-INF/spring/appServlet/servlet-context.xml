@@ -25,7 +25,14 @@
 	<context:component-scan base-package="com.itwillbs.controller" />
 	<context:component-scan base-package="com.itwillbs.service" />
 	<context:component-scan base-package="com.itwillbs.dao" />
+<<<<<<< HEAD
 	<context:component-scan base-package="com.itwillbs.domain" />
+=======
+
+
+
+
+>>>>>>> 034240047c6de0842b61a021adfe718b113899c6
 	
 	
 </beans:beans>
