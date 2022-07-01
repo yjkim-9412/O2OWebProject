@@ -1,8 +1,17 @@
 package com.itwillbs.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
+import com.itwillbs.domain.AddistrictDTO;
+import com.itwillbs.domain.AddressDTO;
+import com.itwillbs.domain.CityDTO;
+import com.itwillbs.domain.DistrictDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.service.ProService;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +22,10 @@ import javax.inject.Inject;
 
 @Controller
 public class ProController {
-	@Inject
-	private ProDTO proDTO;
 	
+	@Inject
+	private AddressDTO addressDTO;
+		
 	@Inject
     private ProService proService;
 
@@ -54,53 +64,71 @@ public class ProController {
 	@RequestMapping(value = "/pro/lessonPro", method = RequestMethod.GET)
 	public String lessonDetailPro(HttpServletRequest requset,Model model) {
 		System.out.println("ProController lessonPro()");
-		String[] selArr = requset.getParameterValues("selcat_num");
-		String chk="";
-		for(int i=0;i<selArr.length;i++) {
-			chk+=selArr[i];
-		}
-		System.out.println(chk);
-		model.addAttribute("chk", chk);
+////		String[] selArr = requset.getParameterValues("selcat_num");
+//		String chk="";
+//		for(int i=0;i<selArr.length;i++) {
+//			chk+=selArr[i];
+//		}
+//		System.out.println(chk);
+		String serviceId=requset.getParameter("selcat_num");
+//		model.addAttribute("chk", chk);
+		model.addAttribute("serviceId", serviceId);
 		return "redirect:/pro/service_lesson";
 	}
 	
 	@RequestMapping(value = "/pro/service_lesson", method = RequestMethod.GET)
-	public String service_lesson(@RequestParam(value = "chk") String chk,Model model) {
+	public String service_lesson(@RequestParam(value = "serviceId") String serviceId,Model model) {
 		System.out.println("ProController service_lesson()");
-		if(chk.contains("0")) {
-			System.out.println("chk.contains('0')");
+		
+		if(serviceId.equals("5")) {
 			model.addAttribute("music", 1);
 		}else {
 			model.addAttribute("music", 0);
 		}
-		if(chk.contains("1")) {
-			System.out.println("chk.contains('1')");
-			model.addAttribute("lang", 1);
-		}else {
-			model.addAttribute("lang", 0);
-		}
-		if(chk.contains("2")) {
-			System.out.println("chk.contains('2')");
+		if(serviceId.equals("1")) {
 			model.addAttribute("dan", 1);
 		}else {
 			model.addAttribute("dan", 0);
 		}
+		if(serviceId.equals("2")) {
+			model.addAttribute("lang", 1);
+		}else {
+			model.addAttribute("lang", 0);
+		}
+		model.addAttribute("serviceId", serviceId);
+//		if(sel.contains("0")) {
+//			model.addAttribute("music", 1);
+//		}else {
+//			model.addAttribute("music", 0);
+//		}
+//		if(sel.contains("1")) {
+//			model.addAttribute("lang", 1);
+//		}else {
+//			model.addAttribute("lang", 0);
+//		}
+//		if(sel.contains("2")) {
+//			model.addAttribute("dan", 1);
+//		}else {
+//			model.addAttribute("dan", 0);
+//		}
 		return "pro/service_lesson";
 	}
 	
 	@RequestMapping(value = "/pro/address", method = RequestMethod.GET)
-	public String address(HttpServletRequest request) {
+	public String address(HttpServletRequest request,Model model) {
 		System.out.println("ProController address()");
-		String[] selArr = request.getParameterValues("sel");
-		String service_chk="";
-		for(int i=0;i<selArr.length;i++) {
-			service_chk+=selArr[i]+",";
-			if(i==selArr.length-1) {
-				service_chk= service_chk.substring(0,service_chk.length()-1);
-			}
-		}
-		System.out.println(service_chk);
-		proDTO.setServiceId(service_chk);
+//		String[] selArr = request.getParameterValues("sel");
+//		String service_chk="";
+//		for(int i=0;i<selArr.length;i++) {
+//			service_chk+=selArr[i]+",";
+//			if(i==selArr.length-1) {
+//				service_chk= service_chk.substring(0,service_chk.length()-1);
+//			}
+//		}
+//		System.out.println(service_chk);
+//		proDTO.setServiceId(service_chk);
+		String serviceId=request.getParameter("serviceId");
+		model.addAttribute("serviceId", serviceId);
 		return "pro/address";
 	}
 	
@@ -116,47 +144,46 @@ public class ProController {
 		System.out.println("ProController proinsert()");
 		String address=request.getParameter("sample3_address");
 		String extraAddress=request.getParameter("sample3_extraAddress");
+		String detailAddress=request.getParameter("sample3_detailAddress");
+		double lat =Double.parseDouble(request.getParameter("lat"));
+		double lng =Double.parseDouble(request.getParameter("lng"));
+		String serviceId = request.getParameter("serviceId");
 		String[] addr=address.split(" ");
 		String[] extraAddr=extraAddress.split(",");
-		
-		if(extraAddress=="") {
-			proDTO.setCity(addr[0]);
-			proDTO.setGu(addr[1]);
-			proDTO.setDong(addr[2]);
-			model.addAttribute("city", proDTO.getCity());
-			model.addAttribute("gu", proDTO.getGu());
-			model.addAttribute("dong", proDTO.getDong());
-			System.out.println(addr[0]+","+addr[1]+","+addr[2]);
-		}else {
-			proDTO.setCity(addr[0]);
-			proDTO.setGu(addr[1]);
-			proDTO.setDong(extraAddr[0]);
-			model.addAttribute("city", proDTO.getCity());
-			model.addAttribute("gu", proDTO.getGu());
-			model.addAttribute("dong", proDTO.getDong());
-			System.out.println(addr[0]+","+addr[1]+","+extraAddr[0]);
-		}
-		model.addAttribute("serviceId", proDTO.getServiceId());
-		
+		addressDTO= proService.passAddress(addr,extraAddr,detailAddress,lat,lng);
+		model.addAttribute("serviceId", serviceId);
 		return "pro/proinsert";
 	}
 	
 	@RequestMapping(value = "/pro/ok", method = RequestMethod.POST)
-	public String ok(HttpServletRequest request) {
+	public String ok(HttpServletRequest request,ProDTO proDTO) {
 		System.out.println("ProController ok()");
-		String serviceId=request.getParameter("serviceId");
-		String city=request.getParameter("city");
-		String gu=request.getParameter("gu");
-		String dong=request.getParameter("dong");
-		String email=request.getParameter("email");
-		String pass=request.getParameter("pass");
-		String name=request.getParameter("name");
-		String tel=request.getParameter("tel");
-		String gender=request.getParameter("gender");
 		
-		System.out.printf("%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s\n",serviceId,city,gu,dong,email,pass,name,tel,gender);
-				
+//		proService.insertAddress(addressDTO);
+//		proService.insertPro(proDTO);
+
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/pro/dupcheck", method = RequestMethod.GET)
+	public ResponseEntity<String> dupcheck(HttpServletRequest request) {
+		System.out.println("ProController dupcheck()");
+		ResponseEntity<String> entitiy=null;
+		String result="";
+		
+		String email=request.getParameter("email");
+		ProDTO proDTO= proService.getPro(email);
+		
+		System.out.println(email);
+		
+		if(proDTO!=null) {
+			result="emaildup";
+		}else {
+			result="emailok";
+		}
+		System.out.println(proDTO.getEmail()+", "+result);
+		entitiy=new ResponseEntity<String>(result,HttpStatus.OK);
+		return entitiy;
 	}
 
 }

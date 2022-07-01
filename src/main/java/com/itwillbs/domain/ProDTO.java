@@ -1,13 +1,15 @@
 package com.itwillbs.domain;
 
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ProDTO {
     private int id;
-    private String serviceId;
+    private int serviceId;
     private int addressId;
-    private int gender;
+    private int genderId;
     private int career;
     private int employees;
     private Boolean identity;
@@ -17,33 +19,16 @@ public class ProDTO {
     private String name;
     private String phone;
     private String email;
-    private String city;
-    private String gu;
-    private String dong;
-
-    public String getCity() {
-		return city;
+    private Timestamp date;
+    
+    public Timestamp getDate() {
+		return date;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setDate(Timestamp date) {
+		this.date = date;
 	}
 
-	public String getGu() {
-		return gu;
-	}
-
-	public void setGu(String gu) {
-		this.gu = gu;
-	}
-
-	public String getDong() {
-		return dong;
-	}
-
-	public void setDong(String dong) {
-		this.dong = dong;
-	}
 
 	public int getId() {
         return id;
@@ -53,11 +38,11 @@ public class ProDTO {
         this.id = id;
     }
 
-    public String getServiceId() {
+    public int getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
 
@@ -70,11 +55,11 @@ public class ProDTO {
     }
 
     public int getGender() {
-        return gender;
+        return genderId;
     }
 
     public void setGender(int gender) {
-        this.gender = gender;
+        this.genderId = gender;
     }
 
     public int getCareer() {

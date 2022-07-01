@@ -4,13 +4,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwillbs.member.ProMapper">
 
-	<insert id="insertMember">
-		insert into PROS(serviceId,addressId,genderId,name,pass,email,phone,carrer,employees,identity,business,certificate)
-		values(#{serviceId},#{addressId},#{genderId},#{name},#{pass},#{email},#{phone},#{carrer},#{employees},#{identity},
-			   #{business},#{certificate})
+	<insert id="insertPro">
+		insert into PROS(services_id,gender_id,name,password,email,phone,address_id)
+		values(#{serviceId},#{genderId},#{name},#{pass},#{email},#{phone},#{addressId})
 	</insert>
 	
-
+	<insert id="insertAddress">
+		insert into ADDRESS(cities_id,districts_id,addistricts_id,address_detail,x_axis,y_axis) 
+		values(#{city_id},#{district_id},#{addistrict_id},#{addressdetail},#{x_axis},#{y_axis})
+	</insert>
+	
+	<select id="getCity" resultType="com.itwillbs.domain.CityDTO">
+		select * from CITIES where name=#{city}
+	</select>
+	
+	<select id="getDistrict" resultType="com.itwillbs.domain.DistrictDTO">
+		select * from DISTRICTS where name=#{district} and city_id=#{city_id}
+	</select>
+	
+	<select id="getAddDistrict" resultType="com.itwillbs.domain.AddistrictDTO">
+		select * from ADDISTRICTS where name=#{addistrict} and district_id=#{district_id}
+	</select>
+	
+	<select id="getMaxAddrId" resultType="java.lang.Integer">
+		select MAX(id) from ADDRESS
+	</select>
+	
+	<select id="getPro" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where email=#{email}
+	</select>
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->
 <!-- 	<select id=""></select> -->
