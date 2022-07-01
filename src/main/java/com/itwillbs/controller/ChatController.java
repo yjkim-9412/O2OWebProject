@@ -14,7 +14,7 @@ public class ChatController {
     public ModelAndView chat(ModelAndView mv,@RequestParam("id") String uid, HttpSession session
     ) {
         System.out.println(uid);
-        mv.setViewName("chat/chatRoom");
+        mv.setViewName("chat/chatRoom2");
         mv.addObject("user", uid);
         mv.addObject("articleId", "xxt1205");
         mv.addObject("articleOwner", "김영준");

@@ -5,20 +5,72 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/css" >
+        .bubble
+        {
+            position: relative;
+            width: 250px;
+            height: 120px;
+            padding: 0px;
+            background: #FFFFFF;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        .bubble:after
+        {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 15px 0 15px 15px;
+            border-color: transparent #FFFFFF;
+            display: block;
+            width: 0;
+            z-index: 1;
+            right: -15px;
+            top: 45px;
+        }
+        .bubble
+        {
+            position: relative;
+            width: 250px;
+            height: 120px;
+            padding: 0px;
+            background: #FFFF9E;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+        }
+
+        .bubble:after
+        {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 15px 15px 15px 0;
+            border-color: transparent #FFFF9E;
+            display: block;
+            width: 0;
+            z-index: 1;
+            left: -15px;
+            top: 45px;
+        }
+    </script>
     <style>
         .text_right {
-        text-align: right;
-    }
+            text-align: right;
+        }
 
-    .text_left {
-        text-align: left;
-    }
+        .text_left {
+            text-align: left;
+        }
 
-    .chattingBox {
-        padding: 15px;
-        border: 1px solid #AAA;
-        margin: 10px 0;
-    }
+        .chattingBox {
+            padding: 15px;
+            border: 1px solid #AAA;
+            margin: 10px 0;
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
@@ -63,9 +115,9 @@
             articleOwner: '${articleOwner}',
             message: $('#message').val()
         };
-          sock.send(JSON.stringify(msg));
+        sock.send(JSON.stringify(msg));
 
-          console.log(msg);
+        console.log(msg);
     }
 
     function onMessage(evt) {
@@ -82,6 +134,7 @@
             $('#chattingBox-1').append('<hr>')
         }
         if (msgData.user == currentuser_session) {
+            $('<div id=\"chattingBox-1\" class=\"chattingBox\"></div>').html('<h3>${user} : 게시물 작성자-' + msgData.articleOwner + '</h3>').appendTo('body');
             var printHTML = "<div class='well text_right'>";
             printHTML += "<div class='alert alert-info'>";
             printHTML += "<strong>[" + msgData.user + "] -> " + msgData.message + "</strong>";
