@@ -607,6 +607,67 @@ main{
   color:#FFCD4A;
   
 }
+.chatdiv1{
+   position: relative;
+    max-width: 300px;
+    font-size: 23px;
+    padding: 8px 10px;
+    margin-bottom:40px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 18px;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    width: 100%;
+    
+    
+}
+.chat-message-received{
+  position: relative;
+    max-width: 220px;
+    word-break: normal;
+    padding: 15px 20px;
+    margin-bottom:20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 18px;
+    display: flex;
+   color: black;
+   font-size: 16px;
+    flex-direction: column;
+    width: 100%;
+    
+}
+.chatdiv2{
+  display: inline-flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    width: 100%;
+    text-align: right;
+    background-color: rgb(255, 255, 255);
+    align-content: center;
+}
+.chatdiv2{
+    width: 100%;
+    max-width: 330px;
+    text-align: right
+}
+.chatbtn{
+    max-width: 280px;
+    padding: 7px 11px;
+    margin: 0px 0px 6px 6px;
+    letter-spacing: -0.1px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    text-align: left;
+    word-break: break-word;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    transition: box-shadow 0.2s ease-out 0s, border-color 0.2s ease-out 0s;
+    font-size: 1.0rem !important;
+    line-height: 2.1rem !important;
+}
 @media (min-width: 450px) {
       .main-card {
         width: 96%;
@@ -657,12 +718,12 @@ main{
   
 }
 #chatbot_toggle:hover {
-  background: #7d56a5;
+  background: rgba(247, 178, 4, 0.945);
  
 }
 .line {
   height: 1px;
-  background-color: rebeccapurple;
+  background-color: #FFCD4A;
   width: 100%;
   opacity: 0.2;
 }
@@ -720,7 +781,7 @@ main{
   background: lavender;
 }
 .input-send svg {
-  fill: rebeccapurple;
+  fill: #FFCD4A;
   margin: 11px 8px;
 }
 .chat-message-div {
@@ -728,7 +789,7 @@ main{
 }
 
 .chat-message-sent {
-  background-color: white;
+  background-color: rgb(199, 194, 194);
   margin: 8px 16px 8px 64px;
   padding: 8px 16px;
   animation-name: fadeIn;
@@ -736,22 +797,11 @@ main{
   animation-timing-function: ease-in;
   animation-duration: 100ms;
   color: black;
+  font-size: 10px;
   border-radius: 8px 8px 2px 8px;
-  background-color: lavender;
+  background-color: #F7F7F7;
 }
 
-.chat-message-received {
-  background-color: white;
-  margin: 8px 64px 8px 16px;
-  padding: 8px 16px;
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in;
-  animation-duration: 100ms;
-  color: black;
-  border-radius: 8px 8px 8px 2px;
-  background-color: lavender;
-}
 
 @keyframes fadeIn {
   from {
@@ -1180,37 +1230,46 @@ main{
   </footer>
    <!-- 챗봇 -->
 <div class="title1">
- 
-  
-
-<div id="chatbot" class="main-card collapsed">
-  <button id="chatbot_toggle">
+		<div id="chatbot" class="main-card collapsed">
+			<button id="chatbot_toggle">
     <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/></svg>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
 </svg>
   </button>
-  <div class="main-title">
-    <div>
-      <svg viewBox="0 0 640 512" title="robot">
-        <path fill="currentColor" d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z" />
-      </svg>
-    </div>
-    <span>Chatbot</span>
+			<div class="main-title">
+				<div>
+					<svg viewBox="0 0 640 512" title="robot">
+						<path fill="currentColor"
+							d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z" />
+					</svg>
+				</div>
+				<span>마루챗봇</span>
 
-  </div>
-  <div class="chat-area" id="message-box">
-  </div>
-  <div class="line"></div>
-  <div class="input-div">
-    <input class="input-message" name="message" type="text" id="message" placeholder="Type your message ..." />
-    <button class="input-send" onclick="send()">
+			</div>
+			<div class="chat-area" id="message-box">
+				<div class="chatdiv1">😀 무엇을 도와드릴까요?</div>
+				<div class="chatdiv2">
+					<div class="chatdiv3">
+						<button class="chatbtn" onclick="addResponseMsg('마루는 전문가와 고객을 매칭해주는 사이트 입니다🧑‍🤝‍🧑 가입은 하셨나요? 메인에서 오른쪽 상단에 가입하기 누르고 전문가를 알아보세요👆')">마루가 처음이에요👶</button>
+						<button class="chatbtn" onclick="addResponseMsg('마루에서는 에어컨 청소만이 아니라 수리 냉각수 채우기 등 다양한 서비스 🥶를 제공 하고 있어요 👉 에어컨 청소 하고싶어요 두번 누르면 이동합니다 👈 ')" >에어컨 청소 하고싶어요🧙</button>
+						<button class="chatbtn">전문가 가입 하고싶어요👩‍🔧</button>
+						<button class="chatbtn">1:1문의하기👨‍💼</button>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="line"></div>
+			<div class="input-div">
+				<input class="input-message" name="message" type="text" id="message" placeholder="Type your message ..." />
+				<button class="input-send" onclick="send()">
       <svg style="width:24px;height:24px">
-        <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+        <path d="M2,2 1L23,12L2,3V10L17,12L2,14V21Z" />
       </svg>
     </button>
-  </div>
-</div>
-</div>
+			</div>
+		</div>
+	</div>
 <!-- 챗봇끝 --> 
 
 <script src="resources/js/jquery-3.5.1.min.js"></script>
@@ -1433,25 +1492,26 @@ function addResponseMsg(msg) {
   ).scrollHeight;
   running = false;
 }
+
 document.getElementById("message").addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     event.preventDefault();
     send();
   }
 });
- document.getElementById("chatbot_toggle").onclick = function () {
-    if (document.getElementById("chatbot").classList.contains("collapsed")) {
-      document.getElementById("chatbot").classList.remove("collapsed")
-      document.getElementById("chatbot_toggle").children[0].style.display = "none"
-      document.getElementById("chatbot_toggle").children[1].style.display = ""
-      setTimeout(addResponseMsg,1000,"Hi")
-    }
-    else {
-      document.getElementById("chatbot").classList.add("collapsed")
-      document.getElementById("chatbot_toggle").children[0].style.display = ""
-      document.getElementById("chatbot_toggle").children[1].style.display = "none"
-    }
+document.getElementById("chatbot_toggle").onclick = function () {
+  if (document.getElementById("chatbot").classList.contains("collapsed")) {
+    document.getElementById("chatbot").classList.remove("collapsed")
+    document.getElementById("chatbot_toggle").children[0].style.display = "none"
+    document.getElementById("chatbot_toggle").children[1].style.display = ""
+
   }
+  else {
+    document.getElementById("chatbot").classList.add("collapsed")
+    document.getElementById("chatbot_toggle").children[0].style.display = ""
+    document.getElementById("chatbot_toggle").children[1].style.display = "none"
+  }
+}
 
 </script>
 
