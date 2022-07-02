@@ -1,9 +1,7 @@
 package com.itwillbs.controller;
 
 
-import java.net.http.HttpRequest;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -13,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.itwillbs.domain.QuestionDTO;
 import com.itwillbs.service.QuestionService;
 
 @Controller
@@ -41,9 +38,11 @@ public class QuestionController {
 		
 		for(int i = 0; i < questions_id.size(); i++) {
 			int question_id = questions_id.get(i).intValue();
-
-			answers.add(questionService.getAnswers(question_id));
-
+			
+			List<String> answerList = questionService.getAnswers(question_id);
+			if(answerList.size() != 0) {
+				answers.add(answerList);				
+			}
 		}
 	
 		model.addAttribute("questions", questions);

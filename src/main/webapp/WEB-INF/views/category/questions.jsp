@@ -487,7 +487,6 @@ a {
              </ul>
             </div>
             
-            
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0) }</h5>
    			<c:forEach var="answers" items="${answers.get(0) }">
@@ -504,14 +503,16 @@ a {
        <c:forEach var="i" begin="1" end="${questions.size() - 1 }" step="1">
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(i) }</h5>
-   			<c:forEach var="i" begin="1" end="${answers.size() - 1 }" step="1">
+   			
+   				<c:forEach var="k" begin="0" end="${answers.size() - 1 }" step="1">
    				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">${answers.get(i) }</label>
+                  <label for="radio2">${answers.get(k)[k] }</label>
                 </div>
               </div>
-   			</c:forEach>           
+                </c:forEach>
+   			          
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
             </fieldset> 
