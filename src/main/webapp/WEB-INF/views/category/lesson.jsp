@@ -227,10 +227,24 @@ section .section-title {
 	background-color: rgb(250, 250, 252);
 	border-radius: 1em;
 }
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border-radius: 0.25rem;
+    
+}
+
 .card-body {
     flex: 1 1 auto;
     min-height: 0.0625rem;
-    padding: 1.25rem;
+    padding: 0px 0px;
+    width: 90%;
 }
 
 .icontext{
@@ -385,10 +399,10 @@ ul li {
 	</div>
 </div>
  
-<h2 style="text-align: center; font-weight: bold;">인기 서비스</h2>
+<h2 style="text-align: center; font-weight: bold;  margin: 50px;">인기 서비스</h2>
 <!-- 세부 서비스 -->
 <section id="team" class="pb-5">
-    <div class="container">
+    <div class="container" >
         <div class="row">
             <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4">
@@ -396,7 +410,7 @@ ul li {
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=1'">
-                                <div class="card-body">
+                                <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                 	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
                                     <div class="card-title">웨이트 트레이닝</div>
@@ -413,7 +427,7 @@ ul li {
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=2'">
-                                <div class="card-body">
+                                <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
                                     <div class="card-title">필라테스</div>
@@ -429,11 +443,11 @@ ul li {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
-                                <div class="card-body">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=9'">
+                                <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
-                                    <div class="card-title">영어</div>
+                                    <div class="card-title">드럼</div>
                                 </div>
                             </div>
                         </div>
@@ -446,8 +460,8 @@ ul li {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
-                                <div class="card-body">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=8'">
+                                <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
                                     <div class="card-title">피아노</div>
@@ -463,8 +477,8 @@ ul li {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
-                                <div class="card-body">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=11'">
+                                <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
                                     <div class="card-title">어쿠스틱기타</div>
@@ -480,8 +494,8 @@ ul li {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card">
-                                <div class="card-body">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/questions?services_id1=7'">
+                                <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
                                     <div class="card-title">보컬</div>

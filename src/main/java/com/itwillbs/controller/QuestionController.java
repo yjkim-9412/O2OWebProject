@@ -40,9 +40,9 @@ public class QuestionController {
 			int question_id = questions_id.get(i).intValue();
 			
 			List<String> answerList = questionService.getAnswers(question_id);
-			if(answerList.size() != 0) {
+			
 				answers.add(answerList);				
-			}
+			
 		}
 	
 		model.addAttribute("questions", questions);
