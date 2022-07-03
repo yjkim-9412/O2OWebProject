@@ -38,7 +38,7 @@
 </form>
 </body>
 <script>
-    var sock = new SockJS("<c:url value="/chatting"/>");
+    var sock = new SockJS("<c:url value="/"/>");
     sock.onmessage = onMessage;
     sock.onclose = onClose;
 

@@ -16,15 +16,15 @@ public class StompWebSocketConfig extends AbstractWebSocketMessageBrokerConfigur
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/stomp/chat")
+        registry.addEndpoint("/endpoint")
                 .setAllowedOrigins("*")
                 .withSockJS();
     }
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        registry.setApplicationDestinationPrefixes("/put");
-        registry.enableSimpleBroker("/sub");
+        registry.setApplicationDestinationPrefixes("/app");
+        registry.enableSimpleBroker("/topic");
 
 
     }

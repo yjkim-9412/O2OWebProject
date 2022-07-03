@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>WebSocket Test</title>
+    <link rel="stylesheet" href="//">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <style type="text/css">
     *{ margin: 0; padding: 0; }
     .chat_wrap .header { font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
@@ -32,19 +33,16 @@
 <body>
 <div class="chat_wrap">
     <div class="header">
-        ${room.name}
+
     </div>
     <div class="chat">
         <ul>
             <!-- 동적 생성 -->
         </ul>
     </div>
-    <form>
     <div class="input-div">
         <textarea id="msg" placeholder="Press Enter for send message."></textarea>
-        <button type="button" id="sendBtn" value="전송">
     </div>
-    </form>
 
     <!-- format -->
 
@@ -62,21 +60,29 @@
     </div>
 </div>
 <script>
-    var sock = new SockJS("/ws/chat");
-    var ws = Stomp.over(sock);
-    var reconnect = 0;
+    var client;
+$(document).ready(function (){
+   $(function (){
+       var messageInput = $('textarea[name="msg"]')
+       var roomNo = "${roomNo}";
+       var member = $('.content').data('member');
+       var sock = new SockJS("${pageContext.request.contextPath}/endpoint");
+       client = Stomp.over(sock);
 
-    $(document).ready(function (){
+       function  sendmsg() {
+           var message = messageInput.val();
+           if(message == ""){
+               return false;
+           }
+           //채팅 넣기
+           client.send('/app/hello/' + roomNo,{},JSON.stringify({
+               chatContent : message,
+               memberId : ${MemberDTO.id}
+           }))
 
-    });
-
-    function roomInfo(){
-        var msg = {
-            room_name:'',
-            chatrooms: {},
-
-        }
-    }
+       }
+   })
+});
 </script>
 </body>
 </html>

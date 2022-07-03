@@ -26,7 +26,6 @@
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-		<async-supported>true</async-supported>
 	</servlet>
 
 	<servlet-mapping>

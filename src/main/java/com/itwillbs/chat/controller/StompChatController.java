@@ -1,29 +1,32 @@
 package com.itwillbs.chat.controller;
 
-import com.itwillbs.chat.domain.MessageDTO;
-import lombok.RequiredArgsConstructor;
-import org.springframework.messaging.handler.annotation.MessageMapping;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Controller;
 
-@Controller
+
+import com.itwillbs.chat.model.domain.ChatMessageDTO;
+
+import lombok.RequiredArgsConstructor;
+
+import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.SimpMessageSendingOperations;
+import org.springframework.web.bind.annotation.RestController;
+
 @RequiredArgsConstructor
+@Slf4j
+@RestController
 public class StompChatController {
 
-    private final SimpMessagingTemplate template;
+    private final SimpMessageSendingOperations sendingOperations;
 
-    //Client가 SEND할 수 있는 경로
-    //stompConfig에서 설정한 applicationDestinationPrefixes와 @MessageMapping 경로가 병합됨
-    //"/pub/chat/enter"
+    @MessageMapping("/chat/message")
+    public void enter(ChatMessageDTO chatMessageDTO){
+        if(ChatMessageDTO.MessageType.ENTER.equals(chatMessageDTO.getType())){
+            chatMessageDTO.setMessage(chatMessageDTO.getSender()+"님이 입장했습니다");
 
-    @MessageMapping(value = "chat/enter")
-    public void enter(MessageDTO message){
-        message.setMessage(message.getWriter() + "님이 채팅방에 참여하였습니다.");
-        template.convertAndSend("/sub/chat/room/" + message.getRoomId(), message);
+        }
+        sendingOperations.convertAndSend("/topic/chat/room/"+chatMessageDTO.getRoomId(),chatMessageDTO);
     }
-    @MessageMapping(value = "/chat/message")
-    public void message(MessageDTO message){
-        template.convertAndSend("/sub/chat/room/" + message.getRoomId(), message);
-    }
+
 
 }
