@@ -1,7 +1,7 @@
 package com.itwillbs.dao;
 
-import com.itwillbs.domain.ChatRoomDTO;
-import com.itwillbs.domain.MessageDTO;
+import com.itwillbs.chat.domain.ChatRoomDTO;
+import com.itwillbs.chat.domain.MessageDTO;
 
 import java.util.List;
 

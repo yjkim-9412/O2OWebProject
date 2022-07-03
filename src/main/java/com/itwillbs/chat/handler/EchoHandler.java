@@ -1,7 +1,6 @@
-package com.itwillbs.handler;
+package com.itwillbs.chat.handler;
 
-import com.google.protobuf.Message;
-import com.itwillbs.domain.MessageDTO;
+import com.itwillbs.chat.domain.MessageDTO;
 import com.itwillbs.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,12 +9,9 @@ import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
-import com.itwillbs.service.MemberService;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
