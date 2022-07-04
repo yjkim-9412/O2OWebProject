@@ -1,6 +1,7 @@
 package com.itwillbs.dao;
 
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.ServiceDTO;
 
 public interface AnswerDAO {
@@ -9,7 +10,8 @@ public interface AnswerDAO {
 	
 	public void insertEstimates(int account_id);
 	
-	public ServiceDTO getEstimates_id(int account_id);
+	public void insertEstimatesMid(EstimatesMidDTO estimatesMidDTO);
 	
-	public void insertAnswer(AnswerDTO answerDTO);
+	public int getEstimates_id();
+	
 }

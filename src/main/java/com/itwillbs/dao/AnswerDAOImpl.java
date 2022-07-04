@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.ServiceDTO;
 
 @Repository
@@ -21,32 +22,25 @@ public class AnswerDAOImpl implements AnswerDAO{
 	
 		return sqlSession.selectOne(namespace+".getAnswer_id", answerDTO);
 	}
-	
-	
 
 	@Override
 	public void insertEstimates(int account_id) {
-		
 		sqlSession.insert(namespace+".insertEstimates", account_id);
+		
 	}
-
-	
 
 
 	@Override
-	public ServiceDTO getEstimates_id(int account_id) {
+	public void insertEstimatesMid(EstimatesMidDTO estimatesMidDTO) {
+		sqlSession.insert(namespace + ".insertEstimatesMid", estimatesMidDTO);
 		
-		return sqlSession.selectOne(namespace+".getEstimates_id", account_id);
 	}
-
-
 
 	@Override
-	public void insertAnswer(AnswerDTO answerDTO) {
+	public int getEstimates_id() {
 		
-		sqlSession.insert(namespace+".insertAnswer", answerDTO);
+		return sqlSession.selectOne(namespace+".getEstimates_id");
 	}
-	
 	
 	
 }
