@@ -501,7 +501,7 @@ select.form-control {
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="<%=request.getContextPath() %>/category/result" method="get" role="form">
+          <form action="<%=request.getContextPath() %>/category/result1" method="get" role="form">
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>

@@ -63,9 +63,12 @@ public class QuestionController {
 	@RequestMapping(value = "/category/sec_category/language", method = RequestMethod.GET)
 	public String language(Integer services_id1, Model model) {
 		int services_id = services_id1.intValue();
+		ServiceDTO serviceDTO = questionService.getServiceName(services_id);
+		System.out.println("서비스 이름 : " + serviceDTO.getName());
 		
 		List<String> questions = questionService.getQuestions(services_id);
 		List<Integer> questions_id = questionService.getQuestions_id(services_id);
+		
 		System.out.println(questions);
 		System.out.println(questions_id);
 		
@@ -79,10 +82,11 @@ public class QuestionController {
 				answers.add(answerList);				
 			
 		}
-		
+	
 		model.addAttribute("questions_id", questions_id);
 		model.addAttribute("questions", questions);
 		model.addAttribute("answers", answers);
+		model.addAttribute("serviceDTO", serviceDTO);
 		
 		System.out.println(answers);
 
@@ -93,9 +97,12 @@ public class QuestionController {
 	@RequestMapping(value = "/category/sec_category/music", method = RequestMethod.GET)
 	public String music(Integer services_id1, Model model) {
 		int services_id = services_id1.intValue();
+		ServiceDTO serviceDTO = questionService.getServiceName(services_id);
+		System.out.println("서비스 이름 : " + serviceDTO.getName());
 		
 		List<String> questions = questionService.getQuestions(services_id);
 		List<Integer> questions_id = questionService.getQuestions_id(services_id);
+		
 		System.out.println(questions);
 		System.out.println(questions_id);
 		
@@ -109,10 +116,11 @@ public class QuestionController {
 				answers.add(answerList);				
 			
 		}
-		
+	
 		model.addAttribute("questions_id", questions_id);
 		model.addAttribute("questions", questions);
 		model.addAttribute("answers", answers);
+		model.addAttribute("serviceDTO", serviceDTO);
 		
 		System.out.println(answers);
 		
