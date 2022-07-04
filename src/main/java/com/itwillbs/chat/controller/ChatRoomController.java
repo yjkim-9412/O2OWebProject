@@ -31,6 +31,8 @@ public class ChatRoomController {
     private  MemberService memberService;
     @Autowired
     private  ProService proService;
+    @Autowired
+    private  ChatRepository chatRepository;
 
 
     //회원 채팅목록 전부 가져오기
@@ -60,9 +62,12 @@ public class ChatRoomController {
         mv.addObject("room_Name",chatRoomDTO.getRoomName());
         mv.addObject("room_id",chatRoomDTO.getRoomdId());
         mv.setViewName("chat/room");
-        System.out.println("디버그");
         return mv;
     }
+//    @RequestMapping(value = "/chat/newChat",method = RequestMethod.POST)
+//    public String newChat(@RequestParam("receiver") String member, @RequestParam("sender") String pro){
+//
+//    }
 
 
 
