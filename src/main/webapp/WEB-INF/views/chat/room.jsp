@@ -32,29 +32,29 @@
 <body>
 <div class="chat_wrap">
     <div class="header">
-        ${room.name}
+        ${room_Name}
     </div>
-    <div class="chat">
-        <ul>
+    <div  class="chat">
+        <ul id="#textmsg">
             <!-- 동적 생성 -->
         </ul>
     </div>
-    <form>
     <div class="input-div">
-        <textarea id="msg" placeholder="Press Enter for send message."></textarea>
-        <button type="button" id="sendBtn" value="전송">
+        <textarea placeholder="Press Enter for send message."></textarea>
     </div>
-    </form>
+
+
+
 
     <!-- format -->
 
-    <div class="chat format">
+    <div  class="chat format">
         <ul>
             <li>
                 <div class="sender">
                     <span></span>
                 </div>
-                <div class="message">
+                <div  class="message">
                     <span></span>
                 </div>
             </li>
@@ -62,21 +62,126 @@
     </div>
 </div>
 <script>
-    var sock = new SockJS("/ws/chat");
-    var ws = Stomp.over(sock);
-    var reconnect = 0;
 
-    $(document).ready(function (){
+    var socket = null;
+    var isStomp = false;
+    var roomId = '${room_id}';
+    var user = '${m_Name}';
+    var msg = "";
+    function connectStomp() {
+        var sock = new SockJS("/stompTest"); // endpoint
+        var client = Stomp.over(sock);
+        isStomp = true;
+        socket = client;
 
-    });
+        client.connect({}, function () {
+            console.log("Connected stompTest!");
+            // Controller's MessageMapping, header, message(자유형식)
+            client.send('/TTT', {}, "msg: Haha~~~");
 
-    function roomInfo(){
-        var msg = {
-            room_name:'',
-            chatrooms: {},
+            // 해당 토픽을 구독한다!
+            client.subscribe('/topic/'+ '${room_id}', function (event) {
+                console.log("!!!!!!!!!!!!event>>", event);
+                var content = JSON.parse(event.body);
+                console.log(content.sender);
+                console.log(user);
+                console.log(msg);
+
+               var writer = content.sender;
+
+                console.log("subscribe sender"+writer);
+                console.log(user === writer);
+
+            });
+        });
+
+    }
+
+
+</script>
+<script>
+    const Chat = (function(){
+        const myName = user;
+
+        // init 함수
+        function init() {
+            connectStomp();
+            // enter 키 이벤트
+            $(document).on('keydown', 'div.input-div textarea', function(e){
+                if(e.keyCode == 13 && !e.shiftKey) {
+                    e.preventDefault();
+                     msg= $(this).val();
+
+                    // 메시지 전송
+                    if (!isStomp && socket.readyState !== 1) return;
+
+                    console.log("mmmmmmmmmmmm>>", msg)
+                    if (isStomp){
+                        socket.send('/chat', {}, JSON.stringify({roomId: '${room_id}', sender:'${m_Name}' , message: msg}));
+                        sendMessage(msg);
+                    }else{
+                        socket.send(msg);}
+                    clearTextarea();
+                }
+            });
+        }
+
+        // 메세지 태그 생성
+        function createMessageTag(LR_className, senderName, message) {
+            // 형식 가져오기
+            let chatLi = $('div.chat.format ul li').clone();
+
+            // 값 채우기
+            chatLi.addClass(LR_className);
+            chatLi.find('.sender span').text(senderName);
+            chatLi.find('.message span').text(message);
+
+            return chatLi;
+        }
+
+        // 메세지 태그 append
+        function appendMessageTag(LR_className, senderName, message) {
+            const chatLi = createMessageTag(LR_className, senderName, message);
+
+            $('div.chat:not(.format) ul').append(chatLi);
+
+            // 스크롤바 아래 고정
+            $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
+        }
+
+        // 메세지 전송
+        function sendMessage(msg) {
+            // 서버에 전송하는 코드로 후에 대체
+            const data = {
+                "senderName"    : '${m_Name}',
+                "message"        : msg
+            };
+
+            // 통신하는 기능이 없으므로 여기서 receive
+            resive(data);
+        }
+
+        // 메세지 입력박스 내용 지우기
+        function clearTextarea() {
+            $('div.input-div textarea').val('');
+        }
+
+        // 메세지 수신
+        function resive(data) {
+            const LR = (data.senderName != myName)? "left" : "right";
+            appendMessageTag("right", data.senderName, data.message);
 
         }
-    }
+
+        return {
+            'init': init
+        };
+    })();
+
+    $(function(){
+        Chat.init();
+    });
+
 </script>
 </body>
 </html>

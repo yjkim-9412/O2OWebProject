@@ -19,10 +19,7 @@
         <li><a href="<%=request.getContextPath() %>/chat/room?roomId=${room.roomId}"></a></li>
     </ul>
 </div>
-    <form action="<%=request.getContextPath() %>/chat/room" method="post">
-        <input type="text" id="name" name="name" class="form-control">
-        <input type="submit" value="개설하기">
-    </form>
+
 </div>
 
 </body>
