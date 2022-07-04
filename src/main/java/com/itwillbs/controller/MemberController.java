@@ -85,7 +85,7 @@ System.out.println("#########" + code);
 		
 	}
 	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
-	public String info(HttpSession session,Model model) {
+	public String info(HttpSession session, Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
 		

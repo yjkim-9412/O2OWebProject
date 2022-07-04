@@ -1,6 +1,5 @@
 package com.itwillbs.dao;
 
-import java.util.List;
 
 import javax.inject.Inject;
 

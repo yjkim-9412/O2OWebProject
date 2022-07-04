@@ -4,7 +4,14 @@ public class QuestionDTO {
 	private int id;
 	private int services_id;
 	private String contents;
+	private AnswerDTO answerDTO;
 	
+	public AnswerDTO getAnswerDTO() {
+		return answerDTO;
+	}
+	public void setAnswerDTO(AnswerDTO answerDTO) {
+		this.answerDTO = answerDTO;
+	}
 	public int getId() {
 		return id;
 	}
@@ -23,5 +30,13 @@ public class QuestionDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
+	
+	@Override
+	public String toString() {
+		return contents;
+	}
+
+	
+	
 	
 }

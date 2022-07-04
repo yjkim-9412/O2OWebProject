@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.QuestionDAO;
+import com.itwillbs.domain.QuestionDTO;
+import com.itwillbs.domain.ServiceDTO;
 
 @Service
 public class QuestionServiceImpl implements QuestionService{
@@ -25,6 +27,20 @@ public class QuestionServiceImpl implements QuestionService{
 		
 		return questionDAO.getQuestions_id(services_id);
 	}
+
+	@Override
+	public List<String> getAnswers(int questions_id) {
+		
+		return questionDAO.getAnswers(questions_id);
+	}
+
+	@Override
+	public ServiceDTO getServiceName(int services_id) {
+		
+		return questionDAO.getServiceName(services_id);
+	}
+	
+	
 	
 	
 

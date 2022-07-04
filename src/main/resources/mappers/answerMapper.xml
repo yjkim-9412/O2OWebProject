@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.answer.AnswerMapper">
+
+	<select id="getAnswer_id" resultType="com.itwillbs.domain.AnswerDTO">
+		select * from ANSWERS where questions_id = #{questions_id} and contents = #{contents};
+	</select>
+	
+	<insert id="insertEstimates">
+		insert into ESTIMATES(account_id) values(#{account_id})
+	</insert>
+	
+	<select id="getEstimates_id" resultType="com.itwillbs.domain.ServiceDTO">
+		select id from ESTIMATES where account_id = ${value};
+	</select>
+	
+</mapper>  

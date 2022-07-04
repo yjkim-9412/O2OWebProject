@@ -24,13 +24,13 @@
 
   <title>MaRoo</title>
 
-  <link rel="stylesheet" href="../resources/css/maicons.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/maicons.css">
 
-  <link rel="stylesheet" href="../resources/css/bootstrap.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/bootstrap.css">
 
-  <link rel="stylesheet" href="../resources/vendor/animate/animate.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/vendor/animate/animate.css">
 
-  <link rel="stylesheet" href="../resources/css/theme.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme.css">
   
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -95,7 +95,7 @@ input {
   font-size: 12px;
 }
 input:focus{
-	outline:1px solid #FFCD4A;
+	outline:1px solid #FEEBB6;
 }
   
 #img1 {
@@ -211,7 +211,7 @@ body {
   outline: 0;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked {
-  background-color: #FFCD4A;
+  background-color: #FEEBB6;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::before {
   content: "";
@@ -315,7 +315,7 @@ body {
   
 }
 .form-wizard .form-wizard-steps li {
-  width: 13%;			/*숫자 사이 간격 조절*/
+  width: 16%;			/*숫자 사이 간격 조절*/
   float: left;
   position: relative;
   
@@ -355,7 +355,7 @@ body {
   background-color: #FFCD4A;
   left: 70%;
   width: 70%;
-  border-color: #FFCD4A;
+  border-color: #f3f3f3;
 }
 .form-wizard .form-wizard-steps li.activated::after {
   width: 100%;
@@ -419,6 +419,16 @@ a {
 	text-decoration: none;
 }
 
+/* select box */
+select.form-control {
+  appearance: none;
+  line-height: normal;
+  position: relative;
+  background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNDA1LjQ1NiA0MDUuNDU2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0MDUuNDU2IDQwNS40NTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4NCjxnPg0KCTxwYXRoIGQ9Ik03NC4xMzQsNjQuMTQ3Yy00Ljk4NSwwLjA3OC05LjkxMSwyLjE2My0xMy40MzgsNS42ODhsLTU1LDU1QzIuMDk2LDEyOC40MzIsMCwxMzMuNDkyLDAsMTM4LjU4MyAgIHMyLjA5NiwxMC4xNTEsNS42OTcsMTMuNzVsMTgzLjI4MSwxODMuMjgxYzMuNTk5LDMuNjAxLDguNjU5LDUuNjk3LDEzLjc1LDUuNjk3czEwLjE1MS0yLjA5NiwxMy43NS01LjY5N2wxODMuMjgxLTE4My4yODEgICBjMy42MDEtMy41OTksNS42OTctOC42NTksNS42OTctMTMuNzVzLTIuMDk2LTEwLjE1MS01LjY5Ny0xMy43NWwtNTUtNTVjLTMuNTk4LTMuNTkxLTguNjUxLTUuNjgxLTEzLjczNC01LjY4MSAgIGMtNS4wODMsMC0xMC4xMzYsMi4wOS0xMy43MzQsNS42ODFMMjAyLjcyOCwxODQuMzk3TDg4LjE2Niw2OS44MzNDODQuNDk5LDY2LjE2OSw3OS4zMTgsNjQuMDcsNzQuMTM0LDY0LjE0N0w3NC4xMzQsNjQuMTQ3eiIgZmlsbD0iIzk2OTY5NiIvPg0KPC9nPg0KPC9zdmc+DQo=);
+  background-position: right 10px top 50%;
+  background-repeat: no-repeat;
+}
+
 </style>
   
 </head>
@@ -433,7 +443,7 @@ a {
   <header>
     <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -473,7 +483,7 @@ a {
   <section class="form-contents">
     <div class="container">
     <div class="title">
-    	<h2>레슨 / 개인 PT</h2>
+    	<h2><b>웨이트 트레이닝 / 레슨</b></h2>
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
@@ -487,35 +497,100 @@ a {
              </ul>
             </div>
             
-            
+            <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0) }</h5>
-   			<c:forEach var="i" begin="0" end="3" step="1">
+   			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
+                  <label for="radio2">${answers}</label>
                 </div>
               </div>
    			</c:forEach>           
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
             </fieldset> 
-            
-       <c:forEach var="i" begin="1" end="${questions.size() - 1 }" step="1">
+        
+        <!-- 문항2 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(i) }</h5>
-   			<c:forEach var="i" begin="0" end="3" step="1">
+              <h5>${questions.get(1) }</h5>
+               <c:forEach var="answers" items="${answers.get(1) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">Female</label>
+                  <label for="radio2">${answers}</label>
                 </div>
               </div>
-   			</c:forEach>           
+                </c:forEach>
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-            </fieldset> 
-       </c:forEach>
+        </fieldset> 
+        
+        <!-- 문항3 -->
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(2) }</h5>
+               <div class="form-group" style="border: none;">
+					  <select class="form-control">
+					    <option value="">시/도</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					  </select>
+              	</div>
+              	<div class="form-group" style="border: none;">
+					  <select class="form-control">
+					    <option value="">시/군/구</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					  </select>
+              	</div>
+              	<div class="form-group" style="border: none;">
+					  <select class="form-control">
+					    <option value="">읍/면/동</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					  </select>
+              	</div>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
+        </fieldset>
+        
+        <!-- 문항4 -->
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(3) }</h5>
+               <c:forEach var="answers" items="${answers.get(3) }">
+   				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="radio-name" id="radio2" type="radio">
+                  <label for="radio2">${answers}</label>
+                </div>
+              </div>
+                </c:forEach>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
+        </fieldset> 
+        
+        <!-- 문항5 -->
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(4) }</h5>
+   				<div class="form-group" style="border: none;">
+                <div style="width: 100%;">
+                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;">
+                </div>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
+        </fieldset> 
+        
+        <!-- 문항6 -->
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(5) }</h5>
+   				<div class="form-group" style="border: none;">
+                <div style="width: 100%;">
+                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;">
+                </div>
+              </div>
+                <a href="javascript:;" class="form-wizard-submit float-right">Submit</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
+        </fieldset> 
           </form>
  	</div>
 </section>
@@ -684,19 +759,18 @@ jQuery(document).ready(function() {
 </script>
 
  
-<script src="../resources/js/jquery-3.5.1.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
 
-<script src="../resources/js/bootstrap.bundle.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/bootstrap.bundle.min.js"></script>
 
-<script src="../resources/js/google-maps.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/google-maps.js"></script>
 
-<script src="../resources/vendor/wow/wow.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/vendor/wow/wow.min.js"></script>
 
-<script src="../resources/js/theme.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/theme.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
 </body>
 </html>
-
 

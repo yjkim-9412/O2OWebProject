@@ -1,12 +1,14 @@
 package com.itwillbs.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
+import com.itwillbs.domain.QuestionDTO;
+import com.itwillbs.domain.ServiceDTO;
 
 @Repository
 public class QuestionDAOImpl implements QuestionDAO{
@@ -27,6 +29,20 @@ public class QuestionDAOImpl implements QuestionDAO{
 		
 		return sqlSession.selectList(namespace+".getQuestions_id", services_id);
 	}
+
+	@Override
+	public List<String> getAnswers(int questions_id) {
+		
+		return sqlSession.selectList(namespace+".getAnswers", questions_id);
+	}
+
+	@Override
+	public ServiceDTO getServiceName(int services_id) {
+		
+		return sqlSession.selectOne(namespace+".getServiceName", services_id);
+	}
+	
+	
 	
 	
 	
