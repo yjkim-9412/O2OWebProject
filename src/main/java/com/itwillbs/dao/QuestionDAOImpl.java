@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.QuestionDTO;
+import com.itwillbs.domain.ServiceDTO;
 
 @Repository
 public class QuestionDAOImpl implements QuestionDAO{
@@ -34,6 +35,14 @@ public class QuestionDAOImpl implements QuestionDAO{
 		
 		return sqlSession.selectList(namespace+".getAnswers", questions_id);
 	}
+
+	@Override
+	public ServiceDTO getServiceName(int services_id) {
+		
+		return sqlSession.selectOne(namespace+".getServiceName", services_id);
+	}
+	
+	
 	
 	
 	

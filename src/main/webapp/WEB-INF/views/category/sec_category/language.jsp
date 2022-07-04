@@ -24,13 +24,13 @@
 
   <title>MaRoo</title>
 
-  <link rel="stylesheet" href="../resources/css/maicons.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/maicons.css">
 
-  <link rel="stylesheet" href="../resources/css/bootstrap.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/bootstrap.css">
 
-  <link rel="stylesheet" href="../resources/vendor/animate/animate.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/vendor/animate/animate.css">
 
-  <link rel="stylesheet" href="../resources/css/theme.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme.css">
   
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -315,7 +315,7 @@ body {
   
 }
 .form-wizard .form-wizard-steps li {
-  width: 14%;			/*숫자 사이 간격 조절*/
+  width: 16%;			/*숫자 사이 간격 조절*/
   float: left;
   position: relative;
   
@@ -443,7 +443,7 @@ select.form-control {
   <header>
     <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -529,14 +529,27 @@ select.form-control {
         <!-- 문항3 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(2) }</h5>
-               <c:forEach var="answers" items="${answers.get(2) }">
-   				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
-                  <label for="radio2">${answers}</label>
-                </div>
-              </div>
-                </c:forEach>
+               <div class="form-group" style="border: none;">
+					  <select class="form-control">
+					    <option value="">시/도</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					  </select>
+              	</div>
+              	<div class="form-group" style="border: none;">
+					  <select class="form-control">
+					    <option value="">시/군/구</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					  </select>
+              	</div>
+              	<div class="form-group" style="border: none;">
+					  <select class="form-control">
+					    <option value="">읍/면/동</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					  </select>
+              	</div>
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset>
@@ -560,26 +573,9 @@ select.form-control {
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(4) }</h5>
    				<div class="form-group" style="border: none;">
-					  <select class="form-control">
-					    <option value="">시/도</option>
-					    <option value="1">Option 1</option>
-					    <option value="2">Option 2</option>
-					  </select>
-              	</div>
-              	<div class="form-group" style="border: none;">
-					  <select class="form-control">
-					    <option value="">시/군/구</option>
-					    <option value="1">Option 1</option>
-					    <option value="2">Option 2</option>
-					  </select>
-              	</div>
-              	<div class="form-group" style="border: none;">
-					  <select class="form-control">
-					    <option value="">읍/면/동</option>
-					    <option value="1">Option 1</option>
-					    <option value="2">Option 2</option>
-					  </select>
-              	</div>
+                <div style="width: 100%;">
+                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;">
+                </div>
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 
@@ -589,30 +585,12 @@ select.form-control {
               <h5>${questions.get(5) }</h5>
    				<div class="form-group" style="border: none;">
                 <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px;">
+                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;">
                 </div>
               </div>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-submit float-right">Submit</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 
-        
-        <!-- 문항7 -->
-       	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(6) }</h5>
-   				<div class="form-group" style="border: none;">
-                <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px;">
-                </div>
-              	</div>
-                <a href="#" class="form-wizard-submit float-right">Submit</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset> 
-          
-          
-          
-          
-          
-          
           </form>
  	</div>
 </section>
@@ -781,15 +759,15 @@ jQuery(document).ready(function() {
 </script>
 
  
-<script src="../resources/js/jquery-3.5.1.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
 
-<script src="../resources/js/bootstrap.bundle.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/bootstrap.bundle.min.js"></script>
 
-<script src="../resources/js/google-maps.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/google-maps.js"></script>
 
-<script src="../resources/vendor/wow/wow.min.js"></script>
+<script src="<%=request.getContextPath() %>/resources/vendor/wow/wow.min.js"></script>
 
-<script src="../resources/js/theme.js"></script>
+<script src="<%=request.getContextPath() %>/resources/js/theme.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
