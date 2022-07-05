@@ -43,12 +43,6 @@ public class ChatRoomController {
 
 
     //회원 채팅목록 전부 가져오기
-    @RequestMapping(value = "mypage/info", method = RequestMethod.GET)
-    public List<ChatRoomDTO> chatroom(HttpSession session){
-        int id = (Integer)session.getAttribute("id");
-        memberService.getMember(id);
-        return chatService.findAllRoom();
-    }
     //채팅방 생성
     @RequestMapping(value = "/chat/newChat",method = RequestMethod.GET)
     public String createChat(@RequestParam("pro_email") String pro_email ,HttpSession session){

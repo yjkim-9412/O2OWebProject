@@ -1,6 +1,7 @@
 package com.itwillbs.chat.model.domain;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.ProDTO;
 import lombok.Data;
 
 
@@ -13,4 +14,6 @@ public class ChatRoomEnterDTO {
     private MemberDTO memberDTO;
 
     private ChatRoomDTO chatRoomDTO;
+
+    private ProDTO proDTO;
 }

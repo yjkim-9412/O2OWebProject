@@ -4,6 +4,7 @@ import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
 import com.itwillbs.chat.repository.ChatRepository;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
+import com.itwillbs.chat.repository.ChatRoomRepository;
 import com.itwillbs.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +18,6 @@ public class ChatEnterServiceImpl implements ChatEnterService{
    @Autowired
    private MemberService memberService;
    @Autowired
-   private ChatRepository chatRepository;
-   @Autowired
    private ChatRoomEnterRepository chatRoomEnterRepository;
     @Override
     public Long newRoom(String member_email, String pro_email) {
@@ -28,7 +27,7 @@ public class ChatEnterServiceImpl implements ChatEnterService{
             return check;
         }
         ChatRoomDTO chatRoomDTO = new ChatRoomDTO();
-        ChatRoomDTO newChatRoomDTO = chatRoomEnterRepository.init(chatRoomDTO);
+        ChatRoomDTO newChatRoomDTO = chatRoomEnterRepository.save(chatRoomDTO);
         if (member_email.equals(pro_email)){
             insertRoom(member_email,newChatRoomDTO);
         }else {
@@ -58,9 +57,11 @@ public class ChatEnterServiceImpl implements ChatEnterService{
         ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO();
         chatRoomEnterDTO.setChatRoomDTO(chatRoomDTO);
         chatRoomEnterDTO.setMemberDTO(memberService.getMemberE(user_email));
-        chatRoomEnterRepository.init(chatRoomEnterDTO);
+        chatRoomEnterRepository.save(chatRoomEnterDTO);
     }
 
-
-
+    @Override
+    public Long checkByRoomId(Long roomId) {
+        return null;
+    }
 }
