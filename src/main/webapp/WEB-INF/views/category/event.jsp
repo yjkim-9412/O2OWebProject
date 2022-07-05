@@ -254,7 +254,7 @@ section .section-title {
  }
  
 .service{
-	background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/requestForm/26a5e44f-64cd-41a9-aba0-c2717d139795.png");
+	background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/cat-bg/5298b12c-8293-41b7-9ede-bb9ff9936372.jpg");
     background-size: cover;
     background-position: 50% 50%;
     position: relative;
@@ -317,7 +317,6 @@ li a {
 	text-decoration: none;
 	color: #898798;
 }
-
 </style>
   
   
@@ -365,7 +364,7 @@ li a {
   </header>
   
 <div class="service">
-	<div class="contents section-title h1" style="color: white; font-weight: bold;">레슨</div>
+	<div class="contents section-title h1" style="color: white; font-weight: bold;">이벤트</div>
 </div>
   
   
@@ -384,7 +383,7 @@ li a {
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
-                    <div class="card p-3 text-center border-0" style=" cursor: pointer; background-color: rgb(250, 250, 252)" onclick="location.href='<%=request.getContextPath() %>/category/health';">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer; background-color: rgb(250, 250, 252)" onclick="location.href='<%=request.getContextPath() %>/category/lesson';">
                         <div class="card-body">
                             <img src="<%=request.getContextPath() %>/resources/img/icon/health.png" style="width: 50px; height: 50px;">                            
                             <h2 class="card-title" style="font-size:20px;">건강</h2>
@@ -424,11 +423,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/pt?services_id1=1'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=45'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                 	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
-                                    <div class="card-title">웨이트 트레이닝</div>
+                                    <div class="card-title">기업 행사</div>
                                 </div>
                             </div>
                         </div>
@@ -441,11 +440,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/pt?services_id1=2'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=47'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
-                                    <div class="card-title">필라테스</div>
+                                    <div class="card-title">지역 행사</div>
                                 </div>
                             </div>
                         </div>
@@ -458,11 +457,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/language?services_id1=20'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mc?services_id1=39'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
-                                    <div class="card-title">한국어</div>
+                                    <div class="card-title">돌잔치</div>
                                 </div>
                             </div>
                         </div>
@@ -475,11 +474,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/language?services_id1=22'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mc?services_id1=42'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
-                                    <div class="card-title">중국어</div>
+                                    <div class="card-title">야유회/워크샵</div>
                                 </div>
                             </div>
                         </div>
@@ -492,11 +491,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/music?services_id1=11'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=49'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
-                                    <div class="card-title">어쿠스틱기타</div>
+                                    <div class="card-title">강연/간담회</div>
                                 </div>
                             </div>
                         </div>
@@ -509,11 +508,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/music?services_id1=7'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/video?services_id1=54'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
                                 	</div>
-                                    <div class="card-title">보컬</div>
+                                    <div class="card-title">상업 영상</div>
                                 </div>
                             </div>
                         </div>
@@ -533,32 +532,32 @@ li a {
       <div class="row mb-5">
         <div class="col-lg-3 py-3" style="width: 450px;">
           <ul id="categories">
-            <li><h4><b>개인PT</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/pt?services_id1=1" class="cmenu">웨이트 트레이닝</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/pt?services_id1=2" class="cmenu">필라테스</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/pt?services_id1=3" class="cmenu">요가</a></li>
+            <li><h4><b>파티, 행사계획</b></h4></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=45" class="cmenu">개인 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=46" class="cmenu">기업 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=47" class="cmenu">지역 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=48" class="cmenu">홍보 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=49" class="cmenu">강연/간담회</a></li>
           </ul>
           
          
         </div>
-        <div class="col-lg-3 py-3" style="width: 450px;">
+        <div class="col-lg-3 py-3" style="width: 470px;">
           <ul id="categories">
-          	 <li><h4><b>언어</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/language?services_id1=20" class="cmenu">한국어</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/language?services_id1=21" class="cmenu">일본어</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/language?services_id1=22" class="cmenu">중국어</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/language?services_id1=23" class="cmenu">영어</a></li>
+          	 <li><h4><b>행사MC</b></h4></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=39" class="cmenu">돌잔치</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=40" class="cmenu">환갑/칠순잔치</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=41" class="cmenu">동창회</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=42" class="cmenu">야유회/워크샵</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=43" class="cmenu">송년회/신년</a></li>
    		</ul>
         </div>
         <div class="col-lg-3 py-3" style="width: 400px;">
            <ul id="categories">
-          	 <li><h4><b>음악</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/music?services_id1=7" class="cmenu">보컬</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/music?services_id1=8" class="cmenu">피아노</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/music?services_id1=9" class="cmenu">드럼</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/music?services_id1=10" class="cmenu">베이스</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/music?services_id1=11" class="cmenu">어쿠스틱기타</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/music?services_id1=12" class="cmenu">일렉기타</a></li>
+          	 <li><h4><b>영상편집</b></h4></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/video?services_id1=53" class="cmenu">개인 영상</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/video?services_id1=54" class="cmenu">상업 영상</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category/video?services_id1=55" class="cmenu">기업 영상</a></li>
             </ul>
         </div>
       </div>
