@@ -52,9 +52,26 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void updateMember(MemberDTO memberDTO) {
-		memberDAO.updateMember(memberDTO);
+	public void updateName(MemberDTO memberDTO) {
+		memberDAO.updateName(memberDTO);
 		
+	}
+	
+	@Override
+	public void updateEmail(MemberDTO memberDTO) {
+		memberDAO.updateEmail(memberDTO);
+		
+	}
+	
+	@Override
+	public void updatePass(MemberDTO memberDTO) {
+		memberDAO.updatePass(memberDTO);
+		
+	}
+	
+	@Override
+	public void deleteMember(MemberDTO memberDTO) {
+		memberDAO.deleteMember(memberDTO);
 	}
 
 	// 카카오 로그인 API //
@@ -150,13 +167,17 @@ public class MemberServiceImpl implements MemberService{
 
 		JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
 		JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
-
+		
+		
 		String nickname = properties.getAsJsonObject().get("nickname").getAsString();
 		String email = kakao_account.getAsJsonObject().get("email").getAsString();
-
+		String profile_image = properties.getAsJsonObject().get("profile_image").getAsString();
+		
 		userInfo.put("nickname", nickname);
 		userInfo.put("email", email);
-
+		userInfo.put("profile_image", profile_image);
+		
+		
 	} catch (IOException e) {
 		e.printStackTrace();
 	}

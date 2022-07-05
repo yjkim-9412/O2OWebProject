@@ -37,6 +37,7 @@ public class ProController {
         proService.insertPro(proDTO);
         return "redirect:/pro/login";
     }
+<<<<<<< HEAD
     @RequestMapping(value = "/pro/mainCategory", method = RequestMethod.GET)
 	public String selectCat() {
 		System.out.println("ProController mainCategory()");
@@ -110,4 +111,12 @@ public class ProController {
 		return "pro/iframe_map";
 	}
 
+=======
+    
+    @RequestMapping(value = "/pro/info", method = RequestMethod.GET)
+    public String info(ProDTO proDTO) {
+        
+        return "pro/info";
+    }
+>>>>>>> c3462fd5ac1ca8561616cf1d61f2f9b165fa83a1
 }
