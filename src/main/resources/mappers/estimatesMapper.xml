@@ -3,5 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.itwillbs.estimates.EstimatesMapper">
-  
+  	
+  	<select id="getEstimatesId" resultType="com.itwillbs.domain.EstimatesDTO">
+  		select id from ESTIMATES where account_id = #{account_id};
+  	</select>
+  	
   </mapper>

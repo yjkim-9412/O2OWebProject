@@ -456,7 +456,7 @@ ul li {
               			<a href="#myModal" style="text-decoration: none;" class="sub-menu" data-toggle="modal">내 요청서 보기</a>
               		</li>
               		<li class="sub-menu sub-menu-container underline">
-					<a href="#" style="text-decoration: none; " class="sub-menu">거래내역</a>
+					<a href="<%=request.getContextPath() %>/requests/sent" style="text-decoration: none; " class="sub-menu">받은견적</a>
               		</li>
               	</ul>
             </div>

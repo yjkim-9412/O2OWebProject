@@ -214,17 +214,6 @@ System.out.println("#########" + code);
 			return "member/msg";
 		}
 	}
-	
-	@RequestMapping(value = "/mypage/request", method = RequestMethod.GET)
-	public String request(HttpSession session, Model model) {
-		int id = (Integer)session.getAttribute("id");
-		
-		
-		MemberDTO memberDTO = memberService.getMember(id);
-		model.addAttribute("memberDTO", memberDTO);
-		
-		return "mypage/request";
-	}
 
 }
 
