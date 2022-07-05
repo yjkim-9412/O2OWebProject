@@ -27,4 +27,41 @@ https://mybatis.org/mybatis-3/getting-started.html-->
 			<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 		</bean>
 		
+<!-- 		<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> -->
+<!--       <property name="host" value="smtp.gmail.com" /> -->
+<!--       <property name="port" value="587" /> -->
+<!--       <property name="username" value="a71773194@gmail.com" /> -->
+<!--       <property name="password" value="a71773194" /> -->
+<!--       <property name="javaMailProperties"> -->
+<!--          <props> -->
+<!--                 <prop key="mail.transport.protocol">smtp</prop> -->
+<!--                 <prop key="mail.smtp.auth">true</prop> -->
+<!--                 gmail의 경우 보안문제 업데이트로 인해 SSLSocketFactory를 추가해야 smtp 사용 가능. -->
+<!--                 <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop> -->
+<!--                 <prop key="mail.smtp.starttls.enable">true</prop> -->
+<!--                 <prop key="mail.debug">true</prop> -->
+<!--                 <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop> -->
+<!-- 				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop> -->
+<!--             </props> -->
+<!--       </property> -->
+      
+<!--    </bean> -->
+<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<property name="host" value="smtp.naver.com" />
+	<property name="port" value="587" />
+	<property name="username" value="gustmd262" />
+	<property name="password" value="park3191" />
+	<property name="defaultEncoding" value="utf-8" />
+	<property name="javaMailProperties">
+      <props>
+      <prop key="mail.smtp.auth">true</prop>
+      <prop key="mail.smtp.starttls.enable">true</prop>
+      <prop key="mail.smtps.checkserveridentity">true</prop>
+      <prop key="mail.smtps.ssl.trust">*</prop>
+      <prop key="mail.debug">true</prop>
+      <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+      <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+      </props>
+     </property>
+</bean>
 </beans>

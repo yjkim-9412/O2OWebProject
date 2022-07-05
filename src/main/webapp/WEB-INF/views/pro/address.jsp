@@ -8,22 +8,21 @@
     
 </head>
 <body onload="sample3_execDaumPostcode()">
+<form action="<%=request.getContextPath() %>/pro/proinsert" id="fr">
 <!-- <input type="text" id="sample3_postcode" placeholder="우편번호"> -->
 <input type="button" onclick="fun1()" value="우편번호 찾기"><br>
-<input type="text" id="sample3_address" placeholder="주소"><br>
-<!-- <input type="text" id="sample3_detailAddress" placeholder="상세주소"> -->
-<input type="hidden" id="sample3_extraAddress" placeholder="참고항목">
+<input type="text" id="sample3_address" name="sample3_address" placeholder="주소"><br>
+<input type="text" id="sample3_detailAddress" name="sample3_detailAddress" placeholder="상세주소">
+<input type="hidden" id="sample3_extraAddress" name="sample3_extraAddress" placeholder="참고항목">
+<input type="hidden" id="lat" value="" name="lat">
+<input type="hidden" id="lng" value="" name="lng">
+<input type="hidden" id="services_id" value="${services_id }" name="services_id">
 
 <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative;">
 <!-- <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼"> -->
 </div>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script type="text/javascript">
-// function fun2() {
-// 	alert(document.getElementById("sample3_address").value);
-// }
-</script>
 <script>
     // 우편번호 찾기 찾기 화면을 넣을 element
     var element_wrap = document.getElementById('wrap');
@@ -65,7 +64,7 @@
                     }
                     // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
                     if(extraAddr !== ''){
-                        extraAddr = ' (' + extraAddr + ')';
+                        extraAddr =extraAddr;
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
                     document.getElementById("sample3_extraAddress").value = extraAddr;
@@ -78,10 +77,11 @@
 //                 document.getElementById('sample3_postcode').value = data.zonecode;
                 document.getElementById("sample3_address").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-//                 document.getElementById("sample3_detailAddress").focus();
+                document.getElementById("sample3_detailAddress").focus();
                 document.getElementById("iframe_body_map").contentDocument.getElementById("child_input").value=addr;
                 document.getElementById("iframe_body_map").style="display:block";
                 document.getElementById("iframe_body_map").contentWindow.fun1();
+
                 // iframe을 넣은 element를 안보이게 한다.
                 // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
                 element_wrap.style.display = 'none';
@@ -104,5 +104,8 @@
 </script>
 <iframe style="display: none;" id="iframe_body_map" name="ifrm" src="<%=request.getContextPath() %>/pro/iframe_map" width="500" height="500">
 </iframe>
+<input type="button" value="이전" onclick="history.back()">
+<input type="submit" value="다음">
+</form>
 </body>
 </html>
