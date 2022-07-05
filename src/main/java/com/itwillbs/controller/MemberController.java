@@ -25,7 +25,24 @@ public class MemberController {
 	@Inject
 	private MemberService memberService;
 	
-
+	// top bottom 확인용
+	@RequestMapping(value = "/inc/top", method = RequestMethod.GET)
+	public String top() {
+		// /WEB-INF/views/inc/top.jsp
+		return "inc/top";
+	}
+	
+	@RequestMapping(value = "/inc/bottom", method = RequestMethod.GET)
+	public String bottom() {
+		// /WEB-INF/views/inc/bottom.jsp
+		return "inc/bottom";
+	}
+	
+	@RequestMapping(value = "/member/star", method = RequestMethod.GET)
+	public String star() {
+		// /WEB-INF/views/member/star.jsp
+		return "member/star";
+	}
 	
 	
 	@RequestMapping(value = "/member/insert", method = RequestMethod.GET)
@@ -57,7 +74,7 @@ public class MemberController {
 		}else {
 			return "member/msg";
 		}
-		return "redirect:/member/main";
+		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
 	public String main(@RequestParam(value = "code", required = false) String code,Model m) {
@@ -83,7 +100,7 @@ System.out.println("#########" + code);
 		return "redirect:/member/login";
 		
 	}
-	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
@@ -91,7 +108,7 @@ System.out.println("#########" + code);
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		
-		return "member/info";
+		return "mypage/info";
 	}
 	
 	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)
