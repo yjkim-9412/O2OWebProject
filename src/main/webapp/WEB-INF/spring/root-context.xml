@@ -72,8 +72,8 @@ https://mybatis.org/mybatis-3/getting-started.html-->
 <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 	<property name="host" value="smtp.naver.com" />
 	<property name="port" value="587" />
-	<property name="username" value="gustmd262" />
-	<property name="password" value="park3191" />
+	<property name="username" value="userid" /> <!-- 네이버꺼 @뺴고 -->
+	<property name="password" value="userpassword" /><!-- 네이버 비밀번호 -->
 	<property name="defaultEncoding" value="utf-8" />
 	<property name="javaMailProperties">
       <props>
