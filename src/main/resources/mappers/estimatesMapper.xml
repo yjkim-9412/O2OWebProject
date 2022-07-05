@@ -8,4 +8,8 @@
   		select id from ESTIMATES where account_id = #{account_id};
   	</select>
   	
+  	<select id="getEstimatesMid" resultType="com.itwillbs.domain.EstimatesMidDTO">
+  		select * from ESTIMATESMID where estimates_id = #{estimates_id};
+  	</select>
+  	
   </mapper>
