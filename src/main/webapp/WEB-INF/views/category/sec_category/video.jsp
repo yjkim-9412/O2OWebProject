@@ -337,11 +337,11 @@ body {
   background-color: #dddddd;
   border-radius: 50%;
   display: inline-block;
-  height: 30px;
-  line-height: 30px;
+  height: 35px;
+  line-height: 35px;
   position: relative;
   text-align: center;
-  width: 30px;
+  width: 35px;
   z-index: 1;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
