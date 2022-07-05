@@ -548,7 +548,7 @@ ul li {
             </div>
           </form>
     </div>
-
+</div>
   <!-- 푸터 -->
 
   <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);">

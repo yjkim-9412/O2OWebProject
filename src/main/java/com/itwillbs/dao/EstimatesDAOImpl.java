@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.EstimatesDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
+import com.itwillbs.domain.QuestionDTO;
 
 @Repository
 public class EstimatesDAOImpl implements EstimatesDAO{
@@ -28,6 +29,12 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 	public List<EstimatesMidDTO> getEstimatesMid(int estimates_id) {
 		
 		return sqlSession.selectList(namespace + ".getEstimatesMid", estimates_id);
+	}
+
+	@Override
+	public QuestionDTO getQuestion(int que_id) {
+		
+		return sqlSession.selectOne(namespace + ".getQuestion", que_id);
 	}
 	
 	

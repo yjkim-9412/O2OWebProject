@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.dao.EstimatesDAO;
 import com.itwillbs.domain.EstimatesDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
+import com.itwillbs.domain.QuestionDTO;
 
 @Service
 public class EstimatesServiceImpl implements EstimatesService{
@@ -26,6 +27,12 @@ public class EstimatesServiceImpl implements EstimatesService{
 	public List<EstimatesMidDTO> getEstimatesMid(int estimates_id) {
 		
 		return estimatesDAO.getEstimatesMid(estimates_id);
+	}
+
+	@Override
+	public QuestionDTO getQuestion(int que_id) {
+		
+		return estimatesDAO.getQuestion(que_id);
 	}
 
 	
