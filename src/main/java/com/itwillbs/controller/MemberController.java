@@ -76,7 +76,6 @@ public class MemberController {
 		}else {
 			return "member/msg";
 		}
-		return "redirect:/member/main";
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
@@ -104,11 +103,7 @@ System.out.println("#########" + code);
 		
 	}
 	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
-<<<<<<< HEAD
-	public String info(HttpSession session, Model model) {
-=======
 	public String info(HttpSession session,Model model) {
->>>>>>> c3462fd5ac1ca8561616cf1d61f2f9b165fa83a1
 		int id = (Integer)session.getAttribute("id");
 		
 		
