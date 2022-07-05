@@ -67,33 +67,7 @@
     var isStomp = false;
     var roomId = '${room_id}';
     var user = '${m_Name}';
-    var msg = "";
-
-    function connectStomp() {
-        var sock = new SockJS("/stompTest"); // endpoint
-        var client = Stomp.over(sock);
-        isStomp = true;
-        socket = client;
-
-        client.connect({}, function () {
-            console.log("Connected stompTest!");
-            // Controller's MessageMapping, header, message(자유형식)
-            client.send('/chat/enter',{}, JSON.stringify({roomId: '${room_id}', sender:'${m_Name}',message:msg}));
-            console.log("first send");
-            // 해당 토픽을 구독한다!
-            client.subscribe('/topic/room/'+'${room_id}', function (event) {
-                console.log("!!!!!!!!!!!!event>>", event);
-               var content = JSON.parse(event.body);
-
-                console.log(user);
-                console.log(msg);
-
-
-
-            });
-        });
-
-    }
+    var pro_email = '${p_email}'
 
 
 </script>
@@ -101,32 +75,58 @@
     const Chat = (function(){
         const myName = user;
         connectStomp();
+        function connectStomp() {
+            isStomp = true;
+            var sock = new SockJS("/stompTest"); // endpoint
+            var client = Stomp.over(sock);
+            socket = client;
+            let first = true;
+            client.connect({}, function () {
+                if (first){
+                    socket.send('/chat/enter', {}, JSON.stringify({roomId: '${room_id}', sender:'${m_Name}' , message: "msg",
+                        receiver:pro_email}));
+                    first = false;
+                }
+                console.log("Connected stompTest!");
+                socket.subscribe('/topic/room/'+'${room_id}', function (event) {
+                    console.log("!!!!!!!!!!!!event>>", event);
+                    const content = JSON.parse(event.body);
+                    var sender =content.sender;
+                    var messageSub = content.message;
+                    console.log("송신인 : " + sender);
+                    console.log("메세지 : " + content.message);
+                    const data = {
+                        "senderName"    : sender,
+                        "message"        : messageSub
+                    };
+                    resive(data);
+                });
+            });
+            function disconnect() {
+                if (socket !== null) {
+                    socket.disconnect();
+                }
+            }
+            //채팅방 브라우저 닫을시 연결해제
+            window.onbeforeunload = function(e){
+                disconnect();
+            }
+        }
         // init 함수
         function init() {
-
             // enter 키 이벤트
             $(document).on('keydown', 'div.input-div textarea', function(e){
                 if(e.keyCode == 13 && !e.shiftKey) {
                     e.preventDefault();
-                     msg= $(this).val();
-
+                     const msg= $(this).val();
                     // 메시지 전송
                     if (!isStomp && socket.readyState !== 1) return;
                     if (isStomp){
-                        socket.send('/chat/message', {}, JSON.stringify({roomId: '${room_id}', sender:'${m_Name}' , message: msg}));
-                        socket.subscribe('/topic/room'+'${room_id}', function (event) {
-                            console.log("!!!!!!!!!!!!event>>", event);
-                            var content = JSON.parse(event.body);
-                            console.log(user);
-                            console.log(msg);
-
-                        });
                         sendMessage(msg);
-
-                        console.log("subscribe");
-
+                        console.log("연결상태 : " + isStomp);
                     }else{
-                        socket.send(msg);}
+                        console.log("연결상태 : " + isStomp);
+                        }
                     clearTextarea();
                 }
             });
@@ -157,15 +157,15 @@
 
         // 메세지 전송
         function sendMessage(msg) {
-            // 서버에 전송하는 코드로 후에 대체
+            socket.send('/chat/message', {}, JSON.stringify({
+                roomId: '${room_id}',
+                sender:'${m_Name}' ,
+                message: msg,
+                senderM:'${m_email}',
+                receiver:pro_email}));
             console.log("sendMessage!!!!");
-            const data = {
-                "senderName"    : '${m_Name}',
-                "message"        : msg
-            };
 
-            // 통신하는 기능이 없으므로 여기서 receive
-            resive(data);
+
         }
 
         // 메세지 입력박스 내용 지우기
@@ -180,7 +180,6 @@
             appendMessageTag("right", data.senderName, data.message);
 
         }
-
         return {
             'init': init
         };

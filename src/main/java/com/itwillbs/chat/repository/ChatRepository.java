@@ -1,17 +1,25 @@
 package com.itwillbs.chat.repository;
 
+import com.itwillbs.chat.model.domain.ChatMessageDTO;
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
-import com.itwillbs.domain.MemberDTO;
+
 import com.itwillbs.service.MemberService;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import java.util.*;
 
 @Repository
 public class ChatRepository {
+
+    @Inject
+    private SqlSession sqlSession;
     private Map<String, ChatRoomDTO> chatRooms;
+
+    private static final String namespace="com.itwillbs.mapper.ChatMapper";
 
     @Autowired
     private MemberService memberService;
@@ -27,17 +35,18 @@ public class ChatRepository {
         Collections.reverse(result);
         return result;
     }
-    public ChatRoomDTO createRoom(String name) {
-        ChatRoomDTO chatRoomDTO = ChatRoomDTO.createRoom(name);
-        chatRooms.put(chatRoomDTO.getRoomdId(), chatRoomDTO);
-        return chatRoomDTO;
+
+
+    public void saveChat(ChatMessageDTO message){
+
+        sqlSession.insert(namespace+".saveChat",message);
     }
-//    public Long newRoom(String member,String pro){
-//        Long ret = check(member,pro);
-//    }
-//    public Long check(String member,String pro){
-//         MemberDTO memberDTO = memberService.getMember(Integer.parseInt(member));
-//
-//        return 0L;
-//    }
+    public Long findRoomId(Long roomId){
+
+        return sqlSession.selectOne(namespace+".selectRoomId",roomId);
+    }
+
+
+
+
 }

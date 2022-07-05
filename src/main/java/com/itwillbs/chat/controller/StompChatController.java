@@ -3,6 +3,7 @@ package com.itwillbs.chat.controller;
 
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
+import com.itwillbs.chat.model.service.ChatService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,14 @@ public class StompChatController {
 
     @Autowired
     private SimpMessageSendingOperations messagingTemplate;
+    @Autowired
+    private ChatService chatService;
 
 
     @MessageMapping("/chat/message")
     public ChatMessageDTO sendMessage(ChatMessageDTO message) throws Exception {
-        System.out.println("sendMessage>>" + message);
-        System.out.println("ID=" + message.getSender());
-        System.out.println("MSG=" + message.getMessage());
-        System.out.println("RoomId= " + message.getRoomId());
+        String receiver = message.getReceiver();
+        chatService.save(message);
 
         messagingTemplate.convertAndSend("/topic/room/" + message.getRoomId(), message);
 //		messagingTemplate.convertAndSendToUser(message.getId(), "/topic/" + message.getRoomid(), message.getMsg());

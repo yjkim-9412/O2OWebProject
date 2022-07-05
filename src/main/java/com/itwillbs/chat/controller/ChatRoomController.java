@@ -1,6 +1,7 @@
 package com.itwillbs.chat.controller;
 
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
+import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
 import com.itwillbs.chat.repository.ChatRepository;
 import com.itwillbs.domain.MemberDTO;
@@ -12,14 +13,18 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Optional;
 
 
 @Slf4j
@@ -33,6 +38,8 @@ public class ChatRoomController {
     private  ProService proService;
     @Autowired
     private  ChatRepository chatRepository;
+    @Autowired
+    private ChatEnterService chatEnterService;
 
 
     //회원 채팅목록 전부 가져오기
@@ -43,31 +50,26 @@ public class ChatRoomController {
         return chatService.findAllRoom();
     }
     //채팅방 생성
-    @RequestMapping(value = "/chat/room",method = RequestMethod.GET)
-    public ModelAndView createChat(@RequestParam int idp ,ModelAndView mv,HttpSession session){
+    @RequestMapping(value = "/chat/newChat",method = RequestMethod.GET)
+    public String createChat(@RequestParam("pro_email") String pro_email ,HttpSession session){
         int idm =  (Integer)session.getAttribute("id");
         MemberDTO memberDTO = memberService.getMember(idm);
-        MemberDTO memberDTO2 = memberService.getMember(idp);
+        String member_email = memberDTO.getEmail();
+        Long roomId = chatEnterService.newRoom(member_email,pro_email);
 
-        String member = memberDTO.getName();
-        String pro = memberDTO2.getName();
-        ChatRoomDTO chatRoomDTO= chatService.createRoom(member);
 
-        System.out.println(chatRoomDTO.getRoomName());
-        System.out.println(chatRoomDTO.getRoomdId());
-        System.out.println(member);
-        System.out.println(pro);
-        mv.addObject("m_Name",member);
-        mv.addObject("p_Name",pro);
-        mv.addObject("room_Name",chatRoomDTO.getRoomName());
-        mv.addObject("room_id",chatRoomDTO.getRoomdId());
-        mv.setViewName("chat/room");
-        return mv;
+        return "redirect:/chat/room/" + roomId;
     }
-//    @RequestMapping(value = "/chat/newChat",method = RequestMethod.POST)
-//    public String newChat(@RequestParam("receiver") String member, @RequestParam("sender") String pro){
-//
-//    }
+    @RequestMapping(value = "/chat/room/{roomId}")
+    public String intoChat(@PathVariable("roomId") Long roomId, Model model, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        int id = (Integer)session.getAttribute("id");
+        MemberDTO memberDTO = memberService.getMember(id);
+        String m_email = memberDTO.getEmail();
+        String p_email = "lamia9304@naver.com"; // proDTO 들어올 예정
+       // Optional<ChatEnterService> optional = chatEnterService.checkRoom(roomId);
+        return "chat/room";
+    }
 
 
 

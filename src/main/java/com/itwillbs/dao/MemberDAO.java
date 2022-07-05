@@ -11,4 +11,7 @@ public interface MemberDAO {
 		public MemberDTO getMember(int id);
 		
 		public void updateMember(MemberDTO memberDTO);
+
+	// 	----------- CHATROOM -----------
+		public MemberDTO getMemberE(String email);
 }

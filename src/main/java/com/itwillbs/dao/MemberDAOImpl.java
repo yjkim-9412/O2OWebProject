@@ -42,7 +42,9 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.update(namespace+".updateMember", memberDTO);
 
 	}
-	
-	
-
+	// 	----------- CHATROOM -----------
+	@Override
+	public MemberDTO getMemberE(String email) {
+		return sqlSession.selectOne(namespace+".selectMemberE",email);
+	}
 }

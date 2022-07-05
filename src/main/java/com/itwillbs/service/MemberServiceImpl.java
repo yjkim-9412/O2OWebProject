@@ -167,7 +167,13 @@ public class MemberServiceImpl implements MemberService{
 	return userInfo; 
 	}
 
-	
+	// 	----------- CHATROOM -----------
 
+
+	@Override
+	public MemberDTO getMemberE(String email) {
+
+		return memberDAO.getMemberE(email);
+	}
 }
 
