@@ -11,10 +11,11 @@
   
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
   
   <!--   구글폰트(버튼) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,49 +35,7 @@
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   
-<style type="text/css">
-  
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-}
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}  
-  
+  <style type="text/css">
   
 /* nav */
 .search {
@@ -157,234 +116,22 @@ header img {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   
 }  
-
-/* 회원정보 */
-.thumb {
-    width: 4.375rem;
-    height: 4.375rem;
-    min-width: 4.375rem;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    border: 0.0625rem solid #f2f2f2;
-}
-
-.user-info {
-    flex: auto;
-    text-align: left;
-    padding-left: 0.75rem;
-}
-
-.user-name {
-    display: flex;
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: #323232;
-    position: relative;
-    font-weight: bold;
-    left: 70px;
-    bottom: 60px;
-}
   
-.name-length {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    padding-right: 0.3125rem;
-    max-width: 8.45rem;
-}  
-  
-.user-id {
-    display: flex;
-    font-size: .75rem;
-    color: #b5b5b5;
-    position: relative;
-    left: 70px;
-    bottom: 58px;
-    
-}  
- 
-.id-length {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 11.6875rem;
-    padding-left: 5px;
-} 
-
-.arrow {
-	position: relative;
-	left: 600px;
-    bottom: 80px;
-}
-
-.main-menu {
-    display: flex;
-    align-items: center;
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: #323232;
-}
-
-.sub-menu {
-    font-size: 16px;
-    font-weight: 500;
-    color: #737373;
-    padding: 0;
- 
-}
-
-.sub-menu-container {
-    padding: 1rem 0;
-}
-
-.sub-menu-container .sub-menu-list {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-  
-.underline {
-    border-bottom: 0.0625rem solid;
-    border-color: #f2f2f2;
-}  
-  
-ul li {
-    list-style: none;
-}
-
-/* 모달창 */
-.modal-confirm {		
-	color: #434e65;
-	width: 525px;
-}
-.modal-confirm .modal-content {
-	padding: 20px;
-	font-size: 16px;
-	border-radius: 5px;
-	border: none;
-}
-.modal-confirm .modal-header {
-	background: #47c9a2;
-	border-bottom: none;   
-	position: relative;
-	text-align: center;
-	margin: -20px -20px 0;
-	border-radius: 5px 5px 0 0;
-	padding: 35px;
-}
-.modal-confirm h4 {
-	text-align: center;
-	font-size: 36px;
-	margin: 10px 0;
-}
-.modal-confirm .form-control, .modal-confirm .btn {
-	min-height: 40px;
-	border-radius: 3px; 
-}
-.modal-confirm .close {
-	position: absolute;
-	top: 15px;
-	right: 15px;
-	color: #b5b5b5;
-	text-shadow: none;
-	opacity: 0.5;
-}
-.modal-confirm .close:hover {
-	opacity: 0.8;
-}
-.modal-confirm .icon-box {
-	color: #fff;		
-	width: 95px;
-	height: 95px;
-	display: inline-block;
-	border-radius: 50%;
-	z-index: 9;
-	border: 5px solid #fff;
-	padding: 15px;
-	text-align: center;
-}
-.modal-confirm .icon-box i {
-	font-size: 64px;
-	margin: -4px 0 0 -4px;
-}
-.modal-confirm.modal-dialog {
-	margin-top: 80px;
-}
-.modal-confirm .btn, .modal-confirm .btn:active {
-	color: #fff;
-	border-radius: 4px;
-	background: #eeb711 !important;
-	text-decoration: none;
-	transition: all 0.4s;
-	line-height: normal;
-	border-radius: 30px;
-	margin-top: 10px;
-	padding: 6px 20px;
-	border: none;
-}
-.modal-confirm .btn:hover, .modal-confirm .btn:focus {
-	background: #eda645 !important;
-	outline: none;
-}
-.modal-confirm .btn span {
-	margin: 1px 3px 0;
-	float: left;
-}
-.modal-confirm .btn i {
-	margin-left: 1px;
-	font-size: 20px;
-	float: right;
-}
-.trigger-btn {
-	display: inline-block;
-	margin: 100px auto;
-}
-
-.item {
-    color: #323232;
-    width: 600px;
-}
-
-.item-container {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 1rem 0 1rem 0.5rem;
-    font-size: 15.8px;
-    height: 80px;
-    margin-bottom: 15px;
-}
-
-.item-title{
-    color: #b5b5b5;
-    font-weight: bold;
-}
-
-.item-info {
-    padding-top: 0.25rem;
-    font-weight: bold;
-    margin-bottom: 30px;
-
-}
-
-
 </style>
   
-
+  
   
 </head>
 <body>
-
-
 
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+        <a href="#" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -416,148 +163,63 @@ ul li {
     </nav>
   </header>
 
-  <input type="hidden" name="id" value="${sessionScope.id }">
-  <input type="hidden" name="email" value="${memberDTO.email }">
-  <input type="hidden" name="password" value="${memberDTO.password }">
-  
-
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="info">
+          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
             <h2 class="text-black"><b>마이페이지</b></h2>
-            <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px;">
-            <a href="<%=request.getContextPath() %>/mypage/account-info" style="text-decoration: none; height: 30px; margin-bottom: 60px;">
-            	<div class="thumb">
-            		<div class="user-profile">
-            			<img alt="profile" src="https://dmmj3ljielax6.cloudfront.net/upload/profile-default/soomgo_70.jpg?h=320&w=320">
-            		</div>
-            	</div>
-            	<div class="user-info">
-            		<div class="user-name">
-            			<span class="name-length">${memberDTO.name}</span> 고객님
-            		</div>
-            		<div class="user-id">
-            			<img alt="kakao" src="https://assets.cdn.soomgo.com/icons/icon-mypage-kakaotalk-signin.svg">
-            			<span class="id-length">${memberDTO.email }</span>
-            		</div>
-            	</div>
-            	<div class="arrow">
-            		<span class="right-arrow">
-            			<img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-            		</span>
-            	</div>
-            </a>
-            </div>
-    
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              	<ul>
-              		<li class="main-menu">주고받고</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#myModal" style="text-decoration: none;" class="sub-menu" data-toggle="modal">내 요청서 보기</a>
-              		</li>
-              		<li class="sub-menu sub-menu-container underline">
-					<a href="#" style="text-decoration: none; " class="sub-menu">거래내역</a>
-              		</li>
-              	</ul>
-            </div>
-            
-            
-    <!-- 모달 창 시작 -->
-	<div id="myModal" class="modal fade" style="position: fixed;">
-		<div class="modal-dialog modal-confirm">
-		<div class="modal-content">
-				<h2 class="text-black" style="margin-top: 20px; margin-bottom: 40px; margin-left: 20px;"><b>내 요청서</b></h2>
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문1</div>
- 				<div class="item-info">답변1</div>
- 				</div>
-            </li>
- 
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문2</div>
- 				<div class="item-info">답변2</div>
- 				</div>
-            </li>
-    
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문3</div>
- 				<div class="item-info">답변3</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문4</div>
- 				<div class="item-info">답변4</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문5</div>
- 				<div class="item-info">답변5</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문6</div>
- 				<div class="item-info">답변6</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문7</div>
- 				<div class="item-info">답변7</div>
- 				</div>
-            </li>
-		</div>
-		</div>
-	</div>     
-	<!-- 모달창 끝 -->
+            <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px; cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/mypage/account-info';">
+              <div class="col-md-12">
+                <label class="text-black" for="fname" style="font-size: 18px; cursor: pointer;" onclick="location.href='#';"><b>${memberDTO.name} 고객님</b></label>
 
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px;">
-              	<ul>
-              		<li class="main-menu">마켓</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">구매내역</a>
-              		</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">문의내역</a>
-              		</li>
-              	</ul>
+              </div>
             </div>
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              	<ul>
-              		<li class="main-menu">커뮤니티</li>
-              		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">마루생활 작성글/댓글</a>
-              		</li>
-             	</ul> 
-            </div>			
+              <div class="col-md-12">
+                <label class="text-black" for="email" style="font-size: 18px; margin-bottom: 15px"><b>마루페이</b></label><br>
+                거래내역<br>
+                <hr>
+                쿠폰/이벤트
+              </div>
+            </div>
+    
+            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
+    
+              <div class="col-md-12">
+                <label class="text-black" for="subject"  style="font-size: 18px; margin-bottom: 15px"><b>마켓</b></label><br>
+                구매내역<br>
+                <hr>
+                문의내역
+              </div>
+            </div>
+    
+            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
+              <div class="col-md-12">
+                <label class="text-black" for="message"  style="font-size: 18px; margin-bottom: 15px"><b>커뮤니티</b></label><br>
+                마루생활 작성글/댓글
+              </div>
+            </div>
     
             <div class="row form-group mt-4">
-
+              <div class="col-md-12">
+                
+              </div>
             </div>
           </form>
     </div>
 
-  <!-- 푸터 -->
+    <div class="container-fluid mt-4">
 
-  <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);">
+    </div>
+  </div>
+
+  <footer class="page-footer bg-image" style="background-image: url(../resources/img/world_pattern.svg);">
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
-          
-          <div class="callnumber">1600-8282</div>
-			<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
+          <h3>SEOGram</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
+
           <div class="social-media-button">
             <a href="#"><span class="mai-logo-facebook-f"></span></a>
             <a href="#"><span class="mai-logo-twitter"></span></a>
@@ -568,37 +230,30 @@ ul li {
         </div>
         <div class="col-lg-3 py-3">
           <h5>Company</h5>
-          <ul class="footer-menu" id="footermenu1">
-            <li><b>마루소개</b></li>
-            <li>마루메인</li>
-            <li>Prime</li>
-            <li>엔터프라이즈</li>
-            <li>프리랜서 클럽</li>
-          </ul>
-          
-         
-        </div>
-        <div class="col-lg-3 py-3">
-          <ul class="footer-menu" id="footermenu2">
-          	<li><b>고객안내</b></li>
-            <li>이용안내</li>
-            <li>안전정책</li>
-            <li>예상금액</li>
-            <li>고수찾기</li>
-            <li>마루보증</li>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help & Support</a></li>
           </ul>
         </div>
         <div class="col-lg-3 py-3">
-           <ul class="footer-menu" id="footermenu3">
-          	<li><b>주고안내</b></li>
-            <li>이용안내</li>
-            <li>주고가이드</li>
-            <li>주고가입</li>
-            <li>주고센터</li>
-            </ul>
+          <h5>Contact Us</h5>
+          <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
+          <a href="#" class="footer-link">+00 1122 3344 5566</a>
+          <a href="#" class="footer-link">seogram@temporary.com</a>
         </div>
-      </div>
-      <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
+        <div class="col-lg-3 py-3">
+          <h5>Newsletter</h5>
+          <p>Get updates, news or events on your mail.</p>
+          <form action="#">
+            <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
+          </form>
+        </div>
+      </div> 
+
+      <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
     </div>
   </footer>
  
@@ -614,8 +269,7 @@ ul li {
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
+
+
 </body>
 </html>
-
-
-

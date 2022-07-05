@@ -123,62 +123,20 @@ header img {
 .cancle {
 background-color: white; 
 border-color: #F2F2F2; 
-color: #FFCD4A; 
+color: #00C7AE; 
 width: 142px; 
 height: 48px;
 padding: 11px 12px;
 }
 
 .update {
-background-color: #FFCD4A; 
+background-color: #00C7AE; 
 border-color: transparent; 
 color: white; 
 width: 142px; 
 height: 48px;
 padding: 11px 12px;
 margin: 0px 0px 0px 12px;
-font-weight: bold;
-}
-
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-}
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
 }
 
 
@@ -196,7 +154,7 @@ font-weight: bold;
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="#" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -230,7 +188,7 @@ font-weight: bold;
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="<%=request.getContextPath() %>/mypage/settings/name-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
+          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
             <h2 class="text-black"><b>이름 수정</b></h2>
             <div class="input-group">
               <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
@@ -243,7 +201,7 @@ font-weight: bold;
               <div class="col-md-12" style="width: 100%; padding-bottom: 50px;">
                 <label class="text-black" style="margin-bottom:5px"><b>이름</b></label>
                 <div class="input-group" data-validate="email">
-						<input type="text" class="form-control" name="name" value="${memberDTO.name}" required style="border-radius: 0.25rem;">
+						<input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="${memberDTO.name}" required style="border-radius: 0.25rem;">
 						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
 					</div>
               </div>
@@ -253,11 +211,8 @@ font-weight: bold;
 		  <!-- This is a comment text, these buttons are the default bootstrap buttons with icons in front
 			   of them. Grab their code and just edit the text as you wish to. * Follow me twitter.com/Impresiun -->
 			  
-		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
-		  <input type="submit" class="btn update" value="수정 완료">
-		  <input type="hidden" name="email" value="${memberDTO.email }">
-  		  <input type="hidden" name="password" value="${memberDTO.password }">
-  		  <input type="hidden" name="id" value="${sessionScope.id }">
+		  <button type="button" class="btn cancle"><b>취소</b></button>
+		  <button type="button" class="btn update" style=""><b>수정 완료</b></button>
 		  
 		  </div>
           </form>
@@ -268,15 +223,13 @@ font-weight: bold;
     </div>
   </div>
 
-  <!-- 푸터 -->
-
-  <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);">
+  <footer class="page-footer bg-image" style="background-image: url(../resources/img/world_pattern.svg);">
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
-          
-          <div class="callnumber">1600-8282</div>
-			<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
+          <h3>SEOGram</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
+
           <div class="social-media-button">
             <a href="#"><span class="mai-logo-facebook-f"></span></a>
             <a href="#"><span class="mai-logo-twitter"></span></a>
@@ -287,38 +240,30 @@ font-weight: bold;
         </div>
         <div class="col-lg-3 py-3">
           <h5>Company</h5>
-          <ul class="footer-menu" id="footermenu1">
-            <li><b>마루소개</b></li>
-            <li>마루메인</li>
-            <li>Prime</li>
-            <li>엔터프라이즈</li>
-            <li>프리랜서 클럽</li>
-          </ul>
-          
-         
-        </div>
-        <div class="col-lg-3 py-3">
-          <ul class="footer-menu" id="footermenu2">
-          	<li><b>고객안내</b></li>
-            <li>이용안내</li>
-            <li>안전정책</li>
-            <li>예상금액</li>
-            <li>고수찾기</li>
-            <li>마루보증</li>
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Career</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Help & Support</a></li>
           </ul>
         </div>
         <div class="col-lg-3 py-3">
-           <ul class="footer-menu" id="footermenu3">
-          	<li><b>주고안내</b></li>
-            <li>이용안내</li>
-            <li>주고가이드</li>
-            <li>주고가입</li>
-            <li>주고센터</li>
-            </ul>
+          <h5>Contact Us</h5>
+          <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
+          <a href="#" class="footer-link">+00 1122 3344 5566</a>
+          <a href="#" class="footer-link">seogram@temporary.com</a>
         </div>
-      </div>
+        <div class="col-lg-3 py-3">
+          <h5>Newsletter</h5>
+          <p>Get updates, news or events on your mail.</p>
+          <form action="#">
+            <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
+          </form>
+        </div>
+      </div> 
 
-      <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
+      <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
     </div>
   </footer>
  
