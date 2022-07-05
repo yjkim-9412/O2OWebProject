@@ -45,8 +45,10 @@ public class MemberController {
 		// /WEB-INF/views/member/star.jsp
 		return "member/star";
 	}
-	
-	
+
+	@Autowired
+	private MemberService ms;
+
 	@RequestMapping(value = "/member/insert", method = RequestMethod.GET)
 	public String insert() {
 		// /WEB-INF/views/member/insertForm.jsp
@@ -72,11 +74,10 @@ public class MemberController {
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
 			session.setAttribute("id",memberDTO.getId());
-			session.setAttribute("email", memberDTO.getEmail());
 		}else {
 			return "member/msg";
 		}
-		return "redirect:/";
+		return "redirect:/member/main";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
 	public String main(@RequestParam(value = "code", required = false) String code,Model m) {
@@ -84,24 +85,22 @@ public class MemberController {
 System.out.println("#########" + code);
         
 		// 위에서 만든 코드 아래에 코드 추가
-		String access_Token = memberService.getAccessToken(code);
+		String access_Token = ms.getAccessToken(code);
 	
         
-		HashMap<String, Object> userInfo = memberService.getUserInfo(access_Token);
+		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
 		System.out.println("###access_Token#### : " + access_Token);
 		System.out.println("###nickname#### : " + userInfo.get("nickname"));
 		System.out.println("###email#### : " + userInfo.get("email"));
-		System.out.println("###profile_image#### : " + userInfo.get("profile_image"));
-		m.addAttribute("ka_email", userInfo.get("email"));
-		m.addAttribute("ka_img", userInfo.get("profile_image"));
+		m.addAttribute("ac", userInfo.get("nickname"));
 		return "member/main";
 	}
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/member/login";
-		
 	}
+	
 	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
@@ -114,7 +113,7 @@ System.out.println("#########" + code);
 	}
 	
 	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)
-	public String account_info(HttpSession session, Model model) {
+	public String account_info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
 		
@@ -125,7 +124,7 @@ System.out.println("#########" + code);
 	}
 	
 	@RequestMapping(value = "/mypage/settings/name", method = RequestMethod.GET)
-	public String name(HttpSession session, Model model) {
+	public String name(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
 		
@@ -135,44 +134,10 @@ System.out.println("#########" + code);
 		return "mypage/settings/name";
 	}
 	
-	@RequestMapping(value = "/mypage/settings/name-update", method = RequestMethod.POST)
-	public String updateName(@RequestParam("name") String name, MemberDTO memberDTO) {
-				
-		memberDTO.setName(name);
-		memberService.updateName(memberDTO);
-		
-		return "redirect:/mypage/account-info";
-	}
+	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET) 
+	public String kakaologin() {
 	
-	
-	@RequestMapping(value = "/mypage/delete", method = RequestMethod.GET)
-	public String delete(HttpSession session, Model model) {
-		int id = (Integer)session.getAttribute("id");
-		
-		
-		MemberDTO memberDTO = memberService.getMember(id);
-		model.addAttribute("memberDTO", memberDTO);
-
-		return "mypage/delete";
-		
-	}
-	
-	@RequestMapping(value = "/mypage/deletePro", method = RequestMethod.GET)
-	public String deletePro(MemberDTO memberDTO, Model model) {
-
-		MemberDTO memberDTO2=memberService.userCheck(memberDTO);
-		
-		if(memberDTO2!=null) {
-			//아이디 비밀번호 일치
-			System.out.println("비번 일치");
-			//삭제작업
-			memberService.deleteMember(memberDTO);
-
-			return "redirect:/";
-		}else {
-			//아이디 비밀번호 틀림
-			return "member/msg";
-		}
+		return "member/kakaologin";
 	}
 	
 	@RequestMapping(value = "/mypage/settings/email", method = RequestMethod.GET)
@@ -232,6 +197,7 @@ System.out.println("#########" + code);
 			return "member/msg";
 		}
 	}
+
 
 }
 
