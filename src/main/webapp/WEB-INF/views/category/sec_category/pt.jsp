@@ -335,17 +335,17 @@ body {
   
 }
 .form-wizard .form-wizard-steps li::after {
+  background-color: #f3f3f3;
   content: "";
   height: 5px;
   left: 0;
   position: absolute;
   right: 0;
-  
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  border-bottom: 1px solid #f3f3f3; /* 줄 색깔 */
-  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
 }
 .form-wizard .form-wizard-steps li span {
   background-color: #dddddd;
@@ -367,8 +367,8 @@ body {
 }
 .form-wizard .form-wizard-steps li.active::after, .form-wizard .form-wizard-steps li.activated::after {
   background-color: #FFCD4A;
-  left: 70%;
-  width: 70%;
+  left: 50%;
+  width: 50%;
   border-color: #f3f3f3;
 }
 .form-wizard .form-wizard-steps li.activated::after {
@@ -501,7 +501,7 @@ select.form-control {
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="<%=request.getContextPath() %>/category/result" method="get" role="form">
+          <form action="<%=request.getContextPath() %>/category/result1" method="get" role="form">
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>

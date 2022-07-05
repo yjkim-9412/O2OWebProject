@@ -337,11 +337,11 @@ body {
   background-color: #dddddd;
   border-radius: 50%;
   display: inline-block;
-  height: 30px;
-  line-height: 30px;
+  height: 35px;
+  line-height: 35px;
   position: relative;
   text-align: center;
-  width: 30px;
+  width: 35px;
   z-index: 1;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
@@ -480,14 +480,15 @@ select.form-control {
   <input type="hidden" name="password" value="${memberDTO.password }">
   
 
+  <input type="hidden" name="questions" value="${questions.size()}">
   <section class="form-contents">
     <div class="container">
     <div class="title">
-    	<h2><b>웨이트 트레이닝 / 레슨</b></h2>
+    	<h2><b>${serviceDTO.name } / 레슨</b></h2>
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="#" method="post" role="form">
+          <form action="<%=request.getContextPath() %>/category/result2" method="get" role="form">
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
@@ -500,10 +501,11 @@ select.form-control {
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0) }</h5>
+              <input type="hidden" name="ans1" value="${questions_id[0] }">
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
+                  <input name="ans1" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -514,10 +516,11 @@ select.form-control {
         <!-- 문항2 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(1) }</h5>
+              <input type="hidden" name="ans2" value="${questions_id[1] }">
                <c:forEach var="answers" items="${answers.get(1) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
+                  <input name="ans2" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -557,10 +560,11 @@ select.form-control {
         <!-- 문항4 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(3) }</h5>
+               <input type="hidden" name="ans3" value="${questions_id[3] }">
                <c:forEach var="answers" items="${answers.get(3) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="radio-name" id="radio2" type="radio">
+                  <input name="ans3" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -574,8 +578,9 @@ select.form-control {
               <h5>${questions.get(4) }</h5>
    				<div class="form-group" style="border: none;">
                 <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;">
+                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="wish">
                 </div>
+               </div> 
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 
@@ -585,10 +590,10 @@ select.form-control {
               <h5>${questions.get(5) }</h5>
    				<div class="form-group" style="border: none;">
                 <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;">
+                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="etc">
                 </div>
               </div>
-                <a href="javascript:;" class="form-wizard-submit float-right">Submit</a>
+                <input type="submit" class="form-wizard-submit" value="Submit" style="width: 80px; height: 45px; float: right; border: white; border-radius: 0px; font-size: 16px;">
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 
           </form>

@@ -497,7 +497,7 @@ select.form-control {
   <section class="form-contents">
     <div class="container">
     <div class="title">
-    	<h2><b>${serviceDTO.name } / 레슨</b></h2>
+    	<h2><b>${serviceDTO.name } / 건강</b></h2>
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
@@ -545,7 +545,39 @@ select.form-control {
         <!-- 문항3 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(2) }</h5>
-              <div class="form-group" style="border: none;">
+              <input type="hidden" name="ans3" value="${questions_id[2] }">
+               <c:forEach var="answers" items="${answers.get(2) }">
+   				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="ans3" id="radio2" type="radio" value="${answers }">
+                  <label for="radio2">${answers}</label>
+                </div>
+              </div>
+                </c:forEach>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
+        </fieldset>
+        
+        <!-- 문항4 -->
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(3) }</h5>
+              <input type="hidden" name="ans4" value="${questions_id[3] }">
+               <c:forEach var="answers" items="${answers.get(3) }">
+   				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="ans4" id="radio2" type="radio" value="${answers }">
+                  <label for="radio2">${answers}</label>
+                </div>
+              </div>
+                </c:forEach>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
+        </fieldset> 
+        
+        <!-- 문항5 -->
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(4) }</h5>
+   				<div class="form-group" style="border: none;">
 					  <select class="form-control">
 					    <option value="">시/도</option>
 					    <option value="1">Option 1</option>
@@ -566,39 +598,6 @@ select.form-control {
 					    <option value="2">Option 2</option>
 					  </select>
               	</div>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset>
-        
-        <!-- 문항4 -->
-       	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(3) }</h5>
-              <input type="hidden" name="ans3" value="${questions_id[3] }">
-               <c:forEach var="answers" items="${answers.get(3) }">
-   				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="ans3" id="radio2" type="radio" value="${answers }">
-                  <label for="radio2">${answers}</label>
-                </div>
-              </div>
-                </c:forEach>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset> 
-        
-        <!-- 문항5 -->
-       	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(4) }</h5>
-   			  <input type="hidden" name="ans4" value="${questions_id[4] }">
-   			  <c:forEach var="answers" items="${answers.get(4) }">
-   				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="ans4" id="radio2" type="radio" value="${answers }">
-                  <label for="radio2">${answers}</label>
-                </div>
-              </div>
-                </c:forEach>
-   			  
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 

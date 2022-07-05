@@ -169,7 +169,15 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.wizard-content-left {
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-image: url("https://i.ibb.co/X292hJF/form-wizard-bg-2.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  padding: 30px;
+}
 .wizard-content-left h1 {
   color: #ffffff;
   font-size: 38px;
@@ -188,9 +196,6 @@ body {
   display: inline-block;
   margin-left: 5px;
   position: relative;
-  color: black;
-  font-weight: 500;
-  font-size: 16px;
 }
 .form-wizard .wizard-form-radio input[type="radio"] {
   -webkit-appearance: none;
@@ -199,8 +204,8 @@ body {
   -o-appearance: none;
   appearance: none;
   background-color: #dddddd;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
@@ -211,7 +216,7 @@ body {
   outline: 0;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked {
-  background-color: #FEEBB6;
+  background-color: #fb1647;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::before {
   content: "";
@@ -221,10 +226,10 @@ body {
   display: inline-block;
   background-color: #ffffff;
   border-radius: 50%;
-  left: 0.8px;
+  left: 1px;
   right: 0;
   margin: 0 auto;
-  top: 4px;
+  top: 8px;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::after {
   content: "";
@@ -254,24 +259,7 @@ body {
   min-width: 120px;
   padding: 10px;
   text-align: center;
-  margin: 40px;
-  margin-right: 0px;
-  margin-left: 0px;
 }
-
-.submit22 {
-  background-color: #FFCD4A;
-  color: #ffffff;
-  display: inline-block;
-  min-width: 100px;
-  min-width: 120px;
-  padding: 10px;
-  text-align: center;
-  margin: 40px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
 .form-wizard .form-wizard-next-btn:hover, .form-wizard .form-wizard-next-btn:focus, .form-wizard .form-wizard-previous-btn:hover, .form-wizard .form-wizard-previous-btn:focus, .form-wizard .form-wizard-submit:hover, .form-wizard .form-wizard-submit:focus {
   color: #ffffff;
   opacity: 0.6;
@@ -309,8 +297,7 @@ body {
 }
 .form-wizard .form-group {
   position: relative;
-  padding: 20px;
-  border: 0.0625rem solid #f2f2f2;
+  margin: 25px 0;
 }
 .form-wizard .wizard-form-text-label {
   position: absolute;
@@ -326,36 +313,34 @@ body {
 }
 .form-wizard .form-wizard-steps {
   margin: 30px 0;
-  
 }
 .form-wizard .form-wizard-steps li {
-  width: 14%;			/*숫자 사이 간격 조절*/
+  width: 20%;
   float: left;
   position: relative;
-  
 }
 .form-wizard .form-wizard-steps li::after {
+  background-color: #f3f3f3;
   content: "";
   height: 5px;
   left: 0;
   position: absolute;
   right: 0;
-  
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  border-bottom: 1px solid #f3f3f3; /* 줄 색깔 */
-  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
 }
 .form-wizard .form-wizard-steps li span {
   background-color: #dddddd;
   border-radius: 50%;
   display: inline-block;
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
   position: relative;
   text-align: center;
-  width: 30px;
+  width: 40px;
   z-index: 1;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
@@ -367,8 +352,8 @@ body {
 }
 .form-wizard .form-wizard-steps li.active::after, .form-wizard .form-wizard-steps li.activated::after {
   background-color: #FFCD4A;
-  left: 70%;
-  width: 70%;
+  left: 50%;
+  width: 50%;
   border-color: #f3f3f3;
 }
 .form-wizard .form-wizard-steps li.activated::after {
@@ -393,7 +378,7 @@ body {
     position: relative;
   }
   100% {
-    width: 8px;
+    width: 60px;
     height: 60px;
     margin-left: -15px;
     margin-top: -15px;
@@ -405,6 +390,7 @@ body {
     height: auto;
   }
 }
+
 
 h5 {
 	text-align: center;
@@ -494,14 +480,15 @@ select.form-control {
   <input type="hidden" name="password" value="${memberDTO.password }">
   
 
+  <input type="hidden" name="questions" value="${questions.size()}">
   <section class="form-contents">
     <div class="container">
     <div class="title">
-    	<h2><b>${serviceDTO.name } / 레슨</b></h2>
+    	<h2><b>${serviceDTO.name } / 청소</b></h2>
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="<%=request.getContextPath() %>/category/result1" method="get" role="form">
+          <form action="<%=request.getContextPath() %>/category/result2" method="get" role="form">
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
@@ -514,7 +501,7 @@ select.form-control {
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0) }</h5>
-            <input type="hidden" name="ans1" value="${questions_id[0] }">
+              <input type="hidden" name="ans1" value="${questions_id[0] }">
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
@@ -545,7 +532,23 @@ select.form-control {
         <!-- 문항3 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(2) }</h5>
-              <div class="form-group" style="border: none;">
+               <input type="hidden" name="ans3" value="${questions_id[2] }">
+               <c:forEach var="answers" items="${answers.get(2) }">
+   				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="ans3" id="radio2" type="radio" value="${answers }">
+                  <label for="radio2">${answers}</label>
+                </div>
+              </div>
+                </c:forEach>
+                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
+        </fieldset>
+        
+        <!-- 문항4 -->
+       	<fieldset class="wizard-fieldset">
+              <h5>${questions.get(3) }</h5>
+   				<div class="form-group" style="border: none;">
 					  <select class="form-control">
 					    <option value="">시/도</option>
 					    <option value="1">Option 1</option>
@@ -568,70 +571,19 @@ select.form-control {
               	</div>
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset>
-        
-        <!-- 문항4 -->
-       	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(3) }</h5>
-              <input type="hidden" name="ans3" value="${questions_id[3] }">
-               <c:forEach var="answers" items="${answers.get(3) }">
-   				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="ans3" id="radio2" type="radio" value="${answers }">
-                  <label for="radio2">${answers}</label>
-                </div>
-              </div>
-                </c:forEach>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 
         
         <!-- 문항5 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(4) }</h5>
-   			  <input type="hidden" name="ans4" value="${questions_id[4] }">
-   			  <c:forEach var="answers" items="${answers.get(4) }">
-   				<div class="form-group">
-                <div class="wizard-form-radio">
-                  <input name="ans4" id="radio2" type="radio" value="${answers }">
-                  <label for="radio2">${answers}</label>
-                </div>
-              </div>
-                </c:forEach>
-   			  
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset> 
-        
-        <!-- 문항6 -->
-       	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(5) }</h5>
-   				<div class="form-group" style="border: none;">
-                <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="wish">
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset> 
-        
-        <!-- 문항7 -->
-       	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(6) }</h5>
    				<div class="form-group" style="border: none;">
                 <div style="width: 100%;">
                 <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="etc">
                 </div>
-              	</div>
-              	<input type="submit" class="form-wizard-submit" value="Submit" style="width: 80px; height: 45px; float: right; border: white; border-radius: 0px; font-size: 16px;">
+              </div>
+                <input type="submit" class="form-wizard-submit" value="Submit" style="width: 80px; height: 45px; float: right; border: white; border-radius: 0px; font-size: 16px;">
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 
-          
-          
-          
-          
-          
-          
           </form>
  	</div>
 </section>

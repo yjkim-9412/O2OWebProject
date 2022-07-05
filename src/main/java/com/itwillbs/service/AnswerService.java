@@ -1,6 +1,7 @@
 package com.itwillbs.service;
 
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.ServiceDTO;
 
 public interface AnswerService {
@@ -9,7 +10,8 @@ public interface AnswerService {
 	
 	public void insertEstimates(int account_id);
 	
-	public ServiceDTO getEstimates_id(int account_id);
+	public void insertEstimatesMid(EstimatesMidDTO estimatesMidDTO);
 	
-	public void insertAnswer(AnswerDTO answerDTO);
+	public int getEstimates_id();
+	
 }

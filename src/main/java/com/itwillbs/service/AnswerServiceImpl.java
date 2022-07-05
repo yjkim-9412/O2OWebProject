@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.AnswerDAO;
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.ServiceDTO;
 
 @Service
@@ -20,25 +21,24 @@ public class AnswerServiceImpl implements AnswerService{
 		return answerDAO.getAnswer_id(answerDTO);
 	}
 
+	
 	@Override
 	public void insertEstimates(int account_id) {
-		
 		answerDAO.insertEstimates(account_id);
-	}
-	
-	
-	
-	@Override
-	public ServiceDTO getEstimates_id(int account_id) {
 		
-		return answerDAO.getEstimates_id(account_id);
 	}
 
 	@Override
-	public void insertAnswer(AnswerDTO answerDTO) {
+	public void insertEstimatesMid(EstimatesMidDTO estimatesMidDTO) {
+		answerDAO.insertEstimatesMid(estimatesMidDTO);
 		
-		answerDAO.insertAnswer(answerDTO);
 	}
-	
+
+	@Override
+	public int getEstimates_id() {
+		
+		return answerDAO.getEstimates_id();
+	}
+
 	
 }

@@ -31,5 +31,4 @@ public class EstimatesDTO {
 		this.address_id = address_id;
 	}
 	
-	
 }
