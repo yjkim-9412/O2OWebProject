@@ -31,6 +31,7 @@ public class EstimatesController {
 		estimatesDTO.setAccount_id(account_id);
 		
 		List<EstimatesDTO> estimatesList =  estimatesService.getEstimatesId(estimatesDTO);
+		List<List<String>> quesList = new ArrayList();
 		
 		for(int i = 0; i < estimatesList.size(); i++) {
 			
@@ -55,12 +56,16 @@ public class EstimatesController {
 				questions.add(question.getContents());				
 			}
 			System.out.println(questions);
-			model.addAttribute("questions" + i, questions);
+			quesList.add(questions);
+			
+			
 			
 			System.out.println("응답 번호 : " + ansIdList);
 			
 		}
 		
+		System.out.println(quesList);
+		model.addAttribute("quesList", quesList);
 		model.addAttribute("estimatesList", estimatesList);
 		
 		return "requests/sent";

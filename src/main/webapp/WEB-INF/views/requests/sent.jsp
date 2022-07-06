@@ -441,13 +441,15 @@ ul li {
 				<h2 class="text-black" style="margin-top: 20px; margin-bottom: 40px; margin-left: 20px;"><b>내 요청서</b></h2>
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				
-			<c:forEach var="question" items="${questions0 }">				
+			<c:forEach var="question" items="${quesList }">
+				<c:forEach var="ques" items="${question }">				
             <li class="item-container"> 
                 <div class="item">
-                <div class="item-title">${question }</div>
+                <div class="item-title">${ques }</div>
  				<div class="item-info">답변1</div>
  				</div>
             </li>
+            	</c:forEach>
  			</c:forEach>
  			
 <!--             <li class="item-container">  -->
