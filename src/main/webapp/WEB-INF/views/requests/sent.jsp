@@ -425,7 +425,7 @@ ul li {
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="info">
-            <h2 class="text-black"><b>견적요청서</b></h2>
+            <h2 class="text-black"><b>견적요청서</b></h2> 
             
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
