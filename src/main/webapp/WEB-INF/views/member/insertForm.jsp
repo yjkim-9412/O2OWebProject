@@ -80,7 +80,7 @@ body#insertForm{  background-repeat:no-repeat; background-position:center; backg
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
-kaimg {
+.kaimg {
  width: 100%;
   height: 50px;
   
@@ -201,8 +201,9 @@ $(document).ready(function(){
 <input type="submit" class="btn btn-primary " value="회원가입"> <br>
 
 		<!-- 카카오 로그인 -->
+		<br>
 	<a href="https://kauth.kakao.com/oauth/authorize?client_id=b28c257d1c3a9f7b60f4ede210556e5a&redirect_uri=http://localhost:8080/myweb2/member/main&response_type=code">	
-		<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png" id="kaimg" class="kaimg">
+	<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png" id="kaimg" class="kaimg">
 	</a>
 
 </form>
