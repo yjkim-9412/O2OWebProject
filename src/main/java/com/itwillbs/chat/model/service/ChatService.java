@@ -23,5 +23,4 @@ public interface ChatService {
     public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoom);
 
 
-
 }

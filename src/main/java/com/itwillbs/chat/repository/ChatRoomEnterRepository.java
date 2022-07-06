@@ -33,13 +33,18 @@ public class ChatRoomEnterRepository {
 
         return sqlSession.selectList(namespace+"getUserRoomList",email);
     };
+    public List<ChatRoomEnterDTO> findRoomByEmailPro(String email){
+
+        return sqlSession.selectList(namespace+"getUserRoomList",email);
+    };
     public void insertRoom(ChatRoomEnterDTO chatRoomEnterDTO){
         sqlSession.insert(namespace+".insertRoom",chatRoomEnterDTO);
 
     }
-    public void save(ChatRoomEnterDTO chatRoomEnterDTO){
+    public void saveRoom(ChatRoomEnterDTO chatRoomEnterDTO){
         sqlSession.insert(namespace+".save",chatRoomEnterDTO);
     }
+
     public Optional<ChatRoomDTO> findById(Long roomId) {
 
         return sqlSession.selectOne(namespace+"findById",roomId);

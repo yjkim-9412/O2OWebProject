@@ -2,9 +2,8 @@ package com.itwillbs.chat.model.service;
 
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
-import com.itwillbs.chat.repository.ChatRepository;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
-import com.itwillbs.chat.repository.ChatRoomRepository;
+
 import com.itwillbs.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +18,8 @@ public class ChatEnterServiceImpl implements ChatEnterService{
    private MemberService memberService;
    @Autowired
    private ChatRoomEnterRepository chatRoomEnterRepository;
+   @Autowired
+   private ChatService chatService;
     @Override
     public Long newRoom(String member_email, String pro_email) {
         Long check = checkRoom(member_email, pro_email);
@@ -27,12 +28,12 @@ public class ChatEnterServiceImpl implements ChatEnterService{
             return check;
         }
         ChatRoomDTO chatRoomDTO = new ChatRoomDTO();
-        ChatRoomDTO newChatRoomDTO = chatRoomEnterRepository.save(chatRoomDTO);
+
         if (member_email.equals(pro_email)){
-            insertRoom(member_email,newChatRoomDTO);
+            createRoom(member_email,chatRoomDTO);
         }else {
-            insertRoom(member_email,newChatRoomDTO);
-            insertRoom(pro_email,newChatRoomDTO);
+            createRoom(member_email,chatRoomDTO);
+            createRoom(pro_email,chatRoomDTO);
         }
         return check;
     }
@@ -45,7 +46,7 @@ public class ChatEnterServiceImpl implements ChatEnterService{
         }
 
         //Pro가 될예정
-        List<ChatRoomEnterDTO> secondList = chatRoomEnterRepository.findRoomByEmail(pro_email);
+        List<ChatRoomEnterDTO> secondList = chatRoomEnterRepository.findRoomByEmailPro(pro_email);
         for (ChatRoomEnterDTO chatRoomEnterDTO :secondList){
             if(setFirst.contains((chatRoomEnterDTO.getChatRoomDTO()))){
                 return chatRoomEnterDTO.getChatRoomDTO().getRoomId();
@@ -53,15 +54,24 @@ public class ChatEnterServiceImpl implements ChatEnterService{
         }
         return 0L;
     }
-    public void insertRoom(String user_email, ChatRoomDTO chatRoomDTO){
-        ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO();
-        chatRoomEnterDTO.setChatRoomDTO(chatRoomDTO);
-        chatRoomEnterDTO.setMemberDTO(memberService.getMemberE(user_email));
-        chatRoomEnterRepository.save(chatRoomEnterDTO);
+    public void createRoom(String user_email, ChatRoomDTO chatRoomDTO){
+        ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO(memberService.getMemberE(user_email),chatRoomDTO);
+        chatRoomEnterRepository.saveRoom(chatRoomEnterDTO);
     }
 
     @Override
     public Long checkByRoomId(Long roomId) {
         return null;
     }
+
+    @Override
+    public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoomDTO) {
+        return chatRoomEnterRepository.findByChatRoom(chatRoomDTO);
+    }
+
+    @Override
+    public void delete(ChatRoomEnterDTO chatRoomJoin) {
+
+    }
+
 }

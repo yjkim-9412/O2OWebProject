@@ -38,6 +38,7 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public Optional<ChatRoomDTO> findById(Long roomId) {
+
         return chatRoomEnterRepository.findById(roomId);
     }
 

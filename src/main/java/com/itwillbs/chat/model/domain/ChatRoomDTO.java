@@ -12,7 +12,10 @@ import java.util.*;
 public class ChatRoomDTO {
 
     private Long roomId;
+    private String name;
     private List<ChatMessageDTO> messageDTOS = new ArrayList<>();
+
+
 
 
 }
