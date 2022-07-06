@@ -2,6 +2,8 @@ package com.itwillbs.domain;
 
 import java.sql.Timestamp;
 
+import org.springframework.stereotype.Repository;
+
 public class ProDTO {
     private int id;
     private int services_id;
@@ -12,18 +14,29 @@ public class ProDTO {
     private Boolean identify;
     private Boolean business;
     private Boolean certificate;
-    private String pass;
+    private String password;
     private String name;
     private String phone;
     private String email;
+    private Timestamp date;
+    
+    public Timestamp getDate() {
+		return date;
+	}
 
-    public int getId() {
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+
+
+	public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
+
 
     public int getServices_id() {
 		return services_id;
@@ -33,41 +46,8 @@ public class ProDTO {
 		this.services_id = services_id;
 	}
 
-    public int getAddress_id() {
-		return address_id;
-	}
 
-	public void setAddress_id(int address_id) {
-		this.address_id = address_id;
-	}
-
-
-
-    public int getGender_id() {
-		return gender_id;
-	}
-
-	public void setGender_id(int gender_id) {
-		this.gender_id = gender_id;
-	}
-
-	public int getEmployee_number() {
-		return employee_number;
-	}
-
-	public void setEmployee_number(int employee_number) {
-		this.employee_number = employee_number;
-	}
-
-	public Boolean getIdentify() {
-		return identify;
-	}
-
-	public void setIdentify(Boolean identify) {
-		this.identify = identify;
-	}
-
-	public int getCareer() {
+    public int getCareer() {
         return career;
     }
 
@@ -75,10 +55,15 @@ public class ProDTO {
         this.career = career;
     }
 
-   
+    public Boolean getIdentify() {
+		return identify;
+	}
 
+	public void setIdentify(Boolean identify) {
+		this.identify = identify;
+	}
 
-    public Boolean getBusiness() {
+	public Boolean getBusiness() {
         return business;
     }
 
@@ -94,15 +79,39 @@ public class ProDTO {
         this.certificate = certificate;
     }
 
-    public String getPass() {
-        return pass;
-    }
+    public int getAddress_id() {
+		return address_id;
+	}
 
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
 
-    public String getName() {
+	public int getGender_id() {
+		return gender_id;
+	}
+
+	public void setGender_id(int gender_id) {
+		this.gender_id = gender_id;
+	}
+
+	public int getEmployee_number() {
+		return employee_number;
+	}
+
+	public void setEmployee_number(int employee_number) {
+		this.employee_number = employee_number;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getName() {
         return name;
     }
 

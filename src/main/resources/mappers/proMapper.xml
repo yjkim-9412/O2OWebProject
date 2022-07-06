@@ -4,21 +4,65 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwillbs.member.ProMapper">
 
-	<insert id="insertMember">
-		insert into PROS(serviceId,addressId,genderId,name,pass,email,phone,career,employees,identity,business,certificate)
-		values(#{serviceId},#{addressId},#{genderId},#{name},#{pass},#{email},#{phone},#{career},#{employees},#{identity},
-			   #{business},#{certificate})
+	<insert id="insertPro">
+		insert into PROS(services_id,gender_id,name,password,email,phone,address_id)
+		values(#{services_id},#{gender_id},#{name},#{password},#{email},#{phone},#{address_id})
 	</insert>
 	
-<!-- 	<select id="ProCheck" resultType="com.itwillbs.domain.ProDTO"> -->
-<!-- 		select * from PROS where services_id=#{services_id} and address_id=#{address_id} and name=#{name} and email=#{email} and -->
-<!-- 		phone=#{phone} and career = #{career} and employees = #{employees} and identity = #{identity} and business = #{business } -->
-<!-- 	</select> -->
+	<insert id="insertAddress">
+		insert into ADDRESS(cities_id,districts_id,addistricts_id,address_detail,x_axis,y_axis) 
+		values(#{city_id},#{district_id},#{addistrict_id},#{addressdetail},#{x_axis},#{y_axis})
+	</insert>
 	
-	<select id="proCheck" resultType="com.itwillbs.domain.ProDTO">
-		select * from PROS where id = 8 
+	<select id="getCity" resultType="com.itwillbs.domain.CityDTO">
+		select * from CITIES where name=#{city}
 	</select>
-
+	
+	<select id="getDistrict" resultType="com.itwillbs.domain.DistrictDTO">
+		select * from DISTRICTS where name=#{district} and city_id=#{city_id}
+	</select>
+	
+	<select id="getAddDistrict" resultType="com.itwillbs.domain.AddistrictDTO">
+		select * from ADDISTRICTS where name=#{addistrict} and district_id=#{district_id}
+		
+		
+	</select>
+	
+	<select id="getMaxAddrId" resultType="java.lang.Integer">
+		select MAX(id) from ADDRESS
+	</select>
+	
+	<select id="getPro" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where email=#{email}
+	</select>
+	
+	<select id="getProid" resultType="com.itwillbs.domain.GetProDTO">
+		select p.id, p.name, p.email, p.phone, p.career, p.employee_number, p.identify, p.business,p.certificate,p.date,
+				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name
+		from PROS p left join ADDRESS a on p.address_id=a.id 
+		left join CITIES c on c.id=a.cities_id 
+		left join DISTRICTS d on d.id=a.districts_id
+		left join ADDISTRICTS ad on ad.id=a.addistricts_id
+		left join SERVICES s on s.id=p.services_id
+		left join SECCATEGORY se on se.id=s.seccat_id
+		left join MAINCATEGORY m on m.id=se.maincat_id
+		where p.id=#{id}
+	</select>
+	
+	<select id="getProemail" resultType="com.itwillbs.domain.GetProDTO">
+		select p.id, p.name, p.email, p.phone, p.career, p.employee_number, p.identify, p.business,p.certificate,p.date,
+				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name
+		from PROS p left join ADDRESS a on p.address_id=a.id 
+		left join CITIES c on c.id=a.cities_id 
+		left join DISTRICTS d on d.id=a.districts_id
+		left join ADDISTRICTS ad on ad.id=a.addistricts_id
+		left join SERVICES s on s.id=p.services_id
+		left join SECCATEGORY se on se.id=s.seccat_id
+		left join MAINCATEGORY m on m.id=se.maincat_id
+		where p.email=#{email}
+	</select>
+	
+	
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->
 <!-- 	<select id=""></select> -->
