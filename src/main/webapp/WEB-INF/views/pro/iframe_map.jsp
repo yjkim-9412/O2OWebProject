@@ -8,7 +8,7 @@
     
 </head>
 <body>
-<div id="map" style="width:100%;height:300px;"></div>
+<div id="map" style="width:100%;height:470px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=78f60e510cd4c690ffb87d2006b0e576&libraries=services"></script>
 <input type="hidden" id="child_input" value="">
@@ -25,10 +25,6 @@ var mapOption = {
 // 지도를 생성합니다    
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-// alert(document.getElementById("child_input").value);
-
-// parent.fun2();
-
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
@@ -39,7 +35,7 @@ geocoder.addressSearch(document.getElementById("child_input").value, function(re
      if (status === kakao.maps.services.Status.OK) {
 
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
+        
         // 결과값으로 받은 위치를 마커로 표시합니다
         var marker = new kakao.maps.Marker({
             map: map,
@@ -51,9 +47,12 @@ geocoder.addressSearch(document.getElementById("child_input").value, function(re
             content: '<div style="width:150px;text-align:center;padding:6px 0;">지정하신 위치</div>'
         });
         infowindow.open(map, marker);
-
+		parent.document.getElementById("lat").value=result[0].y;
+		parent.document.getElementById("lng").value=result[0].x;
         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
         map.setCenter(coords);
+        map.setDraggable(false); 
+        map.setZoomable(false); 
     } 
 });    
 }

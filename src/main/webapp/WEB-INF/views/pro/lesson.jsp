@@ -6,14 +6,34 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style type="text/css">
+h1{
+text-align: center;
+}
+iframe{
+width: 550px;
+height: 650px;
+margin-left: auto;
+margin-right: auto;
+border-radius: 10px; 
+}
+#ifdiv{
+margin: 0px auto; width: 600px; height: 700px; padding:20px;
+}
+</style>
 <body>
-<form action="<%=request.getContextPath()%>/pro/lessonPro" method="get">
-<!-- value값을 담을 배열 자바에서 선언, 배열을 읽어와서 선택값 비교할수있게 -->
-<input type="checkbox" name="selcat_num" value="0">음악레슨<br>
-<input type="checkbox" name="selcat_num" value="1">언어<br>
-<input type="checkbox" name="selcat_num" value="2">댄스<br>
-<input type="button" name="" value="이전"> <!-- history.back -->
-<input type="submit" name="" value="다음"> <!-- 선택값 가지고 이동  -->
-</form>
+<<<<<<< HEAD
+<jsp:include page="../inc/top.jsp"></jsp:include>
+<h1>레슨 회원가입</h1>
+<div id="ifdiv">
+<iframe id="iframe_lesson" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory" >
+</iframe>
+</div>
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
+=======
+<h1>레슨 회원가입</h1>
+<iframe id="iframe_lesson" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory" width="500" height="500">
+</iframe>
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 </body>
 </html>

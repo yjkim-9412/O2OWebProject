@@ -6,9 +6,28 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style type="text/css">
+h1{
+text-align: center;
+}
+iframe{
+width: 550px;
+height: 650px;
+margin-left: auto;
+margin-right: auto;
+border-radius: 10px; 
+}
+#ifdiv{
+margin: 0px auto; width: 600px; height: 700px; padding:20px;
+}
+</style>
 <body>
+<jsp:include page="../inc/top.jsp"></jsp:include>
 <h1>청소 회원가입</h1>
-<iframe id="iframe_lesson" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory_clean" width="500" height="500">
+<div id="ifdiv">
+<iframe id="iframe_clean" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory_clean" width="500" height="500">
 </iframe>
+</div>
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
 </body>
 </html>

@@ -3,6 +3,106 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
+<style type="text/css">
+*{
+	
+}
+html{
+/* border: 1px black solid; */
+box-shadow: 1.25rem 0 1.25rem 0 rgb(0 0 0 / 30%);
+background-color: rgb(211,211,211);
+}
+li{
+list-style-type: none;
+margin-top: 10px;
+font-size: 1.5em;
+}
+label{
+	display: block;
+}
+#footer{
+height: auto;
+position: fixed;
+bottom: 10px;
+right: 10px;
+}
+#divhead{
+margin: 10px 0;
+height: auto;
+text-align: center;
+border-bottom: 1px black hidden;
+}
+#divbody{
+height:auto; 
+margin-bottom: 5px;
+background-color: white; border: 1px solid #222; border-radius: 5px;
+	padding: 20px; margin: 30px auto; width: 400px;
+}
+.rounded {
+  border-radius: 10px;
+}
+.btn {
+  position: relative;
+  border: 0;
+  padding: 15px 25px;
+  display: inline-block;
+  text-align: center;
+  color: green;
+}
+.btn:active {
+  top: 4px; 
+}
+.btn-two {
+  color: green; 
+  padding: 15px 25px;
+  display: inline-block;
+  border: 1px solid rgba(0,0,0,0.21);
+  border-bottom-color: rgba(0,0,0,0.34);
+  text-shadow:0 1px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset, 
+              0 2px 0 -1px rgba(0,0,0,0.13), 
+              0 3px 0 -1px rgba(0,0,0,0.08), 
+              0 3px 13px -1px rgba(0,0,0,0.21);
+}
+.btn-two:active {
+  top: 1px;
+  border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+  position: relative;
+}
+.submit{
+	background-color: #9abf7f;
+	color: white;
+}
+.sel:nth-child(odd) {
+	background-color: rgb(234,234,234);
+}
+.sel:nth-child(even) {
+	background-color: rgb(189,189,189);
+}
+.ipty{
+	width:50%;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    margin-right: 8px;
+}
+.btna{
+	width: 146px;
+	height: 40px;
+	color: black;
+	padding: 0px;
+}
+.lab{
+	margin-left: 7px;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+</style>
+=======
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 <script type="text/javascript">
 // function ok() {
 // 	document.fr.target="_parent";
@@ -11,7 +111,10 @@
 </script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
+<<<<<<< HEAD
 var code = "";
+=======
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 $(document).ready(function(){
 		$('#join').submit(function(){
 			if($('#email').val()==""){
@@ -22,10 +125,17 @@ $(document).ready(function(){
 			} else  {
 				$('#emaildiv').html("");
 			}
+<<<<<<< HEAD
 			if($('#password').val()==""){
 				$('#passworddiv').html("비밀번호를 입력해주세요.");
 				$('#passworddiv').css("color","red");
 				$('#password').focus();
+=======
+			if($('#pass').val()==""){
+				$('#passworddiv').html("비밀번호를 입력해주세요.");
+				$('#passworddiv').css("color","red");
+				$('#pass').focus();
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 				return false;
 			} else  {
 				$('#passworddiv').html("");
@@ -46,7 +156,11 @@ $(document).ready(function(){
 			} else  {
 				$('#phonediv').html("");
 			}
+<<<<<<< HEAD
 			if(document.fr.gender_id[0].checked==false && document.fr.gender_id[1].checked==false){
+=======
+			if(document.fr.gender[0].checked==false && document.fr.gender[1].checked==false){
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 				$('#genderdiv').html("성별을 선택해주세요.");
 				$('#genderdiv').css("color","red");
 				$('#gender').focus();
@@ -54,11 +168,14 @@ $(document).ready(function(){
 			} else  {
 				$('#genderdiv').html("");
 			}
+<<<<<<< HEAD
 			
 			if($('#mail-check-input').val()!=code){
 				$('#mail-check-warn').focus();
 				return false;
 			}
+=======
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 			document.fr.target="_parent";
 			document.fr.submit();
 		});
@@ -80,6 +197,7 @@ $(document).ready(function(){
 		});
 	});
 });
+<<<<<<< HEAD
 
 $(document).ready(function(){
 	$('#mail-Check-Btn').click(function(){
@@ -107,20 +225,52 @@ $(document).ready(function(){
 	        
 	});
 });
+=======
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <form action="<%=request.getContextPath() %>/pro/ok" method="post" name="fr" id="join">
+<<<<<<< HEAD
 <input type="hidden" value="${services_id}" name="services_id">
 
+<label class="lab">이메일</label><br>
+<input class="ipty" type="email" name="email" id="email"><input class="btn-two rounded btna" type="button" id="dup" value="중복체크"><br>
+<div id="emaildiv"></div><div id="dupdiv"></div>
+<input class="ipty" type="text" id="mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6"><input class="btna btn-two rounded" type="button" id="mail-Check-Btn" value="인증번호보내기"><br>
+<div id="mail-check-warn"></div><br>
+
+<label class="lab">비밀번호</label><br>
+<input class="ipty" type="password" name="password" id="password"><br>
+<div id="passworddiv"></div><br>
+
+<label class="lab">이름</label><br>
+<input class="ipty" type="text" name="name" id="name"><br>
+<div id="namediv"></div><br>
+
+<label class="lab">연락처</label><br>
+<input class="ipty" type="tel" name="phone" id="phone"><br>
+<div id="phonediv"></div><br>
+
+<label class="lab">성별</label><br>
+<input type="radio" name="gender_id" value="1" id="gender_id">남자
+<input type="radio" name="gender_id" value="2" id="gender_id">여자<br>
+<div id="genderdiv"></div><br>
+
+<div id="footer">
+<input class="btn-two rounded" type="button" name="" value="이전" onclick="history.back()" >
+<input class="btn-two rounded submit" type="submit" name="" value="회원가입" id="join">
+</div>
+=======
+<input type="hidden" value="${serviceId}" name="serviceId">
+
 이메일<br>
-<input type="email" name="email" id="email"><input type="button" id="dup" value="중복체크"><input type="button" id="mail-Check-Btn" value="인증번호보내기"><br>
-<input type="text" id="mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
-<div id="emaildiv"></div><div id="dupdiv"></div><div id="mail-check-warn"></div><br>
+<input type="email" name="email" id="email"><input type="button" id="dup" value="중복체크"><br>
+<div id="emaildiv"></div><div id="dupdiv"></div><br>
 비밀번호<br>
-<input type="password" name="password" id="password"><br>
+<input type="password" name="pass" id="pass"><br>
 <div id="passworddiv"></div><br>
 이름<br>
 <input type="text" name="name" id="name"><br>
@@ -129,11 +279,11 @@ $(document).ready(function(){
 <input type="tel" name="phone" id="phone"><br>
 <div id="phonediv"></div><br>
 성별<br>
-<input type="radio" name="gender_id" value="1" id="gender_id">남자
-<input type="radio" name="gender_id" value="2" id="gender_id">여자<br>
+<input type="radio" name="gender" value="1" id="gender">남자
+<input type="radio" name="gender" value="2" id="gender">여자<br>
 <div id="genderdiv"></div><br>
-<input type="button" value="이전" onclick="history.back()">
 <input type="submit" value="회원가입" id="join">
+>>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 </form>
 </body>
 </html>
