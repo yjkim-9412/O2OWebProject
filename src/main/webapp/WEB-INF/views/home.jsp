@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -615,13 +614,9 @@ main{
   <div class="back-to-top"></div>
 
 <header>
-<c:catch>
-<c:choose>
-<c:when test="${ empty sessionScope.id }">
-
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -641,53 +636,16 @@ main{
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
+              <a class="nav-link" href="member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='member/insert' ">회원가입</button>
             </li>
           </ul>
         </div>
 
       </div>
     </nav>
-</c:when>
-<c:otherwise>
-    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-        <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="navbar-collapse collapse" id="navbarContent">
-             
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-              
-            <ul class="navbar-nav ml-auto">
-              
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
-              <li class="nav-item active">
-                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
-              </li>
-              <li class="nav-item">
-                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-</c:otherwise>
-</c:choose>
-</c:catch>
     
 
 <!-- 이미지슬라이드 -->
