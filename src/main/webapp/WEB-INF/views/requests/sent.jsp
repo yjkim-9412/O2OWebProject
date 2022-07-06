@@ -426,7 +426,7 @@ ul li {
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="info">
             <h2 class="text-black"><b>견적요청서</b></h2> 
             
-    
+     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
             <c:forEach var="estimates_id" items="${estimatesList }">
 				<a href="#myModal" style="text-decoration: none;" class="sub-menu" data-toggle="modal">요청서 아이디 : ${estimates_id.id }</a><br>
