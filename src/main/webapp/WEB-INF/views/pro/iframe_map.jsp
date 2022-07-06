@@ -8,7 +8,7 @@
     
 </head>
 <body>
-<div id="map" style="width:100%;height:300px;"></div>
+<div id="map" style="width:100%;height:470px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=78f60e510cd4c690ffb87d2006b0e576&libraries=services"></script>
 <input type="hidden" id="child_input" value="">
@@ -51,6 +51,8 @@ geocoder.addressSearch(document.getElementById("child_input").value, function(re
 		parent.document.getElementById("lng").value=result[0].x;
         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
         map.setCenter(coords);
+        map.setDraggable(false); 
+        map.setZoomable(false); 
     } 
 });    
 }
