@@ -9,6 +9,10 @@
 		values(#{services_id},#{gender_id},#{name},#{password},#{email},#{phone},#{address_id})
 	</insert>
 	
+	<select id="proCheck" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where id = 8 
+	</select>
+	
 	<insert id="insertAddress">
 		insert into ADDRESS(cities_id,districts_id,addistricts_id,address_detail,x_axis,y_axis) 
 		values(#{city_id},#{district_id},#{addistrict_id},#{addressdetail},#{x_axis},#{y_axis})

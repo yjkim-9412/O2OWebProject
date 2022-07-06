@@ -72,4 +72,10 @@ public class ProDAOImpl implements ProDAO{
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".getAddDistrict", addistrictDTO);
 	}
+	
+	@Override
+	public ProDTO proCheck() {
+		System.out.println("ProDAOImpl proCheck()");
+		return sqlSession.selectOne(namespace+".proCheck");
+	}
 }

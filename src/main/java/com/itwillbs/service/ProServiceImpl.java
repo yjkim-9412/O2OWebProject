@@ -95,4 +95,11 @@ public class ProServiceImpl implements ProService {
 		// TODO Auto-generated method stub
 		return proDAO.getMaxAddrId();
 	}
+	
+	@Override
+	public ProDTO proCheck() {
+		System.out.println("ProServiceImpl proCheck()");
+		return proDAO.proCheck();
+	}
+	
 }

@@ -102,16 +102,16 @@ body {
   
   
   <div class="detail-info" >
-  <div class="employees" style="float:left;" >
+  <div class="employees" style="float:left; padding: 30px; line-height: 15px;" >
   고용
   <h3>회</h3>
  </div>
  <p> </p>
-  <div class="review"style="float:left;" >
+  <div class="review"style="float:left; padding: 30px; line-height: 15px;" >
   리뷰
   </div>
   
-  <div class="career"style="float:left;">
+  <div class="career"style="float:left; padding: 30px; line-height: 15px;">
   총 경력 <a></a>
   <h3> ${Pro.career}년</h3>
   
