@@ -25,7 +25,7 @@ margin: 0px auto; width: 600px; height: 700px; padding:20px;
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <h1>건강 회원가입</h1>
 <div id="ifdiv">
-<iframe id="iframe_health" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory_health" width="500" height="500">
+<iframe id="iframe_health" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory_health">
 </iframe>
 </div>
 <jsp:include page="../inc/bottom.jsp"></jsp:include>

@@ -25,7 +25,7 @@ margin: 0px auto; width: 600px; height: 700px; padding:20px;
 <jsp:include page="../inc/top.jsp"></jsp:include>
 <h1>청소 회원가입</h1>
 <div id="ifdiv">
-<iframe id="iframe_clean" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory_clean" width="500" height="500">
+<iframe id="iframe_clean" name="ifrm" src="<%=request.getContextPath() %>/pro/secCategory_clean">
 </iframe>
 </div>
 <jsp:include page="../inc/bottom.jsp"></jsp:include>

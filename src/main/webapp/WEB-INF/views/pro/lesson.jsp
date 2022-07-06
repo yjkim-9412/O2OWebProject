@@ -16,6 +16,7 @@ height: 650px;
 margin-left: auto;
 margin-right: auto;
 border-radius: 10px; 
+}
 #ifdiv{
 margin: 0px auto; width: 600px; height: 700px; padding:20px;
 }
