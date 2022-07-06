@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
+
 <style type="text/css">
 img {
     width: 70px;
@@ -18,6 +19,7 @@ img {
 	background-color: rgb(250, 250, 252);
 	border-radius: 1em;
 }
+
 #sec{
 border-radius: .625rem;
     box-shadow: 0 0 1.25rem 0 rgb(0 0 0 / 10%);
@@ -27,13 +29,11 @@ border-radius: .625rem;
 </style> 
 </head>
 <body>
-<<<<<<< HEAD
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
 
 <jsp:include page="../inc/top.jsp"></jsp:include>
-
   <div class="page-section">
   
     <div class="container">
@@ -86,14 +86,6 @@ border-radius: .625rem;
       </div>
     </div> <!-- .container -->
   </div> <!-- .page-section -->
-
 <jsp:include page="../inc/bottom.jsp"></jsp:include>
-=======
-<a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src="" id="lesson">레슨</a>
-<a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src=""></a>
-<a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src=""></a>
-<a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src=""></a>
-<a href="<%=request.getContextPath()%>/pro/lesson"><img alt="noImages" src=""></a>
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 </body>
 </html>

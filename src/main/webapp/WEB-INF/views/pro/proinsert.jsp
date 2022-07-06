@@ -3,11 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
 <style type="text/css">
-*{
-	
-}
 html{
 /* border: 1px black solid; */
 box-shadow: 1.25rem 0 1.25rem 0 rgb(0 0 0 / 30%);
@@ -101,20 +97,10 @@ background-color: white; border: 1px solid #222; border-radius: 5px;
 	font-weight: bold;
 }
 </style>
-=======
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
-<script type="text/javascript">
-// function ok() {
-// 	document.fr.target="_parent";
-// 	document.fr.submit();
-// }
-</script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-<<<<<<< HEAD
 var code = "";
-=======
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
+
 $(document).ready(function(){
 		$('#join').submit(function(){
 			if($('#email').val()==""){
@@ -125,17 +111,11 @@ $(document).ready(function(){
 			} else  {
 				$('#emaildiv').html("");
 			}
-<<<<<<< HEAD
+
 			if($('#password').val()==""){
 				$('#passworddiv').html("비밀번호를 입력해주세요.");
 				$('#passworddiv').css("color","red");
 				$('#password').focus();
-=======
-			if($('#pass').val()==""){
-				$('#passworddiv').html("비밀번호를 입력해주세요.");
-				$('#passworddiv').css("color","red");
-				$('#pass').focus();
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 				return false;
 			} else  {
 				$('#passworddiv').html("");
@@ -156,11 +136,8 @@ $(document).ready(function(){
 			} else  {
 				$('#phonediv').html("");
 			}
-<<<<<<< HEAD
+
 			if(document.fr.gender_id[0].checked==false && document.fr.gender_id[1].checked==false){
-=======
-			if(document.fr.gender[0].checked==false && document.fr.gender[1].checked==false){
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 				$('#genderdiv').html("성별을 선택해주세요.");
 				$('#genderdiv').css("color","red");
 				$('#gender').focus();
@@ -168,16 +145,12 @@ $(document).ready(function(){
 			} else  {
 				$('#genderdiv').html("");
 			}
-<<<<<<< HEAD
 			
 			if($('#mail-check-input').val()!=code){
 				$('#mail-check-warn').focus();
 				return false;
 			}
-=======
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
-			document.fr.target="_parent";
-			document.fr.submit();
+
 		});
 	});
 	
@@ -197,7 +170,6 @@ $(document).ready(function(){
 		});
 	});
 });
-<<<<<<< HEAD
 
 $(document).ready(function(){
 	$('#mail-Check-Btn').click(function(){
@@ -225,15 +197,12 @@ $(document).ready(function(){
 	        
 	});
 });
-=======
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 <form action="<%=request.getContextPath() %>/pro/ok" method="post" name="fr" id="join">
-<<<<<<< HEAD
 <input type="hidden" value="${services_id}" name="services_id">
 
 <label class="lab">이메일</label><br>
@@ -263,27 +232,6 @@ $(document).ready(function(){
 <input class="btn-two rounded" type="button" name="" value="이전" onclick="history.back()" >
 <input class="btn-two rounded submit" type="submit" name="" value="회원가입" id="join">
 </div>
-=======
-<input type="hidden" value="${serviceId}" name="serviceId">
-
-이메일<br>
-<input type="email" name="email" id="email"><input type="button" id="dup" value="중복체크"><br>
-<div id="emaildiv"></div><div id="dupdiv"></div><br>
-비밀번호<br>
-<input type="password" name="pass" id="pass"><br>
-<div id="passworddiv"></div><br>
-이름<br>
-<input type="text" name="name" id="name"><br>
-<div id="namediv"></div><br>
-연락처<br>
-<input type="tel" name="phone" id="phone"><br>
-<div id="phonediv"></div><br>
-성별<br>
-<input type="radio" name="gender" value="1" id="gender">남자
-<input type="radio" name="gender" value="2" id="gender">여자<br>
-<div id="genderdiv"></div><br>
-<input type="submit" value="회원가입" id="join">
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 </form>
 </body>
 </html>

@@ -92,22 +92,13 @@ input[type=text]{
 <body onload="sample3_execDaumPostcode()">
 <form action="<%=request.getContextPath() %>/pro/proinsert" id="fr">
 <!-- <input type="text" id="sample3_postcode" placeholder="우편번호"> -->
-<<<<<<< HEAD
 <input type="text" id="sample3_address" name="sample3_address" placeholder="주소" readonly="readonly">
 <input class="btn-two rounded" type="button" onclick="reloadDaumPostcode()" value="다시찾기"><br>
-=======
-<input type="button" onclick="fun1()" value="우편번호 찾기"><br>
-<input type="text" id="sample3_address" name="sample3_address" placeholder="주소"><br>
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 <input type="text" id="sample3_detailAddress" name="sample3_detailAddress" placeholder="상세주소">
 <input type="hidden" id="sample3_extraAddress" name="sample3_extraAddress" placeholder="참고항목">
 <input type="hidden" id="lat" value="" name="lat">
 <input type="hidden" id="lng" value="" name="lng">
-<<<<<<< HEAD
 <input type="hidden" id="services_id" value="${services_id }" name="services_id">
-=======
-<input type="hidden" id="serviceId" value="${serviceId }" name="serviceId">
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 
 <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative;">
 <!-- <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼"> -->
@@ -202,14 +193,10 @@ input[type=text]{
 </script>
 <iframe style="display: none;" id="iframe_body_map" name="ifrm" src="<%=request.getContextPath() %>/pro/iframe_map" width="500" height="500">
 </iframe>
-<<<<<<< HEAD
 <div id="footer">
 <input class="btn-two rounded" type="button" name="" value="이전" onclick="history.back()" >
 <input class="btn-two rounded submit" type="submit" name="" value="다음" id="next">
 </div>
-=======
-<input type="submit" value="다음">
->>>>>>> cf2224b3a454540a38e5855afa6f83490cc97ff4
 </form>
 </body>
 </html>
