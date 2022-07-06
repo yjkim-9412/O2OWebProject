@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.EstimatesDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.QuestionDTO;
@@ -32,6 +33,7 @@ public class EstimatesController {
 		
 		List<EstimatesDTO> estimatesList =  estimatesService.getEstimatesId(estimatesDTO);
 		List<List<String>> quesList = new ArrayList();
+		List<List<String>> ansList = new ArrayList();
 		
 		for(int i = 0; i < estimatesList.size(); i++) {
 			
@@ -62,10 +64,21 @@ public class EstimatesController {
 			
 			System.out.println("응답 번호 : " + ansIdList);
 			
+			List<String> answers = new ArrayList<>();
+			for(int k = 0; k < ansIdList.size(); k++) {
+				int ans_id = ansIdList.get(k);
+				AnswerDTO answer = estimatesService.getAnswer(ans_id);
+				answers.add(answer.getContents());				
+			}
+			System.out.println(answers);
+			ansList.add(answers);
+			
 		}
 		
 		System.out.println(quesList);
+		System.out.println(ansList);
 		model.addAttribute("quesList", quesList);
+		model.addAttribute("ansList", ansList);
 		model.addAttribute("estimatesList", estimatesList);
 		
 		return "requests/sent";

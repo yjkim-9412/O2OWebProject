@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -116,7 +117,82 @@ header img {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   
 }  
+
+.main-menu {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #323232;
+}
+
+.sub-menu {
+    font-size: 16px;
+    font-weight: 500;
+    color: #737373;
+    padding: 0;
+ 
+}
+
+.sub-menu-container {
+    padding: 1rem 0;
+}
+
+.sub-menu-container .sub-menu-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
   
+.underline {
+    border-bottom: 0.0625rem solid;
+    border-color: #f2f2f2;
+}  
+  
+ul li {
+    list-style: none;
+}
+  
+/*  푸터  */
+.callnumber{
+    padding-bottom: 0.1875rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-stretch: normal;
+    color: #FFCD4A;
+ }
+.callnumberdown{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+}
+#footermenu1{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    position: absolute;
+    bottom:49px;
+}
+#footermenu2{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}
+#footermenu3{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}  
 </style>
   
   
@@ -129,9 +205,13 @@ header img {
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+    <c:catch>
+<c:choose>
+<c:when test="${ empty sessionScope.id }">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="#" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -151,55 +231,98 @@ header img {
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
+              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
             </li>
           </ul>
         </div>
 
       </div>
     </nav>
+</c:when>
+<c:otherwise>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <div class="container">
+          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarContent">
+             
+             <!--search바  -->
+             <div class="search">
+                <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              </div>
+              
+            <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">고수찾기</a>
+              </li>  
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+</c:otherwise>
+</c:choose>
+</c:catch>
   </header>
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
-            <h2 class="text-black"><b>계정 설정</b></h2>
-            <div class="row form-group" style="margin-top:50px;">
-              <div class="col-md-12" style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/name';">
-                <label style="cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/name';"><b>이름</b></label><br>
- 				<label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.name}</label><hr>
-              </div>
+            <h2 class="text-black" style="margin-bottom: 50px;"><b>계정 설정</b></h2>
+            <div class="row form-group" style="margin-top: 30px; margin-bottom: 5px">
+              	<ul>
+              		<li class="main-menu">이름</li>
+              		<a href="<%=request.getContextPath() %>/mypage/settings/name" style="text-decoration: none; " class="sub-menu">
+              		<li class="sub-menu sub-menu-container underline">
+					${memberDTO.name}
+              		</li>
+              		</a>
+              	</ul>
             </div>
     
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label style="margin-bottom:5px"><b>아이디</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.id}</label><hr>
-              </div>
+            <div class="row form-group" style="margin-top: 5px; margin-bottom: 5px">
+              	<ul>
+              		<li class="main-menu">이메일</li>
+              		<a href="<%=request.getContextPath() %>/mypage/settings/email" style="text-decoration: none; " class="sub-menu">
+              		<li class="sub-menu sub-menu-container underline">
+					${memberDTO.email}
+              		</li>
+              		</a>
+              	</ul>
             </div>
     
-            <div class="row form-group">
-    
-              <div class="col-md-12">
-                <label style="margin-bottom: 5px"><b>이메일</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.email}</label><hr>
-              </div>
+            <div class="row form-group" style="margin-top: 5px; margin-bottom: 50px">
+              	<ul>
+              		<li class="main-menu">비밀번호</li>
+              		<a href="<%=request.getContextPath() %>/mypage/settings/password" style="text-decoration: none; " class="sub-menu">
+              		<li class="sub-menu sub-menu-container underline">
+					${memberDTO.password}
+              		</li>
+              		</a>
+              	</ul>
             </div>
     
-            <div class="row form-group">
-              <div class="col-md-12">
-                <label style="margin-bottom: 5px"><b>비밀번호</b></label><br>
-                <label class="text-black" for="fname" style="margin-bottom: 0px">${memberDTO.password}</label><hr>
-              </div>
-            </div>
-    
-            <div class="row form-group mt-4">
-              <div>
-                <label class="text-black" for="message" style="margin-top:30px;">계정탈퇴</label><hr>
-              </div>
+            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
+              	<ul>
+              		<a href="#" style="text-decoration: none; " class="sub-menu">
+              		<li class="main-menu sub-menu-container underline">계정탈퇴</li>
+              		</a>
+              	</ul>
             </div>
           </form>
     </div>
@@ -209,13 +332,15 @@ header img {
     </div>
   </div>
 
-  <footer class="page-footer bg-image" style="background-image: url(../resources/img/world_pattern.svg);">
+  <!-- 푸터 -->
+
+  <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);">
     <div class="container">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
-          <h3>SEOGram</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero amet, repellendus eius blanditiis in iusto eligendi iure.</p>
-
+          
+          <div class="callnumber">1600-8282</div>
+			<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
           <div class="social-media-button">
             <a href="#"><span class="mai-logo-facebook-f"></span></a>
             <a href="#"><span class="mai-logo-twitter"></span></a>
@@ -226,30 +351,38 @@ header img {
         </div>
         <div class="col-lg-3 py-3">
           <h5>Company</h5>
-          <ul class="footer-menu">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Career</a></li>
-            <li><a href="#">Advertise</a></li>
-            <li><a href="#">Terms of Service</a></li>
-            <li><a href="#">Help & Support</a></li>
+          <ul class="footer-menu" id="footermenu1">
+            <li><b>마루소개</b></li>
+            <li>마루메인</li>
+            <li>Prime</li>
+            <li>엔터프라이즈</li>
+            <li>프리랜서 클럽</li>
+          </ul>
+          
+         
+        </div>
+        <div class="col-lg-3 py-3">
+          <ul class="footer-menu" id="footermenu2">
+          	<li><b>고객안내</b></li>
+            <li>이용안내</li>
+            <li>안전정책</li>
+            <li>예상금액</li>
+            <li>고수찾기</li>
+            <li>마루보증</li>
           </ul>
         </div>
         <div class="col-lg-3 py-3">
-          <h5>Contact Us</h5>
-          <p>203 Fake St. Mountain View, San Francisco, California, USA</p>
-          <a href="#" class="footer-link">+00 1122 3344 5566</a>
-          <a href="#" class="footer-link">seogram@temporary.com</a>
+           <ul class="footer-menu" id="footermenu3">
+          	<li><b>주고안내</b></li>
+            <li>이용안내</li>
+            <li>주고가이드</li>
+            <li>주고가입</li>
+            <li>주고센터</li>
+            </ul>
         </div>
-        <div class="col-lg-3 py-3">
-          <h5>Newsletter</h5>
-          <p>Get updates, news or events on your mail.</p>
-          <form action="#">
-            <button type="submit" class="btn btn-success btn-block mt-2">Subscribe</button>
-          </form>
-        </div>
-      </div> 
+      </div>
 
-      <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
+      <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
     </div>
   </footer>
  

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.EstimatesDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.QuestionDTO;
@@ -35,6 +36,12 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 	public QuestionDTO getQuestion(int que_id) {
 		
 		return sqlSession.selectOne(namespace + ".getQuestion", que_id);
+	}
+
+	@Override
+	public AnswerDTO getAnswer(int ans_id) {
+		
+		return sqlSession.selectOne(namespace + ".getAnswer", ans_id);
 	}
 	
 	

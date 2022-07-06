@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -252,94 +253,6 @@ ul li {
     list-style: none;
 }
 
-/* 모달창 */
-.modal-confirm {		
-	color: #434e65;
-	width: 525px;
-}
-.modal-confirm .modal-content {
-	padding: 20px;
-	font-size: 16px;
-	border-radius: 5px;
-	border: none;
-}
-.modal-confirm .modal-header {
-	background: #47c9a2;
-	border-bottom: none;   
-	position: relative;
-	text-align: center;
-	margin: -20px -20px 0;
-	border-radius: 5px 5px 0 0;
-	padding: 35px;
-}
-.modal-confirm h4 {
-	text-align: center;
-	font-size: 36px;
-	margin: 10px 0;
-}
-.modal-confirm .form-control, .modal-confirm .btn {
-	min-height: 40px;
-	border-radius: 3px; 
-}
-.modal-confirm .close {
-	position: absolute;
-	top: 15px;
-	right: 15px;
-	color: #b5b5b5;
-	text-shadow: none;
-	opacity: 0.5;
-}
-.modal-confirm .close:hover {
-	opacity: 0.8;
-}
-.modal-confirm .icon-box {
-	color: #fff;		
-	width: 95px;
-	height: 95px;
-	display: inline-block;
-	border-radius: 50%;
-	z-index: 9;
-	border: 5px solid #fff;
-	padding: 15px;
-	text-align: center;
-}
-.modal-confirm .icon-box i {
-	font-size: 64px;
-	margin: -4px 0 0 -4px;
-}
-.modal-confirm.modal-dialog {
-	margin-top: 80px;
-}
-.modal-confirm .btn, .modal-confirm .btn:active {
-	color: #fff;
-	border-radius: 4px;
-	background: #eeb711 !important;
-	text-decoration: none;
-	transition: all 0.4s;
-	line-height: normal;
-	border-radius: 30px;
-	margin-top: 10px;
-	padding: 6px 20px;
-	border: none;
-}
-.modal-confirm .btn:hover, .modal-confirm .btn:focus {
-	background: #eda645 !important;
-	outline: none;
-}
-.modal-confirm .btn span {
-	margin: 1px 3px 0;
-	float: left;
-}
-.modal-confirm .btn i {
-	margin-left: 1px;
-	font-size: 20px;
-	float: right;
-}
-.trigger-btn {
-	display: inline-block;
-	margin: 100px auto;
-}
-
 .item {
     color: #323232;
     width: 600px;
@@ -382,9 +295,13 @@ ul li {
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
+<c:catch>
+<c:choose>
+<c:when test="${ empty sessionScope.id }">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -404,16 +321,53 @@ ul li {
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
+              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
             </li>
           </ul>
         </div>
 
       </div>
     </nav>
+</c:when>
+<c:otherwise>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <div class="container">
+          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarContent">
+             
+             <!--search바  -->
+             <div class="search">
+                <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              </div>
+              
+            <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">고수찾기</a>
+              </li>  
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+</c:otherwise>
+</c:choose>
+</c:catch>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -453,83 +407,19 @@ ul li {
               	<ul>
               		<li class="main-menu">주고받고</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="#myModal" style="text-decoration: none;" class="sub-menu" data-toggle="modal">내 요청서 보기</a>
-              		</li>
-              		<li class="sub-menu sub-menu-container underline">
-					<a href="<%=request.getContextPath() %>/requests/sent" style="text-decoration: none; " class="sub-menu">받은견적</a>
+					<a href="<%=request.getContextPath() %>/requests/sent" style="text-decoration: none; " class="sub-menu">내 요청서 보기</a>
               		</li>
               	</ul>
             </div>
             
-            
-    <!-- 모달 창 시작 -->
-	<div id="myModal" class="modal fade" style="position: fixed;">
-		<div class="modal-dialog modal-confirm">
-		<div class="modal-content">
-				<h2 class="text-black" style="margin-top: 20px; margin-bottom: 40px; margin-left: 20px;"><b>내 요청서</b></h2>
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문1</div>
- 				<div class="item-info">답변1</div>
- 				</div>
-            </li>
- 
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문2</div>
- 				<div class="item-info">답변2</div>
- 				</div>
-            </li>
-    
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문3</div>
- 				<div class="item-info">답변3</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문4</div>
- 				<div class="item-info">답변4</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문5</div>
- 				<div class="item-info">답변5</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문6</div>
- 				<div class="item-info">답변6</div>
- 				</div>
-            </li>
-            
-            <li class="item-container"> 
-                <div class="item">
-                <div class="item-title">질문7</div>
- 				<div class="item-info">답변7</div>
- 				</div>
-            </li>
-		</div>
-		</div>
-	</div>     
-	<!-- 모달창 끝 -->
-
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px;">
               	<ul>
-              		<li class="main-menu">마켓</li>
+              		<li class="main-menu">마루페이</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">구매내역</a>
+              			<a href="#" style="text-decoration: none;" class="sub-menu">거래내역</a>
               		</li>
               		<li class="sub-menu sub-menu-container underline">
-              			<a href="#" style="text-decoration: none;" class="sub-menu">문의내역</a>
+              			<a href="#" style="text-decoration: none;" class="sub-menu">쿠폰/이벤트</a>
               		</li>
               	</ul>
             </div>

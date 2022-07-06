@@ -16,4 +16,8 @@
   		select * from QUESTIONS where id = #{que_id};
   	</select>
   	
+  	<select id="getAnswer" resultType="com.itwillbs.domain.AnswerDTO">
+  		select * from ANSWERS where id = #{ans_id};
+  	</select>
+  	
   </mapper>
