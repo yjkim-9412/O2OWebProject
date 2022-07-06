@@ -13,4 +13,5 @@ public interface ProService {
     ProDTO getPro(String email);
     GetProDTO getProid(int id);
     GetProDTO getProemail(String email);
+    public ProDTO proCheck();
 }
