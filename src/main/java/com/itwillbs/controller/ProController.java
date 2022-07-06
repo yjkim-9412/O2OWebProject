@@ -311,15 +311,14 @@ public class ProController {
 		proService.insertAddress(addressDTO);
 		proService.insertPro(proDTO);
 
-    
-    @RequestMapping(value = "/pro/info", method = RequestMethod.GET)
+    	return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
     public String info(ProDTO proDTO) {
         
         return "pro/info";
     }
-
-		return "redirect:/";
-	}
 	
 	@RequestMapping(value = "/pro/dupcheck", method = RequestMethod.GET)
 	public ResponseEntity<String> dupcheck(HttpServletRequest request) {
