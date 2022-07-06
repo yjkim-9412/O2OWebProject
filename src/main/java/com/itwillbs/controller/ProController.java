@@ -28,88 +28,88 @@ import javax.mail.internet.MimeMessage;
 public class ProController {
 	@Autowired
 	private JavaMailSender mailSender;
-	
+
 	@Inject
 	private AddressDTO addressDTO;
-		
+
 	@Inject
-    private ProService proService;
+	private ProService proService;
 
-    @RequestMapping(value = "/pro/proInsert", method = RequestMethod.GET)
-    public String proInsert() {
+	@RequestMapping(value = "/pro/proInsert", method = RequestMethod.GET)
+	public String proInsert() {
 
-        return "pro/ProInsertForm";
-    }
+		return "pro/ProInsertForm";
+	}
 
-    @RequestMapping(value = "/pro/InsertPro", method = RequestMethod.GET)
-    public String InsertPro(ProDTO proDTO) {
-        proService.insertPro(proDTO);
-        return "redirect:/pro/login";
-    }
-    @RequestMapping(value = "/pro/mainCategory", method = RequestMethod.GET)
+	@RequestMapping(value = "/pro/InsertPro", method = RequestMethod.GET)
+	public String InsertPro(ProDTO proDTO) {
+		proService.insertPro(proDTO);
+		return "redirect:/pro/login";
+	}
+	@RequestMapping(value = "/pro/mainCategory", method = RequestMethod.GET)
 	public String mainCategory() {
 		System.out.println("ProController mainCategory()");
-		
+
 		return "pro/mainCategory";
 	}
-    
-    @RequestMapping(value = "/pro/lesson", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/pro/lesson", method = RequestMethod.GET)
 	public String lesson() {
 		System.out.println("ProController lesson()");
-		
+
 		return "pro/lesson";
 	}
-    
-    @RequestMapping(value = "/pro/health", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/pro/health", method = RequestMethod.GET)
 	public String health() {
 		System.out.println("ProController health()");
-		
+
 		return "pro/health";
 	}
-    
-    @RequestMapping(value = "/pro/event", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/pro/event", method = RequestMethod.GET)
 	public String event() {
 		System.out.println("ProController event()");
-		
+
 		return "pro/event";
 	}
-    
-    @RequestMapping(value = "/pro/clean", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/pro/clean", method = RequestMethod.GET)
 	public String clean() {
 		System.out.println("ProController clean()");
-		
+
 		return "pro/clean";
 	}
-    
+
 	@RequestMapping(value = "/pro/secCategory", method = RequestMethod.GET)
 	public String secCategory() {
 		System.out.println("ProController secCategory()");
-		 
+
 		return "pro/secCategory";
 	}
-	
+
 	@RequestMapping(value = "/pro/secCategory_health", method = RequestMethod.GET)
 	public String secCategory_health() {
 		System.out.println("ProController secCategory_health()");
-		 
+
 		return "pro/secCategory_health";
 	}
-	
+
 	@RequestMapping(value = "/pro/secCategory_event", method = RequestMethod.GET)
 	public String secCategory_event() {
 		System.out.println("ProController secCategory_event()");
-		 
+
 		return "pro/secCategory_event";
 	}
-	
+
 	@RequestMapping(value = "/pro/secCategory_clean", method = RequestMethod.GET)
 	public String secCategory_clean() {
 		System.out.println("ProController secCategory_clean()");
-		 
+
 		return "pro/secCategory_clean";
 	}
-	
-	
+
+
 	@RequestMapping(value = "/pro/lessonPro", method = RequestMethod.GET)
 	public String lessonDetailPro(HttpServletRequest requset,Model model) {
 		System.out.println("ProController lessonPro()");
@@ -124,11 +124,11 @@ public class ProController {
 		model.addAttribute("services_id", services_id);
 		return "redirect:/pro/service_lesson";
 	}
-	
+
 	@RequestMapping(value = "/pro/service_lesson", method = RequestMethod.GET)
 	public String service_lesson(@RequestParam(value = "services_id") String services_id,Model model) {
 		System.out.println("ProController service_lesson()");
-		
+
 		if(services_id.equals("5")) {
 			model.addAttribute("music", 1);
 		}else {
@@ -162,7 +162,7 @@ public class ProController {
 //		}
 		return "pro/service_lesson";
 	}
-	
+
 	@RequestMapping(value = "/pro/healthPro", method = RequestMethod.GET)
 	public String healthPro(HttpServletRequest requset,Model model) {
 		System.out.println("ProController lessonPro()");
@@ -170,11 +170,11 @@ public class ProController {
 		model.addAttribute("services_id", services_id);
 		return "redirect:/pro/service_health";
 	}
-	
+
 	@RequestMapping(value = "/pro/service_health", method = RequestMethod.GET)
 	public String service_health(@RequestParam(value = "services_id") String services_id,Model model) {
 		System.out.println("ProController service_lesson()");
-		
+
 		if(services_id.equals("3")) {
 			model.addAttribute("deliv", 1);
 		}else {
@@ -190,7 +190,7 @@ public class ProController {
 
 		return "pro/service_health";
 	}
-	
+
 	@RequestMapping(value = "/pro/eventPro", method = RequestMethod.GET)
 	public String eventPro(HttpServletRequest requset,Model model) {
 		System.out.println("ProController eventPro()");
@@ -198,11 +198,11 @@ public class ProController {
 		model.addAttribute("services_id", services_id);
 		return "redirect:/pro/service_event";
 	}
-	
+
 	@RequestMapping(value = "/pro/service_event", method = RequestMethod.GET)
 	public String service_event(@RequestParam(value = "services_id") String services_id,Model model) {
 		System.out.println("ProController service_event()");
-		
+
 		if(services_id.equals("12")) {
 			model.addAttribute("party", 1);
 		}else {
@@ -223,7 +223,7 @@ public class ProController {
 
 		return "pro/service_event";
 	}
-	
+
 	@RequestMapping(value = "/pro/cleanPro", method = RequestMethod.GET)
 	public String cleanPro(HttpServletRequest requset,Model model) {
 		System.out.println("ProController cleanPro()");
@@ -231,11 +231,11 @@ public class ProController {
 		model.addAttribute("services_id", services_id);
 		return "redirect:/pro/service_clean";
 	}
-	
+
 	@RequestMapping(value = "/pro/service_clean", method = RequestMethod.GET)
 	public String service_clean(@RequestParam(value = "services_id") String services_id,Model model) {
 		System.out.println("ProController service_clean()");
-		
+
 		if(services_id.equals("7")) {
 			model.addAttribute("air", 1);
 		}else {
@@ -261,7 +261,7 @@ public class ProController {
 
 		return "pro/service_clean";
 	}
-	
+
 	@RequestMapping(value = "/pro/address", method = RequestMethod.GET)
 	public String address(HttpServletRequest request,Model model) {
 		System.out.println("ProController address()");
@@ -279,14 +279,14 @@ public class ProController {
 		model.addAttribute("services_id", services_id);
 		return "pro/address";
 	}
-	
+
 	@RequestMapping(value = "/pro/iframe_map", method = RequestMethod.GET)
 	public String iframe_map() {
 		System.out.println("ProController iframe_map()");
-		 
+
 		return "pro/iframe_map";
 	}
-	
+
 	@RequestMapping(value = "/pro/proinsert", method = RequestMethod.GET)
 	public String proinsert(HttpServletRequest request,Model model) {
 		System.out.println("ProController proinsert()");
@@ -302,26 +302,26 @@ public class ProController {
 		model.addAttribute("services_id", services_id);
 		return "pro/proinsert";
 	}
-	
+
 	@RequestMapping(value = "/pro/ok", method = RequestMethod.POST)
 	public String ok(HttpServletRequest request,ProDTO proDTO) {
 		System.out.println("ProController ok()");
-		
+
 		proService.insertAddress(addressDTO);
 		proService.insertPro(proDTO);
 
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/pro/dupcheck", method = RequestMethod.GET)
 	public ResponseEntity<String> dupcheck(HttpServletRequest request) {
 		System.out.println("ProController dupcheck()");
 		ResponseEntity<String> entitiy=null;
 		String result="";
-		
+
 		String email=request.getParameter("email");
 		ProDTO proDTO= proService.getPro(email);
-		
+
 		if(proDTO!=null) {
 			result="emaildup";
 		}else {
@@ -331,49 +331,49 @@ public class ProController {
 		entitiy=new ResponseEntity<String>(result,HttpStatus.OK);
 		return entitiy;
 	}
-	
+
 	@RequestMapping(value="/pro/mailCheck", method=RequestMethod.GET)
-    @ResponseBody
-    public String mailCheckGET(String email) throws Exception{
+	@ResponseBody
+	public String mailCheckGET(String email) throws Exception{
 		System.out.println("mailCheck()"+email);
 
-				
+
 		/* 인증번호(난수) 생성 */
 		Random random = new Random();
 		int checkNum = random.nextInt(888888) + 111111;
-		
+
 		/* 이메일 보내기 */
 		String setFrom = "gustmd262@naver.com";
 		String toMail = email;
 		String title = "회원가입 인증 이메일 입니다.";
-		String content = 
+		String content =
 				"홈페이지를 방문해주셔서 감사합니다." +
-				"<br><br>" + 
-				"인증 번호는 " + checkNum + "입니다." + 
-				"<br>" + 
-				"해당 인증번호를 인증번호 확인란에 기입하여 주세요.";		
-		
+						"<br><br>" +
+						"인증 번호는 " + checkNum + "입니다." +
+						"<br>" +
+						"해당 인증번호를 인증번호 확인란에 기입하여 주세요.";
+
 		try {
-			
+
 			MimeMessage message = mailSender.createMimeMessage();
 			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
 			helper.setFrom(setFrom);
-			
+
 			helper.setTo(toMail);
 			helper.setSubject(title);
 			helper.setText(content,true);
 			mailSender.send(message);
-			
+
 		}catch(Exception e) {
 			e.printStackTrace();
-		}		
-		
+		}
+
 		String num = Integer.toString(checkNum);
-		
+
 		return num;
-		
+
 	}
-	
+
 	@RequestMapping(value = "/pro/test", method = RequestMethod.GET)
 	public String test(Model model) {
 		System.out.println("ProController test()");
@@ -391,15 +391,15 @@ public class ProController {
 		model.addAttribute("proDTO", proDTO);
 		return "pro/test";
 	}
-	
+
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	 public String info(Model m) {
-	    	System.out.println("ProController info()");
+	public String info(Model m) {
+		System.out.println("ProController info()");
 
-	        ProDTO proDTO = new ProDTO(); 
-	        proDTO =  proService.proCheck();
-	        m.addAttribute("proDTO" , proDTO);
+		ProDTO proDTO = new ProDTO();
+		proDTO =  proService.proCheck();
+		m.addAttribute("proDTO" , proDTO);
 
-	        return "pro/info";
-	    }
+		return "pro/info";
+	}
 }
