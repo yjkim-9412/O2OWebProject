@@ -42,6 +42,27 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.update(namespace+".updateMember", memberDTO);
 
 	}
+	
+	@Override
+	public void updateEmail(MemberDTO memberDTO) {
+
+		sqlSession.update(namespace+".updateEmail", memberDTO);
+
+	}
+
+	@Override
+	public void updatePass(MemberDTO memberDTO) {
+
+		sqlSession.update(namespace+".updatePass", memberDTO);
+
+	}
+
+	@Override
+	public void deleteMember(MemberDTO memberDTO) {
+		sqlSession.delete(namespace+".deleteMember", memberDTO);
+	}
+
+
 	// 	----------- CHATROOM -----------
 	@Override
 	public MemberDTO getMemberE(String email) {

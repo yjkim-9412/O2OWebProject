@@ -67,16 +67,14 @@ System.out.println("#########" + code);
 		MemberDTO memberDTO = memberService.getMember(id);
 		m.addAttribute("memberDTO", memberDTO);
 		// 위에서 만든 코드 아래에 코드 추가
-//		String access_Token = ms.getAccessToken(code);
+		String access_Token = ms.getAccessToken(code);
 	
         
-//		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
-//		System.out.println("###access_Token#### : " + access_Token);
-//		System.out.println("###nickname#### : " + userInfo.get("nickname"));
-//		System.out.println("###email#### : " + userInfo.get("email"));
-//		System.out.println("###profile_image#### : " + userInfo.get("profile_image"));
-//		m.addAttribute("ka_email", userInfo.get("email"));
-//		m.addAttribute("ka_img", userInfo.get("profile_image"));
+		HashMap<String, Object> userInfo = ms.getUserInfo(access_Token);
+		System.out.println("###access_Token#### : " + access_Token);
+		System.out.println("###nickname#### : " + userInfo.get("nickname"));
+		System.out.println("###email#### : " + userInfo.get("email"));
+		m.addAttribute("ac", userInfo.get("nickname"));
 		return "member/main";
 	}
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
@@ -85,7 +83,7 @@ System.out.println("#########" + code);
 		return "redirect:/member/login";
 		
 	}
-	@RequestMapping(value = "/member/info", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
 		
@@ -93,7 +91,7 @@ System.out.println("#########" + code);
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
 		
-		return "member/info";
+		return "mypage/info";
 	}
 	
 	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)
@@ -118,7 +116,12 @@ System.out.println("#########" + code);
 		return "mypage/settings/name";
 	}
 	
-	
+	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
+	public String kakaologin() {
+
+		return "member/kakaologin";
+
+		}
 
 
 }

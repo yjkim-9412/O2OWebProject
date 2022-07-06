@@ -8,19 +8,23 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
+
 public class ProDTO {
     private int id;
-    private int serviceId;
-    private int addressId;
-    private int gender;
+    private int services_id;
+    private int address_id;
+    private int gender_id;
     private int career;
-    private int employees;
-    private Boolean identity;
+    private int employee_number;
+    private Boolean identify;
     private Boolean business;
     private Boolean certificate;
-    private String pass;
+    private String password;
     private String name;
     private String phone;
     private String email;
+    private Timestamp date;
+
+
 
 }
