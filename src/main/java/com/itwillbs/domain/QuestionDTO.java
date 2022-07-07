@@ -36,7 +36,4 @@ public class QuestionDTO {
 		return contents;
 	}
 
-	
-	
-	
 }

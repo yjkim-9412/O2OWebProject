@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -330,14 +331,13 @@ li a {
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+     <c:catch>
+<c:choose>
+<c:when test="${ empty sessionScope.id }">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
         <div class="navbar-collapse collapse" id="navbarContent">
            
            <!--search바  -->
@@ -352,16 +352,50 @@ li a {
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
+              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
             </li>
           </ul>
-        </div>
-
-      </div>
     </nav>
+</c:when>
+<c:otherwise>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <div class="container">
+          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarContent">
+             
+             <!--search바  -->
+             <div class="search">
+                <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              </div>
+              
+            <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">고수찾기</a>
+              </li>  
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+</c:otherwise>
+</c:choose>
+</c:catch>
   </header>
   
 <div class="service">
@@ -426,7 +460,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/aircon?services_id1=71'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                	<div class="card-img" style="background-image: url('https://static.cdn.soomgo.com/upload/service/featured_service_65311471-18f1-4f66-86b9-a6e7298cfcce.jpg');">
                                 	</div>
                                     <div class="card-title">업소용</div>
                                 </div>
@@ -443,7 +477,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mold?services_id1=76'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('	https://dmmj3ljielax6.cloudfront.net/upload/service/65e4e1e8-5727-4479-b5d1-1f70a69ec446.png');">
                                 	</div>
                                     <div class="card-title">화장실/욕실</div>
                                 </div>
@@ -460,7 +494,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mold?services_id1=77'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/9ae39f56-4786-4d98-b03a-06540f927899.png');">
                                 	</div>
                                     <div class="card-title">가구</div>
                                 </div>
@@ -477,7 +511,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/move?services_id1=79'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/71c1ef33-506c-44de-9663-04cbf241fddd.png');">
                                 	</div>
                                     <div class="card-title">이사청소</div>
                                 </div>
@@ -494,7 +528,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/move?services_id1=80'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/17b263cc-cc39-4c1e-bf52-22b41c15b39f.jpg');">
                                 	</div>
                                     <div class="card-title">입주청소</div>
                                 </div>
@@ -511,7 +545,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/bed?services_id1=87'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://static.cdn.soomgo.com/upload/service/22b8a2b3-3644-4c9e-814c-ba7284d71ef6.png');">
                                 	</div>
                                     <div class="card-title">건식 클리닝</div>
                                 </div>

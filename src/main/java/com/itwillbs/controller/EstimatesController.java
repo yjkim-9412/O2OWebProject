@@ -1,6 +1,8 @@
 package com.itwillbs.controller;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -32,8 +34,9 @@ public class EstimatesController {
 		estimatesDTO.setAccount_id(account_id);
 		
 		List<EstimatesDTO> estimatesList =  estimatesService.getEstimatesId(estimatesDTO);
-		List<List<String>> quesList = new ArrayList();
-		List<List<String>> ansList = new ArrayList();
+		List<List<String>> quesList = new ArrayList<List<String>>();
+		List<List<String>> ansList = new ArrayList<List<String>>();
+		List<String> service_name = new ArrayList<String>();
 		
 		for(int i = 0; i < estimatesList.size(); i++) {
 			
@@ -43,13 +46,19 @@ public class EstimatesController {
 			List<EstimatesMidDTO> estimatesMid = estimatesService.getEstimatesMid(estimates_id);
 			ArrayList<Integer> quesIdList = new ArrayList<>();
 			ArrayList<Integer> ansIdList = new ArrayList<>();
+				
 			
 			for(int j = 0; j < estimatesMid.size(); j++) {
 				quesIdList.add(estimatesMid.get(j).getQuestion_id());
 				ansIdList.add(estimatesMid.get(j).getAnswer_id());
+
 			}
 			
 			System.out.println("질문 번호 : " + quesIdList);
+			int min = Collections.min(quesIdList);
+			List<String> name = estimatesService.getServiceName(min);
+			service_name.add(name.toString());
+
 			
 			List<String> questions = new ArrayList<>();
 			for(int k = 0; k < quesIdList.size(); k++) {
@@ -77,10 +86,12 @@ public class EstimatesController {
 		
 		System.out.println(quesList);
 		System.out.println(ansList);
+		System.out.println(service_name);
 		model.addAttribute("quesList", quesList);
 		model.addAttribute("ansList", ansList);
 		model.addAttribute("estimatesList", estimatesList);
-		
+		model.addAttribute("service_name", service_name);
+
 		return "requests/sent";
 	}
 }

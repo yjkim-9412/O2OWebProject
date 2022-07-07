@@ -5,6 +5,7 @@ public class ServiceDTO {
 	private int seccat_id;
 	private String name;
 	private String img_url;
+	private QuestionDTO questionDTO;
 	
 	public int getId() {
 		return id;
@@ -30,6 +31,15 @@ public class ServiceDTO {
 	public void setImg_url(String img_url) {
 		this.img_url = img_url;
 	}
-	
+	public QuestionDTO getQuestionDTO() {
+		return questionDTO;
+	}
+	public void setQuestionDTO(QuestionDTO questionDTO) {
+		this.questionDTO = questionDTO;
+	}
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 }

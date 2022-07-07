@@ -261,7 +261,7 @@ table {
 table td {
   width: 350px;
   border: 1px solid #B5B5B5;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .item-title{
@@ -273,6 +273,30 @@ table td {
     margin-bottom: 30px;
     font-weight: bold;
 
+}
+
+.cell_padding {
+	padding : 3em 1em;
+}
+
+.service{
+	background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/service/73756793-16d5-4884-977b-0fceb355e571.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    height: 20rem;
+    z-index: 1;
+} 
+
+.contents {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    max-width: 43.75rem;
+    text-align: center;
+    padding: 0 1rem;
 }
 
 </style>
@@ -369,30 +393,16 @@ table td {
   <input type="hidden" name="password" value="${memberDTO.password }">
   
 
-  <div class="page-section" style="padding-top: 0px">
-    <div class="container">
-         
-      <h2 class="text-black"><b>견적요청서</b></h2> 
-    </div>
+  <div class="service">
+	<div class="contents section-title h1" style="color: white; font-weight: bold;">견적요청서</div>
 </div>
 
 <div class="container">
 <table>
 <tr>
-<%-- <c:forEach var="question" items="${quesList }"> --%>
-<!-- <td> -->
-<%-- <c:forEach var="ques" items="${question }">				 --%>
-<!--             <li class="item-container">  -->
-<!--                 <div class="item"> -->
-<%--                 <div class="item-title">${ques }</div> --%>
-<!--  				<div class="item-info">답변1</div> -->
-<!--  				</div> -->
-<!--             </li> -->
-<%-- </c:forEach> --%>
-<!-- </td> -->
-<%-- </c:forEach> --%>
 <c:forEach var="i" begin="0" end="${quesList.size() - 1}" step="1">
-<td>
+<td class="cell_padding" onClick="location.href='#'" style="cursor:pointer;">
+<h5 style="padding-left: 10px; font-weight: bold; padding-bottom: 30px;">${service_name.get(i)}</h5>
 <c:forEach var="j" begin="0" end="${quesList.get(i).size() - 1 }" step="1">
 <li class="item-container">
            <div class="item">
@@ -405,18 +415,6 @@ table td {
 </c:forEach>
 </td>
 </c:forEach>
-
-
-
-
-
-
-
-
-
-
-
-
 </tr>
 <tr>
 </tr>

@@ -34,5 +34,9 @@
 	<select id="getServiceName" resultType="com.itwillbs.domain.ServiceDTO">
 		select name from SERVICES where id=#{services_id};
 	</select>
+	
+	<select id="getCities" resultType="String">
+		select name from CITIES;
+	</select>
 
 </mapper>

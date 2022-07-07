@@ -169,7 +169,15 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.wizard-content-left {
+  background-blend-mode: darken;
+  background-color: rgba(0, 0, 0, 0.45);
+  background-image: url("https://i.ibb.co/X292hJF/form-wizard-bg-2.jpg");
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  padding: 30px;
+}
 .wizard-content-left h1 {
   color: #ffffff;
   font-size: 38px;
@@ -181,16 +189,11 @@ body {
 .form-wizard {
   color: #888888;
   padding: 30px;
-  border: 1px solid #f3f3f3;
-  border-radius: 10px;
 }
 .form-wizard .wizard-form-radio {
   display: inline-block;
   margin-left: 5px;
   position: relative;
-  color: black;
-  font-weight: 500;
-  font-size: 16px;
 }
 .form-wizard .wizard-form-radio input[type="radio"] {
   -webkit-appearance: none;
@@ -199,8 +202,8 @@ body {
   -o-appearance: none;
   appearance: none;
   background-color: #dddddd;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   display: inline-block;
   vertical-align: middle;
   border-radius: 50%;
@@ -211,7 +214,7 @@ body {
   outline: 0;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked {
-  background-color: #FEEBB6;
+  background-color: #fb1647;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::before {
   content: "";
@@ -221,10 +224,10 @@ body {
   display: inline-block;
   background-color: #ffffff;
   border-radius: 50%;
-  left: 0.8px;
+  left: 1px;
   right: 0;
   margin: 0 auto;
-  top: 4px;
+  top: 8px;
 }
 .form-wizard .wizard-form-radio input[type="radio"]:checked::after {
   content: "";
@@ -312,36 +315,34 @@ body {
 }
 .form-wizard .form-wizard-steps {
   margin: 30px 0;
-  
 }
 .form-wizard .form-wizard-steps li {
-  width: 16%;			/*숫자 사이 간격 조절*/
+  width: 20%;
   float: left;
   position: relative;
-  
 }
 .form-wizard .form-wizard-steps li::after {
+  background-color: #f3f3f3;
   content: "";
   height: 5px;
   left: 0;
   position: absolute;
   right: 0;
-  
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  border-bottom: 1px solid #f3f3f3; /* 줄 색깔 */
-  border-top: 1px solid #f3f3f3;
+  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd;
 }
 .form-wizard .form-wizard-steps li span {
   background-color: #dddddd;
   border-radius: 50%;
   display: inline-block;
-  height: 35px;
-  line-height: 35px;
+  height: 40px;
+  line-height: 40px;
   position: relative;
   text-align: center;
-  width: 35px;
+  width: 40px;
   z-index: 1;
 }
 .form-wizard .form-wizard-steps li:last-child::after {
@@ -353,8 +354,8 @@ body {
 }
 .form-wizard .form-wizard-steps li.active::after, .form-wizard .form-wizard-steps li.activated::after {
   background-color: #FFCD4A;
-  left: 70%;
-  width: 70%;
+  left: 50%;
+  width: 50%;
   border-color: #f3f3f3;
 }
 .form-wizard .form-wizard-steps li.activated::after {
@@ -379,7 +380,7 @@ body {
     position: relative;
   }
   100% {
-    width: 8px;
+    width: 60px;
     height: 60px;
     margin-left: -15px;
     margin-top: -15px;
@@ -391,6 +392,7 @@ body {
     height: auto;
   }
 }
+
 
 h5 {
 	text-align: center;
@@ -441,9 +443,13 @@ select.form-control {
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
+    <c:catch>
+<c:choose>
+<c:when test="${ empty sessionScope.id }">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -463,16 +469,53 @@ select.form-control {
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
+              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
             </li>
           </ul>
         </div>
 
       </div>
     </nav>
+</c:when>
+<c:otherwise>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <div class="container">
+          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarContent">
+             
+             <!--search바  -->
+             <div class="search">
+                <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              </div>
+              
+            <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">고수찾기</a>
+              </li>  
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+</c:otherwise>
+</c:choose>
+</c:catch>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -577,23 +620,15 @@ select.form-control {
         <!-- 문항5 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(4) }</h5>
-   				<div class="form-group" style="border: none;">
-                <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="wish">
-                </div>
-               </div> 
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset> 
-        
-        <!-- 문항6 -->
-       	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(5) }</h5>
-   				<div class="form-group" style="border: none;">
-                <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="etc">
+   				 <input type="hidden" name="ans4" value="${questions_id[4] }">
+               <c:forEach var="answers" items="${answers.get(4) }">
+   				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="ans4" id="radio2" type="radio" value="${answers }">
+                  <label for="radio2">${answers}</label>
                 </div>
               </div>
+                </c:forEach>
                 <input type="submit" class="form-wizard-submit" value="Submit" style="width: 80px; height: 45px; float: right; border: white; border-radius: 0px; font-size: 16px;">
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 

@@ -16,4 +16,6 @@ public interface EstimatesService {
 	public QuestionDTO getQuestion(int que_id);
 	
 	public AnswerDTO getAnswer(int ans_id);
+	
+	public List<String> getServiceName(int min);
 }

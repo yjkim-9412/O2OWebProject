@@ -33,7 +33,7 @@ public class AnswerController {
 		EstimatesMidDTO estimatesMidDTO = new EstimatesMidDTO();
 		int question_id = 0, answer_id = 0;
 		
-		for(int i = 1; i <= 4; i++) {
+		for(int i = 1; i <= 5; i++) {
 			String[] ans = request.getParameterValues("ans" + i);
 			
 			question_id = Integer.parseInt(ans[0]);
@@ -74,7 +74,7 @@ public class AnswerController {
 		EstimatesMidDTO estimatesMidDTO = new EstimatesMidDTO();
 		int question_id = 0, answer_id = 0;
 		
-		for(int i = 1; i <= 3; i++) {
+		for(int i = 1; i <= 4; i++) {
 			String[] ans = request.getParameterValues("ans" + i);
 			
 			question_id = Integer.parseInt(ans[0]);

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.ServiceDTO;
 import com.itwillbs.service.QuestionService;
 
@@ -66,11 +67,15 @@ public class QuestionController {
 				answers.add(answerList);				
 			
 		}
+		
+		List<String> cities = questionService.getCities();
+		System.out.println(cities);
 	
 		model.addAttribute("questions_id", questions_id);
 		model.addAttribute("questions", questions);
 		model.addAttribute("answers", answers);
 		model.addAttribute("serviceDTO", serviceDTO);
+		model.addAttribute("cities", cities);
 		
 		System.out.println(answers);
 		

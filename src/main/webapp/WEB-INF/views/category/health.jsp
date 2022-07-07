@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -329,14 +330,13 @@ li a {
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+     <c:catch>
+<c:choose>
+<c:when test="${ empty sessionScope.id }">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
         <div class="navbar-collapse collapse" id="navbarContent">
            
            <!--search바  -->
@@ -351,16 +351,50 @@ li a {
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
+              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
             </li>
           </ul>
-        </div>
-
-      </div>
     </nav>
+</c:when>
+<c:otherwise>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <div class="container">
+          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarContent">
+             
+             <!--search바  -->
+             <div class="search">
+                <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              </div>
+              
+            <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">고수찾기</a>
+              </li>  
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+</c:otherwise>
+</c:choose>
+</c:catch>
   </header>
   
 <div class="service">
@@ -425,7 +459,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/delivery?services_id1=56'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/9fa94311-8dd9-4f2e-b3fc-eeb849296452.png');">
                                 	</div>
                                     <div class="card-title">반찬 배달</div>
                                 </div>
@@ -476,7 +510,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=17'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/featured_service_46016a56-34ed-4a23-a6e1-8ac02391763d.jpg');">
                                 	</div>
                                     <div class="card-title">크로스핏</div>
                                 </div>
@@ -493,7 +527,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=18'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/a44f592e-4ad5-4071-a192-4ebd01a83eae.png');">
                                 	</div>
                                     <div class="card-title">요가</div>
                                 </div>

@@ -20,4 +20,25 @@
   		select * from ANSWERS where id = #{ans_id};
   	</select>
   	
+  	<resultMap type="com.itwillbs.domain.ServiceDTO" id="ServiceDTO">
+  		<result column="id" property="id"/>
+  		<result column="seccat_id" property="seccat_id"/>
+  		<result column="name" property="name"/>
+  		<result column="img_url" property="img_url"/>
+  	</resultMap>
+
+  	<resultMap type="com.itwillbs.domain.QuestionDTO" id="QuestionDTO">
+		<result column="id" property="id"/>
+		<result column="services_id" property="services_id"/>
+		<result column="contents" property="contents"/>
+		<collection property="answerDTO" resultMap="AnswerDTO"/>
+	</resultMap>
+	
+	<select id="getServiceName" resultType="String" resultMap="ServiceDTO">
+		select s.name
+				from QUESTIONS q join SERVICES s
+		on (q.services_id = s.id)
+		where q.id = #{min};
+	</select>
+  	
   </mapper>

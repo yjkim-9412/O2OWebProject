@@ -455,9 +455,13 @@ select.form-control {
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
+    <c:catch>
+<c:choose>
+<c:when test="${ empty sessionScope.id }">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -477,16 +481,53 @@ select.form-control {
               <a class="nav-link" href="about.html">고수찾기</a>
             </li>  
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
+              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>
             <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
+              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
             </li>
           </ul>
         </div>
 
       </div>
     </nav>
+</c:when>
+<c:otherwise>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <div class="container">
+          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="navbar-collapse collapse" id="navbarContent">
+             
+             <!--search바  -->
+             <div class="search">
+                <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              </div>
+              
+            <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">고수찾기</a>
+              </li>  
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+</c:otherwise>
+</c:choose>
+</c:catch>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -618,11 +659,15 @@ select.form-control {
         <!-- 문항7 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(6) }</h5>
-   				<div class="form-group" style="border: none;">
-                <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="etc">
+   			  <input type="hidden" name="ans5" value="${questions_id[6] }">
+   			  <c:forEach var="answers" items="${answers.get(6) }">
+   				<div class="form-group">
+                <div class="wizard-form-radio">
+                  <input name="ans5" id="radio2" type="radio" value="${answers }">
+                  <label for="radio2">${answers}</label>
                 </div>
-              	</div>
+              </div>
+                </c:forEach>
               	<input type="submit" class="form-wizard-submit" value="Submit" style="width: 80px; height: 45px; float: right; border: white; border-radius: 0px; font-size: 16px;">
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 

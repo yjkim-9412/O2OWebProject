@@ -42,6 +42,12 @@ public class EstimatesServiceImpl implements EstimatesService{
 		return estimatesDAO.getAnswer(ans_id);
 	}
 
+	@Override
+	public List<String> getServiceName(int min) {
+		
+		return estimatesDAO.getServiceName(min);
+	}
+
 	
 	
 	

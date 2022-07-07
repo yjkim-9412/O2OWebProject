@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.QuestionDTO;
 import com.itwillbs.domain.ServiceDTO;
 
@@ -40,6 +41,12 @@ public class QuestionDAOImpl implements QuestionDAO{
 	public ServiceDTO getServiceName(int services_id) {
 		
 		return sqlSession.selectOne(namespace+".getServiceName", services_id);
+	}
+
+	@Override
+	public List<String> getCities() {
+		
+		return sqlSession.selectList(namespace + ".getCities");
 	}
 	
 	

@@ -43,6 +43,12 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 		
 		return sqlSession.selectOne(namespace + ".getAnswer", ans_id);
 	}
+
+	@Override
+	public List<String> getServiceName(int min) {
+		
+		return sqlSession.selectList(namespace + ".getServiceName", min);
+	}
 	
 	
 	
