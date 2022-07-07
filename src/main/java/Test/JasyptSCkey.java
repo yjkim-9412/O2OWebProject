@@ -40,7 +40,7 @@ public class JasyptSCkey {
 
         System.out.println();
 
-        Long roomId = Long.parseLong(UUID.randomUUID().toString());
+        String roomId = UUID.randomUUID().toString();
         System.out.println(roomId);
 
 

@@ -11,10 +11,10 @@ import java.util.*;
 @NoArgsConstructor
 public class ChatRoomDTO {
 
-    private Long roomId;
-    public static ChatRoomDTO create(Long roomId) {
+    private String  roomId;
+    public static ChatRoomDTO create(String roomId) {
         ChatRoomDTO room = new ChatRoomDTO();
-        room.roomId = Long.parseLong(UUID.randomUUID().toString());
+        room.roomId = UUID.randomUUID().toString();
         return room;
     }
 

@@ -50,7 +50,7 @@ public class ChatRoomController {
         int idm =  (Integer)session.getAttribute("id");
         MemberDTO memberDTO = memberService.getMember(idm);
         String member_email = memberDTO.getEmail();
-        Long roomId = chatEnterService.newRoom(member_email,pro_email);
+        String roomId = chatEnterService.newRoom(member_email,pro_email);
 
 
         return "redirect:/chat/room/" + roomId;

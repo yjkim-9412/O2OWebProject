@@ -21,9 +21,9 @@ public class ChatEnterServiceImpl implements ChatEnterService{
 
 
     @Override
-    public Long newRoom(String member_email, String pro_email) {
-        Long check = checkRoom(member_email, pro_email);
-        if (check != 0){
+    public String newRoom(String member_email, String pro_email) {
+        String check = checkRoom(member_email, pro_email);
+        if (check.equals("")){
 
             return check;
         }
@@ -39,7 +39,7 @@ public class ChatEnterServiceImpl implements ChatEnterService{
         return check;
     }
     @Override
-    public Long checkRoom(String member_email, String pro_email) {
+    public String checkRoom(String member_email, String pro_email) {
         List<ChatRoomEnterDTO> firstList = chatRoomEnterRepository.findRoomByEmail(member_email);
         Set<ChatRoomDTO> setFirst = new HashSet<>();
         for (ChatRoomEnterDTO chatRoomEnterDTO : firstList){
@@ -53,7 +53,7 @@ public class ChatEnterServiceImpl implements ChatEnterService{
                 return chatRoomEnterDTO.getChatRoomDTO().getRoomId();
             }
         }
-        return 0L;
+        return "";
     }
     public void createRoom(String user_email, ChatRoomDTO chatRoomDTO){
         ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO(memberService.getMemberE(user_email),chatRoomDTO);

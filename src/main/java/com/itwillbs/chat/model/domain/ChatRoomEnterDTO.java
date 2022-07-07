@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class ChatRoomEnterDTO {
 
-    private Long id;
+    private String roomId;
     private MemberDTO memberDTO;
     private ChatRoomDTO chatRoomDTO;
 
