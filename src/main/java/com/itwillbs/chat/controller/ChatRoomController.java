@@ -1,6 +1,8 @@
 package com.itwillbs.chat.controller;
 
+import com.itwillbs.chat.model.domain.ChatMessageDTO;
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
+import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
 import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
 import com.itwillbs.chat.repository.ChatRepository;
@@ -24,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -36,6 +40,9 @@ public class ChatRoomController {
     private ChatRoomEnterRepository chatRoomEnterRepository;
     @Autowired
     private ChatEnterService chatEnterService;
+
+    @Autowired
+    private ChatService chatService;
 
 
     //회원 채팅목록 전부 가져오기
@@ -51,11 +58,14 @@ public class ChatRoomController {
         return "redirect:/chat/room/" + roomId;
     }
     @RequestMapping(value = "/chat/room/{roomId}")
-    public String intoChat(@PathVariable("roomId") Long roomId, Model model, HttpServletRequest request){
+    public String intoChat(@PathVariable("roomId") String roomId, Model model, HttpServletRequest request){
         Optional<ChatRoomDTO> opt = chatRoomEnterRepository.findById(roomId);
         HttpSession session = request.getSession();
         int id = (Integer)session.getAttribute("id");
         MemberDTO memberDTO = memberService.getMember(id);
+        List<ChatMessageDTO> messages = chatService.getChatMessage(roomId);
+        Collections.reverse(messages);
+        List<ChatRoomEnterDTO> list = chatRoomEnterRepository.findByChatRoom(roomId);
         String m_email = memberDTO.getEmail();
         String p_email = "lamia9304@naver.com"; // proDTO 들어올 예정
        // Optional<ChatEnterService> optional = chatEnterService.checkRoom(roomId);

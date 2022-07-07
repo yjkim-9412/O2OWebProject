@@ -28,35 +28,36 @@ public class ChatEnterServiceImpl implements ChatEnterService{
             return check;
         }
         ChatRoomDTO chatRoomDTO = ChatRoomDTO.create(check);
-
+        String roomId = chatRoomDTO.getRoomId();
         if (member_email.equals(pro_email)){
-            createRoom(member_email,chatRoomDTO);
+            createRoomSelf(member_email,roomId);
         }else {
-            createRoom(member_email,chatRoomDTO);
-            createRoom(pro_email,chatRoomDTO);
+            createRoom(pro_email,member_email,roomId);
+
         }
         return check;
     }
     @Override
     public String checkRoom(String member_email, String pro_email) {
         List<ChatRoomEnterDTO> firstList = chatRoomEnterRepository.findRoomByEmail(member_email);
-        Set<ChatRoomDTO> setFirst = new HashSet<>();
-        for (ChatRoomEnterDTO chatRoomEnterDTO : firstList){
-            setFirst.add(chatRoomEnterDTO.getChatRoomDTO());
-        }
+        Set<ChatRoomEnterDTO> setFirst = new HashSet<>(firstList);
 
         //Pro가 될예정
         List<ChatRoomEnterDTO> secondList = chatRoomEnterRepository.findRoomByEmailPro(pro_email);
         for (ChatRoomEnterDTO chatRoomEnterDTO :secondList){
-            if(setFirst.contains((chatRoomEnterDTO.getChatRoomDTO()))){
-                return chatRoomEnterDTO.getChatRoomDTO().getRoomId();
+            if(setFirst.contains((chatRoomEnterDTO))){
+                return chatRoomEnterDTO.getRoomId();
             }
         }
-        return "";
+        return null;
     }
-    public void createRoom(String user_email, ChatRoomDTO chatRoomDTO){
-        ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO(memberService.getMemberE(user_email),chatRoomDTO);
+    public void createRoom(String pro_email ,String member_email, String roomId){
+        ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO(pro_email,member_email,roomId);
         chatRoomEnterRepository.saveJoinUsers(chatRoomEnterDTO);
+    }
+    @Override
+    public void createRoomSelf(String user, String roomId) {
+
     }
 
     @Override
@@ -73,5 +74,6 @@ public class ChatEnterServiceImpl implements ChatEnterService{
     public void delete(ChatRoomEnterDTO chatRoomJoin) {
 
     }
+
 
 }

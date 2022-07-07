@@ -15,8 +15,10 @@ import java.util.Optional;
 public interface ChatService {
 
 
-    public Optional<ChatRoomDTO> findById(Long roomId);
+    public Optional<ChatRoomDTO> findById(String roomId);
     public void save(ChatMessageDTO message);
+
+    public List<ChatMessageDTO> getChatMessage(String roomId);
 
     public List<ChatRoomEnterDTO> findByUser(MemberDTO user);
     public List<ChatRoomEnterDTO> findByPro(ProDTO pro);

@@ -32,18 +32,8 @@ public class ChatRoomEnterRepository {
 
         return sqlSession.selectList(namespace+"getUserRoomList",email);
     }
-    public void insertRoom(ChatRoomEnterDTO chatRoomEnterDTO){
-        sqlSession.insert(namespace+".insertRoom",chatRoomEnterDTO);
 
-    }
-    public Boolean saveRoom(ChatRoomEnterDTO chatRoomEnterDTO){
-
-        sqlSession.insert(namespace+".saveRoom",chatRoomEnterDTO.getChatRoomDTO().getRoomId());
-
-        return true;
-    }
-
-    public Optional<ChatRoomDTO> findById(Long roomId) {
+    public Optional<ChatRoomDTO> findById(String roomId) {
 
         return sqlSession.selectOne(namespace+"findById",roomId);
     }
@@ -55,9 +45,9 @@ public class ChatRoomEnterRepository {
 
         return sqlSession.selectList(namespace+"findByPro",user);
     }
-    public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoomDTO){
+    public List<ChatRoomEnterDTO> findByChatRoom(String roomId){
 
-         return sqlSession.selectList(namespace+".findByChatRoom",chatRoomDTO);
+         return sqlSession.selectList(namespace+".findByChatRoom",roomId);
     }
 
     public void saveJoinUsers (ChatRoomEnterDTO chatRoomEnterDTO){
@@ -69,5 +59,11 @@ public class ChatRoomEnterRepository {
              System.out.println("유저 저장 실패");
          }
 
+    }
+    public Boolean saveRoom(ChatRoomEnterDTO chatRoomEnterDTO){
+
+        sqlSession.insert(namespace+".saveRoom",chatRoomEnterDTO.getRoomId());
+
+        return true;
     }
 }

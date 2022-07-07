@@ -37,7 +37,7 @@ public class ChatServiceImpl implements ChatService{
     }
 
     @Override
-    public Optional<ChatRoomDTO> findById(Long roomId) {
+    public Optional<ChatRoomDTO> findById(String roomId) {
 
         return chatRoomEnterRepository.findById(roomId);
     }
@@ -55,5 +55,10 @@ public class ChatServiceImpl implements ChatService{
     @Override
     public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoom) {
         return chatRoomEnterRepository.findByChatRoom(chatRoom);
+    }
+
+    @Override
+    public List<ChatMessageDTO> getChatMessage(String roomId) {
+        return chatRepository.getChatMessage(roomId);
     }
 }

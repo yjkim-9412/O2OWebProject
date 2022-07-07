@@ -9,9 +9,21 @@
 	values (#{Member_email}, #{PRO_USER_email}, #{CLASS_class_id})
 	</insert>
 
-	<insert id="saveChat">
-		insert into MESSAGE
+
+	<insert id="saveRoom">
+		insert into CHATROOM(session_name) values(#{roomId})
 	</insert>
+	<insert id="joinUser">
+		insert into CHATROOMJOIN(account_id, pro_id,room_id) values (#{member_id}, #{pro_id},
+		                                                             (select room_id from CHATROOM where session_name = #{roomdId}))
+	</insert>
+	<select id="getChatMessage">
+		select * from MESSAGE where roomId = (select room_id from CHATROOM where session_name = #{roomdId})
+	</select>
+
+	<select id="findByChatRoom">
+		select * from CHATJOINROOM where roomId = (select room_id from CHATROOM where session_name = #{roomdId})
+	</select>
 
 
 

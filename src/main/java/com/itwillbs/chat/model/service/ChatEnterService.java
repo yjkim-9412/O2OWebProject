@@ -11,7 +11,9 @@ public interface ChatEnterService {
     public String checkRoom(String member, String pro);
 
     public Long checkByRoomId(Long roomId);
-    public void createRoom(String user_email, ChatRoomDTO chatRoomDTO);
+    public void createRoom(String pro_email ,String member_email, String roomId);
+
+    public void  createRoomSelf(String user,String roomId);
 
     public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoomDTO);
 

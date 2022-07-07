@@ -11,13 +11,16 @@ import lombok.Setter;
 public class ChatRoomEnterDTO {
 
     private String roomId;
-    private MemberDTO memberDTO;
-    private ChatRoomDTO chatRoomDTO;
+    private String member_email;
+    private String pro_email;
 
-    private ProDTO proDTO;
 
-    public ChatRoomEnterDTO(MemberDTO memberDTO,ChatRoomDTO chatRoomDTO) {
-        this.memberDTO = memberDTO;
-        this.chatRoomDTO = chatRoomDTO;
+
+
+    public ChatRoomEnterDTO(String pro_email,String member_email,String roomId) {
+        this.member_email = member_email;
+        this.roomId = roomId;
+        this.pro_email = pro_email;
+
     }
 }

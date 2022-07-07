@@ -43,9 +43,9 @@ public class ChatRepository {
 
         sqlSession.insert(namespace+".saveChat",message);
     }
-    public Long findRoomId(Long roomId){
+    public List<ChatMessageDTO> getChatMessage(String roomId){
 
-        return sqlSession.selectOne(namespace+".selectRoomId",roomId);
+        return sqlSession.selectList(namespace+".getChatMessage",roomId);
     }
 
 
