@@ -31,15 +31,24 @@ public class MemberController {
 	@RequestMapping(value = "/member/insert", method = RequestMethod.GET)
 	public String insert() {
 		// /WEB-INF/views/member/insertForm.jsp
+
+
 		return "member/insertForm";
 	}
 	
 	@RequestMapping(value = "/member/insertPro", method = RequestMethod.POST)
 	public String insertPro(MemberDTO memberDTO) {
 		//회원가입 메서드호출
-		memberService.insertMember(memberDTO);
-		
-		return "redirect:/member/login";
+
+		MemberDTO memberDTO2=memberService.userCheck(memberDTO);
+
+		if(memberDTO2!=null){
+			return "member/insertMsg";
+		}else{
+			memberService.insertMember(memberDTO);
+			return "redirect:/member/login";
+		}
+
 	}
 	
 	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
@@ -110,6 +119,17 @@ System.out.println("#########" + code);
 		model.addAttribute("memberDTO", memberDTO);
 		
 		return "mypage/settings/name";
+	}
+
+	@RequestMapping(value = "/mypage/delete", method = RequestMethod.GET)
+	public String delete(HttpSession session,Model model) {
+		int id = (Integer)session.getAttribute("id");
+
+
+		MemberDTO memberDTO = memberService.getMember(id);
+		model.addAttribute("memberDTO", memberDTO);
+
+		return "mypage/delete";
 	}
 	
 	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)

@@ -2,13 +2,23 @@ package com.itwillbs.domain;
 
 import java.sql.Timestamp;
 
+
 public class GetProDTO {
 	private int id,career,employee_number;
-	private String name,email,phone,city_name,district_name,addistrict_name,maincat_name,seccat_name,service_name;
+	private String name,email,phone,city_name,district_name,addistrict_name,maincat_name,seccat_name,service_name,img_url;
 	private double x_axis,y_axis;
+
+	public String getImg_url() {
+		return img_url;
+	}
+
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
+	}
+
 	private Timestamp date;
 	private Boolean identify,business,certificate;
-	
+
 	public int getId() {
 		return id;
 	}
@@ -117,5 +127,8 @@ public class GetProDTO {
 	public void setCertificate(Boolean certificate) {
 		this.certificate = certificate;
 	}
+
+
+
 	
 }

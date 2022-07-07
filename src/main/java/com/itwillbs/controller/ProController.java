@@ -1,5 +1,6 @@
 package com.itwillbs.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import com.itwillbs.domain.AddressDTO;
@@ -14,12 +15,16 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
@@ -34,6 +39,8 @@ public class ProController {
 
 	@Inject
 	private ProService proService;
+
+
 
 	@RequestMapping(value = "/pro/proInsert", method = RequestMethod.GET)
 	public String proInsert() {
@@ -388,18 +395,63 @@ public class ProController {
 		System.out.println(proDTO.getSeccat_name());
 		System.out.println(proDTO.getService_name());
 		System.out.println(proDTO.getIdentify());
+		System.out.println(proDTO.getImg_url());
+
 		model.addAttribute("proDTO", proDTO);
 		return "pro/test";
 	}
 
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	public String info(Model m) {
+	public String info(Model model) {
 		System.out.println("ProController info()");
+		String email="gsutmd262@naver.com";
+		int id=12;
 
-		ProDTO proDTO = new ProDTO();
-		proDTO =  proService.proCheck();
-		m.addAttribute("proDTO" , proDTO);
+		GetProDTO proDTO = proService.getProemail(email);
+		System.out.println(proDTO.getCity_name());
+		System.out.println(proDTO.getDistrict_name());
+		System.out.println(proDTO.getAddistrict_name());
+		System.out.println(proDTO.getMaincat_name());
+		System.out.println(proDTO.getSeccat_name());
+		System.out.println(proDTO.getService_name());
+		System.out.println(proDTO.getIdentify());
+		System.out.println(proDTO.getImg_url());
+		model.addAttribute("proDTO", proDTO);
+//		ProDTO proDTO = new ProDTO();
+//		proDTO =  proService.proCheck();
+	//	m.addAttribute("proDTO" , proDTO);
 
 		return "pro/info";
 	}
+
+	@RequestMapping(value="/pro/delete",method = RequestMethod.GET)
+		public String delete(){
+			return "pro/delete";
+		}
+
+	@RequestMapping(value = "/pro/fwritePro", method = RequestMethod.POST)
+	public String fwritePro(HttpServletRequest request, MultipartFile file) throws Exception {
+
+
+
+
+		// 프로그램 설치 fileupload , commons-io, annotation-api
+		// 설정
+
+		// 파일이름 => 랜덤문자_파일이름
+		UUID uuid=UUID.randomUUID();
+		String fileName=uuid.toString()+"_"+file.getOriginalFilename();
+		// 업로드 파일을 => resources/upload 폴더 복사
+		//File uploadFile=new File(uploadPath,fileName);
+		//FileCopyUtils.copy(file.getBytes(), uploadFile);
+
+
+
+
+		return "redirect:/board/list";
+	}
+
+
+
+
 }

@@ -2,6 +2,7 @@ package com.itwillbs.service;
 
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetProDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.ProDTO;
 
 public interface ProService {

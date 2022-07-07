@@ -88,7 +88,7 @@
                 <br>
                 <h2>활동 지역</h2>
                 <div >
-                    ${proDTO.service_name }
+
 
                     <img width="20" height="20" src= "../resources/img/icon/6.png">
                     ${proDTO.city_name } ${proDTO.district_name } ${proDTO.addistrict_name}
@@ -97,7 +97,7 @@
                 <br>
                 <h2>자기소개</h2>
                 <div class="text-muted mb-4">
-                    안녕하십니까  고수 ${proDTO.name}입니다.
+                    안녕하십니까  주고 ${proDTO.name}입니다.
                 </div>
 
             </div>
@@ -119,7 +119,7 @@
 
         <div class="career"style="float:left; padding: 30px; line-height: 15px;">
             총 경력 <a></a>
-            <h3> ${proDTO.identify}년</h3>
+            <h3> ${proDTO.career}년</h3>
 
         </div>
         <br><br><br>
@@ -132,7 +132,9 @@
 
     <div class="topnav">
         <a class="active" href="#jungoinfo" >주고 정보</a>
-        <a href="#photo"  >사진</a>
+        <a href="#photo"  >사진
+        </a>
+        <div>${proDTO.img_url}</div>
         <a href="#review" >리뷰</a>
         <a href="#Q&A">Q&A</a>
 
