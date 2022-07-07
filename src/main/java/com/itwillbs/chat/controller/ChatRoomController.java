@@ -4,6 +4,7 @@ import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
 import com.itwillbs.chat.repository.ChatRepository;
+import com.itwillbs.chat.repository.ChatRoomEnterRepository;
 import com.itwillbs.domain.MemberDTO;
 
 import com.itwillbs.service.MemberService;
@@ -37,7 +38,7 @@ public class ChatRoomController {
     @Autowired
     private  ProService proService;
     @Autowired
-    private  ChatRepository chatRepository;
+    private ChatRoomEnterRepository chatRoomEnterRepository;
     @Autowired
     private ChatEnterService chatEnterService;
 
@@ -56,6 +57,7 @@ public class ChatRoomController {
     }
     @RequestMapping(value = "/chat/room/{roomId}")
     public String intoChat(@PathVariable("roomId") Long roomId, Model model, HttpServletRequest request){
+        Optional<ChatRoomDTO> opt = chatRoomEnterRepository.findById(roomId);
         HttpSession session = request.getSession();
         int id = (Integer)session.getAttribute("id");
         MemberDTO memberDTO = memberService.getMember(id);

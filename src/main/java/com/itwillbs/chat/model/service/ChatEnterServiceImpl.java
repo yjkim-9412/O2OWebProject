@@ -18,8 +18,8 @@ public class ChatEnterServiceImpl implements ChatEnterService{
    private MemberService memberService;
    @Autowired
    private ChatRoomEnterRepository chatRoomEnterRepository;
-   @Autowired
-   private ChatService chatService;
+
+
     @Override
     public Long newRoom(String member_email, String pro_email) {
         Long check = checkRoom(member_email, pro_email);
@@ -27,7 +27,8 @@ public class ChatEnterServiceImpl implements ChatEnterService{
 
             return check;
         }
-        ChatRoomDTO chatRoomDTO = new ChatRoomDTO();
+        ChatRoomDTO chatRoomDTO = ChatRoomDTO.create(check);
+
 
         if (member_email.equals(pro_email)){
             createRoom(member_email,chatRoomDTO);
@@ -56,7 +57,7 @@ public class ChatEnterServiceImpl implements ChatEnterService{
     }
     public void createRoom(String user_email, ChatRoomDTO chatRoomDTO){
         ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO(memberService.getMemberE(user_email),chatRoomDTO);
-        chatRoomEnterRepository.saveRoom(chatRoomEnterDTO);
+        chatRoomEnterRepository.saveJoinUsers(chatRoomEnterDTO);
     }
 
     @Override

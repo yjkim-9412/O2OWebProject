@@ -3,6 +3,7 @@ package com.itwillbs.chat.model.domain;
 
 import lombok.*;
 
+import java.time.LocalDate;
 
 
 @Getter
@@ -16,8 +17,11 @@ public class ChatMessageDTO {
     //내용
     private String message;
 
-    private String receiver;
-
     private String senderM;
+
+    private LocalDate time;
+
+    private ChatRoomDTO chatRoomDTO;
+
 
 }

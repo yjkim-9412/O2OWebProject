@@ -6,12 +6,9 @@ import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.service.ProService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Random;
 
 import javax.inject.Inject;
-import javax.mail.internet.MimeMessage;
+
 
 @Controller
 public class ProController {

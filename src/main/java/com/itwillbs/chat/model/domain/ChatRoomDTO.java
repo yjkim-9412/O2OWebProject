@@ -12,9 +12,11 @@ import java.util.*;
 public class ChatRoomDTO {
 
     private Long roomId;
-    private String name;
-    private List<ChatMessageDTO> messageDTOS = new ArrayList<>();
-
+    public static ChatRoomDTO create(Long roomId) {
+        ChatRoomDTO room = new ChatRoomDTO();
+        room.roomId = Long.parseLong(UUID.randomUUID().toString());
+        return room;
+    }
 
 
 
