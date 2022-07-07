@@ -735,7 +735,7 @@ main{
         <h5 class="icontext">다양한 서비스를 찾아보세요!</h5>
             <div class="row" id="row1">
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
-                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/lesson';">
                         <div class="card-body">
                             <img src="resources/img/icon/lesson.png">                            
                             <h2 class="card-title display-1" style="font-size:2.5vmin;">레슨</h2>
@@ -743,7 +743,7 @@ main{
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
-                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/health';">
                         <div class="card-body">
                             <img src="resources/img/icon/health.png">                            
                             <h2 class="card-title display-1" style="font-size:2.5vmin;">건강</h2>
@@ -751,7 +751,7 @@ main{
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
-                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/event';">
                         <div class="card-body">
                             <img src="resources/img/icon/event.png">
                             <h2 class="card-title display-1" style="font-size:2.5vmin;">이벤트</h2>
@@ -759,7 +759,7 @@ main{
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-2">
-                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='#';">
+                    <div class="card p-3 text-center border-0" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/cleaning';">
                         <div class="card-body">
                             <img src="resources/img/icon/cleaning.png">
                             <h2 class="card-title display-1" style="font-size:2.5vmin;">청소</h2>

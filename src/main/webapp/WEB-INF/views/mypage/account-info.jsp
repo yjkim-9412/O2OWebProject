@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -211,55 +212,123 @@
       width: 10px;
       right: 0;
       bottom: 0;
-    }
 
+}
 
+.main-menu {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #323232;
+}
 
-  </style>
+.sub-menu {
+    font-size: 16px;
+    font-weight: 500;
+    color: #737373;
+    padding: 0;
+ 
+}
 
+.sub-menu-container {
+    padding: 1rem 0;
+}
 
+.sub-menu-container .sub-menu-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+  
+.underline {
+    border-bottom: 0.0625rem solid;
+    border-color: #f2f2f2;
+}  
+  
+ul li {
+    list-style: none;
+}
+  
+</style>
+  
+  
 
 </head>
 <body>
 
 
-<!-- Back to top button -->
-<div class="back-to-top"></div>
 
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-    <div class="container" style="box-sizing: border-box;">
-      <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+  <!-- Back to top button -->
+  <div class="back-to-top"></div>
+  
+  <header>
+    <c:catch>
+<c:choose>
+<c:when test="${ empty sessionScope.id }">
 
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+      <div class="container">
+        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <div class="navbar-collapse collapse" id="navbarContent">
+           
+           <!--search바  -->
+           <div class="search">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?">
+              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+            </div>
+            
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">고수찾기</a>
+            </li>  
+            <li class="nav-item active">
+              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
+            </li>
+            <li class="nav-item">
+              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
+            </li>
+          </ul>
+    </nav>
+</c:when>
+<c:otherwise>
+    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+        <div class="container">
+          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
-      <div class="navbar-collapse collapse" id="navbarContent">
+          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <!--search바  -->
-        <div class="search">
-          <input type="text" placeholder="어떤 서비스가 필요하세요?">
-          <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+          <div class="navbar-collapse collapse" id="navbarContent">
+             
+             <!--search바  -->
+             <div class="search">
+                <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              </div>
+              
+            <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">고수찾기</a>
+              </li>  
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+              </li>
+              <li class="nav-item">
+                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+              </li>
+            </ul>
+          </div>
+
         </div>
-
-        <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">고수찾기</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">로그인</a>
-          </li>
-          <li class="nav-item">
-            <button class="button-55" role="button" >회원가입</button>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </nav>
-</header>
+      </nav>
+</c:otherwise>
+</c:choose>
+</c:catch>
+  </header>
 
 <input type="hidden" name="id" value="${sessionScope.id }">
 <input type="hidden" name="email" value="${memberDTO.email }">
@@ -310,6 +379,7 @@
       </div>
     </form>
   </div>
+
 
   <div class="container-fluid mt-4">
 

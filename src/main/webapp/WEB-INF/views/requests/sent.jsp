@@ -12,14 +12,10 @@
   
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-
-  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
   
   <!--   구글폰트(버튼) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,18 +24,64 @@
 
   <title>MaRoo</title>
 
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/maicons.css">
+  <link rel="stylesheet" href="../resources/css/maicons.css">
 
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/bootstrap.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap.css">
 
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/vendor/animate/animate.css">
+  <link rel="stylesheet" href="../resources/vendor/animate/animate.css">
 
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme.css">
+  <link rel="stylesheet" href="../resources/css/theme.css">
   
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   
-  <style type="text/css">
+<style type="text/css">
+  
+li {
+	list-style: none;
+}  
+  
+/*  푸터  */
+.callnumber{
+    padding-bottom: 0.1875rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-stretch: normal;
+    color: #FFCD4A;
+ }
+.callnumberdown{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+}
+#footermenu1{
+    margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    position: absolute;
+    bottom:49px;
+}
+#footermenu2{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}
+#footermenu3{
+	margin: 0;
+    font-size: .875rem;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #737373;
+    
+}  
+  
   
 /* nav */
 .search {
@@ -120,75 +162,127 @@ header img {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   
 }  
-  
-.cancle {
-background-color: white; 
-border-color: #F2F2F2; 
-color: #FFCD4A; 
-width: 142px; 
-height: 48px;
-padding: 11px 12px;
+
+/* 회원정보 */
+.thumb {
+    width: 4.375rem;
+    height: 4.375rem;
+    min-width: 4.375rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 0.0625rem solid #f2f2f2;
 }
 
-.update {
-background-color: #FFCD4A; 
-border-color: transparent; 
-color: white; 
-width: 142px; 
-height: 48px;
-padding: 11px 12px;
-margin: 0px 0px 0px 12px;
-font-weight: bold;
+.user-info {
+    flex: auto;
+    text-align: left;
+    padding-left: 0.75rem;
 }
 
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
+.user-name {
+    display: flex;
+    font-size: 1.125rem;
     font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
+    color: #323232;
+    position: relative;
+    font-weight: bold;
+    left: 70px;
+    bottom: 60px;
 }
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
+  
+.name-length {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 0.3125rem;
+    max-width: 8.45rem;
+}  
+  
+.user-id {
+    display: flex;
+    font-size: .75rem;
+    color: #b5b5b5;
+    position: relative;
+    left: 70px;
+    bottom: 58px;
     
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
+}  
+ 
+.id-length {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 11.6875rem;
+    padding-left: 5px;
+} 
+
+.arrow {
+	position: relative;
+	left: 600px;
+    bottom: 80px;
 }
 
+.main-menu {
+    display: flex;
+    align-items: center;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #323232;
+}
+
+.sub-menu {
+    font-size: 16px;
+    font-weight: 500;
+    color: #737373;
+    padding: 0;
+ 
+}
+
+.sub-menu-container {
+    padding: 1rem 0;
+}
+
+.sub-menu-container .sub-menu-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+  
+.underline {
+    border-bottom: 0.0625rem solid;
+    border-color: #f2f2f2;
+}  
+
+table {
+  border-spacing: 50px;
+  border-collapse: separate;
+}
+
+table td {
+  width: 350px;
+  border: 1px solid #B5B5B5;
+  border-radius: 10px;
+}
+
+.item-title{
+    color: #737373;
+}
+
+.item-info {
+    padding-top: 0.25rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+
+}
 
 </style>
   
-  
+
   
 </head>
 <body>
+
+
 
 
   <!-- Back to top button -->
@@ -270,37 +364,73 @@ font-weight: bold;
 </c:catch>
   </header>
 
+  <input type="hidden" name="id" value="${sessionScope.id }">
+  <input type="hidden" name="email" value="${memberDTO.email }">
+  <input type="hidden" name="password" value="${memberDTO.password }">
+  
+
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="<%=request.getContextPath() %>/mypage/settings/email-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
-            <h2 class="text-black"><b>이메일 수정</b></h2>
-            <div class="row form-group">
-              <div class="col-md-12" style="width: 100%; padding-bottom: 50px; margin-top: 50px;">
-                <label class="text-black" style="margin-bottom:5px"><b>이메일</b></label>
-                <div class="input-group" data-validate="email">
-						<input type="text" class="form-control" name="email" value="${memberDTO.email}" required style="border-radius: 0.25rem;">
-						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
-					</div>
-              </div>
-            </div>
-            <div class="button-group" align="right">
-			
-		  <!-- This is a comment text, these buttons are the default bootstrap buttons with icons in front
-			   of them. Grab their code and just edit the text as you wish to. * Follow me twitter.com/Impresiun -->
-			  
-		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
-		  <input type="submit" class="btn update" value="수정 완료">
-  		  <input type="hidden" name="password" value="${memberDTO.password }">
-  		  <input type="hidden" name="id" value="${sessionScope.id }">
-		  
-		  </div>
-          </form>
+         
+      <h2 class="text-black"><b>견적요청서</b></h2> 
     </div>
+</div>
 
-    <div class="container-fluid mt-4">
+<div class="container">
+<table>
+<tr>
+<%-- <c:forEach var="question" items="${quesList }"> --%>
+<!-- <td> -->
+<%-- <c:forEach var="ques" items="${question }">				 --%>
+<!--             <li class="item-container">  -->
+<!--                 <div class="item"> -->
+<%--                 <div class="item-title">${ques }</div> --%>
+<!--  				<div class="item-info">답변1</div> -->
+<!--  				</div> -->
+<!--             </li> -->
+<%-- </c:forEach> --%>
+<!-- </td> -->
+<%-- </c:forEach> --%>
+<c:forEach var="i" begin="0" end="${quesList.size() - 1}" step="1">
+<td>
+<c:forEach var="j" begin="0" end="${quesList.get(i).size() - 1 }" step="1">
+<li class="item-container">
+           <div class="item">
+           <div class="item-title">${quesList.get(i).get(j) }</div>
+ 	       <div class="item-info">${ansList.get(i).get(j)}</div>
+ 		   </div>
+</li>
 
-    </div>
-  </div>
+
+</c:forEach>
+</td>
+</c:forEach>
+
+
+
+
+
+
+
+
+
+
+
+
+</tr>
+<tr>
+</tr>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
 
   <!-- 푸터 -->
 
@@ -351,24 +481,24 @@ font-weight: bold;
             </ul>
         </div>
       </div>
-
       <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
     </div>
   </footer>
  
-<script src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
+<script src="../resources/js/jquery-3.5.1.min.js"></script>
 
-<script src="<%=request.getContextPath() %>/resources/js/bootstrap.bundle.min.js"></script>
+<script src="../resources/js/bootstrap.bundle.min.js"></script>
 
-<script src="<%=request.getContextPath() %>/resources/js/google-maps.js"></script>
+<script src="../resources/js/google-maps.js"></script>
 
-<script src="<%=request.getContextPath() %>/resources/vendor/wow/wow.min.js"></script>
+<script src="../resources/vendor/wow/wow.min.js"></script>
 
-<script src="<%=request.getContextPath() %>/resources/js/theme.js"></script>
+<script src="../resources/js/theme.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
-
-
 </body>
 </html>
+
+
+
