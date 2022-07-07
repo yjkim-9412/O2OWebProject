@@ -123,6 +123,17 @@ System.out.println("#########" + code);
 		return "mypage/account-info";
 	}
 	
+	@RequestMapping(value = "/mypage/delete", method = RequestMethod.GET)
+	public String delete(HttpSession session,Model model) {
+		int id = (Integer)session.getAttribute("id");
+		
+		
+		MemberDTO memberDTO = memberService.getMember(id);
+		model.addAttribute("memberDTO", memberDTO);
+		
+		return "mypage/delete";
+	}
+	
 	@RequestMapping(value = "/mypage/settings/name", method = RequestMethod.GET)
 	public String name(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");

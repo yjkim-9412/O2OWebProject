@@ -604,18 +604,6 @@ select.form-control {
         
         <!-- 문항6 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(5) }</h5>
-   				<div class="form-group" style="border: none;">
-                <div style="width: 100%;">
-                <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="wish">
-                </div>
-              </div>
-                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
-                <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
-        </fieldset> 
-        
-        <!-- 문항7 -->
-       	<fieldset class="wizard-fieldset">
               <h5>${questions.get(6) }</h5>
    				<div class="form-group" style="border: none;">
                 <div style="width: 100%;">

@@ -319,7 +319,7 @@ ul li {
     
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
               	<ul>
-              		<a href="#" style="text-decoration: none; " class="sub-menu">
+              		<a href="<%=request.getContextPath() %>/mypage/delete" style="text-decoration: none; " class="sub-menu">
               		<li class="main-menu sub-menu-container underline">계정탈퇴</li>
               		</a>
               	</ul>
