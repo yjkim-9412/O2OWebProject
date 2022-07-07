@@ -28,6 +28,7 @@
 	<context:component-scan base-package="com.itwillbs.dao" />
 	<context:component-scan base-package="com.itwillbs.domain" />
 	<context:component-scan base-package="com.itwillbs.chat" />
+	<context:component-scan base-package="com.itwillbs.domain" />
 
 
 </beans:beans>
