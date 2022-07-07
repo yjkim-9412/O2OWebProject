@@ -59,13 +59,10 @@ public class MemberController {
 		return "redirect:/member/main";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
-	public String main(@RequestParam(value = "code", required = false) String code,Model m,HttpSession session) {
+	public String main(@RequestParam(value = "code", required = false) String code,Model m) {
 		
 System.out.println("#########" + code);
-		int id = (Integer)session.getAttribute("id");
-		System.out.println(id + " 불러오기 완료");
-		MemberDTO memberDTO = memberService.getMember(id);
-		m.addAttribute("memberDTO", memberDTO);
+        
 		// 위에서 만든 코드 아래에 코드 추가
 		String access_Token = ms.getAccessToken(code);
 	

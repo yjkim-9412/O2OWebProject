@@ -37,9 +37,9 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public void updateMember(MemberDTO memberDTO) {
+	public void updateName(MemberDTO memberDTO) {
 
-		sqlSession.update(namespace+".updateMember", memberDTO);
+		sqlSession.update(namespace+".updateName", memberDTO);
 
 	}
 	
@@ -49,23 +49,21 @@ public class MemberDAOImpl implements MemberDAO{
 		sqlSession.update(namespace+".updateEmail", memberDTO);
 
 	}
-
+	
 	@Override
 	public void updatePass(MemberDTO memberDTO) {
 
 		sqlSession.update(namespace+".updatePass", memberDTO);
 
 	}
-
+	
 	@Override
 	public void deleteMember(MemberDTO memberDTO) {
 		sqlSession.delete(namespace+".deleteMember", memberDTO);
 	}
+	
 
-	@Override
-	public void updateName(MemberDTO memberDTO) {
 
-	}
 
 	// 	----------- CHATROOM -----------
 	@Override

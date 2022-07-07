@@ -25,7 +25,7 @@
 	 
 	${ka_email}님 환영합니다!
 </c:if>
-<br>
+
 
 <a  target="_blank" href="<%=request.getContextPath() %>/chat/room?idp=1">채팅</a><br>
 <a href="<%=request.getContextPath() %>/member/logout">로그아웃</a><br>
