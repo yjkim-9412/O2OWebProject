@@ -23,12 +23,11 @@ public class ChatEnterServiceImpl implements ChatEnterService{
     @Override
     public String newRoom(String member_email, String pro_email) {
         String check = checkRoom(member_email, pro_email);
-        if (check.equals("")){
+        if (check!=null){
 
             return check;
         }
         ChatRoomDTO chatRoomDTO = ChatRoomDTO.create(check);
-
 
         if (member_email.equals(pro_email)){
             createRoom(member_email,chatRoomDTO);

@@ -26,11 +26,10 @@ public class StompChatController {
 
     @MessageMapping("/chat/message")
     public ChatMessageDTO sendMessage(ChatMessageDTO message) throws Exception {
-        String receiver = message.getReceiver();
         chatService.save(message);
 
         messagingTemplate.convertAndSend("/topic/room/" + message.getRoomId(), message);
-//		messagingTemplate.convertAndSendToUser(message.getId(), "/topic/" + message.getRoomid(), message.getMsg());
+
 
         return message;
     }
