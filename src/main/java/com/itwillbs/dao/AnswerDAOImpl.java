@@ -2,10 +2,13 @@ package com.itwillbs.dao;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.CityDTO;
+import com.itwillbs.domain.DistrictDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.ServiceDTO;
 
@@ -41,6 +44,19 @@ public class AnswerDAOImpl implements AnswerDAO{
 		
 		return sqlSession.selectOne(namespace+".getEstimates_id");
 	}
+
+	@Override
+	public CityDTO getCityId(String city) {
+		
+		return sqlSession.selectOne(namespace + ".getCityId", city);
+	}
+
+	@Override
+	public DistrictDTO getDistrictsId(CityDTO cityDTO) {
+		
+		return sqlSession.selectOne(namespace+".getDistrictsId", cityDTO);
+	}
+
 	
 	
 }

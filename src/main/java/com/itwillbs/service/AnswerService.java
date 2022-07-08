@@ -1,8 +1,10 @@
 package com.itwillbs.service;
 
+
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.CityDTO;
+import com.itwillbs.domain.DistrictDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
-import com.itwillbs.domain.ServiceDTO;
 
 public interface AnswerService {
 	
@@ -14,4 +16,9 @@ public interface AnswerService {
 	
 	public int getEstimates_id();
 	
+	public CityDTO getCityId(String city);
+	
+	public DistrictDTO getDistrictsId(CityDTO cityDTO);
+
+
 }

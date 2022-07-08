@@ -1,6 +1,8 @@
 package com.itwillbs.controller;
 
 
+import java.util.Map;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.CityDTO;
+import com.itwillbs.domain.DistrictDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.service.AnswerService;
 
@@ -56,6 +60,24 @@ public class AnswerController {
 			answerService.insertEstimatesMid(estimatesMidDTO);
 			
 		}
+		
+		String jibunAddress = request.getParameter("jibunAddress");
+		String[] address = jibunAddress.split(" ");
+
+		String city = address[0];
+		String district = address[1];
+		String addistrict = address[2];
+		CityDTO cityDTO = answerService.getCityId(city);
+		int city_id = cityDTO.getId();
+		DistrictDTO districtDTO = new DistrictDTO();
+		districtDTO.setCity_id(city_id);
+		districtDTO.setName(district);
+//		DistrictDTO districtDTO = answerService.getDistrictsId(cityDTO);
+//		System.out.println(district + districtDTO.getId());
+//		System.out.println(districts_id);
+//		int addistricts_id = answerService.getAddistrictsId(addistrict);
+//		System.out.println("도시 이름 : " + city + ", 구 이름 : " + district + ", 동 이름 : " + addistrict);
+//		System.out.println("도시 아이디 : " + cities_id + ", 구 아이디 : " + districts_id + ", 동 아이디 : " + addistricts_id);
 		
 		return "category/result";
 	}

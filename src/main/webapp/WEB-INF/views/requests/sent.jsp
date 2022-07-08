@@ -263,8 +263,9 @@ table {
 
 table td {
   width: 350px;
-  height: 600px;
-  padding: 0px 0px;
+  height: 366px;
+  padding: 5px -9px;
+  padding-bottom: 299px;
 }
 
 .item-title{
@@ -1084,7 +1085,10 @@ table td {
     padding: 14px 0px 0px;
 }/*#SPAN_51*/
 
-
+.page-footer .bg-image {
+ 	width: 1250px;
+ 	height: 390px;
+}
 
 </style>
   
@@ -1219,7 +1223,7 @@ table td {
   <!-- 푸터 -->
 
   <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);" >
-    <div class="container">
+    <div class="container" style="width: 1250px; height: 390px;">
       <div class="row mb-5">
         <div class="col-lg-3 py-3">
           

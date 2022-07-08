@@ -2,10 +2,13 @@ package com.itwillbs.service;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.AnswerDAO;
 import com.itwillbs.domain.AnswerDTO;
+import com.itwillbs.domain.CityDTO;
+import com.itwillbs.domain.DistrictDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
 import com.itwillbs.domain.ServiceDTO;
 
@@ -40,5 +43,22 @@ public class AnswerServiceImpl implements AnswerService{
 		return answerDAO.getEstimates_id();
 	}
 
+
+	@Override
+	public CityDTO getCityId(String city) {
+		
+		return answerDAO.getCityId(city);
+	}
+
+
+	@Override
+	public DistrictDTO getDistrictsId(CityDTO cityDTO) {
+
+		return answerDAO.getDistrictsId(cityDTO);
+	}
+
+
+
 	
+
 }
