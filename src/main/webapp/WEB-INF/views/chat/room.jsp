@@ -158,10 +158,10 @@
         // 메세지 전송
         function sendMessage(msg) {
             socket.send('/chat/message', {}, JSON.stringify({
-                roomId: '${room_id}',
-                sender:'${m_Name}' ,
+                roomId: '${roomId}',
+                sender:'${user_name}' ,
                 message: msg,
-                senderM:'${m_email}',
+                senderM:'${user_email}',
                 receiver:pro_email}));
             console.log("sendMessage!!!!");
 

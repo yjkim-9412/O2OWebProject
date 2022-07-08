@@ -7,8 +7,10 @@ import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
 import com.itwillbs.chat.repository.ChatRepository;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
+import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.MemberDTO;
 
+import com.itwillbs.domain.ProDTO;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProService;
 import lombok.AllArgsConstructor;
@@ -37,37 +39,46 @@ public class ChatRoomController {
     @Autowired
     private  MemberService memberService;
     @Autowired
+    private ProService proService;
+    @Autowired
     private ChatRoomEnterRepository chatRoomEnterRepository;
     @Autowired
     private ChatEnterService chatEnterService;
 
-    @Autowired
-    private ChatService chatService;
+
 
 
     //회원 채팅목록 전부 가져오기
     //채팅방 생성
     @RequestMapping(value = "/chat/newChat",method = RequestMethod.GET)
     public String createChat(@RequestParam("pro_email") String pro_email ,HttpSession session){
-        int idm =  (Integer)session.getAttribute("id");
-        MemberDTO memberDTO = memberService.getMember(idm);
-        String member_email = memberDTO.getEmail();
-        String roomId = chatEnterService.newRoom(member_email,pro_email);
+        int account_id =  (Integer)session.getAttribute("id");
+        MemberDTO memberDTO = memberService.getMember(account_id);
+        String account_email = memberDTO.getEmail();
+        String session_name = chatEnterService.newRoom(account_email,pro_email);
+        System.out.println("방생성 완료 세션 : " + session_name);
 
-
-        return "redirect:/chat/room/" + roomId;
+        return "redirect:/chat/room/" + session_name;
     }
-    @RequestMapping(value = "/chat/room/{roomId}")
-    public String intoChat(@PathVariable("roomId") String roomId, Model model, HttpServletRequest request){
-        Optional<ChatRoomDTO> opt = chatRoomEnterRepository.findById(roomId);
+    @RequestMapping(value = "/chat/room/{session_name}")
+    public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request){
+        ChatRoomEnterDTO chatRoomEnterDTO = chatRoomEnterRepository.findBySession_name(session_name);
         HttpSession session = request.getSession();
         int id = (Integer)session.getAttribute("id");
-        MemberDTO memberDTO = memberService.getMember(id);
-        List<ChatMessageDTO> messages = chatService.getChatMessage(roomId);
-        Collections.reverse(messages);
-        List<ChatRoomEnterDTO> list = chatRoomEnterRepository.findByChatRoom(roomId);
-        String m_email = memberDTO.getEmail();
-        String p_email = "lamia9304@naver.com"; // proDTO 들어올 예정
+
+
+//        List<ChatMessageDTO> messages = chatService.getChatMessage(session_name);
+//        Collections.reverse(messages);
+        List<ChatRoomEnterDTO> list = chatRoomEnterRepository.findByChatRoom(session_name);
+//        model.addAttribute("messages",messages);
+        model.addAttribute("account_email",memberDTO.getEmail());
+        model.addAttribute("account_name",memberDTO.getName());
+        model.addAttribute("pro_email",proDTO.getEmail());
+        model.addAttribute("pro_name",proDTO.getName());
+        model.addAttribute("chatSession",session_name);
+
+
+        int count = 0;
        // Optional<ChatEnterService> optional = chatEnterService.checkRoom(roomId);
         return "chat/room";
     }

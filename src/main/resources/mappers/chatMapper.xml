@@ -11,18 +11,28 @@
 
 
 	<insert id="saveRoom">
-		insert into CHATROOM(session_name) values(#{roomId})
+		insert into CHATROOM(session_name) values(#{session_name})
 	</insert>
-	<insert id="joinUser">
-		insert into CHATROOMJOIN(account_id, pro_id,room_id) values (#{member_id}, #{pro_id},
-		                                                             (select room_id from CHATROOM where session_name = #{roomdId}))
+	<insert id="saveUsers">
+		insert into CHATROOMENTER(account_email, pro_email,session_name) values (#{account_email}, #{pro_email},#{session_name})
 	</insert>
-	<select id="getChatMessage">
-		select * from MESSAGE where roomId = (select room_id from CHATROOM where session_name = #{roomdId})
+	<select id="getChatMessage" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+		select * from MESSAGE where session_name = #{session_name}
+	</select>
+	<select id="findBySession_name" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+		select * from CHATROOMENTER where session_name = #{session_name}
 	</select>
 
-	<select id="findByChatRoom">
-		select * from CHATJOINROOM where roomId = (select room_id from CHATROOM where session_name = #{roomdId})
+	<select id="findByChatRoom" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+		select * from CHATROOMENTER where session_name = #{session_name}
+	</select>
+
+	<select id="findRoomAccount_email" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+		select * from CHATROOMENTER where account_email = #{account_email}
+	</select>
+
+	<select id="findRoomPro_email" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+		select * from CHATROOMENTER where pro_email = #{pro_email}
 	</select>
 
 

@@ -9,18 +9,17 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ChatRoomEnterDTO {
-
-    private String roomId;
-    private String member_email;
+    private String session_name;
     private String pro_email;
+    private String account_email;
 
 
 
 
-    public ChatRoomEnterDTO(String pro_email,String member_email,String roomId) {
-        this.member_email = member_email;
-        this.roomId = roomId;
+    public ChatRoomEnterDTO(String pro_email,String account_email,String session_name) {
+        this.account_email = account_email;
         this.pro_email = pro_email;
+        this.session_name = session_name;
 
     }
 }

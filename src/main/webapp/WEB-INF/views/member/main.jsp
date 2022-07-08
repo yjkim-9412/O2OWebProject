@@ -27,7 +27,7 @@
 </c:if>
 
 
-<a  target="_blank" href="<%=request.getContextPath() %>/chat/room?idp=1">채팅</a><br>
+<a  target="_blank" href="<%=request.getContextPath() %>/chat/newChat?pro_email=hojun@naver.com">채팅</a><br>
 <a href="<%=request.getContextPath() %>/member/logout">로그아웃</a><br>
 <a href="<%=request.getContextPath() %>/member/info">회원정보조회</a><br>
 <a href="<%=request.getContextPath() %>/member/update">회원정보수정</a><br>

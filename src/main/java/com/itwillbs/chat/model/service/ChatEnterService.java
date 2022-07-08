@@ -6,16 +6,15 @@ import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
 import java.util.List;
 
 public interface ChatEnterService {
-    public String newRoom(String member, String pro);
+    public String newRoom(String account_email,String pro_email);
 
-    public String checkRoom(String member, String pro);
+    public String checkRoom(String member_email, String pro_email);
 
-    public Long checkByRoomId(Long roomId);
-    public void createRoom(String pro_email ,String member_email, String roomId);
+    public void createRoom(String member_email ,String pro_email, String session_name);
 
     public void  createRoomSelf(String user,String roomId);
 
-    public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoomDTO);
+    public List<ChatRoomEnterDTO> findByChatRoom(String roomId);
 
     public void delete(ChatRoomEnterDTO chatRoomJoin);
     

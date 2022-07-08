@@ -21,53 +21,49 @@ public class ChatEnterServiceImpl implements ChatEnterService{
 
 
     @Override
-    public String newRoom(String member_email, String pro_email) {
-        String check = checkRoom(member_email, pro_email);
+    public String newRoom(String account_email, String pro_email) {
+        String check = checkRoom(account_email, pro_email);
         if (check!=null){
 
             return check;
         }
         ChatRoomDTO chatRoomDTO = ChatRoomDTO.create(check);
-        String roomId = chatRoomDTO.getRoomId();
-        if (member_email.equals(pro_email)){
-            createRoomSelf(member_email,roomId);
+        String session_name = chatRoomDTO.getSession_name();
+        if (account_email.equals(pro_email)){
+            createRoomSelf(account_email,session_name);
         }else {
-            createRoom(pro_email,member_email,roomId);
+            createRoom(pro_email,account_email,session_name);
 
         }
         return check;
     }
     @Override
-    public String checkRoom(String member_email, String pro_email) {
-        List<ChatRoomEnterDTO> firstList = chatRoomEnterRepository.findRoomByEmail(member_email);
+    public String checkRoom(String account_email, String pro_email) {
+        List<ChatRoomEnterDTO> firstList = chatRoomEnterRepository.findRoomAccount_email(account_email);
         Set<ChatRoomEnterDTO> setFirst = new HashSet<>(firstList);
 
+
         //Pro가 될예정
-        List<ChatRoomEnterDTO> secondList = chatRoomEnterRepository.findRoomByEmailPro(pro_email);
+        List<ChatRoomEnterDTO> secondList = chatRoomEnterRepository.findRoomPro_email(pro_email);
         for (ChatRoomEnterDTO chatRoomEnterDTO :secondList){
-            if(setFirst.contains((chatRoomEnterDTO))){
-                return chatRoomEnterDTO.getRoomId();
+            if(setFirst.contains(chatRoomEnterDTO.getSession_name())){
+                return chatRoomEnterDTO.getSession_name();
             }
         }
-        return null;
+        return "";
     }
-    public void createRoom(String pro_email ,String member_email, String roomId){
-        ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO(pro_email,member_email,roomId);
+    public void createRoom(String pro_email ,String account_email, String session_name){
+        ChatRoomEnterDTO chatRoomEnterDTO = new ChatRoomEnterDTO(pro_email, account_email, session_name);
         chatRoomEnterRepository.saveJoinUsers(chatRoomEnterDTO);
     }
     @Override
-    public void createRoomSelf(String user, String roomId) {
+    public void createRoomSelf(String user, String session_name) {
 
     }
 
     @Override
-    public Long checkByRoomId(Long roomId) {
-        return null;
-    }
-
-    @Override
-    public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoomDTO) {
-        return chatRoomEnterRepository.findByChatRoom(chatRoomDTO);
+    public List<ChatRoomEnterDTO> findByChatRoom(String roomId) {
+        return chatRoomEnterRepository.findByChatRoom(roomId);
     }
 
     @Override

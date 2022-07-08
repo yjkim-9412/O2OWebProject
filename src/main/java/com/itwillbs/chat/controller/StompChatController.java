@@ -28,7 +28,7 @@ public class StompChatController {
     public ChatMessageDTO sendMessage(ChatMessageDTO message) throws Exception {
         chatService.save(message);
 
-        messagingTemplate.convertAndSend("/topic/room/" + message.getRoomId(), message);
+        messagingTemplate.convertAndSend("/topic/room/" + message.getSession_name(), message);
 
 
         return message;
@@ -37,7 +37,7 @@ public class StompChatController {
     public void enter(ChatMessageDTO message){
         message.setMessage(message.getSender()+"님이 입장했습니다");
         System.out.println(message.getMessage());
-        messagingTemplate.convertAndSend("/topic/room/" + message.getRoomId(), message);
+        messagingTemplate.convertAndSend("/topic/room/" + message.getSession_name(), message);
     }
 
 

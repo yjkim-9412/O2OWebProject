@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ChatMessageDTO {
 
     //채팅방 ID
-    private String roomId;
+    private String session_name;
     //보내는 사람
     private String sender;
     //내용

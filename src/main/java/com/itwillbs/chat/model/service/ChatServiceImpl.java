@@ -37,9 +37,9 @@ public class ChatServiceImpl implements ChatService{
     }
 
     @Override
-    public Optional<ChatRoomDTO> findById(String roomId) {
+    public Optional<ChatRoomEnterDTO> findById(String session_name) {
 
-        return chatRoomEnterRepository.findById(roomId);
+        return chatRoomEnterRepository.findById(session_name);
     }
 
     @Override
@@ -53,12 +53,12 @@ public class ChatServiceImpl implements ChatService{
     }
 
     @Override
-    public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoom) {
-        return chatRoomEnterRepository.findByChatRoom(chatRoom);
+    public List<ChatRoomEnterDTO> findByChatRoom(String roomId) {
+        return chatRoomEnterRepository.findByChatRoom(roomId);
     }
 
     @Override
-    public List<ChatMessageDTO> getChatMessage(String roomId) {
-        return chatRepository.getChatMessage(roomId);
+    public List<ChatMessageDTO> getChatMessage(String session_name) {
+        return chatRepository.getChatMessage(session_name);
     }
 }

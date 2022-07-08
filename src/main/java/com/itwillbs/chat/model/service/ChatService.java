@@ -15,14 +15,14 @@ import java.util.Optional;
 public interface ChatService {
 
 
-    public Optional<ChatRoomDTO> findById(String roomId);
+    public Optional<ChatRoomEnterDTO> findById(String session_name);
     public void save(ChatMessageDTO message);
 
-    public List<ChatMessageDTO> getChatMessage(String roomId);
+    public List<ChatMessageDTO> getChatMessage(String session_name);
 
     public List<ChatRoomEnterDTO> findByUser(MemberDTO user);
     public List<ChatRoomEnterDTO> findByPro(ProDTO pro);
-    public List<ChatRoomEnterDTO> findByChatRoom(ChatRoomDTO chatRoom);
+    public List<ChatRoomEnterDTO> findByChatRoom(String roomId);
 
 
 }
