@@ -97,9 +97,15 @@ public class ProServiceImpl implements ProService {
 	}
 	
 	@Override
-	public ProDTO proCheck() {
+	public ProDTO proCheck(ProDTO proDTO) {
 		System.out.println("ProServiceImpl proCheck()");
-		return proDAO.proCheck();
+		return proDAO.proCheck(proDTO);
 	}
-	
+
+	@Override
+	public void deletePro(ProDTO proDTO) {
+		System.out.println("ProServiceImpl deletePro()");
+		proDAO.deletePro(proDTO);
+	}
+
 }

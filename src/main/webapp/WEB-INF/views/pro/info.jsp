@@ -249,7 +249,7 @@
                         <a class="nav-link" href="about.html">고수찾기</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="member/login">로그인</a>
+                        <a class="nav-link" href="<%=request.getContextPath() %>/pro/login">로그인</a>
                     </li>
                     <li class="nav-item">
                         <button class="button-55" role="button" >회원가입</button>

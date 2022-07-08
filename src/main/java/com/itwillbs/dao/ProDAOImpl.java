@@ -74,8 +74,15 @@ public class ProDAOImpl implements ProDAO{
 	}
 	
 	@Override
-	public ProDTO proCheck() {
+	public ProDTO proCheck(ProDTO proDTO) {
 		System.out.println("ProDAOImpl proCheck()");
 		return sqlSession.selectOne(namespace+".proCheck");
+	}
+
+	@Override
+	public void deletePro(ProDTO proDTO) {
+		System.out.println("ProDAOImpl deletePro() dao");
+		sqlSession.selectOne(namespace+".deletePro",proDTO);
+
 	}
 }

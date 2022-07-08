@@ -230,7 +230,7 @@
 
 <div class="page-section" style="padding-top: 0px">
     <div class="container">
-        <form action="<%=request.getContextPath() %>/mypage/deletePro" method="get" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" >
+        <form action="<%=request.getContextPath() %>/pro/deletePro" method="get" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" >
             <h2 class="text-black"><b>주고 탈퇴</b></h2>
             <div class="input-group">
                 <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
@@ -255,7 +255,7 @@
 
                 <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
                 <input type="submit" class="btn update" value="주고 탈퇴">
-                <input type="hidden" name="email" value="${memberDTO.email }">
+
 
             </div>
         </form>

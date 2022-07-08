@@ -17,4 +17,6 @@ public interface MemberDAO {
 		public void updatePass(MemberDTO memberDTO);
 		
 		public void deleteMember(MemberDTO memberDTO);
+
+
 }

@@ -18,7 +18,8 @@ public interface ProDAO {
     GetProDTO getProid(int id);
     GetProDTO getProemail(String email);
 
-    public ProDTO proCheck();
+    public ProDTO proCheck(ProDTO proDTO);
+    public void deletePro(ProDTO proDTO);
 }
 
 

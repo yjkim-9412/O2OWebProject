@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetProDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.service.ProService;
 
@@ -28,6 +29,7 @@ import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ProController {
@@ -425,9 +427,38 @@ public class ProController {
 	}
 
 	@RequestMapping(value="/pro/delete",method = RequestMethod.GET)
-		public String delete(){
-			return "pro/delete";
+		public String delete(HttpSession session,Model model){
+
+		String email = (String)session.getAttribute("email");
+
+		ProDTO proDTO = proService.getPro(email);
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/delete";
 		}
+
+
+
+
+	@RequestMapping(value = "/pro/deletePro", method = RequestMethod.GET)
+	public String deletePro(ProDTO proDTO) {
+
+		ProDTO proDTO2=proService.proCheck(proDTO);
+
+		if(proDTO!=null) {
+			proService.deletePro(proDTO);
+		}
+		else{
+			return "redirect:/pro/deleteMsg";
+		}
+
+		return "redirect:/pro/login";
+	}
+
+	@RequestMapping(value = "/pro/login", method = RequestMethod.GET)
+	public String login() {
+		return "pro/loginForm";
+	}
 
 	@RequestMapping(value = "/pro/fwritePro", method = RequestMethod.POST)
 	public String fwritePro(HttpServletRequest request, MultipartFile file) throws Exception {
@@ -448,7 +479,7 @@ public class ProController {
 
 
 
-		return "redirect:/board/list";
+		return "redirect:/pro/info";
 	}
 
 

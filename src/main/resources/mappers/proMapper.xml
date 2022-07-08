@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="proCheck" resultType="com.itwillbs.domain.ProDTO">
-		select * from PROS where id = 8 
+		select * from PROS where email=#{email}
 	</select>
 	
 	<insert id="insertAddress">
@@ -69,7 +69,10 @@ where p.id=#{id}
 		left JOIN PROFILEIMG pf on p.id=pf.pro_id
 		where p.email=#{email}
 	</select>
-	
+
+	<delete id="deletePro" parameterType="map">
+	DELETE from PROS WHERE password=#{password}
+	</delete>
 	
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->

@@ -30,7 +30,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "/member/insert", method = RequestMethod.GET)
 	public String insert() {
-		// /WEB-INF/views/member/insertForm.jsp
+		// /WEB-INF/views/member/loginForm.jsp
 
 
 		return "member/insertForm";
