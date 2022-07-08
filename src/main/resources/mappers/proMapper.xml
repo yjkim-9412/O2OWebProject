@@ -40,6 +40,10 @@
 		select * from PROS where email=#{email}
 	</select>
 	
+	<select id="getProi" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where id=#{id}
+	</select>
+	
 	<select id="getProid" resultType="com.itwillbs.domain.GetProDTO">
 		select p.id, p.name, p.email, p.phone, p.career, p.employee_number, p.identify, p.business,p.certificate,p.date,
 				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name
@@ -66,6 +70,46 @@
 		where p.email=#{email}
 	</select>
 	
+	<select id="getEstimate" resultType="com.itwillbs.domain.GetEstimateDTO">
+		select e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont,p.id pro_id,p.address_id,ac.id account_id
+		from ESTIMATESMID e
+		left join QUESTIONS q on q.id=e.question_id
+		left join ANSWERS a on a.id=e.answer_id
+		left join ESTIMATES es on es.id=e.estimates_id
+		left join PROS p on p.id=es.pro_id
+		left join ACCOUNTS ac on ac.id=es.account_id
+		where q.services_id=#{services_id}
+		order by estimates_id;
+<!-- 		limit #{startRow},#{pageSize} -->
+<!-- 		where p.services_id=#{services_id} -->
+	</select>
+	
+	<select id="getEstimateCount" resultType="java.lang.Integer">
+		select count(*) from
+		(select count(*), e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont
+		from ESTIMATESMID e
+		left join QUESTIONS q on q.id=e.question_id
+		left join ANSWERS a on a.id=e.answer_id
+		left join ESTIMATES es on es.id=e.estimates_id
+		where q.services_id=1
+		group by estimates_id) cnt;
+	</select> 
+	
+	<select id="getEstimateCont" resultType="com.itwillbs.domain.GetEstimateDTO">
+		select q.contents question_cont,a.contents answer_cont,ac.name account_name
+		from ESTIMATESMID e
+		left join QUESTIONS q on q.id=e.question_id
+		left join ANSWERS a on a.id=e.answer_id
+		left join ESTIMATES es on es.id=e.estimates_id
+		left join PROS p on p.id=es.pro_id
+		left join ACCOUNTS ac on ac.id=es.account_id
+        where e.estimates_id=#{estimates_id}
+        order by e.question_id
+	</select>
+	
+<!-- 	<select id="getBoardList" resultType="com.itwillbs.domain.GetEstimateDTO"> -->
+<!-- 		select * from board order by id limit #{startRow},#{pageSize}  -->
+<!-- 	</select> -->
 	
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->
