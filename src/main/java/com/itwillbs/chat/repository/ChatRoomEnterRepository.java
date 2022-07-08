@@ -22,7 +22,7 @@ public class ChatRoomEnterRepository {
     private static final String namespace="com.itwillbs.mapper.ChatMapper";
 
     public ChatRoomEnterDTO findBySession_name(String session_name){
-        return sqlSession.selectOne(namespace+".findByRoomId",session_name);
+        return sqlSession.selectOne(namespace+".findBySession_name",session_name);
     }
     public List<ChatRoomEnterDTO> findRoomAccount_email(String account_email){
 

@@ -14,8 +14,8 @@ public interface ChatEnterService {
 
     public void  createRoomSelf(String user,String roomId);
 
-    public List<ChatRoomEnterDTO> findByChatRoom(String roomId);
-
     public void delete(ChatRoomEnterDTO chatRoomJoin);
+
+    public String checkUser(int user,String session_name);
     
 }

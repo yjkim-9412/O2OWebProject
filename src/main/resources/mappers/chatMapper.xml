@@ -16,7 +16,7 @@
 	<insert id="saveUsers">
 		insert into CHATROOMENTER(account_email, pro_email,session_name) values (#{account_email}, #{pro_email},#{session_name})
 	</insert>
-	<select id="getChatMessage" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+	<select id="getChatMessage" resultType="com.itwillbs.chat.model.domain.ChatMessageDTO">
 		select * from MESSAGE where session_name = #{session_name}
 	</select>
 	<select id="findBySession_name" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">

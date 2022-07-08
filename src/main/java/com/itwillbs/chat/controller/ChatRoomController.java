@@ -63,18 +63,14 @@ public class ChatRoomController {
     @RequestMapping(value = "/chat/room/{session_name}")
     public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request){
         ChatRoomEnterDTO chatRoomEnterDTO = chatRoomEnterRepository.findBySession_name(session_name);
+
         HttpSession session = request.getSession();
         int id = (Integer)session.getAttribute("id");
+         String user_email = chatEnterService.checkUser(id,session_name);
 
-
-//        List<ChatMessageDTO> messages = chatService.getChatMessage(session_name);
-//        Collections.reverse(messages);
         List<ChatRoomEnterDTO> list = chatRoomEnterRepository.findByChatRoom(session_name);
-//        model.addAttribute("messages",messages);
-        model.addAttribute("account_email",memberDTO.getEmail());
-        model.addAttribute("account_name",memberDTO.getName());
-        model.addAttribute("pro_email",proDTO.getEmail());
-        model.addAttribute("pro_name",proDTO.getName());
+
+        model.addAttribute("user_email",user_email);
         model.addAttribute("chatSession",session_name);
 
 

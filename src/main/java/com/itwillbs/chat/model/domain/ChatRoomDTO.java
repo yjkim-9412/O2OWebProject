@@ -8,14 +8,11 @@ import java.util.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class ChatRoomDTO {
 
     private String  session_name;
-    public static ChatRoomDTO create(String session_name) {
-        ChatRoomDTO room = new ChatRoomDTO();
-        room.session_name = UUID.randomUUID().toString();
-        return room;
+    public ChatRoomDTO() {
+        this.session_name = UUID.randomUUID().toString();
     }
 
 

@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ChatRoomEnterDTO {
+    private int enter_id;
     private String session_name;
     private String pro_email;
     private String account_email;
