@@ -7,8 +7,12 @@ import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.DistrictDTO;
+import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
+import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -32,9 +36,21 @@ public class ProDAOImpl implements ProDAO{
 	}
 
 	@Override
+	public ProDTO getPro(int id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getProi", id);
+	}
+
+	@Override
 	public GetProDTO getProemail(String email) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".getProemail", email);
+	}
+
+	@Override
+	public GetEstimateDTO getEstimate(int services_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getEstimate", services_id);
 	}
 
 	@Override
@@ -62,6 +78,24 @@ public class ProDAOImpl implements ProDAO{
 	}
 
 	@Override
+	public int getEstimateCount() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getEstimateCount");
+	}
+
+	@Override
+	public GetEstimateDTO getEstimateCont(int estimates_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getEstimateCont");
+	}
+
+	@Override
+	public List<GetEstimateDTO> getEstimateList(PageDTO pageDTO) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".getEstimate", pageDTO);
+	}
+
+	@Override
 	public DistrictDTO getDistrict(DistrictDTO districtDTO) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".getDistrict", districtDTO);
@@ -74,8 +108,8 @@ public class ProDAOImpl implements ProDAO{
 	}
 	
 	@Override
-	public ProDTO proCheck() {
+	public ProDTO proCheck(ProDTO proDTO) {
 		System.out.println("ProDAOImpl proCheck()");
-		return sqlSession.selectOne(namespace+".proCheck");
+		return sqlSession.selectOne(namespace+".proCheck",proDTO);
 	}
 }
