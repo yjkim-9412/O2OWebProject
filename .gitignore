@@ -5,6 +5,7 @@ O2OWebProject.iml
 *.class
 *classpath
 *.project
+*.springBeans
 /myweb2.iml
 /classes/
 target/*
