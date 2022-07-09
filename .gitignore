@@ -1,11 +1,11 @@
 O2OWebProject.iml
 
-*.settings
-*.idea
-*.class
-*classpath
-*.project
-*.springBeans
+.settings
+.idea
+.class
+.project
+.springBeans
+.classpath
 /myweb2.iml
 /classes/
 target/*
