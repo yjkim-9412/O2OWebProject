@@ -3,7 +3,7 @@ O2OWebProject.iml
 *.settings
 *.idea
 *.class
-*classPath
+*classpath
 *.project
 /myweb2.iml
 /classes/
