@@ -108,8 +108,8 @@ public class ProDAOImpl implements ProDAO{
 	}
 	
 	@Override
-	public ProDTO proCheck() {
+	public ProDTO proCheck(ProDTO proDTO) {
 		System.out.println("ProDAOImpl proCheck()");
-		return sqlSession.selectOne(namespace+".proCheck");
+		return sqlSession.selectOne(namespace+".proCheck",proDTO);
 	}
 }

@@ -401,11 +401,10 @@ public class ProController {
 	}
 	
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	 public String info(Model m) {
+	 public String info(Model m,ProDTO proDTO) {
 	    	System.out.println("ProController info()");
-
-	        ProDTO proDTO = new ProDTO(); 
-	        proDTO =  proService.proCheck();
+ 
+	        proDTO =  proService.proCheck(proDTO);
 	        m.addAttribute("proDTO" , proDTO);
 
 	        return "pro/info";
@@ -463,20 +462,26 @@ public class ProController {
 	    	
 //	    	int id =  (int) session.getAttribute("id");
 	    	
-	        return "pro/estimates";
+	     
+			return "pro/estimates";
+	    }
+	@RequestMapping(value = "/pro/login", method = RequestMethod.GET)
+	 public String login() {
+
+	        return "pro/loginForm";
 	    }
 	
 	@RequestMapping(value = "/pro/loginPro", method = RequestMethod.POST)
 	public String loginPro(ProDTO proDTO,HttpSession session) {
 		System.out.println("ProController loginPro()");
 		
-		ProDTO proDTO2 = proService.proCheck(); //나중에 파라미터값 proDTO넣어서 메서드수정
+		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
 			session.setAttribute("eamil",proDTO.getEmail());
 		}else {
 			return "member/msg";
 		}
-		return "/";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/pro/estimateList", method = RequestMethod.GET)

@@ -26,7 +26,7 @@ public interface ProDAO {
     List<GetEstimateDTO> getEstimateList(PageDTO pageDTO);
     int getEstimateCount();
     GetEstimateDTO getEstimateCont(int estimates_id);
-    public ProDTO proCheck();
+    public ProDTO proCheck(ProDTO proDTO);
 }
 
 
