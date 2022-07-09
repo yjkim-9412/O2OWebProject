@@ -21,6 +21,12 @@ $(document).ready(function(){
 });
 </script>
 <style type="text/css">
+html{
+/* border: 1px black solid; */
+box-shadow: 1.25rem 0 1.25rem 0 rgb(0 0 0 / 30%);
+background-color: rgb(211,211,211);
+}
+
 li{
 list-style-type: none;
 margin-top: 10px;
@@ -83,7 +89,11 @@ label{
 	background-color: #9abf7f;
 	color: white;
 }
-li:nth-child(odd){
+
+.sel:nth-child(odd) {
+	background-color: rgb(234,234,234);
+}
+.sel:nth-child(even) {
 	background-color: rgb(189,189,189);
 }
 </style>
@@ -93,9 +103,11 @@ li:nth-child(odd){
 <div id="divhead"><h1>어떤 서비스를 제공할 수 있나요?</h1></div>
 <div id="divbody">
 <ul>
-<label for="selcat_num1"><li><input type="radio" id="selcat_num1" name="selcat_num" value="5">음악레슨<br></li></label>
-<label for="selcat_num2"><li><input type="radio" id="selcat_num2" name="selcat_num" value="2">언어<br></li></label>
-<label for="selcat_num3"><li><input type="radio" id="selcat_num3" name="selcat_num" value="1">개인PT<br></li></label>
+
+<div class="sel"><label for="selcat_num1"><li><input type="radio" id="selcat_num1" name="selcat_num" value="5">음악레슨<br></li></label></div>
+<div class="sel"><label for="selcat_num2"><li><input type="radio" id="selcat_num2" name="selcat_num" value="2">언어<br></li></label></div>
+<div class="sel"><label for="selcat_num3"><li><input type="radio" id="selcat_num3" name="selcat_num" value="1">개인PT<br></li></label></div>
+
 </ul>
 <div id="seldiv"></div>
 </div>
