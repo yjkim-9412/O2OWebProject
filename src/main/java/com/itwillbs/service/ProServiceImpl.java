@@ -5,8 +5,12 @@ import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.DistrictDTO;
+import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
+import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -26,6 +30,47 @@ public class ProServiceImpl implements ProService {
 		System.out.println(proDTO.getAddress_id());
     	proDAO.insertPro(proDTO);
     }
+
+	@Override
+	public ProDTO getPro(int id) {
+		// TODO Auto-generated method stub
+		return proDAO.getPro(id);
+	}
+
+	@Override
+	public GetEstimateDTO getEstimate(int services_id) {
+		// TODO Auto-generated method stub
+		return proDAO.getEstimate(services_id);
+	}
+
+	@Override
+	public int getEstimateCount() {
+		// TODO Auto-generated method stub
+		return proDAO.getEstimateCount();
+	}
+
+	@Override
+	public List<GetEstimateDTO> getEstimateList(PageDTO pageDTO) {
+		
+		int currentPage=Integer.parseInt(pageDTO.getPageNum());
+		int startRow =(currentPage-1)*pageDTO.getPageSize()+1;
+		int endRow=startRow+pageDTO.getPageSize()-1;
+		
+		pageDTO.setCurrentPage(currentPage);
+//		pageDTO.setStartRow(startRow);
+		pageDTO.setEndRow(endRow);
+		
+		//디비 조회 limit startRow-1, pageSize
+		pageDTO.setStartRow(startRow-1);
+		
+		return proDAO.getEstimateList(pageDTO);
+	}
+
+	@Override
+	public GetEstimateDTO getEstimateCont(int estimates_id) {
+		// TODO Auto-generated method stub
+		return proDAO.getEstimateCont(estimates_id);
+	}
 
 	@Override
 	public ProDTO getPro(String email) {
@@ -97,9 +142,9 @@ public class ProServiceImpl implements ProService {
 	}
 	
 	@Override
-	public ProDTO proCheck() {
+	public ProDTO proCheck(ProDTO proDTO) {
 		System.out.println("ProServiceImpl proCheck()");
-		return proDAO.proCheck();
+		return proDAO.proCheck(proDTO);
 	}
 	
 }
