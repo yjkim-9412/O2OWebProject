@@ -149,6 +149,7 @@ System.out.println("#########" + code);
 	public String updateName(@RequestParam("name") String name, MemberDTO memberDTO) {
 				
 		memberDTO.setName(name);
+		System.out.println("업데이트 이름 : " + memberDTO.getName());
 		memberService.updateName(memberDTO);
 		
 		return "redirect:/mypage/account-info";

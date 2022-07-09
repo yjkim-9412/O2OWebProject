@@ -75,6 +75,8 @@ public class QuestionController {
 
 		System.out.println(answers);
 		
+		
+		
 		return "category/sec_category/pt";
 		
 	}

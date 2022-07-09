@@ -1,5 +1,6 @@
 package com.itwillbs.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.EstimatesDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
+import com.itwillbs.domain.GetEstimateDTO2;
 import com.itwillbs.domain.QuestionDTO;
 
 @Repository
@@ -20,10 +22,16 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 	
 	private static final String namespace = "com.itwillbs.estimates.EstimatesMapper";
 
+//	@Override
+//	public List<EstimatesDTO> getEstimatesId(EstimatesDTO estimatesDTO) {
+//		
+//		return sqlSession.selectList(namespace + ".getEstimatesId", estimatesDTO);
+//	}
+	
 	@Override
-	public List<EstimatesDTO> getEstimatesId(EstimatesDTO estimatesDTO) {
+	public List<Integer> getEstimatesId(int account_id) {
 		
-		return sqlSession.selectList(namespace + ".getEstimatesId", estimatesDTO);
+		return sqlSession.selectList(namespace + ".getEstimatesId", account_id);
 	}
 
 	@Override
@@ -31,6 +39,8 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 		
 		return sqlSession.selectList(namespace + ".getEstimatesMid", estimates_id);
 	}
+
+	
 
 	@Override
 	public QuestionDTO getQuestion(int que_id) {
@@ -48,6 +58,12 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 	public List<String> getServiceName(int min) {
 		
 		return sqlSession.selectList(namespace + ".getServiceName", min);
+	}
+
+	@Override
+	public List<GetEstimateDTO2> getEstimates(HashMap<String, Integer> map) {
+		
+		return sqlSession.selectList(namespace + ".getEstimates", map);
 	}
 	
 	

@@ -294,6 +294,8 @@ margin: 0px 0px 0px 12px;
 			  
 		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
 		  <input type="submit" class="btn update" value="수정 완료">
+		  <input type="hidden" name="email" value="${memberDTO.email }">
+  		  <input type="hidden" name="id" value="${sessionScope.id }">
 		  
 		  </div>
           </form>

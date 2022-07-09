@@ -1191,20 +1191,20 @@ table td {
 <div class="container">
 <table>
 <tr>
-<c:forEach var="i" begin="0" end="${quesList.size() - 1}" step="1">
+<c:forEach var="i" begin="0" end="${result.size() - 1 }" step="1">
 <td onClick="location.href='#'" style="cursor:pointer;">
 <div id="DIV_52">
 
 				<div id="DIV_3">
 					<div id="DIV_4" >
 						<div id="DIV_5">
-							<div id="DIV_6">${service_name.get(i)}</div>
+							<div id="DIV_6">${result.get(i).get(i).service_name}</div>
 						</div>
-						<c:forEach var="j" begin="0" end="${quesList.get(i).size() - 1 }" step="1">
+						<c:forEach var="j" begin="0" end="${result.get(i).size() - 1 }" step="1">
 						<li class="item-container">
 						           <div class="item">
-						           <div class="item-title">${quesList.get(i).get(j) }</div>
-						 	       <div class="item-info">${ansList.get(i).get(j)}</div>
+						           <div class="item-title">${result.get(i).get(j).ques_contents }</div>
+						 	       <div class="item-info">${result.get(i).get(j).ans_contents}</div>
 						 		   </div>
 						</li>
 						</c:forEach>
@@ -1219,7 +1219,7 @@ table td {
 </c:forEach>
 </tr>
 </table>
-
+</div>
   <!-- 푸터 -->
 
   <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);" >

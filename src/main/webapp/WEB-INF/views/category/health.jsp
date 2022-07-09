@@ -476,7 +476,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/delivery?services_id1=57'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/9eab528d-9384-4d78-baa2-808acdcb5be5.png');">
                                 	</div>
                                     <div class="card-title">도시락 배달</div>
                                 </div>
@@ -493,7 +493,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=16'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://newsroom-prd-data.s3.ap-northeast-2.amazonaws.com/wp-content/uploads/2018/02/%ED%97%AC%EC%8A%A4-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8_5.jpg');">
                                 	</div>
                                     <div class="card-title">헬스</div>
                                 </div>
@@ -544,7 +544,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=6'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/pd/v2/7/9/2/3/6/8/aXerF/2281792368_B.jpg');">
                                 	</div>
                                     <div class="card-title">PT</div>
                                 </div>

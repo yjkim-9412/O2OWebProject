@@ -4,7 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.itwillbs.estimates.EstimatesMapper">
   	
-  	<select id="getEstimatesId" resultType="com.itwillbs.domain.EstimatesDTO">
+<!--   	<select id="getEstimatesId" resultType="com.itwillbs.domain.EstimatesDTO"> -->
+<!--   		select id from ESTIMATES where account_id = #{account_id}; -->
+<!--   	</select> -->
+  	
+  	<select id="getEstimatesId" resultType="Integer">
   		select id from ESTIMATES where account_id = #{account_id};
   	</select>
   	
@@ -39,6 +43,15 @@
 				from QUESTIONS q join SERVICES s
 		on (q.services_id = s.id)
 		where q.id = #{min};
+	</select>
+	
+	<select id="getEstimates" resultType="com.itwillbs.domain.GetEstimateDTO2">
+		select e.account_id, ed.estimates_id, ed.question_id, q.services_id, s.name service_name, q.contents ques_contents, ed.answer_id, a.contents ans_contents
+		from ESTIMATES e left join ESTIMATESMID ed on e.id = ed.estimates_id 
+		left join QUESTIONS q on ed.question_id = q.id
+		left join SERVICES s on q.services_id = s.id
+		left join ANSWERS a on ed.answer_id = a.id
+		where account_id = #{account_id} and estimates_id = #{estimatesId};
 	</select>
   	
   </mapper>

@@ -474,11 +474,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=47'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=40'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/f40e6be6-9e8a-4212-8aee-0a1924003873.jpg');">
                                 	</div>
-                                    <div class="card-title">지역 행사</div>
+                                    <div class="card-title">환갑/칠순잔치</div>
                                 </div>
                             </div>
                         </div>
@@ -493,7 +493,7 @@ li a {
                         <div class="frontside">
                             <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mc?services_id1=39'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/6a497fde-2ba4-4a59-977c-41ce3be83e08.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/f986ec71-c39c-4c4b-96a6-5db5d96ed6b4.png');">
                                 	</div>
                                     <div class="card-title">돌잔치</div>
                                 </div>
