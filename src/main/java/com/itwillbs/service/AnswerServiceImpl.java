@@ -1,5 +1,7 @@
 package com.itwillbs.service;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.annotations.Param;
@@ -73,7 +75,21 @@ public class AnswerServiceImpl implements AnswerService{
 		answerDAO.insertAddress(addressDTO);
 	}
 
-	
+
+	@Override
+	public int getMaxAddrId() {
+		
+		return answerDAO.getMaxAddrId();
+	}
+
+
+	@Override
+	public void updateEstimates(HashMap<String, Integer> map) {
+		
+		answerDAO.updateEstimates(map);
+	}
+
+		
 
 	
 

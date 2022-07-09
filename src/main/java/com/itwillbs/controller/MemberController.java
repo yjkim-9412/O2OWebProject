@@ -145,6 +145,15 @@ System.out.println("#########" + code);
 		return "mypage/settings/name";
 	}
 	
+	@RequestMapping(value = "/mypage/settings/name-update", method = RequestMethod.POST)
+	public String updateName(@RequestParam("name") String name, MemberDTO memberDTO) {
+				
+		memberDTO.setName(name);
+		memberService.updateName(memberDTO);
+		
+		return "redirect:/mypage/account-info";
+	}
+	
 	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET) 
 	public String kakaologin() {
 	
@@ -154,7 +163,6 @@ System.out.println("#########" + code);
 	@RequestMapping(value = "/mypage/settings/email", method = RequestMethod.GET)
 	public String email(HttpSession session, Model model) {
 		int id = (Integer)session.getAttribute("id");
-		
 		
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
@@ -167,7 +175,6 @@ System.out.println("#########" + code);
 	public String updateEmail(@RequestParam("email") String email, MemberDTO memberDTO) {
 				
 		memberDTO.setEmail(email);
-		System.out.println(memberDTO.getEmail());
 		memberService.updateEmail(memberDTO);
 		
 		return "redirect:/mypage/account-info";

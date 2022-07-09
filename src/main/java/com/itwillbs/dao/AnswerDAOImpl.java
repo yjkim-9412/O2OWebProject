@@ -1,5 +1,7 @@
 package com.itwillbs.dao;
 
+import java.util.HashMap;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.annotations.Param;
@@ -69,6 +71,18 @@ public class AnswerDAOImpl implements AnswerDAO{
 	public void insertAddress(AddressDTO addressDTO) {
 		
 		sqlSession.insert(namespace + ".insertAddress", addressDTO);
+	}
+
+	@Override
+	public int getMaxAddrId() {
+		
+		return sqlSession.selectOne(namespace + ".getMaxAddrId");
+	}
+
+	@Override
+	public void updateEstimates(HashMap<String, Integer> map) {
+		
+		sqlSession.update(namespace + ".updateEstimates", map);
 	}
 
 	

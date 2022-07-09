@@ -36,5 +36,13 @@
 		insert into ADDRESS(cities_id,districts_id,addistricts_id,address_detail) 
 		values(#{city_id},#{district_id},#{addistrict_id},#{addressdetail})
 	</insert>
+	
+	<select id="getMaxAddrId" resultType="java.lang.Integer">
+		select MAX(id) from ADDRESS
+	</select>
+	
+	<update id="updateEstimates" parameterType="hashmap">
+		update ESTIMATES set address_id = #{maxAddrId} where id = #{estimates_id} and account_id = #{account_id}
+	</update>
 
 </mapper>  

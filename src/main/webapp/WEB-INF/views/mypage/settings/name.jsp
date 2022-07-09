@@ -124,14 +124,14 @@ header img {
 .cancle {
 background-color: white; 
 border-color: #F2F2F2; 
-color: #00C7AE; 
+color: #FFCD4A; 
 width: 142px; 
 height: 48px;
 padding: 11px 12px;
 }
 
 .update {
-background-color: #00C7AE; 
+background-color: #FFCD4A; 
 border-color: transparent; 
 color: white; 
 width: 142px; 
@@ -269,7 +269,7 @@ margin: 0px 0px 0px 12px;
 
   <div class="page-section" style="padding-top: 0px">
     <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
+          <form action="<%=request.getContextPath() %>/mypage/settings/name-update" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" method="post">
             <h2 class="text-black"><b>이름 수정</b></h2>
             <div class="input-group">
               <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
@@ -282,7 +282,7 @@ margin: 0px 0px 0px 12px;
               <div class="col-md-12" style="width: 100%; padding-bottom: 50px;">
                 <label class="text-black" style="margin-bottom:5px"><b>이름</b></label>
                 <div class="input-group" data-validate="email">
-						<input type="text" class="form-control" name="validate-email" id="validate-email" placeholder="${memberDTO.name}" required style="border-radius: 0.25rem;">
+						<input type="text" class="form-control" name="name" id="validate-email" value="${memberDTO.name}" required style="border-radius: 0.25rem;">
 						<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
 					</div>
               </div>
@@ -293,7 +293,7 @@ margin: 0px 0px 0px 12px;
 			   of them. Grab their code and just edit the text as you wish to. * Follow me twitter.com/Impresiun -->
 			  
 		  <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
-		  <button type="button" class="btn update" style=""><b>수정 완료</b></button>
+		  <input type="submit" class="btn update" value="수정 완료">
 		  
 		  </div>
           </form>

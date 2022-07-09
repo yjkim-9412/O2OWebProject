@@ -1,6 +1,8 @@
 package com.itwillbs.service;
 
 
+import java.util.HashMap;
+
 import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.AnswerDTO;
@@ -25,4 +27,8 @@ public interface AnswerService {
 	public AddistrictDTO getAddistrictId(AddistrictDTO addistrictDTO);
 
 	public void insertAddress(AddressDTO addressDTO);
+	
+	public int getMaxAddrId();
+	
+	public void updateEstimates(HashMap<String, Integer> map);
 }
