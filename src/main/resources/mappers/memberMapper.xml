@@ -32,25 +32,9 @@
 	<delete id="deleteMember">
 		delete from ACCOUNTS where id=#{id}
 	</delete>
-	
-<<<<<<< HEAD
+
 	<select id="getMemberE" resultType="com.itwillbs.domain.MemberDTO">
 		select * from ACCOUNTS where email=#{email}
 	</select>
-
-=======
-
-<<<<<<< HEAD
-	
-
-=======
-	<select id="getMemberE" resultType="com.itwillbs.domain.MemberDTO">
-		select * from ACCOUNTS where email=#{email}
-	</select>
->>>>>>> c4d9b485f3ca6a6e28dee339b5b759bd294ff2ca
-<!-- 	<update id=""></update> -->
-<!-- 	<delete id=""></delete> -->
-<!-- 	<select id=""></select> -->
->>>>>>> copy
 
 </mapper>

@@ -212,17 +212,6 @@
       width: 10px;
       right: 0;
       bottom: 0;
-
-<<<<<<< HEAD
-=======
-
-
-  </style>
-
-
-
-<<<<<<< HEAD
->>>>>>> copy
 }
 
 .main-menu {
@@ -261,49 +250,26 @@ ul li {
 }
   
 </style>
-  
-  
-<<<<<<< HEAD
 
-=======
-  
-=======
->>>>>>> c4d9b485f3ca6a6e28dee339b5b759bd294ff2ca
->>>>>>> copy
 </head>
 <body>
 
-
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
->>>>>>> copy
-  <!-- Back to top button -->
+ <!-- Back to top button -->
   <div class="back-to-top"></div>
   
   <header>
-    <c:catch>
+   <c:catch>
 <c:choose>
 <c:when test="${ empty sessionScope.id }">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
         <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-<<<<<<< HEAD
-=======
-=======
-<!-- Back to top button -->
-<div class="back-to-top"></div>
->>>>>>> c4d9b485f3ca6a6e28dee339b5b759bd294ff2ca
 
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-    <div class="container" style="box-sizing: border-box;">
-      <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="../resources/img/logo1.jpg" ></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-<<<<<<< HEAD
->>>>>>> copy
         <div class="navbar-collapse collapse" id="navbarContent">
            
            <!--search바  -->
@@ -324,37 +290,9 @@ ul li {
               <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
             </li>
           </ul>
-<<<<<<< HEAD
-=======
-=======
-      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="navbar-collapse collapse" id="navbarContent">
-
-        <!--search바  -->
-        <div class="search">
-          <input type="text" placeholder="어떤 서비스가 필요하세요?">
-          <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
->>>>>>> c4d9b485f3ca6a6e28dee339b5b759bd294ff2ca
         </div>
 
-        <ul class="navbar-nav ml-auto">
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">고수찾기</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">로그인</a>
-          </li>
-          <li class="nav-item">
-            <button class="button-55" role="button" >회원가입</button>
-          </li>
-        </ul>
       </div>
-<<<<<<< HEAD
->>>>>>> copy
     </nav>
 </c:when>
 <c:otherwise>
@@ -395,64 +333,6 @@ ul li {
 </c:catch>
   </header>
 
-<<<<<<< HEAD
-=======
-  <div class="page-section" style="padding-top: 0px">
-    <div class="container">
-          <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;">
-            <h2 class="text-black" style="margin-bottom: 50px;"><b>계정 설정</b></h2>
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 5px">
-              	<ul>
-              		<li class="main-menu">이름</li>
-              		<a href="<%=request.getContextPath() %>/mypage/settings/name" style="text-decoration: none; " class="sub-menu">
-              		<li class="sub-menu sub-menu-container underline">
-					${memberDTO.name}
-              		</li>
-              		</a>
-              	</ul>
-            </div>
-    
-            <div class="row form-group" style="margin-top: 5px; margin-bottom: 5px">
-              	<ul>
-              		<li class="main-menu">이메일</li>
-              		<a href="<%=request.getContextPath() %>/mypage/settings/email" style="text-decoration: none; " class="sub-menu">
-              		<li class="sub-menu sub-menu-container underline">
-					${memberDTO.email}
-              		</li>
-              		</a>
-              	</ul>
-            </div>
-    
-            <div class="row form-group" style="margin-top: 5px; margin-bottom: 50px">
-              	<ul>
-              		<li class="main-menu">비밀번호</li>
-              		<a href="<%=request.getContextPath() %>/mypage/settings/password" style="text-decoration: none; " class="sub-menu">
-              		<li class="sub-menu sub-menu-container underline">
-					${memberDTO.password}
-              		</li>
-              		</a>
-              	</ul>
-            </div>
-    
-            <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
-              	<ul>
-              		<a href="<%=request.getContextPath() %>/mypage/delete" style="text-decoration: none; " class="sub-menu">
-              		<li class="main-menu sub-menu-container underline">계정탈퇴</li>
-              		</a>
-              	</ul>
-            </div>
-          </form>
-    </div>
-
-    <div class="container-fluid mt-4">
-=======
->>>>>>> c4d9b485f3ca6a6e28dee339b5b759bd294ff2ca
-
-    </div>
-  </nav>
-</header>
-
->>>>>>> copy
 <input type="hidden" name="id" value="${sessionScope.id }">
 <input type="hidden" name="email" value="${memberDTO.email }">
 <input type="hidden" name="password" value="${memberDTO.password }">
@@ -502,68 +382,6 @@ ul li {
       </div>
     </form>
   </div>
-
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-  <!-- 푸터 -->
-
-  <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-lg-3 py-3">
-          
-          <div class="callnumber">1600-8282</div>
-			<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
-          <div class="social-media-button">
-            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#"><span class="mai-logo-twitter"></span></a>
-            <a href="#"><span class="mai-logo-google-plus-g"></span></a>
-            <a href="#"><span class="mai-logo-instagram"></span></a>
-            <a href="#"><span class="mai-logo-youtube"></span></a>
-          </div>
-        </div>
-        <div class="col-lg-3 py-3">
-          <h5>Company</h5>
-          <ul class="footer-menu" id="footermenu1">
-            <li><b>마루소개</b></li>
-            <li>마루메인</li>
-            <li>Prime</li>
-            <li>엔터프라이즈</li>
-            <li>프리랜서 클럽</li>
-          </ul>
-          
-         
-        </div>
-        <div class="col-lg-3 py-3">
-          <ul class="footer-menu" id="footermenu2">
-          	<li><b>고객안내</b></li>
-            <li>이용안내</li>
-            <li>안전정책</li>
-            <li>예상금액</li>
-            <li>고수찾기</li>
-            <li>마루보증</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 py-3">
-           <ul class="footer-menu" id="footermenu3">
-          	<li><b>주고안내</b></li>
-            <li>이용안내</li>
-            <li>주고가이드</li>
-            <li>주고가입</li>
-            <li>주고센터</li>
-            </ul>
-        </div>
-      </div>
-
-      <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
-=======
->>>>>>> copy
-  <div class="container-fluid mt-4">
-
-  </div>
-
 </div>
 
 <!-- 푸터 -->
@@ -614,10 +432,6 @@ ul li {
           <li>주고센터</li>
         </ul>
       </div>
-<<<<<<< HEAD
-=======
->>>>>>> c4d9b485f3ca6a6e28dee339b5b759bd294ff2ca
->>>>>>> copy
     </div>
 
     <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
