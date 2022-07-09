@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +26,14 @@
     .chat_wrap .chat ul li > div.message { display: inline-block; word-break:break-all; margin: 5px 20px; max-width: 75%; border: 1px solid #888; padding: 10px; border-radius: 5px; background-color: #FCFCFC; color: #555; text-align: left; }
 
     .chat_wrap .input-div { position: fixed; bottom: 0; width: 100%; background-color: #FFF; text-align: center; border-top: 1px solid #F18C7E; }
-    .chat_wrap .input-div > textarea { width: 100%; height: 80px; border: none; padding: 10px; }
+    .chat_wrap .input-div > textarea { width: 100%; height: 60px; border: none; padding: 10px; }
 
     .format { display: none; }
 </style>
 <body>
 <div class="chat_wrap">
     <div class="header">
-        ${room_Name}
+        ${user_email}
     </div>
     <div  class="chat">
         <ul id="#textmsg">
@@ -65,17 +66,23 @@
 
     var socket = null;
     var isStomp = false;
-    var session_name = '${session_name}';
-    var user = '${user_email}';
-    var receiver_user = '${receiver}';
 
 
 
 </script>
 <script>
     const Chat = (function(){
-        const myName = user;
+        const myName = '${user_email}';
         connectStomp();
+        <c:forEach var="chatMessageDTO" items="${messageList}">
+        var data = {
+            "senderName": '${chatMessageDTO.sender}',
+            "message": '${chatMessageDTO.message}',
+            "receiverName": '${chatMessageDTO.receiver}'
+        };
+        resive(data);
+        </c:forEach>
+
         function connectStomp() {
             isStomp = true;
             var sock = new SockJS("/stompTest"); // endpoint
@@ -85,7 +92,7 @@
             client.connect({}, function () {
                 if (first){
                     socket.send('/chat/enter', {}, JSON.stringify({session_name: '${session_name}', sender:'${user_email}' , message: "msg",
-                    receiver: receiver_user}));
+                    receiver: '${receiver}'}));
                     first = false;
                 }
                 console.log("Connected stompTest!");
@@ -94,11 +101,14 @@
                     const content = JSON.parse(event.body);
                     var sender =content.sender;
                     var messageSub = content.message;
+                    var receiver = content.receiver;
                     console.log("송신인 : " + sender);
                     console.log("메세지 : " + content.message);
+                    console.log("수신자 : " + receiver);
                     const data = {
                         "senderName"    : sender,
-                        "message"        : messageSub
+                        "message"        : messageSub,
+                        "receiverName"  : receiver
                     };
                     resive(data);
                 });
@@ -162,7 +172,7 @@
                 session_name: '${session_name}',
                 sender:'${user_email}' ,
                 message: msg,
-                receiver:receiver_user}));
+                receiver:'${receiver}'}));
             console.log("sendMessage!!!!");
 
 
@@ -175,10 +185,15 @@
 
         // 메세지 수신
         function resive(data) {
-
-            const LR = (data.senderName != myName)? "left" : "right";
-            appendMessageTag("right", data.senderName, data.message);
-
+            console.log("senderName"+data.senderName);
+            console.log("myName" + myName);
+            // const LR = (data.senderName != myName)? "left" : "right";
+            // appendMessageTag("right", data.senderName, data.message);
+            if (data.senderName == myName){
+                appendMessageTag("right", data.senderName, data.message);
+            } else {
+                appendMessageTag("left", data.senderName, data.message);
+            }
         }
         return {
             'init': init

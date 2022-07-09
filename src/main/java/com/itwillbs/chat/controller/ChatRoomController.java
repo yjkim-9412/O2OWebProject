@@ -40,7 +40,7 @@ public class ChatRoomController {
     @Autowired
     private  MemberService memberService;
     @Autowired
-    private ProService proService;
+    private ChatService chatService;
     @Autowired
     private ChatRoomEnterRepository chatRoomEnterRepository;
     @Autowired
@@ -52,31 +52,60 @@ public class ChatRoomController {
     //회원 채팅목록 전부 가져오기
     //채팅방 생성
     @RequestMapping(value = "/chat/newChat",method = RequestMethod.GET)
-    public String createChat(@RequestParam("pro_email") String pro_email ,HttpSession session){
+    public String createChat(@RequestParam("user_email") String user_email ,HttpSession session){
         int account_id =  (Integer)session.getAttribute("id");
         MemberDTO memberDTO = memberService.getMember(account_id);
         String account_email = memberDTO.getEmail();
-        String session_name = chatEnterService.newRoom(account_email,pro_email);
+        String session_name = chatEnterService.newRoom(account_email,user_email);
         System.out.println("방생성 완료 세션 : " + session_name);
 
         return "redirect:/chat/room/" + session_name;
     }
+    @RequestMapping(value = "/chat/newChatPro",method = RequestMethod.GET)
+    public String chatEnterPro(@RequestParam("user_email") String user_email ,HttpSession session){
+        String pro_email =  (String)session.getAttribute("email");
+        String session_name = chatEnterService.newRoom(pro_email,user_email);
+        System.out.println("방생성 완료 세션 : " + session_name);
+
+        return "redirect:/chat/room/" + session_name;
+    }
+    @RequestMapping(value = "/chat/room",method = RequestMethod.GET)
+    public String enterSession(@RequestParam("session_name") String session_chat ,HttpSession session){
+        GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_chat);
+        if (getChatRoomDTO != null) {
+            String session_name = getChatRoomDTO.getSession_name();
+            System.out.println("채팅방 확인 완료 : " + getChatRoomDTO.getSession_name());
+
+            return "redirect:/chat/room/" + session_name;
+        }
+        System.out.println("유효하지 않는방");
+        return "redirect:/member/main";
+    }
+
     @RequestMapping(value = "/chat/room/{session_name}")
     public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request){
         GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
-
+        System.out.println("intoChat:->>>>>>>>>");
         HttpSession session = request.getSession();
-        int id = (Integer)session.getAttribute("id");
-         GetChatRoomDTO chatUser = chatEnterService.checkUser(id,session_name);
+        Integer account = (Integer)session.getAttribute("id");
+        String pro = (String)session.getAttribute("email");
+        System.out.println("프로 : " + pro);
+        System.out.println("회원 : " + account);
+        List<ChatMessageDTO> messageList= chatService.getChatMessage(session_name);
+        if (account == null) {
+            GetChatRoomDTO chatPro = chatEnterService.checkRoomPro(pro,session_name);
+            model.addAttribute("user_email",chatPro.getEnter_user());
+            model.addAttribute("receiver",chatPro.getReceiver_user());
+            model.addAttribute("chatSession",session_name);
+            model.addAttribute("messageList", messageList);
+        } else if (pro == null) {
+            GetChatRoomDTO chatUser = chatEnterService.checkRoomAccount(account, session_name);
+            model.addAttribute("user_email",chatUser.getEnter_user());
+            model.addAttribute("receiver",chatUser.getReceiver_user());
+            model.addAttribute("chatSession",session_name);
+            model.addAttribute("messageList", messageList);
+        }
 
-
-        model.addAttribute("user_email",chatUser.getEnter_user());
-        model.addAttribute("receiver",chatUser.getReceiver_user());
-        model.addAttribute("chatSession",session_name);
-
-
-        int count = 0;
-       // Optional<ChatEnterService> optional = chatEnterService.checkRoom(roomId);
         return "chat/room";
     }
 

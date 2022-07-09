@@ -477,7 +477,7 @@ public class ProController {
 
 		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
-			session.setAttribute("eamil",proDTO.getEmail());
+			session.setAttribute("email",proDTO.getEmail());
 		}else {
 			return "member/msg";
 		}

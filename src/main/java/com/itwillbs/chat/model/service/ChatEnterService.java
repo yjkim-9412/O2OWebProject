@@ -17,6 +17,8 @@ public interface ChatEnterService {
 
     public void delete(ChatRoomEnterDTO chatRoomJoin);
 
-    public GetChatRoomDTO checkUser(int user, String session_name);
+    public GetChatRoomDTO checkRoomPro(String pro_email, String session_name);
+
+    public GetChatRoomDTO checkRoomAccount(int account_id, String session_name);
     
 }
