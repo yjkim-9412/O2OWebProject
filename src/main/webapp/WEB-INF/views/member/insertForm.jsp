@@ -57,7 +57,7 @@ body#insertForm{  background-repeat:no-repeat; background-position:center; backg
   font-size: 14px;
   text-decoration: underline;
 }
-.insert-form  .btn.btn-primary  {
+.insert-form  .btn.btn-primary {
   background: #f0ad4e none repeat scroll 0 0;
   border-color: #f0ad4e;
   color: #ffffff;
@@ -74,24 +74,20 @@ body#insertForm{  background-repeat:no-repeat; background-position:center; backg
   font-size: 14px;
   margin: auto;
 }
-.insert-form .btn.btn-primary.reset  {
+.insert-form .btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
 }
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
 .kaimg {
-
  width: 100%;
   height: 50px;
   
   padding: 0px 0px 0px 0px;
 font-size: 14px;
-
 	
 }
-
-
 
 </style>
     
@@ -143,18 +139,7 @@ $(document).ready(function(){
 			$('#emaildiv').html("");
 		}
 		
-// 		var re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
-// 		var passVal = $('#password').val();
-		
-// 		if(passVal.match(re) == null ) {
-// 			$('#passworddiv').html("영문 + 숫자 혼용 8자 이상 입력하세요.");
-// 			$('#passworddiv').css("color","red");
-// 			$('#password').focus();
-// 			return false;
-// 		} else {
-// 			$('#passworddiv').html("");
-// 		}
-		
+
 	
 		
 		
@@ -214,14 +199,12 @@ $(document).ready(function(){
 </div>
 
 <input type="submit" class="btn btn-primary " value="회원가입"> <br>
-	<br>
-	
-	
+
 		<!-- 카카오 로그인 -->
+		<br>
 	<a href="https://kauth.kakao.com/oauth/authorize?client_id=b28c257d1c3a9f7b60f4ede210556e5a&redirect_uri=http://localhost:8080/myweb2/member/main&response_type=code">	
-		<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png" id="kaimg" class="kaimg">
+	<img src="<%=request.getContextPath() %>/resources/img/kakao_login.png" id="kaimg" class="kaimg">
 	</a>
-	
 
 </form>
 </div>

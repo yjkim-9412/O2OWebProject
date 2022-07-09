@@ -391,4 +391,15 @@ public class ProController {
 		model.addAttribute("proDTO", proDTO);
 		return "pro/test";
 	}
+	
+	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
+	 public String info(Model m) {
+	    	System.out.println("ProController info()");
+
+	        ProDTO proDTO = new ProDTO(); 
+	        proDTO =  proService.proCheck();
+	        m.addAttribute("proDTO" , proDTO);
+
+	        return "pro/info";
+	    }
 }
