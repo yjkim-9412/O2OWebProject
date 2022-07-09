@@ -20,20 +20,16 @@ import java.util.*;
 
 @Service
 @Slf4j
-@RequiredArgsConstructor
 public class ChatServiceImpl implements ChatService{
 
     @Autowired
     private ChatRepository chatRepository;
     @Autowired
     private ChatRoomEnterRepository chatRoomEnterRepository;
-    private final Map<String,ChatRoomDTO> chatRooms =new HashMap<String,ChatRoomDTO>();
-
-    private ChatRoomDTO chatRoomDTO;
 
     @Override
-    public void save(ChatMessageDTO message) {
-        chatRepository.saveChat(message);
+    public void saveChat(ChatMessageDTO messages) {
+        chatRepository.saveChat(messages);
     }
 
     @Override

@@ -16,7 +16,7 @@ public interface ChatService {
 
 
     public Optional<ChatRoomEnterDTO> findById(String session_name);
-    public void save(ChatMessageDTO message);
+    public void saveChat(ChatMessageDTO message);
 
     public List<ChatMessageDTO> getChatMessage(String session_name);
 

@@ -2,6 +2,7 @@ package com.itwillbs.chat.model.service;
 
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
+import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 
 import java.util.List;
 
@@ -16,6 +17,6 @@ public interface ChatEnterService {
 
     public void delete(ChatRoomEnterDTO chatRoomJoin);
 
-    public String checkUser(int user,String session_name);
+    public GetChatRoomDTO checkUser(int user, String session_name);
     
 }

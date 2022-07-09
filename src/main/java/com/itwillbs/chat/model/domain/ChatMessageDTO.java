@@ -17,11 +17,11 @@ public class ChatMessageDTO {
     //내용
     private String message;
 
-    private String senderM;
+    private String receiver;
 
     private LocalDate time;
 
-    private ChatRoomDTO chatRoomDTO;
+
 
 
 }

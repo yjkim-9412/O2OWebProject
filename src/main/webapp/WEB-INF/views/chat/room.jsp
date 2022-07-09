@@ -65,9 +65,10 @@
 
     var socket = null;
     var isStomp = false;
-    var roomId = '${room_id}';
-    var user = '${m_Name}';
-    var pro_email = '${p_email}'
+    var session_name = '${session_name}';
+    var user = '${user_email}';
+    var receiver_user = '${receiver}';
+
 
 
 </script>
@@ -83,12 +84,12 @@
             let first = true;
             client.connect({}, function () {
                 if (first){
-                    socket.send('/chat/enter', {}, JSON.stringify({roomId: '${room_id}', sender:'${m_Name}' , message: "msg",
-                        receiver:pro_email}));
+                    socket.send('/chat/enter', {}, JSON.stringify({session_name: '${session_name}', sender:'${user_email}' , message: "msg",
+                    receiver: receiver_user}));
                     first = false;
                 }
                 console.log("Connected stompTest!");
-                socket.subscribe('/topic/room/'+'${room_id}', function (event) {
+                socket.subscribe('/topic/room/'+'${session_name}', function (event) {
                     console.log("!!!!!!!!!!!!event>>", event);
                     const content = JSON.parse(event.body);
                     var sender =content.sender;
@@ -158,11 +159,10 @@
         // 메세지 전송
         function sendMessage(msg) {
             socket.send('/chat/message', {}, JSON.stringify({
-                roomId: '${roomId}',
-                sender:'${user_name}' ,
+                session_name: '${session_name}',
+                sender:'${user_email}' ,
                 message: msg,
-                senderM:'${user_email}',
-                receiver:pro_email}));
+                receiver:receiver_user}));
             console.log("sendMessage!!!!");
 
 

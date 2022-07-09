@@ -2,6 +2,7 @@ package com.itwillbs.chat.model.service;
 
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
+import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
 
 import com.itwillbs.dao.ProDAO;
@@ -46,18 +47,25 @@ public class ChatEnterServiceImpl implements ChatEnterService{
     }
     @Override
     public String checkRoom(String account_email, String pro_email) {
-        List<ChatRoomEnterDTO> firstList = chatRoomEnterRepository.findRoomAccount_email(account_email);
-        Set<ChatRoomEnterDTO> setFirst = new HashSet<>(firstList);
-
+        System.out.println(account_email);
+        List<GetChatRoomDTO> firstList = chatRoomEnterRepository.findRoomAccount_email(account_email);
+        Set<String> setFirst = new HashSet<>();
+        for (GetChatRoomDTO getChatRoomDTO : firstList){
+            setFirst.add(getChatRoomDTO.getSession_name());
+        }
 
         //Pro가 될예정
-        List<ChatRoomEnterDTO> secondList = chatRoomEnterRepository.findRoomPro_email(pro_email);
+        System.out.println(pro_email);
+        List<GetChatRoomDTO> secondList = chatRoomEnterRepository.findRoomPro_email(pro_email);
 
-        for (ChatRoomEnterDTO chatRoomEnterDTO :secondList){
-            if(setFirst.contains(chatRoomEnterDTO.getSession_name())){
-                return chatRoomEnterDTO.getSession_name();
+        for (GetChatRoomDTO getChatRoomDTO:secondList){
+            System.out.println("가져온 세션 "+ getChatRoomDTO.getSession_name());
+            if(setFirst.contains(getChatRoomDTO.getSession_name())){
+                System.out.println("기존세션  존재함");
+                return getChatRoomDTO.getSession_name();
             }
         }
+        System.out.println("기존세션 없음");
         return "";
     }
     public void createRoom(String pro_email ,String account_email, String session_name){
@@ -70,17 +78,24 @@ public class ChatEnterServiceImpl implements ChatEnterService{
     }
 
     @Override
-    public String checkUser(int user,String session_name) {
-        ChatRoomEnterDTO chatRoomEnterDTO = chatRoomEnterRepository.findBySession_name(session_name);
-
+    public GetChatRoomDTO checkUser(int user,String session_name) {
+        GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
+        GetChatRoomDTO setUser = new GetChatRoomDTO();
         MemberDTO memberDTO = memberService.getMember(user);
         GetProDTO proDTO = proService.getProid(user);
-        String account_email = memberDTO.getEmail();
-        String pro_email = proDTO.getEmail();
-        if (chatRoomEnterDTO.getAccount_email().equals(account_email)){
-            return account_email;
-        } else if (chatRoomEnterDTO.getPro_email().equals(pro_email)){
-            return pro_email;
+        if (proDTO == null){
+            if (memberDTO.getEmail().equals(getChatRoomDTO.getAccount_email())){
+                setUser.setEnter_user(memberDTO.getEmail());
+                setUser.setReceiver_user(getChatRoomDTO.getPro_email());
+                return setUser;
+            }
+        } else if (memberDTO == null) {
+            if (proDTO.getEmail().equals(getChatRoomDTO.getPro_email())) {
+                setUser.setEnter_user(proDTO.getEmail());
+                setUser.setReceiver_user(getChatRoomDTO.getAccount_email());
+                return setUser;
+            }
+
         }
         return null;
     }

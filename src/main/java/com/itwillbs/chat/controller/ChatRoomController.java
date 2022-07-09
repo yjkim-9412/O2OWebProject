@@ -3,6 +3,7 @@ package com.itwillbs.chat.controller;
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
+import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
 import com.itwillbs.chat.repository.ChatRepository;
@@ -62,15 +63,15 @@ public class ChatRoomController {
     }
     @RequestMapping(value = "/chat/room/{session_name}")
     public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request){
-        ChatRoomEnterDTO chatRoomEnterDTO = chatRoomEnterRepository.findBySession_name(session_name);
+        GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
 
         HttpSession session = request.getSession();
         int id = (Integer)session.getAttribute("id");
-         String user_email = chatEnterService.checkUser(id,session_name);
+         GetChatRoomDTO chatUser = chatEnterService.checkUser(id,session_name);
 
-        List<ChatRoomEnterDTO> list = chatRoomEnterRepository.findByChatRoom(session_name);
 
-        model.addAttribute("user_email",user_email);
+        model.addAttribute("user_email",chatUser.getEnter_user());
+        model.addAttribute("receiver",chatUser.getReceiver_user());
         model.addAttribute("chatSession",session_name);
 
 

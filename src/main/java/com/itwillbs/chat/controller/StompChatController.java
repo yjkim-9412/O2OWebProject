@@ -25,13 +25,18 @@ public class StompChatController {
 
 
     @MessageMapping("/chat/message")
-    public ChatMessageDTO sendMessage(ChatMessageDTO message) throws Exception {
-        chatService.save(message);
+    public ChatMessageDTO sendMessage(ChatMessageDTO messages) throws Exception {
+        System.out.println("세션이름 :" + messages. getSession_name());
+        System.out.println("보낸내용 :" + messages.getMessage());
+        System.out.println("송신자 :" + messages.getSender());
+        System.out.println("수진자 :" + messages.getReceiver());
+        chatService.saveChat(messages);
 
-        messagingTemplate.convertAndSend("/topic/room/" + message.getSession_name(), message);
+
+        messagingTemplate.convertAndSend("/topic/room/" + messages.getSession_name(), messages);
 
 
-        return message;
+        return messages;
     }
     @MessageMapping("/chat/enter")
     public void enter(ChatMessageDTO message){

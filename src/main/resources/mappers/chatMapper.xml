@@ -19,26 +19,27 @@
 	<select id="getChatMessage" resultType="com.itwillbs.chat.model.domain.ChatMessageDTO">
 		select * from MESSAGE where session_name = #{session_name}
 	</select>
-	<select id="findBySession_name" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+	<select id="findBySession_name" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
 		select * from CHATROOMENTER where session_name = #{session_name}
 	</select>
 
-	<select id="findByChatRoom" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+	<select id="findByChatRoom" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
 		select * from CHATROOMENTER where session_name = #{session_name}
 	</select>
 
-	<select id="findRoomAccount_email" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+	<select id="findRoomAccount_email" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
 		select * from CHATROOMENTER where account_email = #{account_email}
 	</select>
 
-	<select id="findRoomPro_email" resultType="com.itwillbs.chat.model.domain.ChatRoomEnterDTO">
+	<select id="findRoomPro_email" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
 		select * from CHATROOMENTER where pro_email = #{pro_email}
 	</select>
 
+	<insert id="saveChat">
+		insert into MESSAGE(message,session_name,sender,receiver) values (#{message},#{session_name},#{sender},#{receiver})
+	</insert>
 
 
-<!-- 	<update id=""></update> -->
-<!-- 	<delete id=""></delete> -->
-<!-- 	<select id=""></select> -->
+
 
 </mapper>

@@ -2,6 +2,7 @@ package com.itwillbs.chat.repository;
 
 import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
+import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.ProDTO;
 import org.apache.ibatis.session.SqlSession;
@@ -21,14 +22,14 @@ public class ChatRoomEnterRepository {
     private SqlSession sqlSession;
     private static final String namespace="com.itwillbs.mapper.ChatMapper";
 
-    public ChatRoomEnterDTO findBySession_name(String session_name){
+    public GetChatRoomDTO findBySession_name(String session_name){
         return sqlSession.selectOne(namespace+".findBySession_name",session_name);
     }
-    public List<ChatRoomEnterDTO> findRoomAccount_email(String account_email){
+    public List<GetChatRoomDTO> findRoomAccount_email(String account_email){
 
         return sqlSession.selectList(namespace+".findRoomAccount_email",account_email);
     }
-    public List<ChatRoomEnterDTO> findRoomPro_email(String pro_email){
+    public List<GetChatRoomDTO> findRoomPro_email(String pro_email){
 
         return sqlSession.selectList(namespace+".findRoomPro_email",pro_email);
     }
@@ -54,7 +55,7 @@ public class ChatRoomEnterRepository {
 
          Boolean finish = saveRoom(chatRoomEnterDTO);
          if (finish){
-             System.out.println(chatRoomEnterDTO.getSession_name()+ " " + chatRoomEnterDTO.getPro_email()+" "+chatRoomEnterDTO.getAccount_email());
+             System.out.println("유저 저장중 : " +chatRoomEnterDTO.getSession_name()+ " " + chatRoomEnterDTO.getPro_email()+" "+chatRoomEnterDTO.getAccount_email());
              sqlSession.insert(namespace+".saveUsers",chatRoomEnterDTO);
          }else {
              System.out.println("유저 저장 실패");
