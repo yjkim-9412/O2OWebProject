@@ -1,12 +1,13 @@
 package com.itwillbs.dao;
 
-import org.apache.ibatis.annotations.Param;
 
+import com.itwillbs.domain.AddistrictDTO;
+import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.DistrictDTO;
 import com.itwillbs.domain.EstimatesMidDTO;
-import com.itwillbs.domain.ServiceDTO;
+
 
 public interface AnswerDAO {
 
@@ -20,7 +21,9 @@ public interface AnswerDAO {
 	
 	public CityDTO getCityId(String city);
 	
-	public DistrictDTO getDistrictsId(CityDTO cityDTO);
+	public DistrictDTO getDistrictsId(DistrictDTO districtDTO);
 
+	public AddistrictDTO getAddistrictId(AddistrictDTO addistrictDTO);
 	
+	public void insertAddress(AddressDTO addressDTO);
 }

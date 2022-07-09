@@ -686,9 +686,9 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
                 <input type="text" id="sample4_postcode" placeholder="우편번호" style="width: 200px;">
 				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="width: 200px;"><br>
 				<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
-				<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="jibunAddress">
+				<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name ="jibunAddress">
 				<span id="guide" style="color:#999;display:none"></span>
-				<input type="text" id="sample4_detailAddress" placeholder="상세주소">
+				<input type="text" id="sample4_detailAddress" placeholder="상세주소" name = "addressdetail">
         <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
         <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 

@@ -1,6 +1,8 @@
 package com.itwillbs.service;
 
 
+import com.itwillbs.domain.AddistrictDTO;
+import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.DistrictDTO;
@@ -18,7 +20,9 @@ public interface AnswerService {
 	
 	public CityDTO getCityId(String city);
 	
-	public DistrictDTO getDistrictsId(CityDTO cityDTO);
+	public DistrictDTO getDistrictsId(DistrictDTO districtDTO);
+	
+	public AddistrictDTO getAddistrictId(AddistrictDTO addistrictDTO);
 
-
+	public void insertAddress(AddressDTO addressDTO);
 }

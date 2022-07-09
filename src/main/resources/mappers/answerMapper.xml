@@ -25,7 +25,16 @@
 	</select>
 	
 	<select id="getDistrictsId" resultType = "com.itwillbs.domain.DistrictDTO">
-		select * from DISTRICTS where city_id = #{id} and name=#{city};
+		select * from DISTRICTS where city_id = #{city_id} and name=#{district};
 	</select>
+	
+	<select id="getAddistrictId" resultType = "com.itwillbs.domain.AddistrictDTO">
+		select * from ADDISTRICTS where district_id = #{district_id} and name=#{addistrict};
+	</select>
+	
+	<insert id="insertAddress">
+		insert into ADDRESS(cities_id,districts_id,addistricts_id,address_detail) 
+		values(#{city_id},#{district_id},#{addistrict_id},#{addressdetail})
+	</insert>
 
 </mapper>  

@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.AnswerDAO;
+import com.itwillbs.domain.AddistrictDTO;
+import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.DistrictDTO;
@@ -52,12 +54,26 @@ public class AnswerServiceImpl implements AnswerService{
 
 
 	@Override
-	public DistrictDTO getDistrictsId(CityDTO cityDTO) {
+	public DistrictDTO getDistrictsId(DistrictDTO districtDTO) {
 
-		return answerDAO.getDistrictsId(cityDTO);
+		return answerDAO.getDistrictsId(districtDTO);
 	}
 
 
+	@Override
+	public AddistrictDTO getAddistrictId(AddistrictDTO addistrictDTO) {
+		
+		return answerDAO.getAddistrictId(addistrictDTO);
+	}
+
+
+	@Override
+	public void insertAddress(AddressDTO addressDTO) {
+		
+		answerDAO.insertAddress(addressDTO);
+	}
+
+	
 
 	
 

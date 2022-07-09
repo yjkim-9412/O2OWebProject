@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.AddistrictDTO;
+import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.DistrictDTO;
@@ -52,9 +54,21 @@ public class AnswerDAOImpl implements AnswerDAO{
 	}
 
 	@Override
-	public DistrictDTO getDistrictsId(CityDTO cityDTO) {
+	public DistrictDTO getDistrictsId(DistrictDTO districtDTO) {
 		
-		return sqlSession.selectOne(namespace+".getDistrictsId", cityDTO);
+		return sqlSession.selectOne(namespace+".getDistrictsId", districtDTO);
+	}
+
+	@Override
+	public AddistrictDTO getAddistrictId(AddistrictDTO addistrictDTO) {
+		
+		return sqlSession.selectOne(namespace + ".getAddistrictId", addistrictDTO);
+	}
+
+	@Override
+	public void insertAddress(AddressDTO addressDTO) {
+		
+		sqlSession.insert(namespace + ".insertAddress", addressDTO);
 	}
 
 	

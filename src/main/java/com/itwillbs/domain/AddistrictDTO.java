@@ -22,10 +22,4 @@ public String getAddistrict() {
 public void setAddistrict(String addistrict) {
 	this.addistrict = addistrict;
 }
-@Override
-public String toString() {
-	return addistrict;
-}
-
-
 }

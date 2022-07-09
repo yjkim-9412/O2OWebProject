@@ -1,8 +1,6 @@
 package com.itwillbs.controller;
 
 
-import java.util.Map;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.AddistrictDTO;
+import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.AnswerDTO;
 import com.itwillbs.domain.CityDTO;
 import com.itwillbs.domain.DistrictDTO;
@@ -27,7 +27,7 @@ public class AnswerController {
 	public String result1(HttpSession session, HttpServletRequest request) {
 	
 		int account_id = (int)session.getAttribute("id");
-		answerService.insertEstimates(account_id);
+//		answerService.insertEstimates(account_id);
 		
 		System.out.println("session id : " + account_id);
 		int estimates_id = answerService.getEstimates_id();
@@ -57,7 +57,7 @@ public class AnswerController {
 			estimatesMidDTO.setQuestion_id(question_id);
 			estimatesMidDTO.setAnswer_id(answer_id);
 			
-			answerService.insertEstimatesMid(estimatesMidDTO);
+//			answerService.insertEstimatesMid(estimatesMidDTO);
 			
 		}
 		
@@ -67,17 +67,31 @@ public class AnswerController {
 		String city = address[0];
 		String district = address[1];
 		String addistrict = address[2];
+		
 		CityDTO cityDTO = answerService.getCityId(city);
 		int city_id = cityDTO.getId();
+		
 		DistrictDTO districtDTO = new DistrictDTO();
 		districtDTO.setCity_id(city_id);
-		districtDTO.setName(district);
-//		DistrictDTO districtDTO = answerService.getDistrictsId(cityDTO);
-//		System.out.println(district + districtDTO.getId());
-//		System.out.println(districts_id);
-//		int addistricts_id = answerService.getAddistrictsId(addistrict);
-//		System.out.println("도시 이름 : " + city + ", 구 이름 : " + district + ", 동 이름 : " + addistrict);
-//		System.out.println("도시 아이디 : " + cities_id + ", 구 아이디 : " + districts_id + ", 동 아이디 : " + addistricts_id);
+		districtDTO.setDistrict(district);
+		
+		DistrictDTO districtDTO2 = answerService.getDistrictsId(districtDTO);
+		int district_id = districtDTO2.getId();
+		
+		AddistrictDTO addistrictDTO = new AddistrictDTO();
+		addistrictDTO.setDistrict_id(district_id);
+		addistrictDTO.setAddistrict(addistrict);
+		
+		AddistrictDTO addistrictDTO2 = answerService.getAddistrictId(addistrictDTO);
+		int addistrict_id = addistrictDTO2.getId();
+		
+		String addressdetail = (String)request.getParameter("addressdetail");
+		AddressDTO addressDTO = new AddressDTO();
+		addressDTO.setCity_id(city_id);
+		addressDTO.setDistrict_id(district_id);
+		addressDTO.setAddistrict_id(addistrict_id);
+		addressDTO.setAddressdetail(addressdetail);
+		answerService.insertAddress(addressDTO);
 		
 		return "category/result";
 	}
