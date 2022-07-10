@@ -5,14 +5,21 @@
 <mapper namespace="com.itwillbs.member.ReviewMapper">
 
 	<insert id="insertReviews">
-	insert into REVIEWS(id,account_id,pro_id,comment,date,rating)
-	values(#{id},#{account_id},#{pro_id},#{comment},#{date},#{rating})
+	insert into REVIEWS(account_id,pro_id,comment,rating)
+	values(#{account_id},#{pro_id},#{comment},#{rating})
 	</insert>
 	
-	<select id="getMaxId" resultType="java.lang.Integer">
-		select max(id) from REVIEWS
+	<select id="getallReviews" resultType="com.itwillbs.domain.ReviewDTO">
+		select r.*, a.name from REVIEWS r join ACCOUNTS a on r.account_id = a.id where pro_id=#{pro_id} order by id desc limit #{startRow},#{pageSize}
 	</select>
-	
+
+	<select id="getReviewCount" resultType="java.lang.Integer">
+		select count(*) from REVIEWS where pro_id=#{pro_id}
+	</select>
+
+	<select id="getreviewavg" resultType="java.lang.Double">
+		select ROUND(AVG(rating),1 )from REVIEWS where pro_id=#{pro_id}
+	</select>
 
 
 </mapper>

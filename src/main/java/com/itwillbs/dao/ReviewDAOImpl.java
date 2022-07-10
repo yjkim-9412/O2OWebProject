@@ -3,10 +3,13 @@ package com.itwillbs.dao;
 import javax.inject.Inject;
 
 
+import com.itwillbs.domain.PageDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.ReviewDTO;
+
+import java.util.List;
 
 @Repository
 public class ReviewDAOImpl implements ReviewDAO{
@@ -18,15 +21,23 @@ public class ReviewDAOImpl implements ReviewDAO{
 	
 	@Override
 	public void insertReviews(ReviewDTO reviewDTO) {
-		System.out.println("ReviewDAOImpl insertReview()");
-		sqlSession.insert(namespace+".insertReview", reviewDTO);
+		System.out.println("ReviewDAOImpl insertReviews()");
+		sqlSession.insert(namespace+".insertReviews", reviewDTO);
 		
 	}
 
 	@Override
-	public int getMaxId() {
-		return sqlSession.selectOne(namespace+".getMaxId");
+	public List<ReviewDTO> getallReviews(PageDTO pageDTO) {
+		return sqlSession.selectList(namespace+".getallReviews", pageDTO);
 	}
-	
-	
+
+	@Override
+	public int getReviewCount(int pro_id) {
+		return sqlSession.selectOne(namespace+".getReviewCount", pro_id);
+	}
+
+	@Override
+	public double getreviewavg(int pro_id) {
+		return sqlSession.selectOne(namespace+".getreviewavg", pro_id);
+	}
 }

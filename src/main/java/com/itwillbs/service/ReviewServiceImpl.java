@@ -1,9 +1,11 @@
 package com.itwillbs.service;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.inject.Inject;
 
+import com.itwillbs.domain.PageDTO;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.ReviewDAO;
@@ -19,19 +21,25 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	
 	@Override
+
 	public void insertReviews(ReviewDTO reviewDTO) {
 		System.out.println("ReviewServiceImpl insertReview()");
-		
-		reviewDTO.setDate(new Timestamp(System.currentTimeMillis()));
-		
-		if(reviewDTO.getId()==0) {
-			reviewDTO.setId(1);
-		}else {
-			reviewDTO.setId(reviewDAO.getMaxId()+1);
-		}
-		
+
 		reviewDAO.insertReviews(reviewDTO);
 	}
-	
-	
+
+	@Override
+	public List<ReviewDTO> getallReviews(PageDTO pageDTO) {
+		return reviewDAO.getallReviews(pageDTO);
+	}
+
+	@Override
+	public int getReviewCount(int pro_id) {
+		return reviewDAO.getReviewCount(pro_id);
+	}
+
+	@Override
+	public double getreviewavg(int pro_id) {
+		return reviewDAO.getreviewavg(pro_id);
+	}
 }
