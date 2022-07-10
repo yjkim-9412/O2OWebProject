@@ -108,6 +108,13 @@ public class ChatRoomController {
 
         return "chat/room";
     }
+    @RequestMapping(value = "/chat/chatList")
+    public String GetRoomList(HttpSession session, Model model){
+        List<GetChatRoomDTO> chatList = chatService.getChatList(session);
+        model.addAttribute("chatList",chatList);
+
+        return "chat/chatList";
+    }
 
 
 

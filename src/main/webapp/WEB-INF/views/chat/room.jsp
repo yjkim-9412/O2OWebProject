@@ -41,7 +41,7 @@
         </ul>
     </div>
     <div class="input-div">
-        <textarea placeholder="Press Enter for send message."></textarea>
+        <textarea></textarea>
     </div>
 
 
@@ -56,7 +56,7 @@
                     <span></span>
                 </div>
                 <div  class="message">
-                    <span></span>
+                    <span id="msgText"></span>
                 </div>
             </li>
         </ul>
@@ -139,6 +139,7 @@
                         console.log("연결상태 : " + isStomp);
                         }
                     clearTextarea();
+
                 }
             });
         }
@@ -153,6 +154,7 @@
             chatLi.find('.sender span').text(senderName);
             chatLi.find('.message span').text(message);
 
+
             return chatLi;
         }
 
@@ -163,7 +165,7 @@
             $('div.chat:not(.format) ul').append(chatLi);
 
             // 스크롤바 아래 고정
-            $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
+            $('div.chat').scrollTop($('div.chat').prop('scrollHeight').focus());
         }
 
         // 메세지 전송

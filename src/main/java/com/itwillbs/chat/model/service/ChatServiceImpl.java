@@ -2,19 +2,19 @@ package com.itwillbs.chat.model.service;
 
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
-import com.itwillbs.chat.model.domain.ChatRoomDTO;
-import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
+import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.repository.ChatRepository;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
 import com.itwillbs.domain.MemberDTO;
-import com.itwillbs.domain.ProDTO;
-import lombok.RequiredArgsConstructor;
+import com.itwillbs.service.MemberService;
+import com.itwillbs.service.ProService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import java.util.*;
 
 
@@ -26,35 +26,37 @@ public class ChatServiceImpl implements ChatService{
     private ChatRepository chatRepository;
     @Autowired
     private ChatRoomEnterRepository chatRoomEnterRepository;
+    @Autowired
+    private ProService proService;
+    @Autowired
+    private MemberService memberService;
 
     @Override
     public void saveChat(ChatMessageDTO messages) {
         chatRepository.saveChat(messages);
     }
 
-    @Override
-    public Optional<ChatRoomEnterDTO> findById(String session_name) {
-
-        return chatRoomEnterRepository.findById(session_name);
-    }
-
-    @Override
-    public List<ChatRoomEnterDTO> findByUser(MemberDTO user) {
-        return chatRoomEnterRepository.findByUser(user);
-    }
-
-    @Override
-    public List<ChatRoomEnterDTO> findByPro(ProDTO pro) {
-        return chatRoomEnterRepository.findByPro(pro);
-    }
-
-    @Override
-    public List<ChatRoomEnterDTO> findByChatRoom(String roomId) {
-        return chatRoomEnterRepository.findByChatRoom(roomId);
-    }
 
     @Override
     public List<ChatMessageDTO> getChatMessage(String session_name) {
         return chatRepository.getChatMessage(session_name);
+    }
+
+    @Override
+    public List<GetChatRoomDTO> getChatList(HttpSession session) {
+
+        Integer account = (Integer)session.getAttribute("id");
+        String pro = (String)session.getAttribute("email");
+        if (account == null) {
+            return chatRoomEnterRepository.findRoomPro_email(pro);
+        } else if (pro == null){
+            MemberDTO memberDTO = memberService.getMember(account);
+            return chatRoomEnterRepository.findRoomAccount_email(memberDTO.getEmail());
+        } else{
+            System.out.println("존재하는 세션이 없습니다");
+
+        }
+
+        return null;
     }
 }

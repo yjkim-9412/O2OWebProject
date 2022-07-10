@@ -24,27 +24,3 @@
 
 </body>
 </html>
-<script type="javascript">
-    $(document).ready(function (){
-        var roomName = <c:set value="${ChatRoomDTO.roomId}"/>
-
-        if(roomName != null){
-            alert(roomName + "방이 개설되었습니다");
-
-            $("form").submit(function (e){
-               console.log("create room");
-               e.preventDefault();
-
-               var name = $('#name').val();
-
-               if (name == ""){
-                   alert("No user session");
-                   history.back();
-                   return false;
-               }
-
-            });
-        }
-    });
-
-</script>
