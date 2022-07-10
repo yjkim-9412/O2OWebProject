@@ -71,17 +71,16 @@
 	</select>
 	
 	<select id="getEstimate" resultType="com.itwillbs.domain.GetEstimateDTO">
-		select e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont,p.id pro_id,p.address_id,ac.id account_id
+		select e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont,p.id pro_id,p.address_id,ac.id account_id,ac.name account_name
 		from ESTIMATESMID e
 		left join QUESTIONS q on q.id=e.question_id
 		left join ANSWERS a on a.id=e.answer_id
 		left join ESTIMATES es on es.id=e.estimates_id
 		left join PROS p on p.id=es.pro_id
 		left join ACCOUNTS ac on ac.id=es.account_id
-		where q.services_id=#{services_id}
-		order by estimates_id;
-<!-- 		limit #{startRow},#{pageSize} -->
-<!-- 		where p.services_id=#{services_id} -->
+		where q.services_id=#{services_id} and ac.id is not null
+		order by estimates_id
+		limit #{startRow},#{pageSize}
 	</select>
 	
 	<select id="getEstimateCount" resultType="java.lang.Integer">
@@ -91,21 +90,33 @@
 		left join QUESTIONS q on q.id=e.question_id
 		left join ANSWERS a on a.id=e.answer_id
 		left join ESTIMATES es on es.id=e.estimates_id
-		where q.services_id=1
+		left join ACCOUNTS ac on ac.id=es.account_id
+		where q.services_id=1 and ac.id is not null
 		group by estimates_id) cnt;
 	</select> 
 	
-	<select id="getEstimateCont" resultType="com.itwillbs.domain.GetEstimateDTO">
-		select q.contents question_cont,a.contents answer_cont,ac.name account_name
+	<select id="getPageSize" resultType="java.lang.Integer">
+		select count(*)
 		from ESTIMATESMID e
 		left join QUESTIONS q on q.id=e.question_id
 		left join ANSWERS a on a.id=e.answer_id
 		left join ESTIMATES es on es.id=e.estimates_id
 		left join PROS p on p.id=es.pro_id
 		left join ACCOUNTS ac on ac.id=es.account_id
-        where e.estimates_id=#{estimates_id}
-        order by e.question_id
-	</select>
+		where q.services_id=1 and ac.id is not null
+		order by estimates_id; 
+	</select>	
+<!-- 	<select id="getEstimateCont" resultType="com.itwillbs.domain.GetEstimateDTO"> -->
+<!-- 		select q.contents question_cont,a.contents answer_cont,ac.name account_name -->
+<!-- 		from ESTIMATESMID e -->
+<!-- 		left join QUESTIONS q on q.id=e.question_id -->
+<!-- 		left join ANSWERS a on a.id=e.answer_id -->
+<!-- 		left join ESTIMATES es on es.id=e.estimates_id -->
+<!-- 		left join PROS p on p.id=es.pro_id -->
+<!-- 		left join ACCOUNTS ac on ac.id=es.account_id -->
+<!--         where e.estimates_id=#{estimates_id} -->
+<!--         order by e.question_id -->
+<!-- 	</select> -->
 	
 <!-- 	<select id="getBoardList" resultType="com.itwillbs.domain.GetEstimateDTO"> -->
 <!-- 		select * from board order by id limit #{startRow},#{pageSize}  -->

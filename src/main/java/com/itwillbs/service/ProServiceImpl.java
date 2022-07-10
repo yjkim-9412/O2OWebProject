@@ -18,6 +18,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProServiceImpl implements ProService {
+	@Override
+	public int getPageSize() {
+		// TODO Auto-generated method stub
+		return proDAO.getPageSize();
+	}
+
 	@Inject
 	private AddressDTO addressDTO;
 	

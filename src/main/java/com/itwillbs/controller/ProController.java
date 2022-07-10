@@ -420,7 +420,8 @@ public class ProController {
 //	    	
 //	    	model.addAttribute("estimateDTO", estimateDTO);
 	    	
-	    	int pageSize=10;
+//	    	int pageSize=10;
+	    	int pageSize=proService.getPageSize();
 			String pageNum=request.getParameter("pageNum");
 			if(pageNum==null){
 				pageNum="1";
@@ -428,14 +429,14 @@ public class ProController {
 			PageDTO pageDTO=new PageDTO();
 			pageDTO.setPageSize(pageSize);
 			pageDTO.setPageNum(pageNum);
-			pageDTO.setServices_id(11);//<< proDTO.getServices_id()
+			pageDTO.setServices_id(1);//<< proDTO.getServices_id()
 			
 			List<GetEstimateDTO> estimateDTO=proService.getEstimateList(pageDTO);
-			Map<Integer,Integer> hashmap=new HashMap<Integer, Integer>();
+			Map<Integer,String> hashmap=new HashMap<Integer, String>();
 			
 			for(int i=0;i<estimateDTO.size();i++) {
 				if(estimateDTO.get(i).getAccount_id()!=0) {
-					hashmap.put(estimateDTO.get(i).getEstimates_id(), estimateDTO.get(i).getAccount_id());
+					hashmap.put(estimateDTO.get(i).getEstimates_id(), estimateDTO.get(i).getAccount_name());
 				}
 			}
 //			List<GetEstimateDTO> estimateDTO2=proService.getEstimateList(pageDTO);
@@ -446,7 +447,7 @@ public class ProController {
 			int pageBlock=10;
 			int startPage=(currentPage-1)/pageBlock*pageBlock+1;
 			int endPage=startPage+pageBlock-1;
-			int pageCount= count/pageSize+ (count%pageSize==0?0:1);
+			int pageCount= count/10+ (count%10==0?0:1);
 			if(endPage > pageCount){
 				endPage=pageCount;
 			}
@@ -487,8 +488,11 @@ public class ProController {
 	@RequestMapping(value = "/pro/estimateList", method = RequestMethod.GET)
 	public String estimateList(int estimates_id,Model model,HttpServletRequest request) {
 		System.out.println("ProController estimateList()");
-		
-		int pageSize=10;
+//		int pageSize=10;
+//		if(proService.getEstimateCount()%10!=0) {
+//			
+//		}
+		int pageSize=proService.getPageSize();
 		String pageNum=request.getParameter("pageNum");
 		if(pageNum==null){
 			pageNum="1";

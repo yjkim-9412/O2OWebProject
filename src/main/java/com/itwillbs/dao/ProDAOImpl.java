@@ -18,7 +18,9 @@ import javax.inject.Inject;
 
 @Repository
 public class ProDAOImpl implements ProDAO{
-    @Inject
+    
+
+	@Inject
     private SqlSession sqlSession;
     
     private String namespace="com.itwillbs.member.ProMapper";
@@ -28,6 +30,12 @@ public class ProDAOImpl implements ProDAO{
     	System.out.println("ProDAOImpl insertPro()");
     	sqlSession.insert(namespace+".insertPro", proDTO);
     }
+	
+	@Override
+	public int getPageSize() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getPageSize");
+	}
 
 	@Override
 	public GetProDTO getProid(int id) {

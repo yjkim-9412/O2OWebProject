@@ -23,4 +23,5 @@ public interface ProService {
     int getEstimateCount();
     List<GetEstimateDTO> getEstimateList(PageDTO pageDTO);
     GetEstimateDTO getEstimateCont(int estimates_id);
+    int getPageSize();
 }

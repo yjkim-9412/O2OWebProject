@@ -27,6 +27,7 @@ public interface ProDAO {
     int getEstimateCount();
     GetEstimateDTO getEstimateCont(int estimates_id);
     public ProDTO proCheck(ProDTO proDTO);
+    int getPageSize();
 }
 
 
