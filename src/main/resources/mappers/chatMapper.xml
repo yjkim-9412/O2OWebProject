@@ -14,7 +14,7 @@
 		insert into CHATROOM(session_name) values(#{session_name})
 	</insert>
 	<insert id="saveUsers">
-		insert into CHATROOMENTER(account_email, pro_email,session_name) values (#{account_email}, #{pro_email},#{session_name})
+		insert into CHATROOMENTER(account_email,account_name, pro_email,pro_name, session_name) values (#{account_email},#{account_name}, #{pro_email},#{pro_name},#{session_name})
 	</insert>
 	<select id="getChatMessage" resultType="com.itwillbs.chat.model.domain.ChatMessageDTO">
 		select * from MESSAGE where session_name = #{session_name}
@@ -36,7 +36,7 @@
 	</select>
 
 	<insert id="saveChat">
-		insert into MESSAGE(message,session_name,sender,receiver) values (#{message},#{session_name},#{sender},#{receiver})
+		insert into MESSAGE(message,session_name,sender,sender_name,receiver,receiver_name) values (#{message},#{session_name},#{sender},#{sender_name},#{receiver},#{receiver_name})
 	</insert>
 
 

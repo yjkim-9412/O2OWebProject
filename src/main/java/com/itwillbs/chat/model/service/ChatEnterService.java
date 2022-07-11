@@ -7,11 +7,11 @@ import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import java.util.List;
 
 public interface ChatEnterService {
-    public String newRoom(String account_email,String pro_email);
+    public String newRoom(String account_email, String pro_email, String account_name, String pro_name);
 
     public String checkRoom(String member_email, String pro_email);
 
-    public void createRoom(String member_email ,String pro_email, String session_name);
+    public void createRoom(ChatRoomDTO chatRoomDTO);
 
     public void  createRoomSelf(String user,String roomId);
 
@@ -19,6 +19,7 @@ public interface ChatEnterService {
 
     public GetChatRoomDTO checkRoomPro(String pro_email, String session_name);
 
-    public GetChatRoomDTO checkRoomAccount(int account_id, String session_name);
+    public GetChatRoomDTO checkRoomAccount(String account_email, String session_name);
+
     
 }

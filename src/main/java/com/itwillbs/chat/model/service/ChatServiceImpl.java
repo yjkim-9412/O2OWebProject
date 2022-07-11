@@ -48,6 +48,7 @@ public class ChatServiceImpl implements ChatService{
         Integer account = (Integer)session.getAttribute("id");
         String pro = (String)session.getAttribute("email");
         if (account == null) {
+
             return chatRoomEnterRepository.findRoomPro_email(pro);
         } else if (pro == null){
             MemberDTO memberDTO = memberService.getMember(account);

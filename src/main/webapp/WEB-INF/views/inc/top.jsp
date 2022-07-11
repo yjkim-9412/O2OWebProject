@@ -151,7 +151,10 @@ input:focus{
             
             <li class="nav-item">
               <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link" href="<%=request.getContextPath() %>/chat/rooms">채팅</a>
+            </li>
             <li class="nav-item active">
               <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>

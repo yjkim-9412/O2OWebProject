@@ -11,7 +11,16 @@ import java.util.*;
 public class ChatRoomDTO {
 
     private String  session_name;
-    public ChatRoomDTO() {
+    private String account_email;
+    private String pro_email;
+    private String account_name;
+    private String pro_name;
+    public ChatRoomDTO( String account_email,String pro_email,String account_name,String pro_name) {
+        this.pro_email=pro_email;
+        this.pro_name = pro_name;
+        this.account_email=account_email;
+        this.account_name = account_name;
+
         this.session_name = UUID.randomUUID().toString();
     }
 

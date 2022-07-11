@@ -34,22 +34,6 @@ public class ChatRoomEnterRepository {
         return sqlSession.selectList(namespace+".findRoomPro_email",pro_email);
     }
 
-    public Optional<ChatRoomEnterDTO> findById(String session_name) {
-
-        return sqlSession.selectOne(namespace+".findById",session_name);
-    }
-     public List<ChatRoomEnterDTO> findByUser(MemberDTO user){
-
-         return sqlSession.selectList(namespace+".findByUser",user);
-    }
-    public List<ChatRoomEnterDTO> findByPro(ProDTO user){
-
-        return sqlSession.selectList(namespace+".findByPro",user);
-    }
-    public List<ChatRoomEnterDTO> findByChatRoom(String session_name){
-
-         return sqlSession.selectList(namespace+".findByChatRoom",session_name);
-    }
 
     public void saveJoinUsers (ChatRoomEnterDTO chatRoomEnterDTO){
 
@@ -68,4 +52,5 @@ public class ChatRoomEnterRepository {
 
         return true;
     }
+
 }

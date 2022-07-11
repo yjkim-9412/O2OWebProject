@@ -14,10 +14,12 @@ public class ChatMessageDTO {
     private String session_name;
     //보내는 사람
     private String sender;
+    private String sender_name;
     //내용
     private String message;
 
     private String receiver;
+    private String receiver_name;
 
     private LocalDate time;
 

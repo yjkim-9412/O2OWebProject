@@ -33,10 +33,10 @@
 <body>
 <div class="chat_wrap">
     <div class="header">
-        ${user_email}
+        ${user_name}
     </div>
     <div  class="chat">
-        <ul id="#textmsg">
+        <ul>
             <!-- 동적 생성 -->
         </ul>
     </div>
@@ -51,12 +51,12 @@
 
     <div  class="chat format">
         <ul>
-            <li>
+            <li id="msgli">
                 <div class="sender">
                     <span></span>
                 </div>
                 <div  class="message">
-                    <span id="msgText"></span>
+                    <span></span>
                 </div>
             </li>
         </ul>
@@ -72,14 +72,15 @@
 </script>
 <script>
     const Chat = (function(){
-        const myName = '${user_email}';
+        const myName = '${user_name}';
         connectStomp();
         <c:forEach var="chatMessageDTO" items="${messageList}">
         var data = {
-            "senderName": '${chatMessageDTO.sender}',
+            "senderName": '${chatMessageDTO.sender_name}',
             "message": '${chatMessageDTO.message}',
-            "receiverName": '${chatMessageDTO.receiver}'
+            "receiverName": '${chatMessageDTO.receiver_name}'
         };
+
         resive(data);
         </c:forEach>
 
@@ -91,17 +92,18 @@
             let first = true;
             client.connect({}, function () {
                 if (first){
-                    socket.send('/chat/enter', {}, JSON.stringify({session_name: '${session_name}', sender:'${user_email}' , message: "msg",
-                    receiver: '${receiver}'}));
+                    socket.send('/chat/enter', {}, JSON.stringify({session_name: '${session_name}', sender:'${user_email}' ,sender_name:'${user_name}',
+                        message: "msg",
+                    receiver: '${receiver}',receiver_name:'${receiver_name}'}));
                     first = false;
                 }
                 console.log("Connected stompTest!");
                 socket.subscribe('/topic/room/'+'${session_name}', function (event) {
                     console.log("!!!!!!!!!!!!event>>", event);
                     const content = JSON.parse(event.body);
-                    var sender =content.sender;
+                    var sender =content.sender_name;
                     var messageSub = content.message;
-                    var receiver = content.receiver;
+                    var receiver = content.receiver_name;
                     console.log("송신인 : " + sender);
                     console.log("메세지 : " + content.message);
                     console.log("수신자 : " + receiver);
@@ -162,19 +164,25 @@
         function appendMessageTag(LR_className, senderName, message) {
             const chatLi = createMessageTag(LR_className, senderName, message);
 
-            $('div.chat:not(.format) ul').append(chatLi);
+            $('div.chat:not(.format) ul').append(chatLi)
+
 
             // 스크롤바 아래 고정
-            $('div.chat').scrollTop($('div.chat').prop('scrollHeight').focus());
+            $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
+
+
         }
+
 
         // 메세지 전송
         function sendMessage(msg) {
             socket.send('/chat/message', {}, JSON.stringify({
                 session_name: '${session_name}',
                 sender:'${user_email}' ,
+                sender_name:'${user_name}',
                 message: msg,
-                receiver:'${receiver}'}));
+                receiver:'${receiver}',
+                receiver_name:'${receiver_name}'}));
             console.log("sendMessage!!!!");
 
 
@@ -187,8 +195,7 @@
 
         // 메세지 수신
         function resive(data) {
-            console.log("senderName"+data.senderName);
-            console.log("myName" + myName);
+
             // const LR = (data.senderName != myName)? "left" : "right";
             // appendMessageTag("right", data.senderName, data.message);
             if (data.senderName == myName){
