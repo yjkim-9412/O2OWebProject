@@ -6,12 +6,10 @@ import javax.servlet.http.HttpSession;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
-import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
-import com.itwillbs.service.ProService;
-import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
+import com.itwillbs.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,7 +39,7 @@ public class ProController {
 	@Inject
 	private AddressDTO addressDTO;
 		
-	@Inject
+	@Autowired
     private ProService proService;
 
     @RequestMapping(value = "/pro/proInsert", method = RequestMethod.GET)

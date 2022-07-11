@@ -2,7 +2,6 @@ package com.itwillbs.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
 import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.CityDTO;
@@ -24,7 +23,7 @@ public class ProDAOImpl implements ProDAO{
 	@Inject
     private SqlSession sqlSession;
     
-    private String namespace="com.itwillbs.member.ProMapper";
+    private final String namespace="com.itwillbs.member.ProMapper";
     
 	@Override
     public void insertPro(ProDTO proDTO) {
@@ -133,4 +132,6 @@ public class ProDAOImpl implements ProDAO{
 		System.out.println("ProDAOImpl proCheck()");
 		return sqlSession.selectOne(namespace+".proCheck",proDTO);
 	}
+
+
 }
