@@ -418,7 +418,7 @@ ul li {
               		</li>
               		</li>
               		<li class="sub-menu sub-menu-container underline">
-					<a href="<%=request.getContextPath() %>/requests/estimate" style="text-decoration: none; " class="sub-menu">받은 견적</a>
+					<a href="<%=request.getContextPath() %>/requests/sentsent" style="text-decoration: none; " class="sub-menu">받은 견적</a>
               		</li>
               	</ul>
             </div>

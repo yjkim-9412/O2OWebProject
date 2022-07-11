@@ -85,10 +85,6 @@ public class EstimatesController {
 			getProEstimateDTO.add(estimatesService.getProEstimates(map));
 		}
 		
-//		System.out.println(getProEstimateDTO.get(0).get(0).getService_name());
-//		System.out.println(getProEstimateDTO.get(1).get(0).getService_name());
-//		System.out.println(getProEstimateDTO.get(2).get(0).getService_name());
-		
 		model.addAttribute("estimatesId", estimatesId);
 		model.addAttribute("getProEstimateDTO", getProEstimateDTO);
 		
