@@ -57,6 +57,7 @@ body {
 </style>
 </head>
 <body class="profile">
+<jsp:include page="../inc/top.jsp"></jsp:include>
 <div class="bg-white">
 
   <div class="container">
@@ -84,10 +85,10 @@ body {
      
         
         <div >
-        ${proDTO.services_id }
+        ${proDTO.service_name }
       
        <img width="20" height="20" src= "../resources/img/icon/6.png">
-      ${proDTO.address_id}
+      ${proDTO.city_name} ${proDTO.district_name} ${proDTO.addistrict_name}
         </div>
         <br>
            <div class="text-muted mb-4">
@@ -128,6 +129,7 @@ body {
   <a class="active" href="#jungoinfo" >주고 정보</a>
   <a href="#photo"  >사진</a>
   <a href="#review" >리뷰</a>
+  <a href="<%=request.getContextPath() %>/pro/estimates" >견적 요청서</a>
     <a href="#Q&A">Q&A</a>
      
 </div>
@@ -174,5 +176,6 @@ body {
 
 
 </div>
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
 </body>
 </html>

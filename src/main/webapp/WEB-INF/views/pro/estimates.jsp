@@ -7,63 +7,46 @@
 <meta charset="UTF-8">
 <style type="text/css">
 legend{
-width:40%;
+width:400px;
 border: 1px solid black;
+margin-right: 10px;
+margin-bottom: 10px;
+}
+#listid{
+	text-align: center;
+}
+#wrapdiv{
+	float: left;
+	margin: 10px;
+}
+#page{
+	text-align: center;
+	margin-top: 10px;
 }
 </style>
 <title>jsp5/list.jsp</title>
 </head>
 <body>
-<!-- model.addAttribute("boardList", boardList); -->
-<!-- model.addAttribute("pageDTO", pageDTO); -->
-<h1>견적서 리스트</h1>
-<%-- <c:forEach var="estimateDTO" items="${estimateDTO }" varStatus="status"> --%>
-<!-- <table border="1"> -->
-<!-- <tr><td>프로아이디</td><td>회원아이디</td><td>주소아이디</td><td>설문지번호</td><td>질문번호</td><td>답변번호</td><td>서비스번호</td><td>질문내용</td><td>답변내용</td></tr> -->
-<%-- <tr><td>${estimateDTO.pro_id }</td><td>${estimateDTO.account_id }</td><td>${estimateDTO.address_id }</td> --%>
-<%-- 	<td>${estimateDTO.estimates_id }</td><td>${estimateDTO.question_id }</td> --%>
-<%--     <td>${estimateDTO.answer_id }</td><td>${estimateDTO.services_id }</td> --%>
-<%--     <td>${estimateDTO.question_cont }</td><td>${estimateDTO.answer_cont }</td></tr> --%>
-<!-- </table> -->
-<%-- </c:forEach> --%>
-
-<%-- <c:forEach var="hashmap" items="${hashmap }" varStatus="status"> --%>
-<!-- <table border="1"> -->
-<!-- <tr><td>설문지번호</td><td>회원아이디</td></tr> -->
-<%-- <tr onclick="location.href='<%=request.getContextPath() %>/pro/estimateList?estimates_id?=${hashmap.key }'"><td>${hashmap.key }</td><td>${hashmap.value }</td></tr> --%>
-
-<!-- </table> -->
-<%-- </c:forEach> --%>
-
+<jsp:include page="../inc/top.jsp"></jsp:include>
+<h1 id="listid">견적서 리스트</h1>
 <c:forEach var="hashmap" items="${hashmap }" varStatus="status">
+<div id="wrapdiv" style="display: inline;float: left;">
 <c:set var="hash" value="${hashmap.key}"></c:set>
-
-<table border="1">
 <legend>
-<div>요청 회원 : ${hashmap.value }</div>
+<div style="text-align: center;font-size: x-large;font-weight: bolder;">요청 회원 : ${hashmap.value }</div>
 <c:forEach var="estimateDTO" items="${estimateDTO}" varStatus="statusest">
 <c:if test="${estimateDTO.estimates_id eq hash}">
-<div>질문내용 : ${estimateDTO.question_cont }</div>
+<div style="font-size: large; font-weight: bold;">질문내용 : ${estimateDTO.question_cont }</div>
 <div>답변내용 : ${estimateDTO.answer_cont }</div>
 </c:if>
 </c:forEach>
+<input type="button" value="견적보내기" onclick="location.href='<%=request.getContextPath() %>/pro/proEstimateForm?num=${hashmap.key}&name=${hashmap.value }'">
 </legend>
-</table>
-<br>
+</div>
 </c:forEach>
 
-<%-- </c:forEach> --%>
 
-<!-- <table border="1"> -->
-<!-- <tr><td>프로아이디</td><td>회원아이디</td><td>주소아이디</td><td>설문지번호</td><td>질문번호</td><td>답변번호</td><td>서비스번호</td><td>질문내용</td><td>답변내용</td></tr> -->
-<%-- <c:forEach var="estimateDTO" items="${estimateDTO }"> --%>
-<%-- <tr><td>${estimateDTO.pro_id }</td><td>${estimateDTO.account_id }</td><td>${estimateDTO.address_id }</td> --%>
-<%-- 	<td>${estimateDTO.estimates_id }</td><td>${estimateDTO.question_id }</td> --%>
-<%--     <td>${estimateDTO.answer_id }</td><td>${estimateDTO.services_id }</td> --%>
-<%--     <td>${estimateDTO.question_cont }</td><td>${estimateDTO.answer_cont }</td></tr> --%>
-<%-- </c:forEach> --%>
-<!-- </table> -->
-
+<div id="page" style="clear: left;">
 <c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
 <a href="${pageContext.request.contextPath}/pro/estimates?pageNum=${pageDTO.startPage-pageDTO.pageBlock }">Prev</a>
 </c:if>
@@ -75,6 +58,7 @@ border: 1px solid black;
 <c:if test="${pageDTO.endPage < pageDTO.pageCount }">
 <a href="${pageContext.request.contextPath}/pro/estimates?pageNum=${pageDTO.startPage+pageDTO.pageBlock }">Next</a>
 </c:if>
-
+</div>
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
 </body>
 </html>

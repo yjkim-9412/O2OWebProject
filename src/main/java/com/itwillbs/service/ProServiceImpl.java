@@ -9,6 +9,7 @@ import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
+import com.itwillbs.domain.ProEstimateDTO;
 
 import java.util.List;
 
@@ -24,12 +25,24 @@ public class ProServiceImpl implements ProService {
 		return proDAO.getPageSize();
 	}
 
+	@Override
+	public void insertProEstimate(ProEstimateDTO proEstimateDTO) {
+		// TODO Auto-generated method stub
+		proDAO.insertProEstimate(proEstimateDTO);
+	}
+
 	@Inject
 	private AddressDTO addressDTO;
 	
 	@Inject
 	private ProDAO proDAO;
 	
+	@Override
+	public int getAccId(int estimates_id) {
+		// TODO Auto-generated method stub
+		return proDAO.getAccId(estimates_id);
+	}
+
 	@Override
     public void insertPro(ProDTO proDTO) {
 		proDTO.setAddress_id(getMaxAddrId());
