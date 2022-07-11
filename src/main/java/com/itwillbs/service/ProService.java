@@ -7,6 +7,7 @@ import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
+import com.itwillbs.domain.ProEstimateDTO;
 
 public interface ProService {
 
@@ -23,4 +24,7 @@ public interface ProService {
     int getEstimateCount();
     List<GetEstimateDTO> getEstimateList(PageDTO pageDTO);
     GetEstimateDTO getEstimateCont(int estimates_id);
+    int getPageSize();
+    void insertProEstimate(ProEstimateDTO proEstimateDTO);
+    int getAccId(int estimates_id);
 }
