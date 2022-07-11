@@ -133,7 +133,7 @@ input:focus{
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath()%>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -151,7 +151,10 @@ input:focus{
             
             <li class="nav-item">
               <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
+            </li>
+            <li class="nav-item">
+                  <a class="nav-link" href="<%=request.getContextPath() %>/chat/rooms">채팅</a>
+            </li>
             <li class="nav-item active">
               <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
             </li>

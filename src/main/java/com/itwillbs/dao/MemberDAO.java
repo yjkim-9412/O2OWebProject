@@ -13,8 +13,12 @@ public interface MemberDAO {
 		public void updateName(MemberDTO memberDTO);
 
 		public void updateEmail(MemberDTO memberDTO);
-		
+
 		public void updatePass(MemberDTO memberDTO);
-		
+
 		public void deleteMember(MemberDTO memberDTO);
+		public void updateMember(MemberDTO memberDTO);
+
+	// 	----------- CHATROOM -----------
+		public MemberDTO getMemberE(String email);
 }

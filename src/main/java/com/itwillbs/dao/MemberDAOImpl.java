@@ -61,6 +61,15 @@ public class MemberDAOImpl implements MemberDAO{
 	public void deleteMember(MemberDTO memberDTO) {
 		sqlSession.delete(namespace+".deleteMember", memberDTO);
 	}
-	
 
+	@Override
+	public void updateMember(MemberDTO memberDTO) {
+
+	}
+
+	// 	----------- CHATROOM -----------
+	@Override
+	public MemberDTO getMemberE(String email) {
+		return sqlSession.selectOne(namespace+".selectMemberE",email);
+	}
 }

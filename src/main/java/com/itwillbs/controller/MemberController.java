@@ -78,6 +78,7 @@ System.out.println("#########" + code);
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/member/login";
+		
 	}
 	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
@@ -114,9 +115,9 @@ System.out.println("#########" + code);
 	
 	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)
 	public String kakaologin() {
-	
+
 		return "member/kakaologin";
-		
+
 		}
 
 
