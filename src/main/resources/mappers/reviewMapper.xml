@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.member.ReviewMapper">
+
+	<insert id="insertReviews">
+	insert into REVIEWS(account_id,pro_id,comment,rating)
+	values(#{account_id},#{pro_id},#{comment},#{rating})
+	</insert>
+	
+	<select id="getallReviews" resultType="com.itwillbs.domain.ReviewDTO">
+		select r.*, a.name from REVIEWS r join ACCOUNTS a on r.account_id = a.id where pro_id=#{pro_id} order by id desc limit #{startRow},#{pageSize}
+	</select>
+
+	<select id="getReviewCount" resultType="java.lang.Integer">
+		select count(*) from REVIEWS where pro_id=#{pro_id}
+	</select>
+
+	<select id="getreviewavg" resultType="java.lang.Double">
+		select ROUND(AVG(rating),1 )from REVIEWS where pro_id=#{pro_id}
+	</select>
+
+
+</mapper>
