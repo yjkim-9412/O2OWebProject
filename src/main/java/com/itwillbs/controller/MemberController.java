@@ -49,10 +49,10 @@ public class MemberController {
 	}
 	@RequestMapping(value = "/member/loginPro", method = RequestMethod.POST)
 	public String loginPro(MemberDTO memberDTO,HttpSession session) {
-		
+
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
-			session.setAttribute("id",memberDTO.getId());
+			session.setAttribute("id",memberDTO2.getId());
 		}else {
 			return "member/msg";
 		}

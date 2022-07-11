@@ -59,7 +59,7 @@ public class ChatRoomController {
         String account_email = memberDTO.getEmail();
         ProDTO proDTO = proService.getPro(pro_email);
 
-        String session_name = chatEnterService.newRoom(account_email,pro_email,proDTO.getName(),memberDTO.getName());
+        String session_name = chatEnterService.newRoom(account_email,pro_email,memberDTO.getName(),proDTO.getName());
         System.out.println("방생성 완료 세션 : " + session_name);
         if (session_name != null){
             request.setAttribute("userEmail",account_email);
@@ -71,17 +71,31 @@ public class ChatRoomController {
     }
 
     @RequestMapping(value = "/chat/room/{session_name}")
-    public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request){
+    public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request,HttpSession session){
         GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
+        List<ChatMessageDTO> messageList = chatService.getChatMessage(session_name);
         System.out.println("intoChat:->>>>>>>>>");
+
         String userEmail = request.getParameter("userEmail");
-        String receiver_email = request.getParameter("receiver_email");
-        String currentUser = request.getParameter("currentUser");
-        System.out.println("현재유저2 : " + currentUser);
-        System.out.println("현재유저 이메일 : " + userEmail);
-        System.out.println("수신 이메일 : " + receiver_email);
-        System.out.println("채팅방 멤버 : " + getChatRoomDTO.getAccount_email()+ ", " + getChatRoomDTO.getPro_email());
-        List<ChatMessageDTO> messageList= chatService.getChatMessage(session_name);
+        if (userEmail == null){
+            int id = (Integer)session.getAttribute("id");
+            MemberDTO memberDTO = memberService.getMember(id);
+            GetChatRoomDTO chatUser = chatEnterService.checkRoomAccount(memberDTO.getEmail(),session_name);
+            model.addAttribute("user_name",memberDTO.getName());
+            model.addAttribute("receiver",chatUser.getReceiver_user());
+            model.addAttribute("receiver_name",chatUser.getReceiver_name());
+            model.addAttribute("chatSession",session_name);
+            model.addAttribute("messageList", messageList);
+            return "chat/room";
+        }
+            String receiver_email = request.getParameter("receiver_email");
+            String currentUser = request.getParameter("currentUser");
+            System.out.println("현재유저2 : " + currentUser);
+            System.out.println("현재유저 이메일 : " + userEmail);
+            System.out.println("수신 이메일 : " + receiver_email);
+            System.out.println("채팅방 멤버 : " + getChatRoomDTO.getAccount_email() + ", " + getChatRoomDTO.getPro_email());
+
+
         model.addAttribute("user_email",userEmail);
         if (currentUser.equals("pro")) {
             GetChatRoomDTO chatPro = chatEnterService.checkRoomPro(userEmail,session_name);

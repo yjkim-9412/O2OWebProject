@@ -39,7 +39,7 @@ public class ChatRoomEnterRepository {
 
          Boolean finish = saveRoom(chatRoomEnterDTO);
          if (finish){
-             System.out.println("유저 저장중 : " +chatRoomEnterDTO.getSession_name()+ " " + chatRoomEnterDTO.getPro_email()+" "+chatRoomEnterDTO.getAccount_email());
+             System.out.println("유저 저장중 : " +chatRoomEnterDTO.getSession_name()+ " 프로-> " + chatRoomEnterDTO.getPro_email()+" 회원-> "+chatRoomEnterDTO.getAccount_email());
              sqlSession.insert(namespace+".saveUsers",chatRoomEnterDTO);
          }else {
              System.out.println("유저 저장 실패");

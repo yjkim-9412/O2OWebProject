@@ -31,7 +31,7 @@
                     <input type="hidden" name="session_name" value="${GetChatRoomDTO.session_name}">
                     <input type="hidden" name="userEmail" value="${userEmail}">
                     <input type="hidden" name="currentUser" value="${currentUser}">
-                        현재유저 ${currentUser},${GetChatRoomDTO.account_name}님과의 채팅<br>
+                        ${GetChatRoomDTO.account_name}님과의 채팅<br>
                     <input type="submit" value="대화하기">
                 </form></li>
             </c:if>

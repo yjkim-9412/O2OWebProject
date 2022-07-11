@@ -47,11 +47,14 @@ public class ChatServiceImpl implements ChatService{
 
         Integer account = (Integer)session.getAttribute("id");
         String pro = (String)session.getAttribute("email");
+        System.out.println("멤버 : " + account);
+        System.out.println("프로 : " + pro);
         if (account == null) {
 
             return chatRoomEnterRepository.findRoomPro_email(pro);
         } else if (pro == null){
             MemberDTO memberDTO = memberService.getMember(account);
+            System.out.println("멤버 여부: " + memberDTO.getEmail());
             return chatRoomEnterRepository.findRoomAccount_email(memberDTO.getEmail());
         } else{
             System.out.println("존재하는 세션이 없습니다");
