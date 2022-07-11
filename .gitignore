@@ -1,8 +1,11 @@
 O2OWebProject.iml
 
-*.settings
-*.idea
-*.class
+.settings
+.idea
+.class
+.project
+.springBeans
+.classpath
 /myweb2.iml
 /classes/
 target/*
@@ -11,5 +14,5 @@ temp/
 bin/*.txt
 doc/**/*.pdf
 /src/main/webapp/WEB-INF/config/database.properties
-/src/main/webapp/WEB-INF/config/
+
 

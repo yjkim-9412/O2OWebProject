@@ -20,6 +20,9 @@
 
 
 
+	<select id="getMemberE" resultType="com.itwillbs.domain.MemberDTO">
+		select * from ACCOUNTS where email=#{email}
+	</select>
 <!-- 	<update id=""></update> -->
 <!-- 	<delete id=""></delete> -->
 <!-- 	<select id=""></select> -->

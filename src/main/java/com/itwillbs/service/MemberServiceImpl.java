@@ -184,7 +184,19 @@ public class MemberServiceImpl implements MemberService{
 	return userInfo; 
 	}
 
-	
+	@Override
+	public MemberDTO getMemberE(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	// 	----------- CHATROOM -----------
+
+
+//	@Override
+//	public MemberDTO getMemberE(String email) {
+//
+//		return memberDAO.getMemberE(email);
+//	}
 }
 

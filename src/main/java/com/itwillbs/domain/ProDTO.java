@@ -2,22 +2,34 @@ package com.itwillbs.domain;
 
 import java.sql.Timestamp;
 
+import org.springframework.stereotype.Repository;
+
 public class ProDTO {
     private int id;
-    private int serviceId;
-    private int addressId;
-    private int gender;
+    private int services_id;
+    private int address_id;
+    private int gender_id;
     private int career;
-    private int employees;
-    private Boolean identity;
+    private int employee_number;
+    private Boolean identify;
     private Boolean business;
     private Boolean certificate;
-    private String pass;
+    private String password;
     private String name;
     private String phone;
     private String email;
+    private Timestamp date;
+    
+    public Timestamp getDate() {
+		return date;
+	}
 
-    public int getId() {
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+
+
+	public int getId() {
         return id;
     }
 
@@ -25,29 +37,15 @@ public class ProDTO {
         this.id = id;
     }
 
-    public int getServiceId() {
-        return serviceId;
-    }
 
-    public void setServiceId(int serviceId) {
-        this.serviceId = serviceId;
-    }
+    public int getServices_id() {
+		return services_id;
+	}
 
-    public int getAddressId() {
-        return addressId;
-    }
+	public void setServices_id(int services_id) {
+		this.services_id = services_id;
+	}
 
-    public void setAddressId(int addressId) {
-        this.addressId = addressId;
-    }
-
-    public int getGender() {
-        return gender;
-    }
-
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
 
     public int getCareer() {
         return career;
@@ -57,23 +55,15 @@ public class ProDTO {
         this.career = career;
     }
 
-    public int getEmployees() {
-        return employees;
-    }
+    public Boolean getIdentify() {
+		return identify;
+	}
 
-    public void setEmployees(int employees) {
-        this.employees = employees;
-    }
+	public void setIdentify(Boolean identify) {
+		this.identify = identify;
+	}
 
-    public Boolean getIdentity() {
-        return identity;
-    }
-
-    public void setIdentity(Boolean identity) {
-        this.identity = identity;
-    }
-
-    public Boolean getBusiness() {
+	public Boolean getBusiness() {
         return business;
     }
 
@@ -89,15 +79,39 @@ public class ProDTO {
         this.certificate = certificate;
     }
 
-    public String getPass() {
-        return pass;
-    }
+    public int getAddress_id() {
+		return address_id;
+	}
 
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
 
-    public String getName() {
+	public int getGender_id() {
+		return gender_id;
+	}
+
+	public void setGender_id(int gender_id) {
+		this.gender_id = gender_id;
+	}
+
+	public int getEmployee_number() {
+		return employee_number;
+	}
+
+	public void setEmployee_number(int employee_number) {
+		this.employee_number = employee_number;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getName() {
         return name;
     }
 

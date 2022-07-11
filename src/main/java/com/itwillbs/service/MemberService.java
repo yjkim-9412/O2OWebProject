@@ -25,5 +25,9 @@ public interface MemberService {
 //  ----------- 카카오 API ----------- 
 	public String getAccessToken (String authorize_code);
 	public HashMap<String, Object> getUserInfo(String access_Token);
+
+// 	----------- CHATROOM -----------
+	public MemberDTO getMemberE(String email);
+
 	
 }
