@@ -603,7 +603,7 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
   <section class="form-contents">
     <div class="container">
     <div class="title">
-    	<h2><b>${serviceDTO.name } / 레슨</b></h2>
+    	<h2><b>${questions.get(0).service_name } / 레슨</b></h2>
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
@@ -619,22 +619,22 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
             
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
-              <h5>${questions.get(0) }</h5>
+              <h5>${questions.get(0).ques_contents }</h5>
             <input type="hidden" name="ans1" value="${questions_id[0] }">
-   			<c:forEach var="answers" items="${answers.get(0) }">
+			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
                   <input name="ans1" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
-   			</c:forEach>           
+                </c:forEach>         
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
             </fieldset> 
         
         <!-- 문항2 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(1) }</h5>
+              <h5>${questions.get(1).ques_contents }</h5>
               <input type="hidden" name="ans2" value="${questions_id[1] }">
                <c:forEach var="answers" items="${answers.get(1) }">
    				<div class="form-group">
@@ -650,7 +650,7 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
         
         <!-- 문항3 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(2) }</h5>
+              <h5>${questions.get(2).ques_contents }</h5>
               <input type="hidden" name="ans3" value="${questions_id[2] }">
                <c:forEach var="answers" items="${answers.get(2) }">
    				<div class="form-group">
@@ -666,7 +666,7 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
         
         <!-- 문항4 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(3) }</h5>
+              <h5>${questions.get(3).ques_contents }</h5>
               <input type="hidden" name="ans4" value="${questions_id[3] }">
                <c:forEach var="answers" items="${answers.get(3) }">
    				<div class="form-group">
@@ -682,7 +682,7 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
         
         <!-- 문항5 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(4) }</h5>
+              <h5>${questions.get(4).ques_contents }</h5>
                 <input type="text" id="sample4_postcode" placeholder="우편번호" style="width: 200px;">
 				<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="width: 200px;"><br>
 				<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
@@ -699,7 +699,7 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
         
         <!-- 문항6 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(5) }</h5>
+              <h5>${questions.get(5).ques_contents }</h5>
               <input type="hidden" name="ans5" value="${questions_id[5] }">
                <c:forEach var="answers" items="${answers.get(5) }">
    				<div class="form-group">

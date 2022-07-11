@@ -38,6 +38,10 @@
 <style type="text/css">
   
 /*  푸터  */
+.page-footer {
+	float: none;
+}
+
 .callnumber{
     padding-bottom: 0.1875rem;
     font-size: 1.25rem;
@@ -408,6 +412,13 @@ ul li {
               		<li class="main-menu">주고받고</li>
               		<li class="sub-menu sub-menu-container underline">
 					<a href="<%=request.getContextPath() %>/requests/sent" style="text-decoration: none; " class="sub-menu">내 요청서 보기</a>
+              		</li>
+              		<li class="sub-menu sub-menu-container underline">
+					<a href="#" style="text-decoration: none; " class="sub-menu">내 채팅방 목록 보기</a>
+              		</li>
+              		</li>
+              		<li class="sub-menu sub-menu-container underline">
+					<a href="<%=request.getContextPath() %>/requests/estimate" style="text-decoration: none; " class="sub-menu">받은 견적</a>
               		</li>
               	</ul>
             </div>

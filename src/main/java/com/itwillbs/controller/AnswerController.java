@@ -29,7 +29,7 @@ public class AnswerController {
 	public String result1(HttpSession session, HttpServletRequest request) {
 	
 		int account_id = (int)session.getAttribute("id");
-		answerService.insertEstimates(account_id);
+//		answerService.insertEstimates(account_id);
 		
 		System.out.println("session id : " + account_id);
 		int estimates_id = answerService.getEstimates_id();
@@ -59,7 +59,7 @@ public class AnswerController {
 			estimatesMidDTO.setQuestion_id(question_id);
 			estimatesMidDTO.setAnswer_id(answer_id);
 			
-			answerService.insertEstimatesMid(estimatesMidDTO);
+//			answerService.insertEstimatesMid(estimatesMidDTO);
 			
 		}
 		
@@ -93,7 +93,7 @@ public class AnswerController {
 		addressDTO.setDistrict_id(district_id);
 		addressDTO.setAddistrict_id(addistrict_id);
 		addressDTO.setAddressdetail(addressdetail);
-		answerService.insertAddress(addressDTO);
+//		answerService.insertAddress(addressDTO);
 		
 		int maxAddrId = answerService.getMaxAddrId();
 		
@@ -101,7 +101,7 @@ public class AnswerController {
 		map.put("maxAddrId", maxAddrId);
 		map.put("account_id", account_id);
 		map.put("estimates_id", estimates_id);
-		answerService.updateEstimates(map);
+//		answerService.updateEstimates(map);
 		
 		return "category/result";
 	}

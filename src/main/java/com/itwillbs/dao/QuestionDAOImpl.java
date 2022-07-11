@@ -7,8 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.itwillbs.domain.CityDTO;
-import com.itwillbs.domain.QuestionDTO;
+import com.itwillbs.domain.GetQuestionsDTO;
 import com.itwillbs.domain.ServiceDTO;
 
 @Repository
@@ -18,18 +17,6 @@ public class QuestionDAOImpl implements QuestionDAO{
 	private SqlSession sqlSession;
 	
 	private static final String namespace = "com.itwillbs.question.QuestionMapper";
-
-	@Override
-	public List<String> getQuestions(int services_id) {
-		
-		return sqlSession.selectList(namespace+".getQuestions", services_id);
-	}
-
-	@Override
-	public List<Integer> getQuestions_id(int services_id) {
-		
-		return sqlSession.selectList(namespace+".getQuestions_id", services_id);
-	}
 
 	@Override
 	public List<String> getAnswers(int questions_id) {
@@ -48,10 +35,12 @@ public class QuestionDAOImpl implements QuestionDAO{
 		
 		return sqlSession.selectList(namespace + ".getCities");
 	}
-	
-	
-	
-	
-	
+
+	@Override
+	public List<GetQuestionsDTO> getQuestions(int services_id) {
+		
+		return sqlSession.selectList(namespace + ".getQuestions", services_id);
+	}
+
 	
 }
