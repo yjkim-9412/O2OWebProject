@@ -9,6 +9,7 @@ import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
+import com.itwillbs.domain.ProEstimateDTO;
 import com.itwillbs.service.ProService;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
 
@@ -236,6 +237,7 @@ public class ProController {
 	public String cleanPro(HttpServletRequest requset,Model model) {
 		System.out.println("ProController cleanPro()");
 		String services_id=requset.getParameter("selcat_num");
+		System.out.println(services_id);
 		model.addAttribute("services_id", services_id);
 		return "redirect:/pro/service_clean";
 	}
@@ -262,7 +264,7 @@ public class ProController {
 		if(services_id.equals("10")) {
 			model.addAttribute("bed", 1);
 		}else {
-			model.addAttribute("bed ", 0);
+			model.addAttribute("bed", 0);
 		}
 
 		model.addAttribute("services_id", services_id);
@@ -273,15 +275,6 @@ public class ProController {
 	@RequestMapping(value = "/pro/address", method = RequestMethod.GET)
 	public String address(HttpServletRequest request,Model model) {
 		System.out.println("ProController address()");
-//		String[] selArr = request.getParameterValues("sel");
-//		String service_chk="";
-//		for(int i=0;i<selArr.length;i++) {
-//			service_chk+=selArr[i]+",";
-//			if(i==selArr.length-1) {
-//				service_chk= service_chk.substring(0,service_chk.length()-1);
-//			}
-//		}
-//		System.out.println(service_chk);
 
 		String services_id=request.getParameter("services_id");
 		model.addAttribute("services_id", services_id);
@@ -381,31 +374,14 @@ public class ProController {
 		return num;
 		
 	}
-	
-	@RequestMapping(value = "/pro/test", method = RequestMethod.GET)
-	public String test(Model model) {
-		System.out.println("ProController test()");
-		String email="gsutmd262@naver.com";
-		int id=12;
-//		GetProDTO proDTO = proService.getProid(id);
-		GetProDTO proDTO = proService.getProemail(email);
-		System.out.println(proDTO.getCity_name());
-		System.out.println(proDTO.getDistrict_name());
-		System.out.println(proDTO.getAddistrict_name());
-		System.out.println(proDTO.getMaincat_name());
-		System.out.println(proDTO.getSeccat_name());
-		System.out.println(proDTO.getService_name());
-		System.out.println(proDTO.getIdentify());
-		model.addAttribute("proDTO", proDTO);
-		return "pro/test";
-	}
-	
+		
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	 public String info(Model m,ProDTO proDTO) {
+	 public String info(Model m,HttpSession session) {
 	    	System.out.println("ProController info()");
- 
-	        proDTO =  proService.proCheck(proDTO);
-	        m.addAttribute("proDTO" , proDTO);
+	    	String email = session.getAttribute("email").toString();
+			
+			GetProDTO proDTO = proService.getProemail(email);
+			m.addAttribute("proDTO", proDTO);
 
 	        return "pro/info";
 	    }
@@ -413,40 +389,34 @@ public class ProController {
 	@RequestMapping(value = "/pro/estimates", method = RequestMethod.GET)
 	 public String estimate(HttpSession session,Model model,HttpServletRequest request) {
 	    	System.out.println("ProController estimate()");
-	    	
-//	    	int id=8;
-//	    	ProDTO proDTO= proService.getPro(id);
-//	    	GetEstimateDTO estimateDTO = proService.getEstimate(proDTO.getServices_id());
-//	    	
-//	    	model.addAttribute("estimateDTO", estimateDTO);
-	    	
-	    	int pageSize=10;
+
+	    	String email = session.getAttribute("email").toString();
+	    	int pageSize=proService.getPageSize();
 			String pageNum=request.getParameter("pageNum");
 			if(pageNum==null){
 				pageNum="1";
 			}
+			ProDTO proDTO = proService.getPro(email);
 			PageDTO pageDTO=new PageDTO();
 			pageDTO.setPageSize(pageSize);
 			pageDTO.setPageNum(pageNum);
-			pageDTO.setServices_id(11);//<< proDTO.getServices_id()
+			pageDTO.setServices_id(proDTO.getServices_id());
 			
 			List<GetEstimateDTO> estimateDTO=proService.getEstimateList(pageDTO);
-			Map<Integer,Integer> hashmap=new HashMap<Integer, Integer>();
+			Map<Integer,String> hashmap=new HashMap<Integer, String>();
 			
 			for(int i=0;i<estimateDTO.size();i++) {
 				if(estimateDTO.get(i).getAccount_id()!=0) {
-					hashmap.put(estimateDTO.get(i).getEstimates_id(), estimateDTO.get(i).getAccount_id());
+					hashmap.put(estimateDTO.get(i).getEstimates_id(), estimateDTO.get(i).getAccount_name());
 				}
 			}
-//			List<GetEstimateDTO> estimateDTO2=proService.getEstimateList(pageDTO);
-			
 						
 			int currentPage=Integer.parseInt(pageDTO.getPageNum());
 			int count=proService.getEstimateCount();
 			int pageBlock=10;
 			int startPage=(currentPage-1)/pageBlock*pageBlock+1;
 			int endPage=startPage+pageBlock-1;
-			int pageCount= count/pageSize+ (count%pageSize==0?0:1);
+			int pageCount= count/10+ (count%10==0?0:1);
 			if(endPage > pageCount){
 				endPage=pageCount;
 			}
@@ -459,10 +429,7 @@ public class ProController {
 			model.addAttribute("hashmap", hashmap);
 			model.addAttribute("estimateDTO", estimateDTO);
 			model.addAttribute("pageDTO", pageDTO);
-	    	
-//	    	int id =  (int) session.getAttribute("id");
-	    	
-	     
+
 			return "pro/estimates";
 	    }
 	@RequestMapping(value = "/pro/login", method = RequestMethod.GET)
@@ -477,46 +444,44 @@ public class ProController {
 		
 		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
-			session.setAttribute("eamil",proDTO.getEmail());
+			session.setAttribute("email",proDTO.getEmail());
 		}else {
 			return "member/msg";
 		}
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/pro/estimateList", method = RequestMethod.GET)
-	public String estimateList(int estimates_id,Model model,HttpServletRequest request) {
-		System.out.println("ProController estimateList()");
+	
+	@RequestMapping(value = "/pro/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/pro/proEstimateForm", method = RequestMethod.GET)
+	public String proEstimateForm(String num,String name,Model model,HttpSession session) {
+		System.out.println("ProController proEstimateForm()");
 		
-		int pageSize=10;
-		String pageNum=request.getParameter("pageNum");
-		if(pageNum==null){
-			pageNum="1";
-		}
-		PageDTO pageDTO=new PageDTO();
-		pageDTO.setPageSize(pageSize);
-		pageDTO.setPageNum(pageNum);
+		GetProDTO proDTO = proService.getProemail(session.getAttribute("email").toString());
+		int estimates_id=Integer.parseInt(num);
+		int account_id=proService.getAccId(estimates_id);
 		
-		GetEstimateDTO estimateDTO=proService.getEstimate(estimates_id);
-					
-		int currentPage=Integer.parseInt(pageDTO.getPageNum());
-		int count=proService.getEstimateCount();
-		int pageBlock=10;
-		int startPage=(currentPage-1)/pageBlock*pageBlock+1;
-		int endPage=startPage+pageBlock-1;
-		int pageCount= count/pageSize+ (count%pageSize==0?0:1);
-		if(endPage > pageCount){
-			endPage=pageCount;
-		}
-		pageDTO.setCount(count);
-		pageDTO.setPageBlock(pageBlock);
-		pageDTO.setStartPage(startPage);
-		pageDTO.setEndPage(endPage);
-		pageDTO.setPageCount(pageCount);
-
+		ProEstimateDTO estimateDTO = new ProEstimateDTO();
+		estimateDTO.setAccount_id(account_id);
+		estimateDTO.setEstimates_id(estimates_id);
+		estimateDTO.setPro_id(proDTO.getId());
+		
+		model.addAttribute("proDTO", proDTO);
 		model.addAttribute("estimateDTO", estimateDTO);
-		model.addAttribute("pageDTO", pageDTO);
+		return "pro/proEstimateForm";
+	}
+	
+	@RequestMapping(value = "/pro/proEstimatePro", method = RequestMethod.GET)
+	public String proEstimatePro(ProEstimateDTO proEstimateDTO) {
+		System.out.println("ProController proEstimatePro()");
 		
-		return "pro/estimateList";
+		proService.insertProEstimate(proEstimateDTO);
+
+		return "redirect:/";
 	}
 }

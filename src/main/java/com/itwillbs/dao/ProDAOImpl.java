@@ -11,6 +11,7 @@ import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
+import com.itwillbs.domain.ProEstimateDTO;
 
 import java.util.List;
 
@@ -18,7 +19,9 @@ import javax.inject.Inject;
 
 @Repository
 public class ProDAOImpl implements ProDAO{
-    @Inject
+    
+
+	@Inject
     private SqlSession sqlSession;
     
     private String namespace="com.itwillbs.member.ProMapper";
@@ -28,6 +31,24 @@ public class ProDAOImpl implements ProDAO{
     	System.out.println("ProDAOImpl insertPro()");
     	sqlSession.insert(namespace+".insertPro", proDTO);
     }
+	
+	@Override
+	public int getAccId(int estimates_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getAccId", estimates_id);
+	}
+
+	@Override
+	public void insertProEstimate(ProEstimateDTO proEstimateDTO) {
+		// TODO Auto-generated method stub
+		sqlSession.insert(namespace+".insertProEstimate",proEstimateDTO);
+	}
+
+	@Override
+	public int getPageSize() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getPageSize");
+	}
 
 	@Override
 	public GetProDTO getProid(int id) {

@@ -150,7 +150,8 @@ $(document).ready(function(){
 				$('#mail-check-warn').focus();
 				return false;
 			}
-
+			document.fr.target="_parent";
+			document.fr.submit();
 		});
 	});
 	

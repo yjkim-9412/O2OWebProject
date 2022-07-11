@@ -10,6 +10,7 @@ import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
+import com.itwillbs.domain.ProEstimateDTO;
 
 public interface ProDAO {
     public void insertPro(ProDTO proDTO);
@@ -27,6 +28,9 @@ public interface ProDAO {
     int getEstimateCount();
     GetEstimateDTO getEstimateCont(int estimates_id);
     public ProDTO proCheck(ProDTO proDTO);
+    int getPageSize();
+    void insertProEstimate(ProEstimateDTO proEstimateDTO);
+    int getAccId(int estimates_id);
 }
 
 
