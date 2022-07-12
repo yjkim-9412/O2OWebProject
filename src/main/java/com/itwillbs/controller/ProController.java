@@ -387,6 +387,7 @@ public class ProController {
 	@RequestMapping(value = "/pro/estimates", method = RequestMethod.GET)
 	 public String estimate(HttpSession session,Model model,HttpServletRequest request) {
 	    	System.out.println("ProController estimate()");
+	    	if(session.getAttribute("email")==null) return "redirect:/";
 
 	    	String email = session.getAttribute("email").toString();
 	    	int pageSize=proService.getPageSize();
@@ -439,9 +440,11 @@ public class ProController {
 	@RequestMapping(value = "/pro/loginPro", method = RequestMethod.POST)
 	public String loginPro(ProDTO proDTO,HttpSession session) {
 		System.out.println("ProController loginPro()");
-		
+
 		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
+			session.removeAttribute("email");
+			session.removeAttribute("id");
 			session.setAttribute("email",proDTO.getEmail());
 		}else {
 			return "member/msg";

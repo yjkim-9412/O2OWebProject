@@ -26,6 +26,13 @@
 	<context:component-scan base-package="com.itwillbs.service" />
 	<context:component-scan base-package="com.itwillbs.dao" />
 	<context:component-scan base-package="com.itwillbs.domain"/>
-
 	
+	<interceptors>
+		<beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+		<beans:property name="cacheSeconds" value="0"/>
+		<beans:property name="useExpiresHeader" value="true"/>
+		<beans:property name="useCacheControlHeader" value="true"/>
+		<beans:property name="useCacheControlNoStore" value="true"/>
+		</beans:bean>
+	</interceptors>
 </beans:beans>

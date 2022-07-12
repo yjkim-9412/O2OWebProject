@@ -4,6 +4,7 @@ package com.itwillbs.controller;
 import java.util.HashMap;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
-	public String login() {
-		
+	public String login(HttpSession session) {
+		if(session.getAttribute("id")!=null || session.getAttribute("email")!=null) {
+			return "redirect:/";
+		}
 		return "member/loginForm";
 	}
 	@RequestMapping(value = "/member/loginPro", method = RequestMethod.POST)
@@ -52,11 +55,13 @@ public class MemberController {
 		
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
+			session.removeAttribute("email");
+			session.removeAttribute("id");
 			session.setAttribute("id",memberDTO.getId());
 		}else {
 			return "member/msg";
 		}
-		return "redirect:/member/main";
+		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
 	public String main(@RequestParam(value = "code", required = false) String code,Model m) {
