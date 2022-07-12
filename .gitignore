@@ -16,3 +16,4 @@ doc/**/*.pdf
 /src/main/webapp/WEB-INF/config/database.properties
 
 
+/.settings/
