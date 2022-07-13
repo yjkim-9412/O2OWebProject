@@ -598,6 +598,202 @@ main{
     width: 14px !important;
     height: 14px !important;
 }
+td{
+	width:410px;
+	height: 240px;
+}
+.classes-sub-box--wide {
+	width:410px;
+	height: 240px;
+}
+/* 챗봇 */
+.title1{
+    margin:auto;
+    font-size:x-large;
+    font-family: Raleway, sans-serif;
+    color:#FFCD4A;
+
+}
+.chatdiv1{
+    position: relative;
+    max-width: 300px;
+    font-size: 23px;
+    padding: 8px 10px;
+    margin-bottom:40px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 18px;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    width: 100%;
+
+
+}
+.chat-message-received{
+    position: relative;
+    max-width: 220px;
+    word-break: normal;
+    padding: 15px 20px;
+    margin-bottom:20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 18px;
+    display: flex;
+    color: black;
+    font-size: 16px;
+    flex-direction: column;
+    width: 100%;
+
+}
+.chatdiv2{
+    display: inline-flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    width: 100%;
+    text-align: right;
+    background-color: rgb(255, 255, 255);
+    align-content: center;
+}
+.chatdiv2{
+    width: 100%;
+    max-width: 330px;
+    text-align: right
+}
+.chatbtn{
+    max-width: 280px;
+    padding: 7px 11px;
+    margin: 0px 0px 6px 6px;
+    letter-spacing: -0.1px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    text-align: left;
+    word-break: break-word;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    transition: box-shadow 0.2s ease-out 0s, border-color 0.2s ease-out 0s;
+    font-size: 1.0rem !important;
+    line-height: 2.1rem !important;
+}
+@media (min-width: 450px) {
+    .main-card {
+        width: 96%;
+        max-width: 400px;
+        height: calc(100% - 32px) !important;
+        border-radius: 8px !important;
+        max-height: 600px;
+        margin: 16px!important;
+    }
+}
+
+.collapsed {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 24px !important;
+    margin: 16px!important;
+}
+
+.main-card {
+    background: white;
+    color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    transition: all 0.5s;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#chatbot_toggle {
+    position: absolute;
+    margin: auto !important;
+    flex:0 0 auto;
+    cursor:pointer;
+    z-index:1100;
+    opacity: 1;
+    border: none;
+    height: 48px;
+    width: 48px;
+    background: #FFCD4A;
+    padding: 14px;
+    color:white;
+
+}
+#chatbot_toggle:hover {
+    background: rgba(247, 178, 4, 0.945);
+
+}
+.line {
+    height: 1px;
+    background-color: #FFCD4A;
+    width: 100%;
+    opacity: 0.2;
+}
+.main-title {
+    background-color: #FFCD4A;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    height: 48px;
+
+}
+.main-title>div{
+    height:48px;
+    width:48px;
+    display:flex;
+    margin-left:8px;
+}
+.main-title svg {
+    height: 24px;
+    margin: auto;
+}
+.main-title > span {
+    margin: auto auto auto 8px;
+}
+.chat-area {
+    flex-grow: 1;
+    overflow: auto;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+.input-message {
+    padding: 8px 48px 8px 16px;
+    flex-grow: 1;
+    border: none;
+}
+.input-message:focus {
+    outline: none;
+}
+.input-div {
+    height: 48px;
+    display: flex;
+}
+
+.input-send {
+    background: transparent;
+    width: 48px;
+    height: 48px;
+    right: 0%;
+    border: none;
+    cursor: pointer;
+}
+.input-send:hover {
+    background: lavender;
+}
+.input-send svg {
+    fill: #FFCD4A;
+    margin: 11px 8px;
+}
+.chat-message-div {
+    display: flex;
+}
 
 /* 챗봇 */
 .title1{
@@ -822,9 +1018,241 @@ main{
         background: #555;
     }
 </style>
+.chat-message-sent {
+    background-color: rgb(199, 194, 194);
+    margin: 8px 16px 8px 64px;
+    padding: 8px 16px;
+    animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 100ms;
+    color: black;
+    font-size: 10px;
+    border-radius: 8px 8px 2px 8px;
+    background-color: #F7F7F7;
+}
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 
-</style> 
- 
+    /*알림*/
+.alarmbtn{
+    border: 0;
+    background: none;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-content: space-around;
+    flex-wrap: nowrap;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    position: relative;
+}
+li{
+  list-style: none;
+}
+.alarmdiv1{
+    position: absolute;
+    right: -87px;
+    top: 37px;
+    width: 21.875rem;
+    height: 43.875rem;
+    background: #fff;
+    border: 0.0625rem solid #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0 1.125rem 2.5rem -0.75rem rgb(50 50 50 / 30%);
+    margin-bottom: 1rem;
+    overflow: visible;
+    display: none;
+
+}
+.alarmdiv1::before{
+  content: "";
+    position: absolute;
+    top: -0.5625rem;
+    right: 5.625rem;
+    width: 1.125rem;
+    height: 0.625rem;
+   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCI+PGcgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOS4wNSAxbDcuODUgOC42SDEuMnoiLz48cGF0aCBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xIDlsOC04IDggOCIvPjwvZz48L3N2Zz4=) no-repeat;
+}
+.alarmdiv2{
+  display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.alarmheader{
+  padding: 1.5rem 1.5rem 0.5rem
+}
+.alarmh3{
+    font-weight: 500;
+    line-height: 2rem;
+    font-size: 1.125rem;
+    margin: 0;
+    color: #323232;
+    text-align: left;
+}
+.btnclose{
+  display: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.btnclose img{
+    vertical-align: top;
+}
+.alarmbody{
+  height: 100%;
+  overflow: auto;
+}
+.alarmbody2{
+  padding: 1.5rem;
+   overflow-y: auto;
+}
+.alarmul{
+  margin: 0;
+}
+.loding-icon{
+   width: 100%;
+}
+.alarmp1{
+  font-size: .875rem;
+    line-height: 1.3125rem;
+    font-weight: 400;
+    letter-spacing: -.0125rem;
+}
+.alarmp2{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+ font-weight: bold;
+ color: #323232;
+}
+.row-nogutter{
+  height: 1.25rem;
+  margin-right: 0;
+  margin-left: 0;
+}
+.morebtn{
+  height: 100%;
+    color: #00c7ae;
+    font-size: .875rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-weight: 400;
+}
+#alarmli{
+	position: relative;
+}
+/* 알림끝 */
+
+/* 검색창 */
+.search-suggestion[data-v-8f67d2d4] {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border: 0.0625rem solid #f2f2f2;
+    border-top: none;
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    z-index: 2;
+    display: none;
+}
+
+.search-suggestion .suggestion-body[data-v-8f67d2d4] {
+    max-height: 15.5rem;
+    height: unset;
+    min-height: 12.25rem;
+}
+.search-suggestion .suggestion-body[data-v-8f67d2d4] {
+    overflow-y: scroll;
+}
+.search-suggestion .popular-section[data-v-8f67d2d4] ul.nav-tabs {
+    border-color: #f2f2f2;
+}
+.search-suggestion .popular-section[data-v-8f67d2d4] li.nav-item1 {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 0;
+}
+.search-suggestion .popular-recent-section[data-v-8f67d2d4] li.nav-item1 a.nav-link1.active {
+    color: #FFCD4A;
+}
+.search-suggestion .popular-section[data-v-8f67d2d4] li.nav-item1 a.nav-link1 {
+    text-align: center;
+    font-weight: 500;
+    border: none;
+    color: #b5b5b5;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    outline: none;
+    font-size: 15px;
+}
+.search-suggestion .suggestion-contents[data-v-8f67d2d4] {
+    min-height: 12.25rem;
+}
+.search-suggestion .popular-recent-section .tab-pane[role=tabpanel] ul[data-v-8f67d2d4] {
+    margin: 0;
+}
+.search-suggestion .suggestion-contents .item[data-v-8f67d2d4] {
+    padding: -0.15rem 1rem;
+    font-size: .875rem;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    cursor: pointer;
+}
+.search-suggestion .text-ellipsis[data-v-8f67d2d4] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+}
+.search-suggestion .flex[data-v-8f67d2d4] {
+    display: flex;
+    align-items: center;
+}
+.search-suggestion .suggestion-footer>div[data-v-8f67d2d4] {
+    cursor: pointer;
+}
+.search-suggestion .suggestion-footer[data-v-8f67d2d4] {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-top: 0.0625rem solid #f2f2f2;
+    justify-content: space-between;
+    color: #737373;
+    font-size: .875rem;
+    font-weight: 500;
+}
+/* 검색창끝 */
+</style>
+
+
+
  
  
  
@@ -834,7 +1262,8 @@ main{
 </head>
 <body>
 
-
+  <!-- Back to top button -->
+  <div class="back-to-top"></div>
 
 <header>
 <c:catch>
@@ -894,10 +1323,44 @@ main{
               </div>
               
             <ul class="navbar-nav ml-auto">
-              
+
+
               <li class="nav-item">
                 <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
+              </li>
+<!--알림 -->
+                <li class="nav-item" id="alarmli">
+	<button  type="button" class="alarmbtn" id="alarmbtn" onclick="openCloseToc();">
+                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+OEUwOTAwNEYtQTVEOC00Mzk0LTk0M0UtRDczM0VEOENGOTA5PC90aXRsZT4KICAgIDxnIGlkPSJbaGVyZV0tU29vbWdvLUhvbWUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSLsm7nqs7XthrUvaGVhZGVyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTg0My4wMDAwMDAsIC0xNjk2LjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0ibmF2aWdhdGlvbi93ZWIvbmF2aWdhdGlvbl9wcm92aWRlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODc3LjAwMDAwMCwgMTY3Mi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJpY29uX25hdmlfbm90aWZpY2F0aW9ucyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTY2LjAwMDAwMCwgMjQuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgaWQ9InBhdGgiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PC9yZWN0PgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC0yIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIiBzdHJva2U9IiMyRDJEMkQiIHN0cm9rZS13aWR0aD0iMS41Ij4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTUsMTQuNSBDNSwxNi4xNTY4NTQyIDYuMzQzMTQ1NzUsMTcuNSA4LDE3LjUgQzkuNjU2ODU0MjUsMTcuNSAxMSwxNi4xNTY4NTQyIDExLDE0LjUiIGlkPSJQYXRoIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yLDYgQzIsMi42ODYyOTE1IDQuNjg2MjkxNSw2LjA4NzE4Mzc2ZS0xNiA4LDAgQzExLjMxMzcwODUsLTYuMDg3MTgzNzZlLTE2IDE0LDIuNjg2MjkxNSAxNCw2IEwxNCwxMCBMMTYsMTQgTDAsMTQgTDIsMTAgTDIsNiBaIiBpZD0iQ29tYmluZWQtU2hhcGUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="알림" class="alarm-image"></button>
+
+<div  class="alarmdiv1" id="alarmdiv" >
+	<div  class="alarmdiv2">
+		<header class="alarmheader">
+			<h3 alarmh3>알림</h3>
+			<button  type="button" class="btnclose"><img data-v-f7f07f48="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTkgNy44NjlMMTYuNDM0LjQzNGwxLjEzMiAxLjEzMkwxMC4xMyA5bDcuNDM1IDcuNDM0LTEuMTMyIDEuMTMyTDkgMTAuMTNsLTcuNDM0IDcuNDM1LTEuMTMyLTEuMTMyTDcuODcgOSAuNDM0IDEuNTY2IDEuNTY2LjQzNCA5IDcuODd6Ii8+CiAgICA8L2RlZnM+CiAgICA8dXNlIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==" alt="닫기"></button>
+		</header>
+		<div  class="alarmbody">
+			<div  class="alarmbody2">
+				<ul  class="alarmul"  style="display: none;"></ul>
+				<div  class="loading-icon" style="display: none;">
+					<div  data-v-52ebc5c5="" class="">
+						<div  class="indicator-body center"
+							style="width: 24px; height: 24px; border-width: 0.25rem; border-style: solid; border-color: rgb(153, 153, 153) rgba(153, 153, 153, 0.2) rgba(153, 153, 153, 0.2); border-image: initial;">
+						</div>
+						<p  class="alarmp1" style="display: none;"></p>
+					</div>
+				</div>
+				<div  class="no-notifications">
+					<p  class="alarmp2">받은 알림이 없습니다</p>
+				</div>
+				<div  class="row-nogutter" style="display: none;">
+					<button  type="button" class="morebtn">더 보기</button></div>
+			</div>
+		</div>
+	</div>
+</div>
+</li>
+<!-- 알림끝 -->
               <li class="nav-item active">
                 <a class="nav-link" href="<%=request.getContextPath() %>/pro/info">마이페이지</a>
               </li>
@@ -921,17 +1384,163 @@ main{
 
           <div class="navbar-collapse collapse" id="navbarContent">
              
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
+              <!--search바  -->
+           <div class="search">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+
+<!--             검색창 -->
+								<div data-v-8f67d2d4="" data-v-7563eff3=""
+									class="search-suggestion" id="searchdiv">
+									<div data-v-8f67d2d4="" class="suggestion-body"
+										style="height: calc(43.5625rem);">
+										<section data-v-8f67d2d4="" class="popular-recent-section">
+											<div data-v-8f67d2d4="" class="tabs" id="__BVID__371">
+												<!---->
+												<div class="">
+													<ul role="tablist" class="nav nav-tabs"
+														id="__BVID__371__BV_tab_controls_">
+														<!---->
+														<li role="presentation" class="nav-item"><a
+															role="tab" aria-selected="true" aria-setsize="2"
+															aria-posinset="1" href="#" target="_self"
+															class="nav-link active"
+															id="__BVID__372___BV_tab_button__"
+															aria-controls="__BVID__372">인기 키워드</a></li>
+														<li role="presentation" class="nav-item"><a
+															role="tab" tabindex="-1" aria-selected="false"
+															aria-setsize="2" aria-posinset="2" href="#"
+															target="_self" class="nav-link"
+															id="__BVID__374___BV_tab_button__"
+															aria-controls="__BVID__374">최근 검색</a></li>
+														<!---->
+													</ul>
+												</div>
+												<div class="tab-content" id="__BVID__371__BV_tab_container_">
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="false"
+														class="tab-pane suggestion-contents active"
+														id="__BVID__372"
+														aria-labelledby="__BVID__372___BV_tab_button__" style="">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">영어 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">퍼스널트레이닝(PT)</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">보컬 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">욕실/화장실
+																	리모델링</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">도배장판 시공</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">전기 배선 설치
+																	및 수리</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">집 인테리어</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수학 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">골프 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수도 관련 설치
+																	및 수리</div></li>
+														</ul>
+													</div>
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="true"
+														class="tab-pane suggestion-contents recent-contents"
+														id="__BVID__374"
+														aria-labelledby="__BVID__374___BV_tab_button__"
+														style="display: none;">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">퍼스널컬러자격증
+																	준비</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	번역</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">수학
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+														</ul>
+													</div>
+													<!---->
+												</div>
+											</div>
+										</section>
+									</div>
+									<div data-v-8f67d2d4="" class="suggestion-footer flex">
+										<div data-v-8f67d2d4=""></div>
+										<div data-v-8f67d2d4="">닫기</div>
+									</div>
+								</div>
+								 </div>
+<!-- 검색창끝 -->
               
             <ul class="navbar-nav ml-auto">
-              
+
+
               <li class="nav-item">
                 <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
+              </li>
+<!-- 알림 -->
+          <li class="nav-item" id="alarmli">
+	<button  type="button" class="alarmbtn" id="alarmbtn" onclick="openCloseToc();">
+                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+OEUwOTAwNEYtQTVEOC00Mzk0LTk0M0UtRDczM0VEOENGOTA5PC90aXRsZT4KICAgIDxnIGlkPSJbaGVyZV0tU29vbWdvLUhvbWUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSLsm7nqs7XthrUvaGVhZGVyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTg0My4wMDAwMDAsIC0xNjk2LjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0ibmF2aWdhdGlvbi93ZWIvbmF2aWdhdGlvbl9wcm92aWRlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODc3LjAwMDAwMCwgMTY3Mi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJpY29uX25hdmlfbm90aWZpY2F0aW9ucyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTY2LjAwMDAwMCwgMjQuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgaWQ9InBhdGgiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PC9yZWN0PgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC0yIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIiBzdHJva2U9IiMyRDJEMkQiIHN0cm9rZS13aWR0aD0iMS41Ij4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTUsMTQuNSBDNSwxNi4xNTY4NTQyIDYuMzQzMTQ1NzUsMTcuNSA4LDE3LjUgQzkuNjU2ODU0MjUsMTcuNSAxMSwxNi4xNTY4NTQyIDExLDE0LjUiIGlkPSJQYXRoIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yLDYgQzIsMi42ODYyOTE1IDQuNjg2MjkxNSw2LjA4NzE4Mzc2ZS0xNiA4LDAgQzExLjMxMzcwODUsLTYuMDg3MTgzNzZlLTE2IDE0LDIuNjg2MjkxNSAxNCw2IEwxNCwxMCBMMTYsMTQgTDAsMTQgTDIsMTAgTDIsNiBaIiBpZD0iQ29tYmluZWQtU2hhcGUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="알림" class="alarm-image"></button>
+
+<div  class="alarmdiv1" id="alarmdiv" >
+	<div  class="alarmdiv2">
+		<header class="alarmheader">
+			<h3 alarmh3>알림</h3>
+			<button  type="button" class="btnclose"><img data-v-f7f07f48="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTkgNy44NjlMMTYuNDM0LjQzNGwxLjEzMiAxLjEzMkwxMC4xMyA5bDcuNDM1IDcuNDM0LTEuMTMyIDEuMTMyTDkgMTAuMTNsLTcuNDM0IDcuNDM1LTEuMTMyLTEuMTMyTDcuODcgOSAuNDM0IDEuNTY2IDEuNTY2LjQzNCA5IDcuODd6Ii8+CiAgICA8L2RlZnM+CiAgICA8dXNlIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==" alt="닫기"></button>
+		</header>
+		<div  class="alarmbody">
+			<div  class="alarmbody2">
+				<ul  class="alarmul"  style="display: none;"></ul>
+				<div  class="loading-icon" style="display: none;">
+					<div  data-v-52ebc5c5="" class="">
+						<div  class="indicator-body center"
+							style="width: 24px; height: 24px; border-width: 0.25rem; border-style: solid; border-color: rgb(153, 153, 153) rgba(153, 153, 153, 0.2) rgba(153, 153, 153, 0.2); border-image: initial;">
+						</div>
+						<p  class="alarmp1" style="display: none;"></p>
+					</div>
+				</div>
+				<div  class="no-notifications">
+					<p  class="alarmp2">받은 알림이 없습니다</p>
+				</div>
+				<div  class="row-nogutter" style="display: none;">
+					<button  type="button" class="morebtn">더 보기</button></div>
+			</div>
+		</div>
+	</div>
+</div>
+</li>
+
+
+<!-- 알림끝 -->
               <li class="nav-item active">
                 <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
               </li>
@@ -978,6 +1587,7 @@ main{
      </div> <!-- .container -->
 <!--   </div> .page-section -->
   </header>
+
 
 
 
@@ -1122,10 +1732,13 @@ main{
 
     <div class="intro-reviews__text">
       <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--lg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div> 4.88점 총 3527개의 후기가 있어요!
+</span></div> ${roundavg2 }점 총 ${count2}개의 후기가 있어요!
     </div>
+    <table>
+    <tr>
+<c:forEach  begin="1" end="3" var="reviewDTO" items="${reviewDTO}">
 
-    <div class="row no-gap row--inset">
+    <td><div class="row no-gap row--inset">
         
           <div class="classes-sub-box classes-sub-box--wide">
             <div class="classes-sub-box__content">
@@ -1138,54 +1751,21 @@ main{
 </span></div>
               </div>
 
-              <span class="text-strong">이렇게까지 도움 될지 몰랐어요.</span> 눈으로 보고 귀로 들으니까 더 와닿아요. 요점으로 짚어주듯이 써주시니까 이해도가 높아요. 많이 배워가고 <span class="text-strong">감 잡는 데 큰 도움이 돼요!</span>
+              <span class="text-strong">${reviewDTO.comment}</span><span class="text-strong"></span>
             </div>
 
             <div class="classes-sub-box__content-footer">
-              대학생 재연님
+              ${reviewDTO.name}
             </div>
           </div>
-        
-        
-          <div class="classes-sub-box classes-sub-box--wide">
-            <div class="classes-sub-box__content">
-              <div class="mb-2">
-                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div>
-              </div>
 
-              인터넷에서 찾던 정보와는 다르게 너무 <span class="text-strong">와닿는 지식</span>을 얻게 되었습니다. <span class="text-strong">현직자의 시점에서 필요한 점과 진솔한 부분</span>을 알게 되어 너무나 유익한 시간이었습니다.
-            </div>
 
-            <div class="classes-sub-box__content-footer">
-              취업준비생 수민님
-            </div>
-          </div>
-        
-        
-          <div class="classes-sub-box classes-sub-box--wide">
-            <div class="classes-sub-box__content">
-              <div class="mb-2">
-                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div>
-              </div>
 
-              면접에서 계속 탈락해서 그 이유와 원인에 대해서 몰라 매우 답답하였는데 <span class="text-strong">정확하고 체계적인 피드백을 통해 문제점을 알게 되어서 매우 좋았습니다.</span> 다시 해보면 붙을 수 있을 것 같다는 자신감도 생겼습니다. 감사합니다!
-            </div>
+          </div></td>
 
-            <div class="classes-sub-box__content-footer">
-              중고신입 지명님
-            </div>
-          </div>
-          </div>
+           </c:forEach>
+           </tr>
+          </table>
         </div>
     </div>
 
@@ -1532,6 +2112,82 @@ $( document ).ready( function() {
 	        return false;
 	    });
 	});
+
+// 	챗봇
+var running = false;
+function send() {
+    if (running == true) return;
+    var msg = document.getElementById("message").value;
+    if (msg == "") return;
+    running = true;
+    addMsg(msg);
+    //DELEAY MESSAGE RESPOSE Echo
+    window.setTimeout(addResponseMsg, 1000, msg);
+}
+function addMsg(msg) {
+    var div = document.createElement("div");
+    div.innerHTML =
+        "<span style='flex-grow:1'></span><div class='chat-message-sent'>" +
+        msg +
+        "</div>";
+    div.className = "chat-message-div";
+    document.getElementById("message-box").appendChild(div);
+    //SEND MESSAGE TO API
+    document.getElementById("message").value = "";
+    document.getElementById("message-box").scrollTop = document.getElementById(
+        "message-box"
+    ).scrollHeight;
+}
+function addResponseMsg(msg) {
+    var div = document.createElement("div");
+    div.innerHTML = "<div class='chat-message-received'>" + msg + "</div>";
+    div.className = "chat-message-div";
+    document.getElementById("message-box").appendChild(div);
+    document.getElementById("message-box").scrollTop = document.getElementById(
+        "message-box"
+    ).scrollHeight;
+    running = false;
+}
+document.getElementById("message").addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        send();
+    }
+});
+document.getElementById("chatbot_toggle").onclick = function () {
+    if (document.getElementById("chatbot").classList.contains("collapsed")) {
+        document.getElementById("chatbot").classList.remove("collapsed")
+        document.getElementById("chatbot_toggle").children[0].style.display = "none"
+        document.getElementById("chatbot_toggle").children[1].style.display = ""
+
+    }
+    else {
+        document.getElementById("chatbot").classList.add("collapsed")
+        document.getElementById("chatbot_toggle").children[0].style.display = ""
+        document.getElementById("chatbot_toggle").children[1].style.display = "none"
+    }
+}
+
+// 알림
+function openCloseToc() {
+  if (document.getElementById('alarmdiv').style.display === 'block') {
+    document.getElementById('alarmdiv').style.display = 'none';
+
+  } else {
+    document.getElementById('alarmdiv').style.display = 'block';
+
+  }
+}
+//검색창
+function openCloseToc() {
+	  if (document.getElementById('searchdiv').style.display === 'block') {
+	    document.getElementById('searchdiv').style.display = 'none';
+
+	  } else {
+	    document.getElementById('searchdiv').style.display = 'block';
+
+	  }
+	}
 
 // 	챗봇
 var running = false;

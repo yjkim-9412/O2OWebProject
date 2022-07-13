@@ -42,4 +42,21 @@ public class ReviewServiceImpl implements ReviewService{
 	public double getreviewavg(int pro_id) {
 		return reviewDAO.getreviewavg(pro_id);
 	}
+
+	@Override
+	public List<ReviewDTO> getratingfive() {
+		return reviewDAO.getratingfive();
+	}
+
+	@Override
+	public double getAllreviewavg() {
+		return reviewDAO.getAllreviewavg();
+	}
+
+	@Override
+	public int getAllreviewcount() {
+		return reviewDAO.getAllreviewcount();
+	}
+	
+	
 }

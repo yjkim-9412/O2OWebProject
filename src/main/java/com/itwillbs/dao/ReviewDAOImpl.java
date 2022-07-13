@@ -40,4 +40,24 @@ public class ReviewDAOImpl implements ReviewDAO{
 	public double getreviewavg(int pro_id) {
 		return sqlSession.selectOne(namespace+".getreviewavg", pro_id);
 	}
+
+	@Override
+	public List<ReviewDTO> getratingfive() {
+		ReviewDTO reviewDTO = new ReviewDTO();
+		
+		return sqlSession.selectList(namespace+".getratingfive",reviewDTO);
+	}
+
+	@Override
+	public double getAllreviewavg() {
+		return sqlSession.selectOne(namespace+".getAllreviewavg");
+	}
+
+	@Override
+	public int getAllreviewcount() {
+		return sqlSession.selectOne(namespace+".getAllreviewcount");
+	}
+	
+	
+	
 }

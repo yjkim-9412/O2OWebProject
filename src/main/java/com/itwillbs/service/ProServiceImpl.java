@@ -1,6 +1,4 @@
 package com.itwillbs.service;
-
-import com.itwillbs.dao.ProDAO;
 import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.CityDTO;
@@ -10,15 +8,19 @@ import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.dao.*;
 
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProServiceImpl implements ProService {
+	@Autowired
+	private ProDAO proDAO;
 	@Override
 	public int getPageSize() {
 		// TODO Auto-generated method stub
@@ -33,9 +35,7 @@ public class ProServiceImpl implements ProService {
 
 	@Inject
 	private AddressDTO addressDTO;
-	
-	@Inject
-	private ProDAO proDAO;
+
 	
 	@Override
 	public int getAccId(int estimates_id) {
@@ -165,5 +165,6 @@ public class ProServiceImpl implements ProService {
 		System.out.println("ProServiceImpl proCheck()");
 		return proDAO.proCheck(proDTO);
 	}
+
 	
 }
