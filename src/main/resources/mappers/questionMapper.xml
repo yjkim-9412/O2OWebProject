@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.question.QuestionMapper">
+<!-- 	<select id="getQuestions" resultType="String"> -->
+<!-- 		select contents from QUESTIONS where services_id=#{services_id}; -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="getQuestions_id" resultType="Integer"> -->
+<!-- 		select id from QUESTIONS where services_id=#{services_id}; -->
+<!-- 	</select> -->
+	
+	<resultMap type="com.itwillbs.domain.AnswerDTO" id="AnswerDTO">
+		<result column="id" property="id"/>
+		<result column="questions_id" property="questions_id"/>
+		<result column="contents" property="contents"/>
+	</resultMap>
+															
+	<resultMap type="com.itwillbs.domain.QuestionDTO" id="QuestionDTO">
+		<result column="id" property="id"/>
+		<result column="services_id" property="services_id"/>
+		<result column="contents" property="contents"/>
+		<collection property="answerDTO" resultMap="AnswerDTO"/>
+	</resultMap>
+	
+	<select id="getAnswers" resultType="String" resultMap="QuestionDTO">
+		select a.contents
+				from QUESTIONS q join ANSWERS a
+		on ( q.id = a.questions_id )
+		where a.questions_id = #{questions_id};
+	</select>
+	
+	<select id="getServiceName" resultType="com.itwillbs.domain.ServiceDTO">
+		select name from SERVICES where id=#{services_id};
+	</select>
+	
+	<select id="getCities" resultType="String">
+		select name from CITIES;
+	</select>
+	
+	<select id="getQuestions" resultType="com.itwillbs.domain.GetQuestionsDTO">
+	select q.id ques_id, q.services_id, s.name service_name, q.contents ques_contents
+		from QUESTIONS q join SERVICES s 
+		on q.services_id = s.id
+		where q.services_id = #{services_id};
+	</select>
+
+</mapper>

@@ -14,14 +14,13 @@ import java.util.HashMap;
 import javax.inject.Inject;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.itwillbs.domain.MemberDTO;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.itwillbs.dao.MemberDAO;
-import com.itwillbs.domain.MemberDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -186,8 +185,8 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDTO getMemberE(String email) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return memberDAO.getMemberE(email);
 	}
 
 	// 	----------- CHATROOM -----------

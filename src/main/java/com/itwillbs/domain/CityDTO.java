@@ -15,4 +15,5 @@ public void setId(int id) {
 public void setCity(String city) {
 	this.city = city;
 }
+
 }

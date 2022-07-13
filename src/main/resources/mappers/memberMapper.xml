@@ -32,13 +32,9 @@
 	<delete id="deleteMember">
 		delete from ACCOUNTS where id=#{id}
 	</delete>
-	
 
-	<select id="getMemberE" resultType="com.itwillbs.domain.MemberDTO">
+	<select id="selectMemberE" resultType="com.itwillbs.domain.MemberDTO">
 		select * from ACCOUNTS where email=#{email}
 	</select>
-<!-- 	<update id=""></update> -->
-<!-- 	<delete id=""></delete> -->
-<!-- 	<select id=""></select> -->
 
 </mapper>

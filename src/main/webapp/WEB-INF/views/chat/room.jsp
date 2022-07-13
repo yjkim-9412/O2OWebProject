@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,6 @@
 <style type="text/css">
     *{ margin: 0; padding: 0; }
     .chat_wrap .header { font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
-
     .chat_wrap .chat { padding-bottom: 80px; }
     .chat_wrap .chat ul { width: 100%; list-style: none; }
     .chat_wrap .chat ul li { width: 100%; }
@@ -25,22 +25,22 @@
     .chat_wrap .chat ul li > div.message { display: inline-block; word-break:break-all; margin: 5px 20px; max-width: 75%; border: 1px solid #888; padding: 10px; border-radius: 5px; background-color: #FCFCFC; color: #555; text-align: left; }
 
     .chat_wrap .input-div { position: fixed; bottom: 0; width: 100%; background-color: #FFF; text-align: center; border-top: 1px solid #F18C7E; }
-    .chat_wrap .input-div > textarea { width: 100%; height: 80px; border: none; padding: 10px; }
+    .chat_wrap .input-div > textarea { width: 100%; height: 60px; border: none; padding: 10px; }
 
     .format { display: none; }
 </style>
 <body>
 <div class="chat_wrap">
     <div class="header">
-        ${room_Name}
+        ${user_name}
     </div>
     <div  class="chat">
-        <ul id="#textmsg">
+        <ul>
             <!-- 동적 생성 -->
         </ul>
     </div>
     <div class="input-div">
-        <textarea placeholder="Press Enter for send message."></textarea>
+        <textarea></textarea>
     </div>
 
 
@@ -65,16 +65,26 @@
 
     var socket = null;
     var isStomp = false;
-    var roomId = '${room_id}';
-    var user = '${m_Name}';
-    var pro_email = '${p_email}'
-
 
 </script>
 <script>
     const Chat = (function(){
-        const myName = user;
+        window.addEventListener('scroll', () => {
+            //스크롤을 할 때마다 로그로 현재 스크롤의 위치가 찍혀나온다.
+            console.log(window.scrollX, window.scrollY);
+        });
+        const myName = '${user_name}';
         connectStomp();
+        <c:forEach var="chatMessageDTO" items="${messageList}">
+        var data = {
+            "senderName": '${chatMessageDTO.sender_name}',
+            "message": '${chatMessageDTO.message}',
+            "receiverName": '${chatMessageDTO.receiver_name}'
+        };
+
+        resive(data);
+        </c:forEach>
+
         function connectStomp() {
             isStomp = true;
             var sock = new SockJS("/stompTest"); // endpoint
@@ -83,23 +93,29 @@
             let first = true;
             client.connect({}, function () {
                 if (first){
-                    socket.send('/chat/enter', {}, JSON.stringify({roomId: '${room_id}', sender:'${m_Name}' , message: "msg",
-                        receiver:pro_email}));
+                    socket.send('/chat/enter', {}, JSON.stringify({session_name: '${session_name}', sender:'${user_email}' ,sender_name:'${user_name}',
+                        message: "msg",
+                    receiver: '${receiver}',receiver_name:'${receiver_name}'}));
                     first = false;
                 }
                 console.log("Connected stompTest!");
-                socket.subscribe('/topic/room/'+'${room_id}', function (event) {
+                socket.subscribe('/topic/room/'+'${session_name}', function (event) {
                     console.log("!!!!!!!!!!!!event>>", event);
                     const content = JSON.parse(event.body);
-                    var sender =content.sender;
+                    var sender =content.sender_name;
                     var messageSub = content.message;
+                    var receiver = content.receiver_name;
                     console.log("송신인 : " + sender);
                     console.log("메세지 : " + content.message);
+                    console.log("수신자 : " + receiver);
                     const data = {
                         "senderName"    : sender,
-                        "message"        : messageSub
+                        "message"        : messageSub,
+                        "receiverName"  : receiver
                     };
                     resive(data);
+
+
                 });
             });
             function disconnect() {
@@ -112,6 +128,7 @@
                 disconnect();
             }
         }
+
         // init 함수
         function init() {
             // enter 키 이벤트
@@ -128,6 +145,7 @@
                         console.log("연결상태 : " + isStomp);
                         }
                     clearTextarea();
+
                 }
             });
         }
@@ -135,12 +153,14 @@
         // 메세지 태그 생성
         function createMessageTag(LR_className, senderName, message) {
             // 형식 가져오기
+
             let chatLi = $('div.chat.format ul li').clone();
 
             // 값 채우기
             chatLi.addClass(LR_className);
             chatLi.find('.sender span').text(senderName);
             chatLi.find('.message span').text(message);
+
 
             return chatLi;
         }
@@ -151,19 +171,29 @@
 
             $('div.chat:not(.format) ul').append(chatLi);
 
+
+            $('div.chat_wrap').scrollTop($('div.chat_wrap')[0].scrollHeight);
             // 스크롤바 아래 고정
-            $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
+            // $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
+
+
         }
+
 
         // 메세지 전송
         function sendMessage(msg) {
+
             socket.send('/chat/message', {}, JSON.stringify({
-                roomId: '${room_id}',
-                sender:'${m_Name}' ,
+
+                session_name: '${session_name}',
+                sender:'${user_email}' ,
+                sender_name:'${user_name}',
                 message: msg,
-                senderM:'${m_email}',
-                receiver:pro_email}));
+                receiver:'${receiver}',
+                receiver_name:'${receiver_name}'}));
+
             console.log("sendMessage!!!!");
+
 
 
         }
@@ -176,9 +206,13 @@
         // 메세지 수신
         function resive(data) {
 
-            const LR = (data.senderName != myName)? "left" : "right";
-            appendMessageTag("right", data.senderName, data.message);
-
+            // const LR = (data.senderName != myName)? "left" : "right";
+            // appendMessageTag("right", data.senderName, data.message);
+            if (data.senderName == myName){
+                appendMessageTag("right", data.senderName, data.message);
+            } else {
+                appendMessageTag("left", data.senderName, data.message);
+            }
         }
         return {
             'init': init
