@@ -599,9 +599,349 @@ main{
     height: 14px !important;
 }
 
+/* 챗봇 */
+.title1{
+    margin:auto;
+    font-size:x-large;
+    font-family: Raleway, sans-serif;
+    color:#FFCD4A;
 
-</style> 
- 
+}
+.chatdiv1{
+    position: relative;
+    max-width: 300px;
+    font-size: 23px;
+    padding: 8px 10px;
+    margin-bottom:40px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 18px;
+    display: flex;
+    color: black;
+    flex-direction: column;
+    width: 100%;
+
+
+}
+.chat-message-received{
+    position: relative;
+    max-width: 220px;
+    word-break: normal;
+    padding: 15px 20px;
+    margin-bottom:20px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 18px;
+    display: flex;
+    color: black;
+    font-size: 16px;
+    flex-direction: column;
+    width: 100%;
+
+}
+.chatdiv2{
+    display: inline-flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    width: 100%;
+    text-align: right;
+    background-color: rgb(255, 255, 255);
+    align-content: center;
+}
+.chatdiv2{
+    width: 100%;
+    max-width: 330px;
+    text-align: right
+}
+.chatbtn{
+    max-width: 280px;
+    padding: 7px 11px;
+    margin: 0px 0px 6px 6px;
+    letter-spacing: -0.1px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    text-align: left;
+    word-break: break-word;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 18px;
+    transition: box-shadow 0.2s ease-out 0s, border-color 0.2s ease-out 0s;
+    font-size: 1.0rem !important;
+    line-height: 2.1rem !important;
+}
+@media (min-width: 450px) {
+    .main-card {
+        width: 96%;
+        max-width: 400px;
+        height: calc(100% - 32px) !important;
+        border-radius: 8px !important;
+        max-height: 600px;
+        margin: 16px!important;
+    }
+}
+
+.collapsed {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 24px !important;
+    margin: 16px!important;
+}
+
+.main-card {
+    background: white;
+    color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    transition: all 0.5s;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#chatbot_toggle {
+    position: absolute;
+    margin: auto !important;
+    flex:0 0 auto;
+    cursor:pointer;
+    z-index:1100;
+    opacity: 1;
+    border: none;
+    height: 48px;
+    width: 48px;
+    background: #FFCD4A;
+    padding: 14px;
+    color:white;
+
+}
+#chatbot_toggle:hover {
+    background: rgba(247, 178, 4, 0.945);
+
+}
+.line {
+    height: 1px;
+    background-color: #FFCD4A;
+    width: 100%;
+    opacity: 0.2;
+}
+.main-title {
+    background-color: #FFCD4A;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    height: 48px;
+
+}
+.main-title>div{
+    height:48px;
+    width:48px;
+    display:flex;
+    margin-left:8px;
+}
+.main-title svg {
+    height: 24px;
+    margin: auto;
+}
+.main-title > span {
+    margin: auto auto auto 8px;
+}
+.chat-area {
+    flex-grow: 1;
+    overflow: auto;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+.input-message {
+    padding: 8px 48px 8px 16px;
+    flex-grow: 1;
+    border: none;
+}
+.input-message:focus {
+    outline: none;
+}
+.input-div {
+    height: 48px;
+    display: flex;
+}
+
+.input-send {
+    background: transparent;
+    width: 48px;
+    height: 48px;
+    right: 0%;
+    border: none;
+    cursor: pointer;
+}
+.input-send:hover {
+    background: lavender;
+}
+.input-send svg {
+    fill: #FFCD4A;
+    margin: 11px 8px;
+}
+.chat-message-div {
+    display: flex;
+}
+
+.chat-message-sent {
+    background-color: rgb(199, 194, 194);
+    margin: 8px 16px 8px 64px;
+    padding: 8px 16px;
+    animation-name: fadeIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 100ms;
+    color: black;
+    font-size: 10px;
+    border-radius: 8px 8px 2px 8px;
+    background-color: #F7F7F7;
+}
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    /*알림*/
+.alarmbtn{
+    border: 0;
+    background: none;
+    padding-bottom: 20px;
+    margin-left: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    align-content: space-around;
+    flex-wrap: nowrap;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    position: relative;
+}
+li{
+  list-style: none;
+}
+.alarmdiv1{
+    position: absolute;
+    right: -87px;
+    top: 37px;
+    width: 21.875rem;
+    height: 43.875rem;
+    background: #fff;
+    border: 0.0625rem solid #f2f2f2;
+    border-radius: 8px;
+    box-shadow: 0 1.125rem 2.5rem -0.75rem rgb(50 50 50 / 30%);
+    margin-bottom: 1rem;
+    overflow: visible; 
+    display: none; 
+    
+}
+.alarmdiv1::before{
+  content: "";
+    position: absolute;
+    top: -0.5625rem;
+    right: 5.625rem;
+    width: 1.125rem;
+    height: 0.625rem;
+   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCI+PGcgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOS4wNSAxbDcuODUgOC42SDEuMnoiLz48cGF0aCBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xIDlsOC04IDggOCIvPjwvZz48L3N2Zz4=) no-repeat;
+}
+.alarmdiv2{
+  display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.alarmheader{
+  padding: 1.5rem 1.5rem 0.5rem
+}
+.alarmh3{
+    font-weight: 500;
+    line-height: 2rem;
+    font-size: 1.125rem;
+    margin: 0;
+    color: #323232;
+    text-align: left;
+}
+.btnclose{
+  display: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.btnclose img{
+    vertical-align: top;
+}
+.alarmbody{
+  height: 100%;
+  overflow: auto;
+}
+.alarmbody2{
+  padding: 1.5rem;
+   overflow-y: auto;
+}
+.alarmul{
+  margin: 0;
+}
+.loding-icon{
+   width: 100%;
+}
+.alarmp1{
+  font-size: .875rem;
+    line-height: 1.3125rem;
+    font-weight: 400;
+    letter-spacing: -.0125rem;
+}
+.alarmp2{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: block;
+ font-weight: bold;
+ color: #323232;
+}
+.row-nogutter{
+  height: 1.25rem;
+  margin-right: 0;
+  margin-left: 0;
+}
+.morebtn{
+  height: 100%;
+    color: #00c7ae;
+    font-size: .875rem;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-weight: 400;
+}
+#alarmli{
+	position: relative;
+}
+/* 알림끝 */
+</style>
+
+
+
  
  
  
@@ -611,8 +951,7 @@ main{
 </head>
 <body>
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
+
 
 <header>
 <c:catch>
@@ -672,10 +1011,44 @@ main{
               </div>
               
             <ul class="navbar-nav ml-auto">
-              
+
+
               <li class="nav-item">
                 <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
+              </li>
+<!--알림 -->
+                <li class="nav-item" id="alarmli">
+	<button  type="button" class="alarmbtn" id="alarmbtn" onclick="openCloseToc();">
+                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+OEUwOTAwNEYtQTVEOC00Mzk0LTk0M0UtRDczM0VEOENGOTA5PC90aXRsZT4KICAgIDxnIGlkPSJbaGVyZV0tU29vbWdvLUhvbWUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSLsm7nqs7XthrUvaGVhZGVyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTg0My4wMDAwMDAsIC0xNjk2LjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0ibmF2aWdhdGlvbi93ZWIvbmF2aWdhdGlvbl9wcm92aWRlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODc3LjAwMDAwMCwgMTY3Mi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJpY29uX25hdmlfbm90aWZpY2F0aW9ucyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTY2LjAwMDAwMCwgMjQuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgaWQ9InBhdGgiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PC9yZWN0PgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC0yIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIiBzdHJva2U9IiMyRDJEMkQiIHN0cm9rZS13aWR0aD0iMS41Ij4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTUsMTQuNSBDNSwxNi4xNTY4NTQyIDYuMzQzMTQ1NzUsMTcuNSA4LDE3LjUgQzkuNjU2ODU0MjUsMTcuNSAxMSwxNi4xNTY4NTQyIDExLDE0LjUiIGlkPSJQYXRoIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yLDYgQzIsMi42ODYyOTE1IDQuNjg2MjkxNSw2LjA4NzE4Mzc2ZS0xNiA4LDAgQzExLjMxMzcwODUsLTYuMDg3MTgzNzZlLTE2IDE0LDIuNjg2MjkxNSAxNCw2IEwxNCwxMCBMMTYsMTQgTDAsMTQgTDIsMTAgTDIsNiBaIiBpZD0iQ29tYmluZWQtU2hhcGUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="알림" class="alarm-image"></button>
+		
+<div  class="alarmdiv1" id="alarmdiv" >
+	<div  class="alarmdiv2">
+		<header class="alarmheader">
+			<h3 alarmh3>알림</h3>
+			<button  type="button" class="btnclose"><img data-v-f7f07f48="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTkgNy44NjlMMTYuNDM0LjQzNGwxLjEzMiAxLjEzMkwxMC4xMyA5bDcuNDM1IDcuNDM0LTEuMTMyIDEuMTMyTDkgMTAuMTNsLTcuNDM0IDcuNDM1LTEuMTMyLTEuMTMyTDcuODcgOSAuNDM0IDEuNTY2IDEuNTY2LjQzNCA5IDcuODd6Ii8+CiAgICA8L2RlZnM+CiAgICA8dXNlIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==" alt="닫기"></button>
+		</header>
+		<div  class="alarmbody">
+			<div  class="alarmbody2">
+				<ul  class="alarmul"  style="display: none;"></ul>
+				<div  class="loading-icon" style="display: none;">
+					<div  data-v-52ebc5c5="" class="">
+						<div  class="indicator-body center"
+							style="width: 24px; height: 24px; border-width: 0.25rem; border-style: solid; border-color: rgb(153, 153, 153) rgba(153, 153, 153, 0.2) rgba(153, 153, 153, 0.2); border-image: initial;">
+						</div>
+						<p  class="alarmp1" style="display: none;"></p>
+					</div>
+				</div>
+				<div  class="no-notifications">
+					<p  class="alarmp2">받은 알림이 없습니다</p>
+				</div>
+				<div  class="row-nogutter" style="display: none;">
+					<button  type="button" class="morebtn">더 보기</button></div>
+			</div>
+		</div>
+	</div>
+</div>
+</li>
+<!-- 알림끝 -->
               <li class="nav-item active">
                 <a class="nav-link" href="<%=request.getContextPath() %>/pro/info">마이페이지</a>
               </li>
@@ -706,10 +1079,46 @@ main{
               </div>
               
             <ul class="navbar-nav ml-auto">
-              
+
+
               <li class="nav-item">
                 <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
+              </li>
+<!-- 알림 -->
+          <li class="nav-item" id="alarmli">
+	<button  type="button" class="alarmbtn" id="alarmbtn" onclick="openCloseToc();">
+                        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+OEUwOTAwNEYtQTVEOC00Mzk0LTk0M0UtRDczM0VEOENGOTA5PC90aXRsZT4KICAgIDxnIGlkPSJbaGVyZV0tU29vbWdvLUhvbWUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSLsm7nqs7XthrUvaGVhZGVyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTg0My4wMDAwMDAsIC0xNjk2LjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0ibmF2aWdhdGlvbi93ZWIvbmF2aWdhdGlvbl9wcm92aWRlciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODc3LjAwMDAwMCwgMTY3Mi4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJpY29uX25hdmlfbm90aWZpY2F0aW9ucyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTY2LjAwMDAwMCwgMjQuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPHJlY3QgaWQ9InBhdGgiIHg9IjAiIHk9IjAiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PC9yZWN0PgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJHcm91cC0yIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgMy4wMDAwMDApIiBzdHJva2U9IiMyRDJEMkQiIHN0cm9rZS13aWR0aD0iMS41Ij4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTUsMTQuNSBDNSwxNi4xNTY4NTQyIDYuMzQzMTQ1NzUsMTcuNSA4LDE3LjUgQzkuNjU2ODU0MjUsMTcuNSAxMSwxNi4xNTY4NTQyIDExLDE0LjUiIGlkPSJQYXRoIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yLDYgQzIsMi42ODYyOTE1IDQuNjg2MjkxNSw2LjA4NzE4Mzc2ZS0xNiA4LDAgQzExLjMxMzcwODUsLTYuMDg3MTgzNzZlLTE2IDE0LDIuNjg2MjkxNSAxNCw2IEwxNCwxMCBMMTYsMTQgTDAsMTQgTDIsMTAgTDIsNiBaIiBpZD0iQ29tYmluZWQtU2hhcGUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="알림" class="alarm-image"></button>
+		
+<div  class="alarmdiv1" id="alarmdiv" >
+	<div  class="alarmdiv2">
+		<header class="alarmheader">
+			<h3 alarmh3>알림</h3>
+			<button  type="button" class="btnclose"><img data-v-f7f07f48="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCI+CiAgICA8ZGVmcz4KICAgICAgICA8cGF0aCBpZD0iYSIgZD0iTTkgNy44NjlMMTYuNDM0LjQzNGwxLjEzMiAxLjEzMkwxMC4xMyA5bDcuNDM1IDcuNDM0LTEuMTMyIDEuMTMyTDkgMTAuMTNsLTcuNDM0IDcuNDM1LTEuMTMyLTEuMTMyTDcuODcgOSAuNDM0IDEuNTY2IDEuNTY2LjQzNCA5IDcuODd6Ii8+CiAgICA8L2RlZnM+CiAgICA8dXNlIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgeGxpbms6aHJlZj0iI2EiLz4KPC9zdmc+Cg==" alt="닫기"></button>
+		</header>
+		<div  class="alarmbody">
+			<div  class="alarmbody2">
+				<ul  class="alarmul"  style="display: none;"></ul>
+				<div  class="loading-icon" style="display: none;">
+					<div  data-v-52ebc5c5="" class="">
+						<div  class="indicator-body center"
+							style="width: 24px; height: 24px; border-width: 0.25rem; border-style: solid; border-color: rgb(153, 153, 153) rgba(153, 153, 153, 0.2) rgba(153, 153, 153, 0.2); border-image: initial;">
+						</div>
+						<p  class="alarmp1" style="display: none;"></p>
+					</div>
+				</div>
+				<div  class="no-notifications">
+					<p  class="alarmp2">받은 알림이 없습니다</p>
+				</div>
+				<div  class="row-nogutter" style="display: none;">
+					<button  type="button" class="morebtn">더 보기</button></div>
+			</div>
+		</div>
+	</div>
+</div>
+</li>
+
+
+<!-- 알림끝 -->
               <li class="nav-item active">
                 <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
               </li>
@@ -756,6 +1165,7 @@ main{
      </div> <!-- .container -->
 <!--   </div> .page-section -->
   </header>
+
 
 
 
@@ -1080,8 +1490,53 @@ main{
       <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
     </div>
   </footer>
+<div class="title1">
 
-<script src="resources/js/jquery-3.5.1.min.js"></script>
+
+
+    <div id="chatbot" class="main-card collapsed">
+        <button id="chatbot_toggle">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+            </svg>
+        </button>
+        <div class="main-title">
+            <div>
+                <svg viewBox="0 0 640 512" title="robot">
+                    <path fill="currentColor"
+                          d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z" />
+                </svg>
+            </div>
+            <span>마루챗봇</span>
+
+        </div>
+        <div class="chat-area" id="message-box">
+            <div class="chatdiv1">😀 무엇을 도와드릴까요?</div>
+            <div class="chatdiv2">
+                <div class="chatdiv3">
+                    <button class="chatbtn" onclick="addResponseMsg('마루는 전문가와 고객을 매칭해주는 사이트 입니다🧑‍🤝‍🧑 가입은 하셨나요? 메인에서 오른쪽 상단에 가입하기 누르고 전문가를 알아보세요👆')">마루가 처음이에요👶</button>
+                    <button class="chatbtn">에어컨 청소 하고싶어요🧙</button>
+                    <button class="chatbtn">전문가 가입 하고싶어요👩‍🔧</button>
+                    <button class="chatbtn">1:1문의하기👨‍💼</button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="line"></div>
+        <div class="input-div">
+            <input class="input-message" name="message" type="text" id="message" placeholder="Type your message ..." />
+            <button class="input-send" onclick="send()">
+                <svg style="width:24px;height:24px">
+                    <path d="M2,2 1L23,12L2,3V10L17,12L2,14V21Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+
+  <script src="resources/js/jquery-3.5.1.min.js"></script>
 
 <script src="resources/js/bootstrap.bundle.min.js"></script>
 
@@ -1265,6 +1720,72 @@ $( document ).ready( function() {
 	        return false;
 	    });
 	});
+
+// 	챗봇
+var running = false;
+function send() {
+    if (running == true) return;
+    var msg = document.getElementById("message").value;
+    if (msg == "") return;
+    running = true;
+    addMsg(msg);
+    //DELEAY MESSAGE RESPOSE Echo
+    window.setTimeout(addResponseMsg, 1000, msg);
+}
+function addMsg(msg) {
+    var div = document.createElement("div");
+    div.innerHTML =
+        "<span style='flex-grow:1'></span><div class='chat-message-sent'>" +
+        msg +
+        "</div>";
+    div.className = "chat-message-div";
+    document.getElementById("message-box").appendChild(div);
+    //SEND MESSAGE TO API
+    document.getElementById("message").value = "";
+    document.getElementById("message-box").scrollTop = document.getElementById(
+        "message-box"
+    ).scrollHeight;
+}
+function addResponseMsg(msg) {
+    var div = document.createElement("div");
+    div.innerHTML = "<div class='chat-message-received'>" + msg + "</div>";
+    div.className = "chat-message-div";
+    document.getElementById("message-box").appendChild(div);
+    document.getElementById("message-box").scrollTop = document.getElementById(
+        "message-box"
+    ).scrollHeight;
+    running = false;
+}
+document.getElementById("message").addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        send();
+    }
+});
+document.getElementById("chatbot_toggle").onclick = function () {
+    if (document.getElementById("chatbot").classList.contains("collapsed")) {
+        document.getElementById("chatbot").classList.remove("collapsed")
+        document.getElementById("chatbot_toggle").children[0].style.display = "none"
+        document.getElementById("chatbot_toggle").children[1].style.display = ""
+
+    }
+    else {
+        document.getElementById("chatbot").classList.add("collapsed")
+        document.getElementById("chatbot_toggle").children[0].style.display = ""
+        document.getElementById("chatbot_toggle").children[1].style.display = "none"
+    }
+}
+
+// 알림
+function openCloseToc() {
+  if (document.getElementById('alarmdiv').style.display === 'block') {
+    document.getElementById('alarmdiv').style.display = 'none';
+
+  } else {
+    document.getElementById('alarmdiv').style.display = 'block';
+
+  }
+}
 </script>
 
 
