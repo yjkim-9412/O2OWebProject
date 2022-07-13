@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>MaRoo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -10,6 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
 </head>
 <style>
     .row1{
@@ -128,7 +132,7 @@
             var email = document.getElementsByName("delete")[0].value
             console.log(email);
             alert(email);
-            <%--location.href="<%=request.getContextPath()%>/chat/delete?user_email="+email;--%>
+            location.href="<%=request.getContextPath()%>/chat/delete?user_email="+email;
         }else {
 
         }
@@ -146,7 +150,7 @@
         <section data-v-10523478="" data-name="page-info"
                  class="row no-gutters align-items-center justify-content-between">
             <div data-v-10523478="" data-name="chat-search-input" class="col-12">
-                <div data-v-10523478="" role="group" class="input-group"><!---->
+                <div data-v-10523478="" role="group" class="input-group">
 
                     </div>
             </div>

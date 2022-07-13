@@ -142,6 +142,12 @@ public class ChatRoomController {
         }
         return "chat/rooms";
     }
+    @RequestMapping(value = "/chat/delete")
+    public String deleteChat(){
+
+
+        return "chat/rooms";
+    }
 
 
 

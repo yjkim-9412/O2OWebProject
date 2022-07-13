@@ -960,7 +960,13 @@ li{
         var client = Stomp.over(sock);
         socket = client;
         client.connect({}, function () {
-                socket.subscribe('/topic/inc/top/'+'${sessionScope.email}',function (event){
+            var session;
+            if (!${sessionScope.id}){
+                 session = ${sessionScope.email};
+            }else {
+                session = ${sessionScope.id};
+            }
+                socket.subscribe('/topic/inc/top/'+session,function (event){
                     const content =  JSON.parse(event.body);
                     var sender = content.sender;
                     var session_name = content.session_name;
