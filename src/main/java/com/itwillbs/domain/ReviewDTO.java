@@ -13,6 +13,24 @@ public class ReviewDTO {
 	private String date;
 	private int rating;
 	private String name;
+	private Double avg;
+	private int count;
+	private Double avg2;
+	
+	
+	
+	public Double getAvg() {
+		return avg;
+	}
+	public void setAvg(Double avg) {
+		this.avg = avg;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	public int getId() {
 		return id;
 	}

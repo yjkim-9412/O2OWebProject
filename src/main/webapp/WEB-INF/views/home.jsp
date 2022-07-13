@@ -592,13 +592,20 @@ main{
 }
 .rating-star .feather {
     stroke: transparent;
-    fill: #ccc;
+    
 }
 .feather--sm {
     width: 14px !important;
     height: 14px !important;
 }
-
+td{
+	width:410px;
+	height: 240px;
+}
+.classes-sub-box--wide {
+	width:410px;
+	height: 240px;
+}
 /* 챗봇 */
 .title1{
     margin:auto;
@@ -938,6 +945,87 @@ li{
 	position: relative;
 }
 /* 알림끝 */
+
+/* 검색창 */
+.search-suggestion[data-v-8f67d2d4] {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border: 0.0625rem solid #f2f2f2;
+    border-top: none;
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    z-index: 2;
+    display: none;
+}
+
+.search-suggestion .suggestion-body[data-v-8f67d2d4] {
+    max-height: 15.5rem;
+    height: unset;
+    min-height: 12.25rem;
+}
+.search-suggestion .suggestion-body[data-v-8f67d2d4] {
+    overflow-y: scroll;
+}
+.search-suggestion .popular-section[data-v-8f67d2d4] ul.nav-tabs {
+    border-color: #f2f2f2;
+}
+.search-suggestion .popular-section[data-v-8f67d2d4] li.nav-item1 {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 0;
+}
+.search-suggestion .popular-recent-section[data-v-8f67d2d4] li.nav-item1 a.nav-link1.active {
+    color: #FFCD4A;
+}
+.search-suggestion .popular-section[data-v-8f67d2d4] li.nav-item1 a.nav-link1 {
+    text-align: center;
+    font-weight: 500;
+    border: none;
+    color: #b5b5b5;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    outline: none;
+    font-size: 15px;
+}
+.search-suggestion .suggestion-contents[data-v-8f67d2d4] {
+    min-height: 12.25rem;
+}
+.search-suggestion .popular-recent-section .tab-pane[role=tabpanel] ul[data-v-8f67d2d4] {
+    margin: 0;
+}
+.search-suggestion .suggestion-contents .item[data-v-8f67d2d4] {
+    padding: -0.15rem 1rem;
+    font-size: .875rem;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    cursor: pointer;
+}
+.search-suggestion .text-ellipsis[data-v-8f67d2d4] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+}
+.search-suggestion .flex[data-v-8f67d2d4] {
+    display: flex;
+    align-items: center;
+}
+.search-suggestion .suggestion-footer>div[data-v-8f67d2d4] {
+    cursor: pointer;
+}
+.search-suggestion .suggestion-footer[data-v-8f67d2d4] {
+    display: block;
+    padding: 0.75rem 1rem;
+    border-top: 0.0625rem solid #f2f2f2;
+    justify-content: space-between;
+    color: #737373;
+    font-size: .875rem;
+    font-weight: 500;
+}
+/* 검색창끝 */
 </style>
 
 
@@ -970,11 +1058,122 @@ li{
            
            <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-            </div>
-            
-          <ul class="navbar-nav ml-auto">
+           
+<!--             검색창 -->
+								<div data-v-8f67d2d4="" data-v-7563eff3=""
+									class="search-suggestion" id="searchdiv">
+									<div data-v-8f67d2d4="" class="suggestion-body"
+										style="height: calc(43.5625rem);">
+										
+											<div data-v-8f67d2d4="" class="tabs" id="__BVID__371">
+												<!---->
+												<div class="">
+													<ul role="tablist" class="nav nav-tabs"
+														id="__BVID__371__BV_tab_controls_">
+														<!---->
+														<li role="presentation" class="nav-item"><a
+															role="tab" aria-selected="true" aria-setsize="2"
+															aria-posinset="1" href="#" target="_self"
+															class="nav-link active"
+															id="__BVID__372___BV_tab_button__"
+															aria-controls="__BVID__372">인기 키워드</a></li>
+														<li role="presentation" class="nav-item"><a
+															role="tab" tabindex="-1" aria-selected="false"
+															aria-setsize="2" aria-posinset="2" href="#"
+															target="_self" class="nav-link"
+															id="__BVID__374___BV_tab_button__"
+															aria-controls="__BVID__374">최근 검색</a></li>
+														<!---->
+													</ul>
+												</div>
+												<div class="tab-content" id="__BVID__371__BV_tab_container_">
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="false"
+														class="tab-pane suggestion-contents active"
+														id="__BVID__372"
+														aria-labelledby="__BVID__372___BV_tab_button__" style="">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">영어 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">퍼스널트레이닝(PT)</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">보컬 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">욕실/화장실
+																	리모델링</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">도배장판 시공</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">전기 배선 설치
+																	및 수리</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">집 인테리어</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수학 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">골프 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수도 관련 설치
+																	및 수리</div></li>
+														</ul>
+													</div>
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="true"
+														class="tab-pane suggestion-contents recent-contents"
+														id="__BVID__374"
+														aria-labelledby="__BVID__374___BV_tab_button__"
+														style="display: none;">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">퍼스널컬러자격증
+																	준비</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	번역</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">수학
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+														</ul>
+													</div>
+													<!---->
+												</div>
+											</div>
+										
+									</div>
+									<div data-v-8f67d2d4="" class="suggestion-footer flex">
+										<div data-v-8f67d2d4=""></div>
+										<div data-v-8f67d2d4="" >닫기</div>
+									</div>
+								</div>
+								 </div>
+<!-- 검색창끝 -->
+
+
+								<ul class="navbar-nav ml-auto">
             
             <li class="nav-item">
               <a class="nav-link" href="<%=request.getContextPath() %>/pro/mainCategory">주고가입</a>
@@ -1004,11 +1203,121 @@ li{
 
           <div class="navbar-collapse collapse" id="navbarContent">
              
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
+              <!--search바  -->
+           <div class="search">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+           
+<!--             검색창 -->
+								<div data-v-8f67d2d4="" data-v-7563eff3=""
+									class="search-suggestion" id="searchdiv">
+									<div data-v-8f67d2d4="" class="suggestion-body"
+										style="height: calc(43.5625rem);">
+										<section data-v-8f67d2d4="" class="popular-recent-section">
+											<div data-v-8f67d2d4="" class="tabs" id="__BVID__371">
+												<!---->
+												<div class="">
+													<ul role="tablist" class="nav nav-tabs"
+														id="__BVID__371__BV_tab_controls_">
+														<!---->
+														<li role="presentation" class="nav-item"><a
+															role="tab" aria-selected="true" aria-setsize="2"
+															aria-posinset="1" href="#" target="_self"
+															class="nav-link active"
+															id="__BVID__372___BV_tab_button__"
+															aria-controls="__BVID__372">인기 키워드</a></li>
+														<li role="presentation" class="nav-item"><a
+															role="tab" tabindex="-1" aria-selected="false"
+															aria-setsize="2" aria-posinset="2" href="#"
+															target="_self" class="nav-link"
+															id="__BVID__374___BV_tab_button__"
+															aria-controls="__BVID__374">최근 검색</a></li>
+														<!---->
+													</ul>
+												</div>
+												<div class="tab-content" id="__BVID__371__BV_tab_container_">
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="false"
+														class="tab-pane suggestion-contents active"
+														id="__BVID__372"
+														aria-labelledby="__BVID__372___BV_tab_button__" style="">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">영어 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">퍼스널트레이닝(PT)</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">보컬 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">욕실/화장실
+																	리모델링</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">도배장판 시공</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">전기 배선 설치
+																	및 수리</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">집 인테리어</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수학 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">골프 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수도 관련 설치
+																	및 수리</div></li>
+														</ul>
+													</div>
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="true"
+														class="tab-pane suggestion-contents recent-contents"
+														id="__BVID__374"
+														aria-labelledby="__BVID__374___BV_tab_button__"
+														style="display: none;">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">퍼스널컬러자격증
+																	준비</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	번역</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">수학
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+														</ul>
+													</div>
+													<!---->
+												</div>
+											</div>
+										</section>
+									</div>
+									<div data-v-8f67d2d4="" class="suggestion-footer flex">
+										<div data-v-8f67d2d4=""></div>
+										<div data-v-8f67d2d4="">닫기</div>
+									</div>
+								</div>
+								 </div>
+<!-- 검색창끝 -->
               
             <ul class="navbar-nav ml-auto">
 
@@ -1072,11 +1381,121 @@ li{
 
           <div class="navbar-collapse collapse" id="navbarContent">
              
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
+              <!--search바  -->
+           <div class="search">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+           
+<!--             검색창 -->
+								<div data-v-8f67d2d4="" data-v-7563eff3=""
+									class="search-suggestion" id="searchdiv">
+									<div data-v-8f67d2d4="" class="suggestion-body"
+										style="height: calc(43.5625rem);">
+										<section data-v-8f67d2d4="" class="popular-recent-section">
+											<div data-v-8f67d2d4="" class="tabs" id="__BVID__371">
+												<!---->
+												<div class="">
+													<ul role="tablist" class="nav nav-tabs"
+														id="__BVID__371__BV_tab_controls_">
+														<!---->
+														<li role="presentation" class="nav-item"><a
+															role="tab" aria-selected="true" aria-setsize="2"
+															aria-posinset="1" href="#" target="_self"
+															class="nav-link active"
+															id="__BVID__372___BV_tab_button__"
+															aria-controls="__BVID__372">인기 키워드</a></li>
+														<li role="presentation" class="nav-item"><a
+															role="tab" tabindex="-1" aria-selected="false"
+															aria-setsize="2" aria-posinset="2" href="#"
+															target="_self" class="nav-link"
+															id="__BVID__374___BV_tab_button__"
+															aria-controls="__BVID__374">최근 검색</a></li>
+														<!---->
+													</ul>
+												</div>
+												<div class="tab-content" id="__BVID__371__BV_tab_container_">
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="false"
+														class="tab-pane suggestion-contents active"
+														id="__BVID__372"
+														aria-labelledby="__BVID__372___BV_tab_button__" style="">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">영어 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">퍼스널트레이닝(PT)</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">보컬 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">욕실/화장실
+																	리모델링</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">도배장판 시공</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">전기 배선 설치
+																	및 수리</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">집 인테리어</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수학 과외</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">골프 레슨</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="text-ellipsis">수도 관련 설치
+																	및 수리</div></li>
+														</ul>
+													</div>
+													<div data-v-8f67d2d4="" role="tabpanel" aria-hidden="true"
+														class="tab-pane suggestion-contents recent-contents"
+														id="__BVID__374"
+														aria-labelledby="__BVID__374___BV_tab_button__"
+														style="display: none;">
+														<ul data-v-8f67d2d4="" class="list">
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">퍼스널컬러자격증
+																	준비</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">영어
+																	번역</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+															<li data-v-8f67d2d4="" class="item"><div
+																	data-v-8f67d2d4="" class="service-name text-ellipsis">수학
+																	과외</div>
+																<div data-v-8f67d2d4="" class="flex">
+																	<div data-v-8f67d2d4="" class="created-at">7.11</div>
+																	<img data-v-8f67d2d4=""
+																		src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0M1QzVDNSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0ibTQuMDM1IDQgOC4wMzIgOE0xMi4wNjcgNGwtOC4wMzIgOCIvPgogICAgPC9nPgo8L3N2Zz4K">
+																</div></li>
+														</ul>
+													</div>
+													<!---->
+												</div>
+											</div>
+										</section>
+									</div>
+									<div data-v-8f67d2d4="" class="suggestion-footer flex">
+										<div data-v-8f67d2d4=""></div>
+										<div data-v-8f67d2d4="">닫기</div>
+									</div>
+								</div>
+								 </div>
+<!-- 검색창끝 -->
               
             <ul class="navbar-nav ml-auto">
 
@@ -1310,10 +1729,13 @@ li{
 
     <div class="intro-reviews__text">
       <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--lg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div> 4.88점 총 3527개의 후기가 있어요!
+</span></div> ${roundavg2 }점 총 ${count2}개의 후기가 있어요!
     </div>
+    <table>
+    <tr>
+<c:forEach  begin="1" end="3" var="reviewDTO" items="${reviewDTO}">
 
-    <div class="row no-gap row--inset">
+    <td><div class="row no-gap row--inset">
         
           <div class="classes-sub-box classes-sub-box--wide">
             <div class="classes-sub-box__content">
@@ -1326,54 +1748,21 @@ li{
 </span></div>
               </div>
 
-              <span class="text-strong">이렇게까지 도움 될지 몰랐어요.</span> 눈으로 보고 귀로 들으니까 더 와닿아요. 요점으로 짚어주듯이 써주시니까 이해도가 높아요. 많이 배워가고 <span class="text-strong">감 잡는 데 큰 도움이 돼요!</span>
+              <span class="text-strong">${reviewDTO.comment}</span><span class="text-strong"></span>
             </div>
 
             <div class="classes-sub-box__content-footer">
-              대학생 재연님
+              ${reviewDTO.name}
             </div>
           </div>
         
         
-          <div class="classes-sub-box classes-sub-box--wide">
-            <div class="classes-sub-box__content">
-              <div class="mb-2">
-                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div>
-              </div>
-
-              인터넷에서 찾던 정보와는 다르게 너무 <span class="text-strong">와닿는 지식</span>을 얻게 되었습니다. <span class="text-strong">현직자의 시점에서 필요한 점과 진솔한 부분</span>을 알게 되어 너무나 유익한 시간이었습니다.
-            </div>
-
-            <div class="classes-sub-box__content-footer">
-              취업준비생 수민님
-            </div>
-          </div>
-        
-        
-          <div class="classes-sub-box classes-sub-box--wide">
-            <div class="classes-sub-box__content">
-              <div class="mb-2">
-                <div class="rating-stars"><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span><span class="rating-star rating-star--selected"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star feather--sm"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-</span></div>
-              </div>
-
-              면접에서 계속 탈락해서 그 이유와 원인에 대해서 몰라 매우 답답하였는데 <span class="text-strong">정확하고 체계적인 피드백을 통해 문제점을 알게 되어서 매우 좋았습니다.</span> 다시 해보면 붙을 수 있을 것 같다는 자신감도 생겼습니다. 감사합니다!
-            </div>
-
-            <div class="classes-sub-box__content-footer">
-              중고신입 지명님
-            </div>
-          </div>
-          </div>
+          
+          </div></td>
+           
+           </c:forEach>
+           </tr>
+          </table>
         </div>
     </div>
 
@@ -1786,6 +2175,16 @@ function openCloseToc() {
 
   }
 }
+//검색창
+function openCloseToc() {
+	  if (document.getElementById('searchdiv').style.display === 'block') {
+	    document.getElementById('searchdiv').style.display = 'none';
+
+	  } else {
+	    document.getElementById('searchdiv').style.display = 'block';
+
+	  }
+	}
 </script>
 
 

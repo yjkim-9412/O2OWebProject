@@ -26,6 +26,11 @@ public class ReviewController {
     public String write() {
         return "pro/writereviews";
     }
+	
+	@RequestMapping(value = "/inc/top", method = RequestMethod.GET)
+    public String top() {
+        return "inc/top";
+    }
 
 
 
@@ -83,6 +88,8 @@ public class ReviewController {
 
         return "pro/proprofile";
     }
+	
+	
 
 
 
