@@ -215,6 +215,7 @@ table td {
      width: 100%;
      background-color: #FEEBB6;
      margin: 10px 10px 10px 0px;
+     height: 46px;
  }
 
 /*  푸터  */
@@ -366,11 +367,11 @@ width: 100%; bottom:0;
 		<div class="request-card-body">
 
 			<div style="height: 70px;">추가 내용</div>
-            <input type="submit" class="btn-cancle" value="취소하기">
+            <button type="button" class="btn-cancle">취소하기</button>
             <input type="submit" class="btn-update" value="자세히 보기">
 		</div>
-		  <input type="hidden" name="estimates_id" value="${getProEstimateDTO.get(i).get(0).estimates_id }>
-          <input type="hidden" name="service_name" value="${getProEstimateDTO.get(i).get(0).service_name } ">
+		  <input type="hidden" name="estimates_id" value="${getProEstimateDTO.get(i).get(0).estimates_id }">
+          <input type="hidden" name="service_name" value="${getProEstimateDTO.get(i).get(0).service_name }">
 	</form>
 </td>
 	</c:forEach>

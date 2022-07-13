@@ -90,6 +90,9 @@ public class EstimatesController {
 		
 		List<Integer> estimatesId = estimatesService.getEstimatesId(account_id);
 		System.out.println(estimatesId);
+		if(estimatesId.size() == 0) {
+			return "requests/sent_error";
+		}
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		List<List<GetProEstimateDTO>> getProEstimateDTO = new ArrayList<List<GetProEstimateDTO>>();
@@ -106,5 +109,11 @@ public class EstimatesController {
 
 		
 		return "requests/sentsent";
+	}
+
+	@RequestMapping(value = "/requests/sent_error", method = RequestMethod.GET)
+	public String login() {
+
+		return "requests/sent_error";
 	}
 }

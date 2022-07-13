@@ -161,7 +161,6 @@ table td {
     width: 100%;
     max-width: 43.75rem;
     text-align: center;
-    padding: 0 1rem;
 }
 
 .page-footer .bg-image {
@@ -442,7 +441,7 @@ margin: 0px 0px 0px 12px;
 
   <div class="service">
     <div class="service-div" style="text-align: left; color: white">
-	<div class="contents section-title" style="color: white; text-align: left;">
+	<div class="contents section-title" style="color: white; text-align: left; width: 600px;">
       <div class="section-title h1" style="font-weight: 500;">${service_name}</div>
       <div style="color: white; font-weight: 300; margin-bottom: 30px">${date}</div>
       <form class="form-inline" onsubmit="openModal()" id="myForm">
