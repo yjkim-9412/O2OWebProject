@@ -9,6 +9,8 @@ public class ProEstimatesDTO {
 
 	private int account_id;
 
+	private String content,service_name,pro_name,phone;
+
 	public String getService_name() {
 		return service_name;
 	}
@@ -21,11 +23,9 @@ public class ProEstimatesDTO {
 		return pro_name;
 	}
 
-	public void setPro_name(String pro_name) {
-		this.pro_name = pro_name;
-	}
-
-	private String content,service_name,pro_name;
+	public void setPro_name(String pro_name) {this.pro_name = pro_name;}
+	public String getPhone() {return phone;}
+	public void setPhone(String phone) {this.phone = phone;}
 	
 	public int getId() {
 		return id;

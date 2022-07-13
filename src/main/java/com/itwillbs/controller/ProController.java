@@ -342,7 +342,7 @@ public class ProController {
 		int checkNum = random.nextInt(888888) + 111111;
 		
 		/* 이메일 보내기 */
-		String setFrom = "gustmd262@naver.com";
+		String setFrom = "lamia9304@naver.com";
 		String toMail = email;
 		String title = "회원가입 인증 이메일 입니다.";
 		String content = 

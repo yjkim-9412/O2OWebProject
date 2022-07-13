@@ -172,7 +172,10 @@ function openChild() {
 
 </head>
 <body>
-<input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
+
+
+
+
 <!-- 출력부분 -->
 <div>
 <h2>리뷰</h2>
@@ -187,6 +190,7 @@ function openChild() {
 </ul>
 <div class="reviewdata">${count}개 리뷰</div>
 </div>
+	<input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
 </div>
 </div>
 
@@ -231,5 +235,7 @@ function openChild() {
 </c:if>
 
 
+
+<jsp:include page="../inc/bottom.jsp"></jsp:include>
 </body>
 </html>

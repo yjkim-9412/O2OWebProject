@@ -432,7 +432,7 @@ margin: 0px 0px 0px 12px;
 <table>
 <c:forEach var="proEstimate" items="${proEstimatesDTO }">
 <tr><td>
-		<div class="display-item">
+		<div class="display-item" onclick="location.href='<%=request.getContextPath() %>/pro/info?num=${proEstimate.pro_id}'">
 			<div class="business-card">
 				<div class="profile">
 					<div class="profile-image"></div>
@@ -444,7 +444,7 @@ margin: 0px 0px 0px 12px;
 				</div>
 				<div class="info" style="width: 100%;">
 					<div class="info-contact" style="float: left;">
-						<span><i class="fa fa-phone"></i> 010-1234-5678</span>
+						<span><i class="fa fa-phone"></i> ${proEstimate.phone}</span>
 						<span>예상금액: 총 ${proEstimate.price}원</span>
 					</div>
 					<div style="margin-left: 95px; margin-top: 18px;">
