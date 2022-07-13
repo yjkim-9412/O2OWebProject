@@ -4,7 +4,6 @@ public class ServiceDTO {
 	private int id;
 	private String name;
 	private int seccat_id;
-	private String name;
 	private String img_url;
 	private QuestionDTO questionDTO;
 	

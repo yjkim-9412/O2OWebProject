@@ -13,6 +13,12 @@ public class GetProDTO {
 	private double x_axis,y_axis;
 	private Timestamp date;
 	private Boolean identify,business,certificate;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 
 	

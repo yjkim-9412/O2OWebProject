@@ -946,22 +946,38 @@ li{
 
  
 <script type="text/javascript">
- $(document).on('keypress','#searchinput',function(){
-	 $.ajax({
-		 url:'${pageContext.request.contextPath}/pro/searchlist',
-		 data:{'keyword':$('#searchinput').val()},
-		 dataType:'JSON',
-		 success:function(rdata){
-			 if(rdata==null){
-				 $('#searchlistinput').html("검색 결과 없음");
-			 }else{
-				 $.each(rdata,function(key,value){
-					 $('#searchlistinput').append("<li><a href='<%=request.getContextPath() %>/member/login'>"+value.name+"</a></li>");
-				 })
-			 }
-		 }
-	 })
- });
+$('#searchinput').autocomplete({
+	source:function(request,response){
+		$.ajax({
+			url:'${pageContext.request.contextPath}/pro/searchlist',
+			data:{'keyword':$('#searchinput').val()},
+			dataType:'JSON',
+			success:function(rdata){
+				response($.each(rdata,function(key,value){
+					$('#searchlistinput').append("<li><a href='<%=request.getContextPath() %>/member/login'>"+value.name+"</a></li>");
+				}))
+			}
+		})
+	}
+})
+	
+	 
+
+//  $(document).on('keypress','#searchinput',function(){
+// 	 $.ajax({
+// 		 url:'${pageContext.request.contextPath}/pro/searchlist',
+// 		 data:{'keyword':$('#searchinput').val()},
+// 		 dataType:'JSON',
+// 		 success:function(rdata){
+// 			$.each(rdata,function(key,value){
+<%-- 				$('#searchlistinput').append("<li><a href='<%=request.getContextPath() %>/member/login'>"+value.name+"</a></li>"); --%>
+// 			})
+// 		 }
+// 	 })
+// 	 $('#searchinput').on('change',function(){
+// 		 $('#searchinput').empty();
+// 	 })
+//  });
 </script>
 </head>
 <script>
@@ -1021,7 +1037,7 @@ li{
            <!--search바  -->
            <div class="search">
               <input type="text" placeholder="어떤 서비스가 필요하세요?" id="searchinput">
-              <div id="searchlistinput"><ul><li>검색리스트</li></ul></div>
+              <div id="searchlistinput"><ul id="searchul"><li>검색리스트</li></ul></div>
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
             </div>
             
