@@ -1,5 +1,6 @@
 package com.itwillbs.dao;
 
+
 import com.itwillbs.domain.MemberDTO;
 
 public interface MemberDAO {
@@ -17,4 +18,5 @@ public interface MemberDAO {
 		public void updatePass(MemberDTO memberDTO);
 		
 		public void deleteMember(MemberDTO memberDTO);
+
 }
