@@ -31,7 +31,7 @@ public class StompChatController {
         System.out.println("송신자 :" + messages.getSender_name());
         System.out.println("수진자 :" + messages.getReceiver_name());
         chatService.saveChat(messages);
-
+        sendAlarm(messages);
 
         messagingTemplate.convertAndSend("/topic/room/" + messages.getSession_name(), messages);
 
@@ -43,6 +43,11 @@ public class StompChatController {
         message.setMessage(message.getSender_name()+"님이 입장했습니다");
         System.out.println(message.getMessage());
         messagingTemplate.convertAndSend("/topic/room/" + message.getSession_name(), message);
+    }
+
+    public void sendAlarm(ChatMessageDTO chatMessageDTO){
+        System.out.println("알림전송!" + chatMessageDTO.getReceiver());
+        messagingTemplate.convertAndSend("/topic/inc/top/"+chatMessageDTO.getReceiver(),chatMessageDTO);
     }
 
 

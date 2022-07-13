@@ -126,13 +126,29 @@ input:focus{
 </head>
 <body>
 
+                let $socketAlert =$('div#socketAlert');
+                $socketAlert.css('display','block');
+                $socketAlert.html(sender+"님이 메세지를 보냈습니다! <a href=/chat/room/"+session_name+">이동하기</a>");
+                setTimeout(function (){
+                    $socketAlert.css('display','none');
+                },3000);
+            });
+            }
+
+        });
+
+    });
+</script>
 <header>
 <c:catch>
 <c:choose>
 <c:when test="${ empty sessionScope.id }">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
+    <div id="socketAlert" class="alert alert-success" role="alert" style="display: none">
+
+    </div>
+        <div class="container">
         <a href="<%=request.getContextPath()%>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">

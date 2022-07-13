@@ -14,7 +14,9 @@
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 
 <!-- 파비콘 변경 -->
 <link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
@@ -609,8 +611,44 @@ main{
  
  
 </head>
-<body>
+<script>
+    $(document).ready(function (){
+    connectStomp();
+    function connectStomp (){
+        StompStatus = true;
+        var sock = new SockJS("/stompTest");
+        var client = Stomp.over(sock);
+        socket = client;
+        client.connect({}, function () {
+                socket.subscribe('/topic/inc/top/'+'${sessionScope.email}',function (event){
+                    const content =  JSON.parse(event.body);
+                    var sender = content.sender;
+                    var session_name = content.session_name;
+                    var receiver = content.receiver_name;
+                    let $socketAlert =$('div#socketAlert');
+                    $socketAlert.css('display','block');
+                     $socketAlert.html(sender+"님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
+                     setTimeout(function (){
+                         $socketAlert.css('display','none');
+                     },3000);
 
+                });
+
+
+        });
+
+    }
+    });
+    function goPost(session_name){
+
+    }
+
+</script>
+<body>
+<div class="container">
+    <div id="socketAlert" class="alert alert-success" role="alert" style="display: none">
+
+    </div>
   <!-- Back to top button -->
   <div class="back-to-top"></div>
 
@@ -620,7 +658,8 @@ main{
 <c:when test="${ empty sessionScope }">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
+
+
         <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -14,7 +14,6 @@
 <style type="text/css">
     *{ margin: 0; padding: 0; }
     .chat_wrap .header { font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
-
     .chat_wrap .chat { padding-bottom: 80px; }
     .chat_wrap .chat ul { width: 100%; list-style: none; }
     .chat_wrap .chat ul li { width: 100%; }
@@ -51,7 +50,7 @@
 
     <div  class="chat format">
         <ul>
-            <li id="msgli">
+            <li>
                 <div class="sender">
                     <span></span>
                 </div>
@@ -72,6 +71,10 @@
 </script>
 <script>
     const Chat = (function(){
+        window.addEventListener('scroll', () => {
+            //스크롤을 할 때마다 로그로 현재 스크롤의 위치가 찍혀나온다.
+            console.log(window.scrollX, window.scrollY);
+        });
         const myName = '${user_name}';
         connectStomp();
         <c:forEach var="chatMessageDTO" items="${messageList}">
@@ -113,6 +116,8 @@
                         "receiverName"  : receiver
                     };
                     resive(data);
+
+
                 });
             });
             function disconnect() {
@@ -125,6 +130,7 @@
                 disconnect();
             }
         }
+
         // init 함수
         function init() {
             // enter 키 이벤트
@@ -149,6 +155,7 @@
         // 메세지 태그 생성
         function createMessageTag(LR_className, senderName, message) {
             // 형식 가져오기
+
             let chatLi = $('div.chat.format ul li').clone();
 
             // 값 채우기
@@ -164,11 +171,12 @@
         function appendMessageTag(LR_className, senderName, message) {
             const chatLi = createMessageTag(LR_className, senderName, message);
 
-            $('div.chat:not(.format) ul').append(chatLi)
+            $('div.chat:not(.format) ul').append(chatLi);
 
 
+            $('div.chat_wrap').scrollTop($('div.chat_wrap')[0].scrollHeight);
             // 스크롤바 아래 고정
-            $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
+            // $('div.chat').scrollTop($('div.chat').prop('scrollHeight'));
 
 
         }
@@ -183,7 +191,9 @@
                 message: msg,
                 receiver:'${receiver}',
                 receiver_name:'${receiver_name}'}));
+
             console.log("sendMessage!!!!");
+
 
 
         }

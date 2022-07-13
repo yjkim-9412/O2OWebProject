@@ -55,6 +55,9 @@ public class ChatRoomController {
     @RequestMapping(value = "/chat/newChat",method = RequestMethod.GET)
     public String createChat(@RequestParam("user_email") String pro_email ,HttpSession session,HttpServletRequest request){
         int account_id =  (Integer)session.getAttribute("id");
+        if(account_id == 0){
+            return "redirect:/member/msg";
+        }
         MemberDTO memberDTO = memberService.getMember(account_id);
         String account_email = memberDTO.getEmail();
         ProDTO proDTO = proService.getPro(pro_email);
@@ -79,6 +82,7 @@ public class ChatRoomController {
         String userEmail = request.getParameter("userEmail");
         if (userEmail == null){
             int id = (Integer)session.getAttribute("id");
+
             MemberDTO memberDTO = memberService.getMember(id);
             GetChatRoomDTO chatUser = chatEnterService.checkRoomAccount(memberDTO.getEmail(),session_name);
             model.addAttribute("user_name",memberDTO.getName());
@@ -111,6 +115,9 @@ public class ChatRoomController {
             model.addAttribute("receiver_name",chatUser.getReceiver_name());
             model.addAttribute("chatSession",session_name);
             model.addAttribute("messageList", messageList);
+        }else {
+            System.out.println("불허된 채팅방 접근");
+            return "redirect:/member/msgsession";
         }
 
         return "chat/room";
@@ -135,6 +142,9 @@ public class ChatRoomController {
             model.addAttribute("userName",memberDTO.getName());
             model.addAttribute("currentUser","account");
 
+        }else {
+            System.out.println("로그인 세션이 없습니다");
+            return "redirect:/member/msg";
         }
         return "chat/rooms";
     }
