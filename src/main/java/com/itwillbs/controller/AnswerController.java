@@ -25,11 +25,11 @@ public class AnswerController {
 	@Inject
 	private AnswerService answerService;
 	
-	@RequestMapping(value = "/category/result1", method = RequestMethod.GET)
-	public String result1(HttpSession session, HttpServletRequest request) {
+	@RequestMapping(value = "/category/result5", method = RequestMethod.GET)
+	public String result5(HttpSession session, HttpServletRequest request) {
 	
 		int account_id = (int)session.getAttribute("id");
-//		answerService.insertEstimates(account_id);
+		answerService.insertEstimates(account_id);
 		
 		System.out.println("session id : " + account_id);
 		int estimates_id = answerService.getEstimates_id();
@@ -39,11 +39,11 @@ public class AnswerController {
 		EstimatesMidDTO estimatesMidDTO = new EstimatesMidDTO();
 		int question_id = 0, answer_id = 0;
 		
-		for(int i = 1; i <= 5; i++) {
+		for(int i = 0; i <= 4; i++) {
 			String[] ans = request.getParameterValues("ans" + i);
-			
-			question_id = Integer.parseInt(ans[0]);
-			String content = ans[1];
+			String[] ques = request.getParameterValues("ques" + i);
+			question_id = Integer.parseInt(ques[0]);
+			String content = ans[0];
 				
 			AnswerDTO answerDTO = new AnswerDTO();
 			answerDTO.setQuestions_id(question_id);
@@ -53,13 +53,13 @@ public class AnswerController {
 			
 			answer_id = answerDTO.getId();
 			
-			System.out.println("question_id : " + ans[0] + ", answer_id : " + answer_id + ", content : " + ans[1]);
+			System.out.println("question_id : " + ques[0] + ", answer_id : " + answer_id + ", content : " + ans[0]);
 			
 			estimatesMidDTO.setEstimates_id(estimates_id);
 			estimatesMidDTO.setQuestion_id(question_id);
 			estimatesMidDTO.setAnswer_id(answer_id);
 			
-//			answerService.insertEstimatesMid(estimatesMidDTO);
+			answerService.insertEstimatesMid(estimatesMidDTO);
 			
 		}
 		
@@ -93,7 +93,7 @@ public class AnswerController {
 		addressDTO.setDistrict_id(district_id);
 		addressDTO.setAddistrict_id(addistrict_id);
 		addressDTO.setAddressdetail(addressdetail);
-//		answerService.insertAddress(addressDTO);
+		answerService.insertAddress(addressDTO);
 		
 		int maxAddrId = answerService.getMaxAddrId();
 		
@@ -101,13 +101,13 @@ public class AnswerController {
 		map.put("maxAddrId", maxAddrId);
 		map.put("account_id", account_id);
 		map.put("estimates_id", estimates_id);
-//		answerService.updateEstimates(map);
+		answerService.updateEstimates(map);
 		
 		return "category/result";
 	}
 	
-	@RequestMapping(value = "/category/result2", method = RequestMethod.GET)
-	public String result2(HttpSession session, HttpServletRequest request) {
+	@RequestMapping(value = "/category/result4", method = RequestMethod.GET)
+	public String result4(HttpSession session, HttpServletRequest request) {
 	
 		int account_id = (int)session.getAttribute("id");
 		answerService.insertEstimates(account_id);
