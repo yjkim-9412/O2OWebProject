@@ -4,13 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.itwillbs.domain.AnswerDTO;
-import com.itwillbs.domain.EstimatesDTO;
-import com.itwillbs.domain.EstimatesMidDTO;
-import com.itwillbs.domain.GetEstimateDTO2;
-import com.itwillbs.domain.GetProEstimateDTO;
-import com.itwillbs.domain.ProEstimatesDTO;
-import com.itwillbs.domain.QuestionDTO;
+import com.itwillbs.domain.*;
 
 public interface EstimatesDAO{
 	
@@ -29,4 +23,6 @@ public interface EstimatesDAO{
 	public List<GetProEstimateDTO> getProEstimates(Map<String, Integer> map);
 	
 	public List<ProEstimatesDTO> getProEstimates2(int estimates_id);
+
+	public ProAddrDTO getProAddr(int pro_id);
 }

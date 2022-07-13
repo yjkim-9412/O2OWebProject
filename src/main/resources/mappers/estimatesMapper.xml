@@ -59,6 +59,16 @@
   	</select>
   	
   	<select id="getProEstimates2" resultType="com.itwillbs.domain.ProEstimatesDTO">
-  		select * from PROESTIMATES where estimates_id = #{estimates_id};
+		select pe.id proestimates_id, pe.estimates_id, pe.pro_id, p.name pro_name, pe.price, pe.selected, pe.account_id, pe.content
+		from PROESTIMATES pe left join PROS p on pe.pro_id = p.id
+		where estimates_id = #{estimates_id}
   	</select>
+
+	<select id="getProAddr" resultType="com.itwillbs.domain.ProAddrDTO">
+		select p.id pro_id, p.address_id, a.cities_id, c.name city_name, a.districts_id, d.name district_name
+		from PROS p left join ADDRESS a on p.address_id = a.id
+					left join CITIES c on a.cities_id = c.id
+					left join DISTRICTS d on a.districts_id = d.id
+		where p.id = #{pro_id}
+	</select>
   </mapper>
