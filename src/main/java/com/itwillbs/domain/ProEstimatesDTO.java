@@ -1,20 +1,16 @@
 package com.itwillbs.domain;
 
 public class ProEstimatesDTO {
-	private int id;
+	private int proEstimates_id;
 	private int estimates_id;
 	private int pro_id;
+
+	private String pro_name;
 	private int price;
 	private int selected;
 	private int account_id;
 	private String content;
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+
 	public int getEstimates_id() {
 		return estimates_id;
 	}
@@ -51,11 +47,34 @@ public class ProEstimatesDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	public int getProEstimates_id() {
+		return proEstimates_id;
+	}
+
+	public void setProEstimates_id(int proEstimates_id) {
+		this.proEstimates_id = proEstimates_id;
+	}
+
+	public String getPro_name() {
+		return pro_name;
+	}
+
+	public void setPro_name(String pro_name) {
+		this.pro_name = pro_name;
+	}
+
 	@Override
 	public String toString() {
-		return "ProEstimatesDTO [id=" + id + ", estimates_id=" + estimates_id + ", pro_id=" + pro_id + ", price="
-				+ price + ", selected=" + selected + ", account_id=" + account_id + ", content=" + content + "]";
+		return "ProEstimatesDTO{" +
+				"proEstimates_id=" + proEstimates_id +
+				", estimates_id=" + estimates_id +
+				", pro_id=" + pro_id +
+				", pro_name='" + pro_name + '\'' +
+				", price=" + price +
+				", selected=" + selected +
+				", account_id=" + account_id +
+				", content='" + content + '\'' +
+				'}';
 	}
-	
-	
 }

@@ -189,11 +189,10 @@ table td {
     margin-top: 1rem;
 }
 
-.request-btn {
+.btn-update{
 	font-weight: 500;
 	text-align: center;
     vertical-align: middle;
-    padding: 0.6875rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
     border: 0.0625rem solid transparent;
@@ -201,7 +200,23 @@ table td {
     display: block;
     width: 100%;
     background-color: #FFCD4A;
+    margin: 10px 10px 10px 0px;
 }
+
+.btn-cancle{
+     font-weight: 500;
+     text-align: center;
+     vertical-align: middle;
+     font-size: 1rem;
+     line-height: 1.5;
+     border: 0.0625rem solid transparent;
+     border-radius: 0.25rem;
+     display: block;
+     width: 100%;
+     background-color: #FEEBB6;
+     margin: 10px 10px 10px 0px;
+     height: 46px;
+ }
 
 /*  푸터  */
 .callnumber{
@@ -246,10 +261,7 @@ table td {
  
 .page-footer {
 width: 100%; bottom:0;
-} 
-
-
-
+}
 </style>
   
 
@@ -342,10 +354,10 @@ width: 100%; bottom:0;
   <input type="hidden" name="id" value="${sessionScope.id }">
   <input type="hidden" name="email" value="${memberDTO.email }">
   <input type="hidden" name="password" value="${memberDTO.password }">
- 
+
 
 <div class="container">
-<span><h3 style="margin-top: 100px;">받은 견적</h3></span>
+    <span><h3 style="margin-top: 100px; margin-left: 80px;"><b>받은 견적</b></h3></span>
 <table>
 <tr>
 	<c:forEach var="i" begin="0" end="${getProEstimateDTO.size() - 1}" step="1">
@@ -353,16 +365,22 @@ width: 100%; bottom:0;
 	<form class="request-card" action="<%=request.getContextPath() %>/requests/estimate"  method="get">
 		<div class="request-card-header">${getProEstimateDTO.get(i).get(0).service_name }</div>
 		<div class="request-card-body">
-			<div style="height: 125px;">추가 내용</div>
-			<input type="submit" class="request-btn update" value="자세히 보기">
+
+			<div style="height: 70px;">추가 내용</div>
+            <button type="button" class="btn-cancle">취소하기</button>
+            <input type="submit" class="btn-update" value="자세히 보기">
 		</div>
-		  <input type="hidden" name="estimates_id" value="${getProEstimateDTO.get(i).get(0).estimates_id } ">
+		  <input type="hidden" name="estimates_id" value="${getProEstimateDTO.get(i).get(0).estimates_id }">
+          <input type="hidden" name="service_name" value="${getProEstimateDTO.get(i).get(0).service_name }">
 	</form>
 </td>
 	</c:forEach>
 </tr>
 </table>
+
+
 </div>
+
 
 <!--   푸터 -->
 
@@ -426,6 +444,7 @@ width: 100%; bottom:0;
 <script src="../resources/vendor/wow/wow.min.js"></script>
 
 <script src="../resources/js/theme.js"></script>
+
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 

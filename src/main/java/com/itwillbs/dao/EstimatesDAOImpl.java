@@ -6,16 +6,9 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import com.itwillbs.domain.*;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
-import com.itwillbs.domain.AnswerDTO;
-import com.itwillbs.domain.EstimatesDTO;
-import com.itwillbs.domain.EstimatesMidDTO;
-import com.itwillbs.domain.GetEstimateDTO2;
-import com.itwillbs.domain.GetProEstimateDTO;
-import com.itwillbs.domain.ProEstimatesDTO;
-import com.itwillbs.domain.QuestionDTO;
 
 @Repository
 public class EstimatesDAOImpl implements EstimatesDAO{
@@ -74,8 +67,9 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 		
 		return sqlSession.selectList(namespace + ".getProEstimates2", estimates_id);
 	}
-	
-	
-	
-	
+
+	@Override
+	public ProAddrDTO getProAddr(int pro_id) {
+		return sqlSession.selectOne(namespace + ".getProAddr", pro_id);
+	}
 }
