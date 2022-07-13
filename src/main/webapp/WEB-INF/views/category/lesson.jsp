@@ -500,11 +500,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/language?services_id1=23'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/language?services_id1=21'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/0215f0ab-61fe-4273-8a1b-6d73d71ad38c.png');">
                                 	</div>
-                                    <div class="card-title">영어</div>
+                                    <div class="card-title">일본어</div>
                                 </div>
                             </div>
                         </div>

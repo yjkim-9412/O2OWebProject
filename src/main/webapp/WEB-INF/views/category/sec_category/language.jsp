@@ -92,7 +92,8 @@ input {
   border: 1px solid #bbb;
   border-radius: 8px;
   padding: 10px 12px;
-  font-size: 12px;
+  font-size: 15px;
+    margin: 5px;
 }
 input:focus{
 	outline:1px solid #FEEBB6;
