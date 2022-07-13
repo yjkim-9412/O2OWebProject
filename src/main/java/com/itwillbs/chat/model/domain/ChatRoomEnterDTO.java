@@ -1,7 +1,5 @@
 package com.itwillbs.chat.model.domain;
 
-import com.itwillbs.domain.MemberDTO;
-import com.itwillbs.domain.ProDTO;
 import lombok.Getter;
 import lombok.Setter;
 

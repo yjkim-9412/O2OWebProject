@@ -1,7 +1,7 @@
 package com.itwillbs.dao;
 
 
-import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.*;
 
 public interface MemberDAO {
 	//추상메서드 정의

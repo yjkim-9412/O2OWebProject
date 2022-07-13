@@ -1,16 +1,12 @@
 package com.itwillbs.chat.controller;
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
-import com.itwillbs.chat.model.domain.ChatRoomDTO;
-import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
 import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
-import com.itwillbs.chat.repository.ChatRepository;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
-import com.itwillbs.domain.GetProDTO;
-import com.itwillbs.domain.MemberDTO;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.service.MemberService;
 
@@ -28,9 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 
 @Slf4j

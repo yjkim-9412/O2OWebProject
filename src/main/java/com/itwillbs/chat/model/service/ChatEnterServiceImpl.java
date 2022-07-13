@@ -5,7 +5,6 @@ import com.itwillbs.chat.model.domain.ChatRoomEnterDTO;
 import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
 
-import com.itwillbs.dao.ProDAO;
 import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.service.MemberService;
