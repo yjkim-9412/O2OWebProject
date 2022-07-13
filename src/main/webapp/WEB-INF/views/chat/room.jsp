@@ -182,10 +182,7 @@
 
         // 메세지 전송
         function sendMessage(msg) {
-            if(!${receiver} || ${receiver} === ""){
-                alert("사용자가 채팅방을 나갔습니다");
-                return false;
-            }
+
             socket.send('/chat/message', {}, JSON.stringify({
 
                 session_name: '${session_name}',

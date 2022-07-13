@@ -952,7 +952,10 @@ li{
  
 </head>
 <script>
+
     $(document).ready(function (){
+
+
     connectStomp();
     function connectStomp (){
         StompStatus = true;
@@ -960,15 +963,10 @@ li{
         var client = Stomp.over(sock);
         socket = client;
         client.connect({}, function () {
-            var session;
-            if (!${sessionScope.id}){
-                 session = ${sessionScope.email};
-            }else {
-                session = ${sessionScope.id};
-            }
-                socket.subscribe('/topic/inc/top/'+session,function (event){
+
+                socket.subscribe('/topic/inc/top/${sessionScope.email}',function (event){
                     const content =  JSON.parse(event.body);
-                    var sender = content.sender;
+                    var sender = content.sender_name;
                     var session_name = content.session_name;
                     var receiver = content.receiver_name;
                     let $socketAlert =$('div#socketAlert');
@@ -976,9 +974,10 @@ li{
                      $socketAlert.html(sender+"님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
                      setTimeout(function (){
                          $socketAlert.css('display','none');
-                     },3000);
+                     },6000);
 
                 });
+
 
 
         });
