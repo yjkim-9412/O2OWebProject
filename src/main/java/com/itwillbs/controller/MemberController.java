@@ -77,7 +77,7 @@ public class MemberController {
 		}else {
 			return "member/msg";
 		}
-		return "redirect:/member/main";
+		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
 	public String main(@RequestParam(value = "code", required = false) String code,Model m) {

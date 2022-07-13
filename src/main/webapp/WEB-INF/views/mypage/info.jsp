@@ -414,7 +414,7 @@ ul li {
 					<a href="<%=request.getContextPath() %>/requests/sent" style="text-decoration: none; " class="sub-menu">내 요청서 보기</a>
               		</li>
               		<li class="sub-menu sub-menu-container underline">
-					<a href="#" style="text-decoration: none; " class="sub-menu">내 채팅방 목록 보기</a>
+					<a href="<%=request.getContextPath() %>/chat/rooms" style="text-decoration: none; " class="sub-menu">내 채팅방 목록 보기</a>
               		</li>
               		</li>
               		<li class="sub-menu sub-menu-container underline">

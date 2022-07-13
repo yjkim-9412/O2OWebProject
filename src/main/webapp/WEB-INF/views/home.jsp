@@ -985,10 +985,9 @@ li{
 
 </script>
 <body>
+<div id="socketAlert" class="alert alert-success" role="alert" style="display: none">
+</div>
 <div class="container">
-    <div id="socketAlert" class="alert alert-success" role="alert" style="display: none">
-
-
 
 <header>
 <c:catch>

@@ -449,7 +449,7 @@ margin: 0px 0px 0px 12px;
 					</div>
 					<div style="margin-left: 95px; margin-top: 18px;">
 						<button type="button" class="btn cancle">취소하기</button>
-						<button type="button" class="btn chat">채팅하기</button>
+						<button type="button" class="btn chat" onclick="">채팅하기</button>
 					</div>
 				</div>
 			</div>

@@ -122,6 +122,18 @@
                     padding-bottom: 3.75rem;
                 }
 </style>
+<script>
+    function deleteChat(){
+        if( window.confirm("채팅을 나가시겠습니까?")){
+            var email = document.getElementsByName("delete")[0].value
+            console.log(email);
+            alert(email);
+            <%--location.href="<%=request.getContextPath()%>/chat/delete?user_email="+email;--%>
+        }else {
+
+        }
+    }
+</script>
 <body>
 <header>
 
@@ -171,7 +183,10 @@
                                         <input type="hidden" name="currentUser" value="${currentUser}">
                                             ${GetChatRoomDTO.pro_name}님과의 채팅<br>
                                         <input type="submit" value="대화하기">
+
                                     </form>
+                                    <button onclick="deleteChat()">채팅방 나가기</button>
+                                    <input type="hidden" name="delete" value="${GetChatRoomDTO.account_email}">
                                 </li>
                             </c:if>
                             <c:if test="${currentUser eq 'pro'}">
@@ -184,7 +199,10 @@
                                         <input type="hidden" name="currentUser" value="${currentUser}">
                                             ${GetChatRoomDTO.account_name}님과의 채팅<br>
                                         <input type="submit" value="대화하기">
+
                                     </form>
+                                    <button onclick="deleteChat()">채팅방 나가기</button>
+                                    <input type="hidden" name="delete" value="${GetChatRoomDTO.pro_email}">
                                 </li>
                             </c:if>
                         </c:forEach>

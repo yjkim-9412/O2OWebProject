@@ -28,7 +28,7 @@
 
 
 
-<a  target="_blank" href="<%=request.getContextPath() %>/chat/rooms">채팅</a><br>
+<a href="<%=request.getContextPath() %>/chat/rooms">채팅</a><br>
 <a  target="_blank" href="<%=request.getContextPath() %>/chat/newChat?user_email=a71773194@gmail.com">새채팅</a><br>
 <a href="<%=request.getContextPath() %>/member/logout">로그아웃</a><br>
 <a href="<%=request.getContextPath() %>/member/info">회원정보조회</a><br>
