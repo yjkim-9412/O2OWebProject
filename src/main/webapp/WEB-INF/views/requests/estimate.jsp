@@ -437,15 +437,15 @@ margin: 0px 0px 0px 12px;
 				<div class="profile">
 					<div class="profile-image"></div>
 					<div class="profile-title">
-						<h2>서비스</h2>
-						<h3>주고 이름</h3>
+						<h2>${proEstimate.service_name}</h2>
+						<h3>${proEstimate.pro_name}</h3>
 						<span>${proEstimate.content }</span>
 					</div>
 				</div>
 				<div class="info" style="width: 100%;">
 					<div class="info-contact" style="float: left;">
 						<span><i class="fa fa-phone"></i> 010-1234-5678</span>
-						<span>가격</span>
+						<span>예상금액: 총 ${proEstimate.price}원</span>
 					</div>
 					<div style="margin-left: 95px; margin-top: 18px;">
 						<button type="button" class="btn cancle">취소하기</button>

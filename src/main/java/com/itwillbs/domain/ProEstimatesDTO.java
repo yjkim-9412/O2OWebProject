@@ -6,8 +6,26 @@ public class ProEstimatesDTO {
 	private int pro_id;
 	private int price;
 	private int selected;
+
 	private int account_id;
-	private String content;
+
+	public String getService_name() {
+		return service_name;
+	}
+
+	public void setService_name(String service_name) {
+		this.service_name = service_name;
+	}
+
+	public String getPro_name() {
+		return pro_name;
+	}
+
+	public void setPro_name(String pro_name) {
+		this.pro_name = pro_name;
+	}
+
+	private String content,service_name,pro_name;
 	
 	public int getId() {
 		return id;
