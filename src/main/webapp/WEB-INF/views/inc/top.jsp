@@ -125,6 +125,19 @@ input:focus{
  
 </head>
 <body>
+<script>
+    $(document).ready(function connectStomp (){
+        StompStatus = true;
+        var sock = new SockJS("/stompTest");
+        var cilent = Stomp.over(sock);
+        cilent.connect({}, function (){
+            if (${sessionScope.email}){
+            socket.subscribe('/topic/inc/top/'+'${sessionScope.email}',function (event){
+                const content =  JSON.parse(event.body);
+                var sender = content.sender;
+                var session_name = content.session_name;
+                var receiver = content.receiver_name;
+
 
                 let $socketAlert =$('div#socketAlert');
                 $socketAlert.css('display','block');
