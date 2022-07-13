@@ -6,9 +6,11 @@ import javax.servlet.http.HttpSession;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.ServiceDTO;
 import com.itwillbs.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -484,5 +486,16 @@ public class ProController {
 		proService.insertProEstimate(proEstimateDTO);
 
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/pro/searchlist", method = RequestMethod.GET)
+	public ResponseEntity<List<ServiceDTO>> searchlist(String keyword) {
+		ResponseEntity<List<ServiceDTO>> entitiy=null;
+		if(!keyword.equals("")) {
+			List<ServiceDTO> serviceDTO = proService.getSearchList(keyword);
+			entitiy=new ResponseEntity<List<ServiceDTO>>(serviceDTO,HttpStatus.OK);
+		}
+		
+		return entitiy;
 	}
 }

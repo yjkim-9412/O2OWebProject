@@ -11,14 +11,18 @@ import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.ServiceDTO;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 @Repository
 public class ProDAOImpl implements ProDAO{
     
+
+	
 
 	@Inject
     private SqlSession sqlSession;
@@ -132,6 +136,10 @@ public class ProDAOImpl implements ProDAO{
 		System.out.println("ProDAOImpl proCheck()");
 		return sqlSession.selectOne(namespace+".proCheck",proDTO);
 	}
-
+	@Override
+	public List<ServiceDTO> getSearchList(String keyword) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".getSearchList",keyword);
+	}
 
 }
