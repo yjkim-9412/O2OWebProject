@@ -1,5 +1,6 @@
 package Test;
 
+import com.itwillbs.chat.model.domain.ChatRoomDTO;
 import org.junit.Test;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.jasypt.registry.AlgorithmRegistry;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import static org.junit.Assert.*;
 import java.io.IOException;
+import java.util.UUID;
 
 public class JasyptSCkey {
 
@@ -35,6 +37,13 @@ public class JasyptSCkey {
         System.out.println("Decrypted username for admin is : "+decryptedName);
         System.out.println("Encrypted passDB for admin is : "+passDB);
         System.out.println("Decrypted passDB for admin is : "+decryptedPass);
+
+        System.out.println();
+
+        String roomId = UUID.randomUUID().toString();
+        System.out.println(roomId);
+
+
 
     }
 

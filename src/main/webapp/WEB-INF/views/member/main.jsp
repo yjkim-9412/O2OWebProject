@@ -17,7 +17,7 @@
 // }
 %>
 <c:if test="${! empty sessionScope.id }">
-	${sessionScope.email}님 환영합니다!
+	${memberDTO.email}님 환영합니다!
 </c:if>
 
 <c:if test="${! empty ka_email }">
@@ -28,8 +28,10 @@
 
 
 
+<a  target="_blank" href="<%=request.getContextPath() %>/chat/rooms">채팅</a><br>
+<a  target="_blank" href="<%=request.getContextPath() %>/chat/newChat?user_email=a71773194@gmail.com">새채팅</a><br>
 <a href="<%=request.getContextPath() %>/member/logout">로그아웃</a><br>
-<a href="<%=request.getContextPath() %>/mypage/info">회원정보조회</a><br>
+<a href="<%=request.getContextPath() %>/member/info">회원정보조회</a><br>
 <a href="<%=request.getContextPath() %>/member/update">회원정보수정</a><br>
 <a href="<%=request.getContextPath() %>/member/delete">회원정보삭제</a><br>
 <%
