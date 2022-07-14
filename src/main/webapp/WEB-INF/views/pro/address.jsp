@@ -7,6 +7,22 @@
     <title>주소로 장소 표시하기</title>
     
 </head>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	alert("hello");
+	$('#fr').submit(function(){
+		if($('#sample3_address').val()==""){
+			$('#sample3_addressdiv').html("주소를 선택해주세요.");
+			$('#sample3_addressdiv').css("color","red");
+			return false;
+		} else  {
+			$('#sample3_addressdiv').html("");
+		}
+	});
+});
+</script>
 <style type="text/css">
 html{
 /* border: 1px black solid; */
@@ -94,6 +110,7 @@ input[type=text]{
 <!-- <input type="text" id="sample3_postcode" placeholder="우편번호"> -->
 <input type="text" id="sample3_address" name="sample3_address" placeholder="주소" readonly="readonly">
 <input class="btn-two rounded" type="button" onclick="reloadDaumPostcode()" value="다시찾기"><br>
+<div id="sample3_addressdiv"></div>
 <input type="text" id="sample3_detailAddress" name="sample3_detailAddress" placeholder="상세주소">
 <input type="hidden" id="sample3_extraAddress" name="sample3_extraAddress" placeholder="참고항목">
 <input type="hidden" id="lat" value="" name="lat">

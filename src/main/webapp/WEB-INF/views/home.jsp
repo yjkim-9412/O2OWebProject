@@ -1269,11 +1269,25 @@ a.nav-link1 {
 
 
  
- 
- 
- 
- 
- 
+<script type="text/javascript">
+ $(document).on('keypress','#searchinput',function(){
+	 $.ajax({
+		 url:'${pageContext.request.contextPath}/pro/searchlist',
+		 data:{'keyword':$('#searchinput').val()},
+		 dataType:'JSON',
+		 success:function(rdata){			 
+			 $.each(rdata,function(key,value){
+				 setTimeout(function(){
+					$('#searchlistinput').append("<ul id='searchul'><li><a href='<%=request.getContextPath() %>/category/sec_category/pt?services_id1="+value.id+"'>"+value.name+","+value.id+"</a></li></ul>");
+				 }, 200);
+			 })
+		 }
+	 })
+	 $('#searchinput').on('keyup',function(){
+		 $('#searchul').remove();
+	 })
+ }); 
+</script>
 </head>
 <script>
     $(document).ready(function (){
@@ -1442,6 +1456,11 @@ a.nav-link1 {
                         <div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
                     </div>
                 </div>
+           <!--search바  -->
+           <div class="search">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" id="searchinput">
+              <div id="searchlistinput"><ul id="searchul"><li>검색리스트</li></ul></div>
+              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
             </div>
             <!-- 검색창끝 -->
             

@@ -3,12 +3,15 @@ package com.itwillbs.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.ServiceDTO;
 import com.itwillbs.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -387,6 +390,7 @@ public class ProController {
 	@RequestMapping(value = "/pro/estimates", method = RequestMethod.GET)
 	 public String estimate(HttpSession session,Model model,HttpServletRequest request) {
 	    	System.out.println("ProController estimate()");
+	    	if(session.getAttribute("email")==null) return "redirect:/";
 
 	    	String email = session.getAttribute("email").toString();
 	    	int pageSize=proService.getPageSize();
@@ -439,9 +443,11 @@ public class ProController {
 	@RequestMapping(value = "/pro/loginPro", method = RequestMethod.POST)
 	public String loginPro(ProDTO proDTO,HttpSession session) {
 		System.out.println("ProController loginPro()");
-		
+
 		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
+			session.removeAttribute("email");
+			session.removeAttribute("id");
 			session.setAttribute("email",proDTO.getEmail());
 		}else {
 			return "member/msg";
@@ -482,4 +488,17 @@ public class ProController {
 
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value = "/pro/searchlist", method = RequestMethod.GET)
+	public ResponseEntity<List<ServiceDTO>> searchlist(String keyword) {
+		ResponseEntity<List<ServiceDTO>> entitiy=null;
+		if(!keyword.equals("")) {
+			List<ServiceDTO> serviceDTO = proService.getSearchList(keyword);
+			entitiy=new ResponseEntity<List<ServiceDTO>>(serviceDTO,HttpStatus.OK);
+		}
+		
+		return entitiy;
+	}
+	
+
 }

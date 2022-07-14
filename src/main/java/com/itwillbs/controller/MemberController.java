@@ -3,7 +3,6 @@ package com.itwillbs.controller;
 
 import java.util.HashMap;
 
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.*;
 import com.itwillbs.service.MemberService;
 
@@ -64,8 +64,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
-	public String login() {
-		
+	public String login(HttpSession session) {
+		if(session.getAttribute("id")!=null || session.getAttribute("email")!=null) {
+			return "redirect:/";
+		}
 		return "member/loginForm";
 	}
 	@RequestMapping(value = "/member/loginPro", method = RequestMethod.POST)
@@ -74,6 +76,8 @@ public class MemberController {
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
 			System.out.println(memberDTO2);
+			session.removeAttribute("email");
+			session.removeAttribute("id");
 			session.setAttribute("id",memberDTO2.getId());
 		}else {
 			return "member/msg";
