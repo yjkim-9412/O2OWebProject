@@ -520,7 +520,7 @@ select.form-control {
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -554,7 +554,7 @@ select.form-control {
 <c:otherwise>
     	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -601,7 +601,7 @@ select.form-control {
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="<%=request.getContextPath() %>/category/result1" method="get" role="form">
+          <form action="<%=request.getContextPath() %>/category/result5" method="get" role="form">
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
@@ -614,11 +614,11 @@ select.form-control {
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0).ques_contents }</h5>
-            <input type="hidden" name="ans1" value="${questions_id[0] }">
+            <input type="hidden" name="ques0" value="${questions.get(0).ques_id }">
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans1" id="radio2" type="radio" value="${answers }">
+                  <input name="ans0" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -629,11 +629,11 @@ select.form-control {
         <!-- 문항2 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(1).ques_contents }</h5>
-              <input type="hidden" name="ans2" value="${questions_id[1] }">
+              <input type="hidden" name="ques1" value="${questions.get(1).ques_id }">
                <c:forEach var="answers" items="${answers.get(1) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans2" id="radio2" type="radio" value="${answers }">
+                  <input name="ans1" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -645,11 +645,11 @@ select.form-control {
         <!-- 문항3 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(2).ques_contents }</h5>
-              <input type="hidden" name="ans3" value="${questions_id[2] }">
+              <input type="hidden" name="ques2" value="${questions.get(2).ques_id }">
                <c:forEach var="answers" items="${answers.get(2) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans3" id="radio2" type="radio" value="${answers }">
+                  <input name="ans2" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -661,11 +661,11 @@ select.form-control {
         <!-- 문항4 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(3).ques_contents }</h5>
-              <input type="hidden" name="ans4" value="${questions_id[3] }">
+              <input type="hidden" name="ques3" value="${questions.get(3).ques_id }">
                <c:forEach var="answers" items="${answers.get(3) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans4" id="radio2" type="radio" value="${answers }">
+                  <input name="ans3" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -690,11 +690,11 @@ select.form-control {
         <!-- 문항6 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(5).ques_contents }</h5>
-   				<input type="hidden" name="ans5" value="${questions_id[5] }">
+   				<input type="hidden" name="ques4" value="${questions.get(5).ques_id }">
                <c:forEach var="answers" items="${answers.get(5) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans5" id="radio2" type="radio" value="${answers }">
+                  <input name="ans4" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>

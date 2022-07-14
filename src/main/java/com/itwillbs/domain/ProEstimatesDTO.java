@@ -6,6 +6,8 @@ public class ProEstimatesDTO {
 	private int pro_id;
 
 	private String pro_name;
+
+	private String pro_email;
 	private int price;
 	private int selected;
 	private int account_id;
@@ -64,6 +66,14 @@ public class ProEstimatesDTO {
 		this.pro_name = pro_name;
 	}
 
+	public String getPro_email() {
+		return pro_email;
+	}
+
+	public void setPro_email(String pro_email) {
+		this.pro_email = pro_email;
+	}
+
 	@Override
 	public String toString() {
 		return "ProEstimatesDTO{" +
@@ -71,6 +81,7 @@ public class ProEstimatesDTO {
 				", estimates_id=" + estimates_id +
 				", pro_id=" + pro_id +
 				", pro_name='" + pro_name + '\'' +
+				", pro_email='" + pro_email + '\'' +
 				", price=" + price +
 				", selected=" + selected +
 				", account_id=" + account_id +

@@ -603,11 +603,11 @@ select.form-control {
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0).ques_contents }</h5>
-              <input type="hidden" name="ans1" value="${questions_id[0] }">
+              <input type="hidden" name="ques0" value="${questions.get(0).ques_id }">
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans1" id="radio2" type="radio" value="${answers }">
+                  <input name="ans0" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -618,11 +618,11 @@ select.form-control {
         <!-- 문항2 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(1).ques_contents }</h5>
-              <input type="hidden" name="ans2" value="${questions_id[1] }">
+              <input type="hidden" name="ques1" value="${questions.get(1).ques_id }">
                <c:forEach var="answers" items="${answers.get(1) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans2" id="radio2" type="radio" value="${answers }">
+                  <input name="ans1" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -647,11 +647,11 @@ select.form-control {
         <!-- 문항4 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(3).ques_contents }</h5>
-               <input type="hidden" name="ans3" value="${questions_id[3] }">
+               <input type="hidden" name="ques2" value="${questions.get(3).ques_id }">
                <c:forEach var="answers" items="${answers.get(3) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans3" id="radio2" type="radio" value="${answers }">
+                  <input name="ans2" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
@@ -663,11 +663,11 @@ select.form-control {
         <!-- 문항5 -->
        	<fieldset class="wizard-fieldset">
               <h5>${questions.get(4).ques_contents }</h5>
-   				<input type="hidden" name="ans4" value="${questions_id[4] }">
+   				<input type="hidden" name="ques3" value="${questions.get(4).ques_id }">
                <c:forEach var="answers" items="${answers.get(4) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans4" id="radio2" type="radio" value="${answers }">
+                  <input name="ans3" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>

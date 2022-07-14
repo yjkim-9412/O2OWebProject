@@ -53,34 +53,42 @@ public class EstimatesController {
 
 		System.out.println("estimates_id : " + estimates_id);
 
+			HashMap<String, Integer> map = new HashMap<>();
+			map.put("account_id", account_id);
+			map.put("estimatesId", estimates_id);
+
+			List<GetEstimateDTO2> getEstimateDTO = estimatesService.getEstimates(map);
+			System.out.println("이것은 요청서 :" + getEstimateDTO);
+
+			List<EstimatesMidDTO> estimatesMidDTOList = estimatesService.getEstimatesMid(estimates_id);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+
+
+			model.addAttribute("service_name", service_name);
+			model.addAttribute("date", sdf.format(estimatesMidDTOList.get(0).getDate()));
+			model.addAttribute("getEstimateDTO", getEstimateDTO);
+
 		List<ProAddrDTO> proAddrList = new ArrayList<>();
 
 		List<ProEstimatesDTO> proEstimatesDTO = estimatesService.getProEstimates2(estimates_id);
-		for(int i = 0; i < proEstimatesDTO.size(); i++) {
-			ProAddrDTO proAddrDTO = estimatesService.getProAddr(proEstimatesDTO.get(i).getPro_id());
-			proAddrList.add(proAddrDTO);
-			System.out.println(proAddrDTO);
+
+		if(proEstimatesDTO.size() != 0) {
+
+			for (int i = 0; i < proEstimatesDTO.size(); i++) {
+				ProAddrDTO proAddrDTO = estimatesService.getProAddr(proEstimatesDTO.get(i).getPro_id());
+				proAddrList.add(proAddrDTO);
+				System.out.println(proAddrDTO);
+			}
+
+			System.out.println(proEstimatesDTO);
+
+			model.addAttribute("proEstimatesDTO", proEstimatesDTO);
+			model.addAttribute("proAddrList", proAddrList);
+			return "requests/estimate";
+		}else {
+			return "requests/estimate_null";
 		}
 
-		HashMap<String, Integer> map = new HashMap<>();
-		map.put("account_id", account_id);
-		map.put("estimatesId", estimates_id);
-
-		List<GetEstimateDTO2> getEstimateDTO = estimatesService.getEstimates(map);
-		System.out.println("이것은 요청서 :" + getEstimateDTO);
-
-		List<EstimatesMidDTO> estimatesMidDTOList = estimatesService.getEstimatesMid(estimates_id);
-		System.out.println("날짜 데이터타입 : " + estimatesMidDTOList.get(0).getDate().getClass().getName());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
-
-		System.out.println(proEstimatesDTO);
-		model.addAttribute("proEstimatesDTO", proEstimatesDTO);
-		model.addAttribute("proAddrList",proAddrList);
-		model.addAttribute("service_name",service_name);
-		model.addAttribute("date",sdf.format(estimatesMidDTOList.get(0).getDate()));
-		model.addAttribute("getEstimateDTO", getEstimateDTO);
-
-		return "requests/estimate";
 	}
 	
 	@RequestMapping(value = "/requests/sentsent", method = RequestMethod.GET)
@@ -96,17 +104,22 @@ public class EstimatesController {
 		
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		List<List<GetProEstimateDTO>> getProEstimateDTO = new ArrayList<List<GetProEstimateDTO>>();
+		List<String> date = new ArrayList<>();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+
 		map.put("account_id", account_id);
 
 		for(int i = 0; i < estimatesId.size(); i++) {
 			map.put("estimates_id", estimatesId.get(i));
 			getProEstimateDTO.add(estimatesService.getProEstimates(map));
+			date.add(sdf.format((estimatesService.getEstimatesMid(estimatesId.get(i)).get(0).getDate())));
 		}
 
 		System.out.println(estimatesId);
+		System.out.println("이것은 날짜 " + date);
 		model.addAttribute("estimatesId", estimatesId);
 		model.addAttribute("getProEstimateDTO", getProEstimateDTO);
-
+		model.addAttribute("date",date);
 		
 		return "requests/sentsent";
 	}

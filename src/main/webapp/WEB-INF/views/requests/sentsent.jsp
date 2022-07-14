@@ -133,7 +133,6 @@ table td {
   width: 500px;
   height: 200px;
   padding: 5px -9px;
-  padding-bottom: 299px;
 }
 
 
@@ -181,7 +180,7 @@ table td {
 .request-card-header {
 	color: #323232;
     margin-bottom: 0;
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -200,7 +199,7 @@ table td {
     display: block;
     width: 100%;
     background-color: #FFCD4A;
-    margin: 10px 10px 10px 0px;
+    margin: -76px 10px 16px 0px;
 }
 
 .btn-cancle{
@@ -214,7 +213,7 @@ table td {
      display: block;
      width: 100%;
      background-color: #FEEBB6;
-     margin: 10px 10px 10px 0px;
+     margin: -12px -36px 87px 0px;
      height: 46px;
  }
 
@@ -282,7 +281,7 @@ width: 100%; bottom:0;
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -316,7 +315,7 @@ width: 100%; bottom:0;
 <c:otherwise>
     	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -366,7 +365,7 @@ width: 100%; bottom:0;
 		<div class="request-card-header">${getProEstimateDTO.get(i).get(0).service_name }</div>
 		<div class="request-card-body">
 
-			<div style="height: 70px;">추가 내용</div>
+			<div style="height: 70px;">${date.get(i)}</div>
             <button type="button" class="btn-cancle">취소하기</button>
             <input type="submit" class="btn-update" value="자세히 보기">
 		</div>
@@ -374,6 +373,9 @@ width: 100%; bottom:0;
           <input type="hidden" name="service_name" value="${getProEstimateDTO.get(i).get(0).service_name }">
 	</form>
 </td>
+        <c:if test="${(i+1) % 3 == 0}">
+        </tr><tr>
+        </c:if>
 	</c:forEach>
 </tr>
 </table>

@@ -191,7 +191,6 @@ body {
   color: #888888;
   padding: 30px;
   border: 1px solid #f3f3f3;
-  border-radius: 10px;
 }
 .form-wizard .wizard-form-radio {
   display: inline-block;
@@ -260,6 +259,9 @@ body {
   min-width: 120px;
   padding: 10px;
   text-align: center;
+  margin: 40px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 .form-wizard .form-wizard-next-btn:hover, .form-wizard .form-wizard-next-btn:focus, .form-wizard .form-wizard-previous-btn:hover, .form-wizard .form-wizard-previous-btn:focus, .form-wizard .form-wizard-submit:hover, .form-wizard .form-wizard-submit:focus {
   color: #ffffff;
@@ -298,13 +300,16 @@ body {
 }
 .form-wizard .form-group {
   position: relative;
-  margin: 25px 0;
+  margin-bottom: 0px;
+  border: 1px solid #f3f3f3;
+  padding: 20px;
 }
 .form-wizard .wizard-form-text-label {
   position: absolute;
   left: 10px;
   top: 16px;
   transition: 0.2s linear all;
+  border: 0.0625rem solid #f2f2f2;
 }
 .form-wizard .focus-input .wizard-form-text-label {
   color: #d65470;
@@ -316,7 +321,7 @@ body {
   margin: 30px 0;
 }
 .form-wizard .form-wizard-steps li {
-  width: 25%;
+  width: 33%;
   float: left;
   position: relative;
 }
@@ -499,38 +504,79 @@ select.form-control {
   <div class="back-to-top"></div>
   
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light sticky" data-offset="500" style="z-index: 2;">
-      <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+    <c:catch>
+      <c:choose>
+        <c:when test="${ empty sessionScope.id }">
 
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+            <div class="container">
+              <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
-        <div class="navbar-collapse collapse" id="navbarContent">
-           
-           <!--search바  -->
-           <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?">
-              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="navbar-collapse collapse" id="navbarContent">
+
+                <!--search바  -->
+                <div class="search">
+                  <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                  <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+                </div>
+
+                <ul class="navbar-nav ml-auto">
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">고수찾기</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
+                  </li>
+                  <li class="nav-item">
+                    <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
+                  </li>
+                </ul>
+              </div>
+
             </div>
-            
-          <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">로그인</a>
-            </li>
-            <li class="nav-item">
-              <button class="button-55" role="button" >회원가입</button>
-            </li>
-          </ul>
-        </div>
+          </nav>
+        </c:when>
+        <c:otherwise>
+          <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+            <div class="container">
+              <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
-      </div>
-    </nav>
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="navbar-collapse collapse" id="navbarContent">
+
+                <!--search바  -->
+                <div class="search">
+                  <input type="text" placeholder="어떤 서비스가 필요하세요?">
+                  <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
+                </div>
+
+                <ul class="navbar-nav ml-auto">
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">고수찾기</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
+                  </li>
+                  <li class="nav-item">
+                    <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </nav>
+        </c:otherwise>
+      </c:choose>
+    </c:catch>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -546,7 +592,7 @@ select.form-control {
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="<%=request.getContextPath() %>/category/result3" method="get" role="form">
+          <form action="<%=request.getContextPath() %>/category/result1" method="get" role="form">
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
@@ -559,11 +605,11 @@ select.form-control {
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
               <h5>${questions.get(0).ques_contents }</h5>
-              <input type="hidden" name="ans1" value="${questions_id[0] }">
+              <input type="hidden" name="ques0" value="${questions.get(0).ques_id }">
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans1" id="radio2" type="radio" value="${answers }">
+                  <input name="ans0" id="radio2" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>

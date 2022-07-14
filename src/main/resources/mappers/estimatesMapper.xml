@@ -59,7 +59,7 @@
   	</select>
   	
   	<select id="getProEstimates2" resultType="com.itwillbs.domain.ProEstimatesDTO">
-		select pe.id proestimates_id, pe.estimates_id, pe.pro_id, p.name pro_name, pe.price, pe.selected, pe.account_id, pe.content
+		select pe.id proestimates_id, pe.estimates_id, pe.pro_id, p.name pro_name, p.email pro_email, pe.price, pe.selected, pe.account_id, pe.content
 		from PROESTIMATES pe left join PROS p on pe.pro_id = p.id
 		where estimates_id = #{estimates_id}
   	</select>
