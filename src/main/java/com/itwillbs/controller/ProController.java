@@ -377,9 +377,12 @@ public class ProController {
 	 public String info(Model m,HttpSession session,String num) {
 	    	System.out.println("ProController info()");
 	    	String email = session.getAttribute("email").toString();
-			int id=(Integer)session.getAttribute("num");
-			m.addAttribute("num",id);
+			if(num!=null){
 
+			}
+			int id=Integer.parseInt(num);
+			System.out.println(id);
+			System.out.println(email);
 			if(email.isEmpty()){
 				System.out.println("없음");
 			}
