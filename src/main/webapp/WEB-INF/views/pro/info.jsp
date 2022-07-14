@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -212,21 +213,19 @@
 
 
 <input type="hidden" name="id" value="${sessionScope.id }">
-<input type="hidden" name="email" value="${proDTO.email }">
+<input type="hidden" name="email" value="${sessionScope.email }">
 <div class="page-section" style="padding-top: 0px">
     <div class="container">
-        <form action="#" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto"enctype="multipart/form-data">
+
+
             <h2 class="text-black"><b>주고 프로필</b></h2>
             <div class="profile-image"></div><br><br>
 
-
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" name="file">
-                <label class="custom-file-label" for="customFile">파일선택</label>
-                <input type="submit" class="btn update"value="수정">
-            </div>
+            <div>${proDTO.img_url}</div>
 
             <br><br>
+
+        <form action="/pro/updateFilePro" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto" enctype="multipart/form-data" method="POST">
             <input type="file" name="file">
             <input type="submit" class="btn update"value="수정">
 
@@ -343,27 +342,29 @@
             </li>
 
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/estimates'">
-                <div class="item">
-                    <div class="item-title">견적요청서</div>
-                </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
-            </li>
+            <c:if test="${not empty sessionScope.email}">
+                <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/estimates'">
+                    <div class="item">
+                        <div class="item-title">견적요청서</div>
+                    </div>
+                    <div>
+                        <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                    </div>
+                </li>
 
-            <c:if test="${sessionScope.email}">
-            <div class="item-container" style="margin-top:50px; height: 50px;" onclick="location.href='<%=request.getContextPath() %>/pro/delete'">
-                <div class="item">
-                    <div class="text-black">주고 탈퇴</div>
-                </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
-            </div>
+                <li class="item-container" style="margin-top:50px; height: 50px;" onclick="location.href='<%=request.getContextPath() %>/pro/delete'">
+                    <div class="item">
+                        <div class="item-title">주고 탈퇴</div>
+                    </div>
+                    <div>
+                        <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                    </div>
+                </li>
+            </c:if>
+
         </form>
     </div>
-    </c:if>
+
 
 </div>
 <jsp:include page="../inc/bottom.jsp"></jsp:include>

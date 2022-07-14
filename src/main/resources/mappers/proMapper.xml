@@ -59,7 +59,7 @@
 	
 	<select id="getProemail" resultType="com.itwillbs.domain.GetProDTO">
 		select p.id, p.name, p.email, p.phone, p.career, p.employee_number, p.identify, p.business,p.certificate,p.date,
-				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name
+				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name,pf.img_url
 		from PROS p left join ADDRESS a on p.address_id=a.id 
 		left join CITIES c on c.id=a.cities_id 
 		left join DISTRICTS d on d.id=a.districts_id
@@ -67,6 +67,7 @@
 		left join SERVICES s on s.id=p.services_id
 		left join SECCATEGORY se on se.id=s.seccat_id
 		left join MAINCATEGORY m on m.id=se.maincat_id
+		left join PROFILEIMG pf on pf.pro_id=p.id
 		where p.email=#{email}
 	</select>
 	
