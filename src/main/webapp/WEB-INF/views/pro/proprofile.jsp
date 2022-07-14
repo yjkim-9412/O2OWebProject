@@ -126,7 +126,7 @@ li{
 	position: relative;
     
 }
-.commentdivs2{
+.commentdiv2{
 	position: relative;
     display: block;
     overflow: hidden;
@@ -147,8 +147,8 @@ input[type=button] {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-
-
+}
+.allbox{
 
 }
 </style>
@@ -172,8 +172,16 @@ function openChild() {
 
 </head>
 <body>
+<c:choose>
+	<c:when test="${ empty sessionScope }">
+		<input type="hidden" value="리뷰쓰기">
+	</c:when>
+	<c:otherwise>
 <input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
+	</c:otherwise>
+</c:choose>
 <!-- 출력부분 -->
+<div class="allbox">
 <div>
 <h2>리뷰</h2>
 <div class="reviewlist">
@@ -229,7 +237,7 @@ function openChild() {
 <c:if test="${pageDTO.endPage < pageDTO.pageCount }">
 <a href="${pageContext.request.contextPath}/pro/list?pageNum=${pageDTO.startPage+pageDTO.pageBlock }">Next</a>
 </c:if>
-
+	</div>
 
 </body>
 </html>

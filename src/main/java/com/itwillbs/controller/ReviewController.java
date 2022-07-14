@@ -26,6 +26,8 @@ public class ReviewController {
     public String write() {
         return "pro/writereviews";
     }
+	
+
 
 
 
@@ -83,6 +85,8 @@ public class ReviewController {
 
         return "pro/proprofile";
     }
+	
+	
 
 
 

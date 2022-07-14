@@ -14,4 +14,10 @@ public interface ReviewService {
 	public int getReviewCount(int pro_id);
 
 	public double getreviewavg(int pro_id);
+	
+	public List<ReviewDTO> getratingfive();
+	
+	public double getAllreviewavg();
+	
+	public int getAllreviewcount(); 
 }
