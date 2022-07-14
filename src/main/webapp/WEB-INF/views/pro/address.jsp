@@ -11,7 +11,6 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
-	alert("hello");
 	$('#fr').submit(function(){
 		if($('#sample3_address').val()==""){
 			$('#sample3_addressdiv').html("주소를 선택해주세요.");
