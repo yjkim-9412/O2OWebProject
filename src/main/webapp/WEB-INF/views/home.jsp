@@ -963,20 +963,37 @@ li{
         var client = Stomp.over(sock);
         socket = client;
         client.connect({}, function () {
-
-                socket.subscribe('/topic/inc/top/${sessionScope.email}',function (event){
-                    const content =  JSON.parse(event.body);
+            if (!<%=session.getAttribute("id")%>) {
+                socket.subscribe('/topic/inc/top/${sessionScope.email}', function (event) {
+                    console.log("프로 로그인");
+                    const content = JSON.parse(event.body);
                     var sender = content.sender_name;
                     var session_name = content.session_name;
                     var receiver = content.receiver_name;
-                    let $socketAlert =$('div#socketAlert');
-                    $socketAlert.css('display','block');
-                     $socketAlert.html(sender+"님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
-                     setTimeout(function (){
-                         $socketAlert.css('display','none');
-                     },6000);
+                    let $socketAlert = $('div#socketAlert');
+                    $socketAlert.css('display', 'block');
+                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
+                    setTimeout(function () {
+                        $socketAlert.css('display', 'none');
+                    }, 6000);
 
                 });
+            }else {
+                socket.subscribe('/topic/inc/top/${sessionScope.alert}', function (event) {
+                    console.log("회원 로그인");
+                    const content = JSON.parse(event.body);
+                    var sender = content.sender_name;
+                    var session_name = content.session_name;
+                    var receiver = content.receiver_name;
+                    let $socketAlert = $('div#socketAlert');
+                    $socketAlert.css('display', 'block');
+                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
+                    setTimeout(function () {
+                        $socketAlert.css('display', 'none');
+                    }, 6000);
+
+                });
+            }
 
 
 
@@ -1000,7 +1017,6 @@ li{
 <c:when test="${ empty sessionScope }">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-
 
         <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 

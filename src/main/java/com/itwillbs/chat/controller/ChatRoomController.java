@@ -1,6 +1,7 @@
 package com.itwillbs.chat.controller;
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
+import com.itwillbs.chat.model.domain.DeleteChatDTO;
 import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
@@ -13,12 +14,11 @@ import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +29,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
+@RestController
 public class ChatRoomController {
     @Autowired
     private  MemberService memberService;
@@ -142,11 +143,16 @@ public class ChatRoomController {
         }
         return "chat/rooms";
     }
-    @RequestMapping(value = "/chat/delete")
-    public String deleteChat(){
+    @RequestMapping(value = "/chat/delete",method = RequestMethod.GET)
+    public String deleteChat(@RequestBody DeleteChatDTO deleteChatDTO){
 
+        String result = "";
+        System.out.println(deleteChatDTO.getCurrentUser());
+        System.out.println(deleteChatDTO.getUserEmail());
+        System.out.println(deleteChatDTO.getSession_name());
+        System.out.println(deleteChatDTO.getReceiver_email());
 
-        return "chat/rooms";
+        return result;
     }
 
 
