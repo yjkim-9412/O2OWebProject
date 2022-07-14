@@ -21,5 +21,17 @@
 		select ROUND(AVG(rating),1 )from REVIEWS where pro_id=#{pro_id}
 	</select>
 
+	<select id="getratingfive" resultType="com.itwillbs.domain.ReviewDTO">
+		select * , a.name from REVIEWS r JOIN ACCOUNTS a ON r.account_id=a.id where r.rating = 5;
+	
+	</select>
+	
+	<select id="getAllreviewavg" resultType="java.lang.Double">
+		select ROUND(AVG(rating),1 ) from REVIEWS
+	</select>
+	
+	<select id="getAllreviewcount" resultType="java.lang.Integer">
+	    select count(*) from REVIEWS
+	</select>
 
 </mapper>
