@@ -377,13 +377,27 @@ public class ProController {
 	 public String info(Model m,HttpSession session,String num) {
 	    	System.out.println("ProController info()");
 	    	String email = session.getAttribute("email").toString();
-			int id=(Integer)session.getAttribute("id");
+			int id=(Integer)session.getAttribute("num");
 			m.addAttribute("num",id);
 
-			GetProDTO proDTO = proService.getProemail(email);
-			m.addAttribute("proDTO", proDTO);
+			if(email.isEmpty()){
+				System.out.println("없음");
+			}
 
-	        return "pro/info";
+			System.out.println(email);
+
+			if(email.isEmpty()){
+				GetProDTO proDTO2=proService.getProid(id);
+				System.out.println(proDTO2);
+				m.addAttribute("proDTO",proDTO2);
+				return "pro/info";
+			}
+			else{
+				GetProDTO proDTO = proService.getProemail(email);
+				m.addAttribute("proDTO", proDTO);
+			}
+
+			return "pro/info";
 	    }
 	
 	@RequestMapping(value = "/pro/estimates", method = RequestMethod.GET)
