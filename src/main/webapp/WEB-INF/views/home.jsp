@@ -1439,7 +1439,7 @@ a.nav-link1 {
                     </div>
                     <div data-v-8f67d2d4="" class="suggestion-footer flex">
                         <div data-v-8f67d2d4=""></div>
-                        <div data-v-8f67d2d4="">닫기</div>
+                        <div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
                     </div>
                 </div>
             </div>
@@ -1585,7 +1585,7 @@ a.nav-link1 {
                       </div>
                       <div data-v-8f67d2d4="" class="suggestion-footer flex">
                           <div data-v-8f67d2d4=""></div>
-                          <div data-v-8f67d2d4="">닫기</div>
+                          <div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
                       </div>
                   </div>
               </div>
@@ -1763,7 +1763,7 @@ a.nav-link1 {
                       </div>
                       <div data-v-8f67d2d4="" class="suggestion-footer flex">
                           <div data-v-8f67d2d4=""></div>
-                          <div data-v-8f67d2d4="">닫기</div>
+                          <div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
                       </div>
                   </div>
               </div>
@@ -2457,6 +2457,10 @@ function openClose() {
 
 	  }
 	}
+
+function closebtn(){
+    document.getElementById('searchdiv').style.display = 'none';
+}
 
 // 	챗봇
 var running = false;

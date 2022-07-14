@@ -27,10 +27,7 @@ public class ReviewController {
         return "pro/writereviews";
     }
 	
-	@RequestMapping(value = "/inc/top", method = RequestMethod.GET)
-    public String top() {
-        return "inc/top";
-    }
+
 
 
 

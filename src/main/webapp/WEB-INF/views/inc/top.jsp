@@ -202,6 +202,8 @@ input:focus{
 </style> 
  
 <script type="text/javascript">
+
+
 function openCloseToc() {
 	  if (document.getElementById('searchdiv').style.display === 'block') {
 	    document.getElementById('searchdiv').style.display = 'none';
@@ -211,6 +213,15 @@ function openCloseToc() {
 
 	  }
 	}
+function closebtn(){
+	document.getElementById('searchdiv').style.display = 'none';
+}
+
+
+/*$('#plz').on('blur',function (){
+	$('#searchdiv').attr('style', "display:none;");
+});*/
+
 
 </script>
 
@@ -263,7 +274,7 @@ function openCloseToc() {
            
            <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <input type="text" id="plz" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()" >
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -371,7 +382,7 @@ function openCloseToc() {
 									</div>
 									<div data-v-8f67d2d4="" class="suggestion-footer flex">
 										<div data-v-8f67d2d4=""></div>
-										<div data-v-8f67d2d4="" >닫기</div>
+										<div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
 									</div>
 								</div>
 								 </div>
@@ -523,7 +534,7 @@ function openCloseToc() {
 									</div>
 									<div data-v-8f67d2d4="" class="suggestion-footer flex">
 										<div data-v-8f67d2d4=""></div>
-										<div data-v-8f67d2d4="">닫기</div>
+										<div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
 									</div>
 								</div>
 								 </div>
@@ -701,7 +712,7 @@ function openCloseToc() {
 									</div>
 									<div data-v-8f67d2d4="" class="suggestion-footer flex">
 										<div data-v-8f67d2d4=""></div>
-										<div data-v-8f67d2d4="">닫기</div>
+										<div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
 									</div>
 								</div>
 								 </div>

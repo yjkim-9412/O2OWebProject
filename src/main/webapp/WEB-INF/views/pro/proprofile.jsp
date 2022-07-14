@@ -147,8 +147,8 @@ input[type=button] {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-
-
+}
+.allbox{
 
 }
 </style>
@@ -181,6 +181,7 @@ function openChild() {
 	</c:otherwise>
 </c:choose>
 <!-- 출력부분 -->
+<div class="allbox">
 <div>
 <h2>리뷰</h2>
 <div class="reviewlist">
@@ -236,7 +237,7 @@ function openChild() {
 <c:if test="${pageDTO.endPage < pageDTO.pageCount }">
 <a href="${pageContext.request.contextPath}/pro/list?pageNum=${pageDTO.startPage+pageDTO.pageBlock }">Next</a>
 </c:if>
-
+	</div>
 
 </body>
 </html>
