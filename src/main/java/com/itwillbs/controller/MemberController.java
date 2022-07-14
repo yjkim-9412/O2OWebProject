@@ -69,15 +69,17 @@ public class MemberController {
 		return "member/loginForm";
 	}
 	@RequestMapping(value = "/member/loginPro", method = RequestMethod.POST)
-	public String loginPro(MemberDTO memberDTO,HttpSession session) {
+	public String loginPro(MemberDTO memberDTO,HttpSession session,Model model) {
 
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
 			System.out.println(memberDTO2);
 			session.setAttribute("id",memberDTO2.getId());
+			session.setAttribute("alert",memberDTO2.getEmail());
 		}else {
 			return "member/msg";
 		}
+
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)

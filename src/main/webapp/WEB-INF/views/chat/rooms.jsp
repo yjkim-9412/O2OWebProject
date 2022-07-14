@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>MaRoo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -10,6 +12,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
 </head>
 <style>
     .row1{
@@ -123,16 +127,44 @@
                 }
 </style>
 <script>
-    function deleteChat(){
-        if( window.confirm("채팅을 나가시겠습니까?")){
-            var email = document.getElementsByName("delete")[0].value
-            console.log(email);
-            alert(email);
-            <%--location.href="<%=request.getContextPath()%>/chat/delete?user_email="+email;--%>
-        }else {
 
-        }
-    }
+       function deleteChat(index){
+           if (confirm("대화방을 나가시겠습니까?")){
+               var frm = 'form'+index;
+               var receiver_email = 'receiver_email'+index;
+               var session_name = 'session_name'+index;
+               var userEmail = 'userEmail'+index;
+               var currentUser = 'currentUser'+index;
+
+               var param = {"receiver_email":document.getElementById(receiver_email).value,
+                   "session_name":document.getElementById(session_name).value,
+                   "userEmail":document.getElementById(userEmail).value,
+                   "currentUser":document.getElementById(currentUser).value
+               }
+               $.ajax({
+                   url:'${pageContext.request.contextPath}/chat/delete',
+                   data: {'receiver_email':document.getElementById(receiver_email).value,
+                       'session_name':document.getElementById(session_name).value,
+                       'userEmail':document.getElementById(userEmail).value,
+                       'currentUser':document.getElementById(currentUser).value
+                   },
+                   dataType:'text',
+                   success:function(){
+                       window.location.reload();
+
+
+                   }
+               });
+
+               return true;
+           }else {
+
+               return false;
+           }
+
+       }
+
+
 </script>
 <body>
 <header>
@@ -146,7 +178,7 @@
         <section data-v-10523478="" data-name="page-info"
                  class="row no-gutters align-items-center justify-content-between">
             <div data-v-10523478="" data-name="chat-search-input" class="col-12">
-                <div data-v-10523478="" role="group" class="input-group"><!---->
+                <div data-v-10523478="" role="group" class="input-group">
 
                     </div>
             </div>
@@ -172,22 +204,22 @@
                 <div>
                     현재유저 : ${currentUser}
                     <ul>
-                        <c:forEach var="GetChatRoomDTO" items="${chatList}">
+                        <c:forEach var="GetChatRoomDTO" items="${chatList}" varStatus="status">
                             <c:if test="${currentUser eq 'account'}">
                                 <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
                                 <li>
-                                    <form action="<%=request.getContextPath() %>/chat/room/${session_name}" method="post">
-                                        <input type="hidden" name="receiver_email" value="${GetChatRoomDTO.pro_email}">
-                                        <input type="hidden" name="session_name" value="${GetChatRoomDTO.session_name}">
-                                        <input type="hidden" name="userEmail" value="${userEmail}">
-                                        <input type="hidden" name="currentUser" value="${currentUser}">
+                                    <form method="post" id="form${status.index}">
+                                        <input type="hidden" id="receiver_email${status.index}"  value="${GetChatRoomDTO.pro_email}">
+                                        <input type="hidden" id="session_name${status.index}"  value="${GetChatRoomDTO.session_name}">
+                                        <input type="hidden" id="userEmail${status.index}" value="${userEmail}">
+                                        <input type="hidden" id="currentUser${status.index}" value="${currentUser}">
                                             ${GetChatRoomDTO.pro_name}님과의 채팅<br>
-                                        <input type="submit" value="대화하기">
-
+                                        <input type="submit" value="대화하기" onclick=" form.action='<%=request.getContextPath() %>/chat/room/${session_name}';">
+                                        <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
                                     </form>
-                                    <button onclick="deleteChat()">채팅방 나가기</button>
-                                    <input type="hidden" name="delete" value="${GetChatRoomDTO.account_email}">
+
                                 </li>
+
                             </c:if>
                             <c:if test="${currentUser eq 'pro'}">
                                 <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
@@ -199,10 +231,9 @@
                                         <input type="hidden" name="currentUser" value="${currentUser}">
                                             ${GetChatRoomDTO.account_name}님과의 채팅<br>
                                         <input type="submit" value="대화하기">
-
+                                        <input type="button" value="채팅방 나가기" onclick="return deleteChat(this.form);">
+                                        <input type="hidden" name="delete" value="${GetChatRoomDTO.account_email}">
                                     </form>
-                                    <button onclick="deleteChat()">채팅방 나가기</button>
-                                    <input type="hidden" name="delete" value="${GetChatRoomDTO.pro_email}">
                                 </li>
                             </c:if>
                         </c:forEach>
