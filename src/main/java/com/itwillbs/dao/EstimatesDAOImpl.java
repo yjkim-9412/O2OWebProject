@@ -72,4 +72,14 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 	public ProAddrDTO getProAddr(int pro_id) {
 		return sqlSession.selectOne(namespace + ".getProAddr", pro_id);
 	}
+
+	@Override
+	public void deleteEstimate(int estimate_id) {
+		sqlSession.delete(namespace + ".deleteEstimate", estimate_id);
+	}
+
+	@Override
+	public void deleteEstimateMid(List<Integer> estimatesMid_id) {
+		sqlSession.delete(namespace + ".deleteEstimateMid", estimatesMid_id);
+	}
 }

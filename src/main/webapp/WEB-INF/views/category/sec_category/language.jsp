@@ -491,7 +491,9 @@ select.form-control {
                 }
             }).open();
         }
+
     </script>
+
 </head>
 <body>
 
@@ -508,7 +510,7 @@ select.form-control {
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -542,7 +544,7 @@ select.form-control {
 <c:otherwise>
     	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -590,7 +592,7 @@ select.form-control {
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="<%=request.getContextPath() %>/category/result4" method="get" role="form">
+          <form action="<%=request.getContextPath() %>/category/result4" method="get" role="form" name="fr" >
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
@@ -607,11 +609,12 @@ select.form-control {
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
                 <div class="wizard-form-radio">
-                  <input name="ans0" id="radio2" type="radio" value="${answers }">
+                  <input name="ans0" id="radio1" type="radio" value="${answers }">
                   <label for="radio2">${answers}</label>
                 </div>
               </div>
-   			</c:forEach>           
+   			</c:forEach>
+                <div id="rdiv"></div>
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
             </fieldset> 
         
@@ -741,6 +744,7 @@ select.form-control {
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+
 jQuery(document).ready(function() {
 	// click on next button
 	jQuery('.form-wizard-next-btn').click(function() {

@@ -28,4 +28,8 @@ public interface EstimatesService {
 
 	// pro의 주소정보를 출력하는 메서드
 	public ProAddrDTO getProAddr(int pro_id);
+
+	public void deleteEstimate(int estimate_id);
+
+	public void deleteEstimateMid(List<Integer> estimatesMid_id);
 }

@@ -510,22 +510,10 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
         }).open();
     }
 
-    // function callFunction() {
-    //     alert("확인!!");
-    //
-    //     if($("input[name=#radio1]:radio:checked").length == 0){
-    //
-    //         alert("버튼을 선택해 주세요.");
-    //
-    //         return;
-    //
-    //     }
-    // }
-
-
 
 </script>
-  
+
+
 </head>
 <body>
 
@@ -623,7 +611,7 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
     </div>
 <section class="wizard-section" style="width: 600px; height:800px; margin: 0 auto;">
 <div class="form-wizard">
-          <form action="<%=request.getContextPath() %>/category/result5" method="get" role="form" id="survey">
+          <form action="<%=request.getContextPath() %>/category/result5" method="get" role="form" name="survey">
             <div class="form-wizard-header">
              <ul class="list-unstyled form-wizard-steps clearfix">
                 <li class="active"><span>1</span></li>
@@ -726,7 +714,7 @@ display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:rel
                 </div>
               </div>
                 </c:forEach>
-                <input type="submit" class="form-wizard-submit" value="Submit" style="width: 80px; height: 45px; float: right; border: white; border-radius: 0px; font-size: 16px;">
+            <button type="button" class="form-wizard-submit" onclick="submit();" style="width: 80px; height: 45px; float: right; border: white; border-radius: 0px; font-size: 16px;">Submit</button>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset> 
           </form>
@@ -894,6 +882,7 @@ jQuery(document).ready(function() {
 });
 
 </script>
+
 
  
 <script src="<%=request.getContextPath() %>/resources/js/jquery-3.5.1.min.js"></script>
