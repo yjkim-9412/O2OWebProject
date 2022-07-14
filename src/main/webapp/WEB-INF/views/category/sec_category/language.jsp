@@ -744,20 +744,6 @@ select.form-control {
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
-    // $("#btn1").click(function(){
-    //         if($("input[name=ans0]:radio:checked").length < 1) {
-    //             // $('#rdiv1').html("옵션을 선택해주세요.").css('color','red');
-    //             alert("옵션을 선택해주세요.");
-    //             return false;
-    //         }
-    //     });
-    function frmchk() {
-        if($("input[name=ans0]:radio:checked").length < 1) {
-            alert("체크해주세요.");
-            return;
-        }
-    }
-
 
 jQuery(document).ready(function() {
 	// click on next button

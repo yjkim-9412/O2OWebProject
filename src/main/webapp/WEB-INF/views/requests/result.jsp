@@ -344,15 +344,13 @@
 
 
 <div class="container" style="width: 1000px;">
-    <span><h3 style="margin-top: 100px; margin-left: 80px;"><b>받은 견적</b></h3></span>
-    <article style="text-align: center; margin-top: 50px; margin-bottom: 100px;">
+    <article style="text-align: center; margin:150px auto; height: 300px;">
         <i><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icHJlZml4X19hIiB4MT0iMCUiIHgyPSIxMDAlIiB5MT0iNTAlIiB5Mj0iNTAlIj4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwQzdBRSIvPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0Q0M4RTUiLz4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSI0MCIgZmlsbD0idXJsKCNwcmVmaXhfX2EpIiBmaWxsLW9wYWNpdHk9Ii41Ii8+CiAgICAgICAgPHBhdGggZD0iTTE2IDY0TDY0IDY0IDY0IDE2IDE2IDE2eiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzIiBkPSJNNDAgMjJjNC4wOCAwIDcuNDQ2IDMuMDU0IDcuOTM4IDdINTJjMS42NTcgMCAzIDEuMzQzIDMgM3YyM2MwIDEuNjU3LTEuMzQzIDMtMyAzSDI4Yy0xLjY1NyAwLTMtMS4zNDMtMy0zVjMyYzAtMS42NTcgMS4zNDMtMyAzLTNoNC4wNjJjLjQ5Mi0zLjk0NiAzLjg1OC03IDcuOTM4LTd6Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iMzkuOTUiIGN5PSIyOC43NSIgcj0iMS43NSIgZmlsbD0iI0ZGRiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0zMiAzOEw0OCAzOE0zMiA0NEw0OCA0NE0zMiA1MEw0MSA1MCIvPgogICAgPC9nPgo8L3N2Zz4K"></i>
-        <h3 style="margin: 12px 0px 8px; font-size: 18px; font-weight: 700;"> 받은 견적이 없습니다</h3>
+        <h3 style="margin: 12px 0px 8px; font-size: 18px; font-weight: 700;">요청이 완료되었습니다.</h3>
         <p style="margin: 10px; font-size: 14px; color: #b5b5b5">
-            요청서를 작성하고<br>
-            주고의 견적을 받아보세요.
+            요청내역은 마이페이지에서 확인가능합니다.<br>
         </p>
-        <button type="button" class="btn-update" onclick="location.href='<%=request.getContextPath() %>/';">요청서 보내기</button>
+        <button type="button" class="btn-update" onclick="location.href='<%=request.getContextPath() %>/';">홈으로 가기</button>
     </article>
 </div>
 

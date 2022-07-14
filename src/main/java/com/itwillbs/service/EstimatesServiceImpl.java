@@ -69,4 +69,14 @@ public class EstimatesServiceImpl implements EstimatesService{
 	public ProAddrDTO getProAddr(int pro_id) {
 		return estimatesDAO.getProAddr(pro_id);
 	}
+
+	@Override
+	public void deleteEstimate(int estimate_id) {
+		estimatesDAO.deleteEstimate(estimate_id);
+	}
+
+	@Override
+	public void deleteEstimateMid(List<Integer> estimatesMid_id) {
+		estimatesDAO.deleteEstimateMid(estimatesMid_id);
+	}
 }

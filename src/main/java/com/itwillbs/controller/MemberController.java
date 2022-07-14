@@ -136,6 +136,20 @@ System.out.println("#########" + code);
 		return "mypage/delete";
 	}
 
+	@RequestMapping(value = "/mypage/deletePro", method = RequestMethod.GET)
+	public String deletePro(HttpSession session, MemberDTO memberDTO) {
+
+		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
+		if(memberDTO2 != null) {
+			memberService.deleteMember(memberDTO2);
+			session.invalidate();
+		}else {
+			return "member/msg";
+		}
+
+		return "redirect:/";
+	}
+
 	@RequestMapping(value = "/mypage/settings/name", method = RequestMethod.GET)
 	public String name(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
