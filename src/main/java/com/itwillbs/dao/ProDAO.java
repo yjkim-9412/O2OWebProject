@@ -31,6 +31,8 @@ public interface ProDAO {
     int getPageSize();
     void insertProEstimate(ProEstimateDTO proEstimateDTO);
     int getAccId(int estimates_id);
+
+    public void deletePro(ProDTO proDTO);
 }
 
 

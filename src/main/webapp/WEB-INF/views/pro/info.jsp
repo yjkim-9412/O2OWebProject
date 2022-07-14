@@ -217,19 +217,14 @@
 <div class="page-section" style="padding-top: 0px">
     <div class="container">
 
-
             <h2 class="text-black"><b>주고 프로필</b></h2>
             <div class="profile-image"></div><br><br>
 
-            <div>${proDTO.img_url}</div>
+        <div><a href="/pro/ImgUpdate">${proDTO.img_url}</a></div>
 
             <br><br>
 
-        <form action="/pro/updateFilePro" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto" enctype="multipart/form-data" method="POST">
-            <input type="file" name="file">
-            <input type="submit" class="btn update"value="수정">
-
-
+        <form action="/pro/updateFilePro" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto">
 
             <li class="item-container" style="margin-top:50px;" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/name'">
                 <div class="item">

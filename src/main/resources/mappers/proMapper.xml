@@ -121,5 +121,14 @@
 		group by e.account_id
 	</select>
 
+	<delete id="deletePro" parameterType="map">
+		DELETE from PROS WHERE password=#{password}
+	</delete>
+
+	<!--<update id="updateImg" parameterType="string">
+
+		update PROFILEIMG SET img_url=" "  WHERE img_url=#{img_url}
+
+	</update>-->
 
 </mapper>

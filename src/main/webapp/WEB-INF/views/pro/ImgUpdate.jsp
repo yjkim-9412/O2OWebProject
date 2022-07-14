@@ -189,19 +189,31 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            $('#delete').submit(function() {
+            $("#file").on("change", handleImgFileSelect););
+        });
 
-                if($('#password').val()==""){
-                    $('#passworddiv').html("비밀번호를 입력해주세요.");
-                    $('#passworddiv').css("color","red");
-                    $('#password').focus();
-                    return false;
-                }  else {
-                    $('#passworddiv').html("");
+        function handleImgFileSelect(e) {
+            var files = e.target.files;
+            var filesArr = Array.prototype.slice.call(files);
+
+            var reg = /(.*?)\/(jpg|jpeg|png|bmp)$/;
+
+            filesArr.forEach(function(f) {
+                if (!f.type.match(reg)) {
+                    alert("확장자는 이미지 확장자만 가능합니다.");
+                    return;
                 }
 
+                sel_file = f;
+
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $("#img").attr("src", e.target.result);
+                }
+                reader.readAsDataURL(f);
             });
-        });
+        }
+
     </script>
 
 
@@ -247,21 +259,37 @@
 
 <div class="page-section" style="padding-top: 0px">
     <div class="container">
-        <form action="<%=request.getContextPath() %>/pro/deletePro" method="get" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="delete">
-            <h2 class="text-black"><b>주고 탈퇴</b></h2>
+        <form action="<%=request.getContextPath() %>/pro/ImgUpdatePro" method="post" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" enctype="multipart/form-data">
+            <h2 class="text-black"><b>프로필 이미지 변경</b></h2>
             <div class="input-group">
                 <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
                     <label class="text-black" for="fname" style="margin-bottom: 0px; padding-top: 12px;"><img alt="icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGc+CiAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgPGc+CiAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTAgMEwyMCAwIDIwIDIwIDAgMjB6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIgLTMwMSkgdHJhbnNsYXRlKDE2IDI4MSkgdHJhbnNsYXRlKDE2IDIwKSIvPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiMzMjMyMzIiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEwIDJjLTQuNDE2IDAtOCAzLjU4NC04IDhzMy41ODQgOCA4IDggOC0zLjU4NCA4LTgtMy41ODQtOC04LTh6bS44IDEySDkuMlY5LjJoMS42VjE0em0wLTYuNEg5LjJWNmgxLjZ2MS42eiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMyIC0zMDEpIHRyYW5zbGF0ZSgxNiAyODEpIHRyYW5zbGF0ZSgxNiAyMCkiLz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==">
-                        주고 탈퇴 시 모든 개인정보가 삭제됩니다.</label>
+                        바꾸실 이미지를 선택해주세요</label>
                 </div>
             </div>
 
+
+            <c:choose>
+
+            <c:when test="${proDTO.img_url eq null}">
+                <img src="${pageContext.request.contextPath}/resources/person/default.png" width="150" height="200">
+            </c:when>
+
+
+            <c:when test="${proDTO.img_url ne null}">
+                <img src="${pageContext.request.contextPath}/resources/upload/${proDTO.img_url}" width="150" height="200">
+                ${proDTO.img_url}
+            </c:when>
+
+            </c:choose>
+            <div>${proDTO.img_url}</div>
+
             <div class="row form-group">
                 <div class="col-md-12" style="width: 100%; padding-bottom: 50px;">
-                    <label class="text-black" style="margin-bottom:5px"><b>비밀번호</b></label>
+                    <label class="text-black" style="margin-bottom:5px"><b>파일선택</b></label>
                     <div class="input-group" data-validate="email">
-                        <input type="password" name="password" id="password" class="form-control"  style="border-radius: 0.25rem;">
-
+                        <input type ="hidden" name="oldFile" value="${proDTO.img_url}">
+                        <input type="file" name="file">
                         <span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
                     </div>
                     <div id="passworddiv"> </div>
@@ -273,8 +301,7 @@
                      of them. Grab their code and just edit the text as you wish to. * Follow me twitter.com/Impresiun -->
 
                 <button type="button" class="btn cancle" onclick = "history.back()"><b>취소</b></button>
-                <input type="submit" class="btn update" value="주고 탈퇴">
-                <input type="hidden" name="email" value="${proDTO.password}">
+                <input type="submit" class="btn update" value="이미지 변경">
 
 
             </div>

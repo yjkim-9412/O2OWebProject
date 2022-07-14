@@ -38,6 +38,11 @@ public class ProDAOImpl implements ProDAO{
 	}
 
 	@Override
+	public void deletePro(ProDTO proDTO) {
+		sqlSession.selectOne(namespace+".deletePro",proDTO);
+	}
+
+	@Override
 	public void insertProEstimate(ProEstimateDTO proEstimateDTO) {
 		// TODO Auto-generated method stub
 		sqlSession.insert(namespace+".insertProEstimate",proEstimateDTO);

@@ -545,11 +545,6 @@ public class ProController {
 		// 업로드 파일을 => resources/upload 폴더 복사
 		File uploadFile=new File(uploadPath,fileName);
 		FileCopyUtils.copy(file.getBytes(), uploadFile);
-
-
-
-
-
 		 return "redirect:/pro/info";
 
 	}
@@ -565,5 +560,31 @@ public class ProController {
 
 		return "pro/delete";
 	}
+
+	@RequestMapping(value = "/pro/deletePro", method = RequestMethod.GET)
+	public String deletePro(ProDTO proDTO) {
+
+		ProDTO proDTO2=proService.proCheck(proDTO);
+
+		if(proDTO!=null) {
+			proService.deletePro(proDTO);
+		}
+		else{
+			return "redirect:/pro/deleteMsg";
+		}
+
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/pro/ImgUpdate", method = RequestMethod.GET)
+	public String ImgUpdate(HttpSession session,Model m) {
+
+		String email = session.getAttribute("email").toString();
+		GetProDTO proDTO = proService.getProemail(email);
+		m.addAttribute("proDTO",proDTO);
+		return "pro/ImgUpdate";
+	}
+
+
 
 }
