@@ -374,11 +374,13 @@ public class ProController {
 	}
 		
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	 public String info(Model m,HttpSession session) {
+	 public String info(Model m,HttpSession session,String num) {
 	    	System.out.println("ProController info()");
 	    	String email = session.getAttribute("email").toString();
-			
-			GetProDTO proDTO = proService.getProemail(email);
+		//	int pro_id=Integer.parseInt(num);
+
+
+		GetProDTO proDTO = proService.getProemail(email);
 			m.addAttribute("proDTO", proDTO);
 
 	        return "pro/info";
