@@ -126,7 +126,7 @@ li{
 	position: relative;
     
 }
-.commentdivs2{
+.commentdiv2{
 	position: relative;
     display: block;
     overflow: hidden;
@@ -172,7 +172,14 @@ function openChild() {
 
 </head>
 <body>
+<c:choose>
+	<c:when test="${ empty sessionScope }">
+		<input type="hidden" value="리뷰쓰기">
+	</c:when>
+	<c:otherwise>
 <input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
+	</c:otherwise>
+</c:choose>
 <!-- 출력부분 -->
 <div>
 <h2>리뷰</h2>

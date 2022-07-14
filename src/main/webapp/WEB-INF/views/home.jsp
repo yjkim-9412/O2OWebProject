@@ -592,7 +592,7 @@ main{
 }
 .rating-star .feather {
     stroke: transparent;
-    fill: #ccc;
+
 }
 .feather--sm {
     width: 14px !important;
