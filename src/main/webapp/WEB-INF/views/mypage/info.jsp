@@ -305,7 +305,7 @@ ul li {
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -339,7 +339,7 @@ ul li {
 <c:otherwise>
     	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -410,16 +410,13 @@ ul li {
             <div class="row form-group" style="margin-top: 30px; margin-bottom: 50px">
               	<ul>
               		<li class="main-menu">주고받고</li>
-              		<li class="sub-menu sub-menu-container underline">
-					<a href="<%=request.getContextPath() %>/requests/sent" style="text-decoration: none; " class="sub-menu">내 요청서 보기</a>
-              		</li>
-              		<li class="sub-menu sub-menu-container underline">
-					<a href="<%=request.getContextPath() %>/chat/rooms" style="text-decoration: none; " class="sub-menu">내 채팅방 목록 보기</a>
-              		</li>
               		</li>
               		<li class="sub-menu sub-menu-container underline">
 					<a href="<%=request.getContextPath() %>/requests/sentsent" style="text-decoration: none; " class="sub-menu">받은 견적</a>
               		</li>
+                    <li class="sub-menu sub-menu-container underline">
+                        <a href="#" style="text-decoration: none; " class="sub-menu">내 채팅방 목록 보기</a>
+                    </li>
               	</ul>
             </div>
             

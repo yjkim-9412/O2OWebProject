@@ -15,7 +15,8 @@
   
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   
   <!--   구글폰트(버튼) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -144,10 +145,11 @@ table td {
 
 .service{
 	background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/service/73756793-16d5-4884-977b-0fceb355e571.jpg");
+    /*background-image: url(/resources/img/footer1.jpg);*/
     background-size: cover;
     background-position: 50% 50%;
     position: relative;
-    height: 20rem;
+    height: 17.125rem;
     z-index: 1;
 } 
 
@@ -159,7 +161,6 @@ table td {
     width: 100%;
     max-width: 43.75rem;
     text-align: center;
-    padding: 0 1rem;
 }
 
 .page-footer .bg-image {
@@ -328,10 +329,25 @@ padding: 11px 12px;
 margin: 0px 0px 0px 12px;
 }
 
+.item-title{
+  color: #737373;
+}
 
+.item-info {
+  padding-top: 0.25rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+
+}
+
+.item-container {
+  width: 100%;
+}
 
 </style>
-  
+
+
+
 
   
 </head>
@@ -350,7 +366,7 @@ margin: 0px 0px 0px 12px;
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -384,7 +400,7 @@ margin: 0px 0px 0px 12px;
 <c:otherwise>
     	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -422,32 +438,65 @@ margin: 0px 0px 0px 12px;
   <input type="hidden" name="id" value="${sessionScope.id }">
   <input type="hidden" name="email" value="${memberDTO.email }">
   <input type="hidden" name="password" value="${memberDTO.password }">
-  
 
   <div class="service">
-	<div class="contents section-title h1" style="color: white; font-weight: bold;">받은 견적</div>
-</div>
+    <div class="service-div" style="text-align: left; color: white">
+	<div class="contents section-title" style="color: white; text-align: left; width: 600px;">
+      <div class="section-title h1" style="font-weight: 500;">${service_name}</div>
+      <div style="color: white; font-weight: 300; margin-bottom: 30px">${date}</div>
+      <form class="form-inline" onsubmit="openModal()" id="myForm">
+        <button type="submit" class="btn btn-primary btn chat" style="margin-left: 0px; width: 220px;">내 요청서 보기</button>
+      </form>
+    </div>
+
+
+    </div>
+  </div>
 
 <div class="container">
+
+
+<%-- 모달--%>
+  <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document" style="margin-top: 200px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <h4 style="margin: 20px 0px 30px 10px; font-weight: bold;">내 요청서</h4>
+          <c:forEach var="estimateDTO" items="${getEstimateDTO}">
+          <li class="item-container">
+            <div class="item">
+              <div class="item-title">${estimateDTO.ques_contents }</div>
+              <div class="item-info">${estimateDTO.ans_contents}</div>
+            </div>
+          </li>
+          </c:forEach>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
 <table>
-<c:forEach var="proEstimate" items="${proEstimatesDTO }">
+<c:forEach var="i" begin="0" end="${proEstimatesDTO.size() - 1}" step="1">
 <tr><td>
 		<div class="display-item">
 			<div class="business-card">
 				<div class="profile">
 					<div class="profile-image"></div>
 					<div class="profile-title">
-						<h2>서비스</h2>
-						<h3>주고 이름</h3>
-						<span>${proEstimate.content }</span>
+						<h4>${proEstimatesDTO.get(i).pro_name}</h4>
+                        <span>${proEstimatesDTO.get(i).pro_email}</span>
+						<span>${proEstimatesDTO.get(i).content}</span>
 					</div>
 				</div>
 				<div class="info" style="width: 100%;">
 					<div class="info-contact" style="float: left;">
-						<span><i class="fa fa-phone"></i> 010-1234-5678</span>
-						<span>가격</span>
+						<span style="color: #737373;">${proAddrList.get(i).city_name} ${proAddrList.get(i).district_name}</span>
+						<span>${proEstimatesDTO.get(i).price}원</span>
 					</div>
-					<div style="margin-left: 95px; margin-top: 18px;">
+					<div style="margin-left: 135px; margin-top: 18px;">
 						<button type="button" class="btn cancle">취소하기</button>
 						<button type="button" class="btn chat" onclick="">채팅하기</button>
 					</div>
@@ -457,7 +506,12 @@ margin: 0px 0px 0px 12px;
   </td></tr>
  </c:forEach>
 </table>
+
+
 </div>
+
+
+
 
 <!--   푸터 -->
 
@@ -521,6 +575,13 @@ margin: 0px 0px 0px 12px;
 <script src="../resources/vendor/wow/wow.min.js"></script>
 
 <script src="../resources/js/theme.js"></script>
+
+  <script>
+    $('#myForm').on('submit', function(e){
+      $('#myModal').modal('show');
+      e.preventDefault();
+    });
+  </script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 

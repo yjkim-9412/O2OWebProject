@@ -6,16 +6,10 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import com.itwillbs.domain.*;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.EstimatesDAO;
-import com.itwillbs.domain.AnswerDTO;
-import com.itwillbs.domain.EstimatesDTO;
-import com.itwillbs.domain.EstimatesMidDTO;
-import com.itwillbs.domain.GetEstimateDTO2;
-import com.itwillbs.domain.GetProEstimateDTO;
-import com.itwillbs.domain.ProEstimatesDTO;
-import com.itwillbs.domain.QuestionDTO;
 
 @Service
 public class EstimatesServiceImpl implements EstimatesService{
@@ -34,8 +28,6 @@ public class EstimatesServiceImpl implements EstimatesService{
 		
 		return estimatesDAO.getEstimatesMid(estimates_id);
 	}
-
-	
 
 	@Override
 	public QuestionDTO getQuestion(int que_id) {
@@ -73,7 +65,8 @@ public class EstimatesServiceImpl implements EstimatesService{
 		return estimatesDAO.getProEstimates2(estimates_id);
 	}
 
-	
-	
-	
+	@Override
+	public ProAddrDTO getProAddr(int pro_id) {
+		return estimatesDAO.getProAddr(pro_id);
+	}
 }
