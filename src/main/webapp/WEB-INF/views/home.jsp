@@ -946,38 +946,23 @@ li{
 
  
 <script type="text/javascript">
-$('#searchinput').autocomplete({
-	source:function(request,response){
-		$.ajax({
-			url:'${pageContext.request.contextPath}/pro/searchlist',
-			data:{'keyword':$('#searchinput').val()},
-			dataType:'JSON',
-			success:function(rdata){
-				response($.each(rdata,function(key,value){
-					$('#searchlistinput').append("<li><a href='<%=request.getContextPath() %>/member/login'>"+value.name+"</a></li>");
-				}))
-			}
-		})
-	}
-})
-	
-	 
-
-//  $(document).on('keypress','#searchinput',function(){
-// 	 $.ajax({
-// 		 url:'${pageContext.request.contextPath}/pro/searchlist',
-// 		 data:{'keyword':$('#searchinput').val()},
-// 		 dataType:'JSON',
-// 		 success:function(rdata){
-// 			$.each(rdata,function(key,value){
-<%-- 				$('#searchlistinput').append("<li><a href='<%=request.getContextPath() %>/member/login'>"+value.name+"</a></li>"); --%>
-// 			})
-// 		 }
-// 	 })
-// 	 $('#searchinput').on('change',function(){
-// 		 $('#searchinput').empty();
-// 	 })
-//  });
+ $(document).on('keypress','#searchinput',function(){
+	 $.ajax({
+		 url:'${pageContext.request.contextPath}/pro/searchlist',
+		 data:{'keyword':$('#searchinput').val()},
+		 dataType:'JSON',
+		 success:function(rdata){			 
+			 $.each(rdata,function(key,value){
+				 setTimeout(function(){
+					$('#searchlistinput').append("<ul id='searchul'><li><a href='<%=request.getContextPath() %>/category/sec_category/pt?services_id1="+value.id+"'>"+value.name+","+value.id+"</a></li></ul>");
+				 }, 200);
+			 })
+		 }
+	 })
+	 $('#searchinput').on('keyup',function(){
+		 $('#searchul').remove();
+	 })
+ }); 
 </script>
 </head>
 <script>
