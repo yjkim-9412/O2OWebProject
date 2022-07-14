@@ -119,6 +119,9 @@ public class ChatRoomController {
     @RequestMapping(value = "/chat/rooms")
     public String GetRoomList(HttpSession session, Model model){
         List<GetChatRoomDTO> chatList = chatService.getChatList(session);
+        if (chatList == null){
+            return "redirect:/chat/rooms_empty";
+        }
         model.addAttribute("chatList",chatList);
         Integer account = (Integer)session.getAttribute("id");
         String pro = (String)session.getAttribute("email");
