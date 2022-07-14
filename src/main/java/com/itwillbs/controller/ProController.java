@@ -377,10 +377,10 @@ public class ProController {
 	 public String info(Model m,HttpSession session,String num) {
 	    	System.out.println("ProController info()");
 	    	String email = session.getAttribute("email").toString();
-		//	int pro_id=Integer.parseInt(num);
+			int id=(Integer)session.getAttribute("id");
+			m.addAttribute("num",id);
 
-
-		GetProDTO proDTO = proService.getProemail(email);
+			GetProDTO proDTO = proService.getProemail(email);
 			m.addAttribute("proDTO", proDTO);
 
 	        return "pro/info";
