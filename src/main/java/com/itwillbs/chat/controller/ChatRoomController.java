@@ -29,7 +29,6 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@RestController
 public class ChatRoomController {
     @Autowired
     private  MemberService memberService;
@@ -143,11 +142,13 @@ public class ChatRoomController {
         }
         return "chat/rooms";
     }
+
+    @ResponseBody
     @RequestMapping(value = "/chat/delete",method = RequestMethod.GET)
-    public String deleteChat(@RequestBody DeleteChatDTO deleteChatDTO){
+    public String deleteChat(DeleteChatDTO deleteChatDTO){
 
         String result = "";
-        System.out.println(deleteChatDTO.getCurrentUser());
+        System.out.println("되냐??"+deleteChatDTO.getCurrentUser());
         System.out.println(deleteChatDTO.getUserEmail());
         System.out.println(deleteChatDTO.getSession_name());
         System.out.println(deleteChatDTO.getReceiver_email());

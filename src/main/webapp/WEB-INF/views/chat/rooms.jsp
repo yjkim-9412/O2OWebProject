@@ -142,16 +142,20 @@
                    "currentUser":document.getElementById(currentUser).value
                }
                $.ajax({
-                   type:'GET',
-                   url:"${pageContext.request.contextPath}/chat/delete",
-                   data: JSON.stringify(param),
-                   dataType:"text",
-                   success:function(rdata){
+                   url:'${pageContext.request.contextPath}/chat/delete',
+                   data: {'receiver_email':document.getElementById(receiver_email).value,
+                       'session_name':document.getElementById(session_name).value,
+                       'userEmail':document.getElementById(userEmail).value,
+                       'currentUser':document.getElementById(currentUser).value
+                   },
+                   dataType:'text',
+                   success:function(){
                        window.location.reload();
 
 
                    }
                });
+
                return true;
            }else {
 
