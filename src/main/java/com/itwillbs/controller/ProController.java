@@ -553,4 +553,17 @@ public class ProController {
 		 return "redirect:/pro/info";
 
 	}
+
+
+	@RequestMapping(value="/pro/delete",method = RequestMethod.GET)
+	public String delete(HttpSession session,Model model){
+
+		String email = (String)session.getAttribute("email");
+
+		ProDTO proDTO = proService.getPro(email);
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/delete";
+	}
+
 }
