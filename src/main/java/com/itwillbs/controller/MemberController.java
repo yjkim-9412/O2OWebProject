@@ -73,6 +73,7 @@ public class MemberController {
 
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
+			System.out.println(memberDTO2);
 			session.setAttribute("id",memberDTO2.getId());
 		}else {
 			return "member/msg";

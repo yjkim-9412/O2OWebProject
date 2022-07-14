@@ -133,7 +133,6 @@ table td {
   width: 500px;
   height: 200px;
   padding: 5px -9px;
-  padding-bottom: 299px;
 }
 
 
@@ -181,7 +180,7 @@ table td {
 .request-card-header {
 	color: #323232;
     margin-bottom: 0;
-    font-size: 1rem;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -189,11 +188,10 @@ table td {
     margin-top: 1rem;
 }
 
-.request-btn {
+.btn-update{
 	font-weight: 500;
 	text-align: center;
     vertical-align: middle;
-    padding: 0.6875rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
     border: 0.0625rem solid transparent;
@@ -201,7 +199,23 @@ table td {
     display: block;
     width: 100%;
     background-color: #FFCD4A;
+    margin: -76px 10px 16px 0px;
 }
+
+.btn-cancle{
+     font-weight: 500;
+     text-align: center;
+     vertical-align: middle;
+     font-size: 1rem;
+     line-height: 1.5;
+     border: 0.0625rem solid transparent;
+     border-radius: 0.25rem;
+     display: block;
+     width: 100%;
+     background-color: #FEEBB6;
+     margin: -12px -36px 87px 0px;
+     height: 46px;
+ }
 
 /*  푸터  */
 .callnumber{
@@ -246,10 +260,7 @@ table td {
  
 .page-footer {
 width: 100%; bottom:0;
-} 
-
-
-
+}
 </style>
   
 
@@ -270,7 +281,7 @@ width: 100%; bottom:0;
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
       <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -304,7 +315,7 @@ width: 100%; bottom:0;
 <c:otherwise>
     	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -342,10 +353,10 @@ width: 100%; bottom:0;
   <input type="hidden" name="id" value="${sessionScope.id }">
   <input type="hidden" name="email" value="${memberDTO.email }">
   <input type="hidden" name="password" value="${memberDTO.password }">
- 
+
 
 <div class="container">
-<span><h3 style="margin-top: 100px;">받은 견적</h3></span>
+    <span><h3 style="margin-top: 100px; margin-left: 80px;"><b>받은 견적</b></h3></span>
 <table>
 <tr>
 	<c:forEach var="i" begin="0" end="${getProEstimateDTO.size() - 1}" step="1">
@@ -353,16 +364,25 @@ width: 100%; bottom:0;
 	<form class="request-card" action="<%=request.getContextPath() %>/requests/estimate"  method="get">
 		<div class="request-card-header">${getProEstimateDTO.get(i).get(0).service_name }</div>
 		<div class="request-card-body">
-			<div style="height: 125px;">추가 내용</div>
-			<input type="submit" class="request-btn update" value="자세히 보기">
+
+			<div style="height: 70px;">${date.get(i)}</div>
+            <button type="button" class="btn-cancle">취소하기</button>
+            <input type="submit" class="btn-update" value="자세히 보기">
 		</div>
-		  <input type="hidden" name="estimates_id" value="${getProEstimateDTO.get(i).get(0).estimates_id } ">
+		  <input type="hidden" name="estimates_id" value="${getProEstimateDTO.get(i).get(0).estimates_id }">
+          <input type="hidden" name="service_name" value="${getProEstimateDTO.get(i).get(0).service_name }">
 	</form>
 </td>
+        <c:if test="${(i+1) % 3 == 0}">
+        </tr><tr>
+        </c:if>
 	</c:forEach>
 </tr>
 </table>
+
+
 </div>
+
 
 <!--   푸터 -->
 
@@ -426,6 +446,7 @@ width: 100%; bottom:0;
 <script src="../resources/vendor/wow/wow.min.js"></script>
 
 <script src="../resources/js/theme.js"></script>
+
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
 
