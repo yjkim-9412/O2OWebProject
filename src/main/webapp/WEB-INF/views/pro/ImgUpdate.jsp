@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
@@ -259,7 +260,7 @@
 
 <div class="page-section" style="padding-top: 0px">
     <div class="container">
-        <form action="<%=request.getContextPath() %>/pro/ImgUpdatePro" method="post" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" enctype="multipart/form-data">
+        <form action="<%=request.getContextPath() %>/pro/insertimg" method="post" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" enctype="multipart/form-data">
             <h2 class="text-black"><b>프로필 이미지 변경</b></h2>
             <div class="input-group">
                 <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">
@@ -274,14 +275,14 @@
             <c:when test="${proDTO.img_url eq null}">
                 <img src="${pageContext.request.contextPath}/resources/person/default.png" width="150" height="200">
             </c:when>
+            
+			<c:otherwise>
+			 <img src="${pageContext.request.contextPath}/resources/upload/${proDTO.img_url}" width="150" height="200">
+			</c:otherwise>
 
-
-            <c:when test="${proDTO.img_url ne null}">
-                <img src="${pageContext.request.contextPath}/resources/upload/${proDTO.img_url}" width="150" height="200">
-                ${proDTO.img_url}
-            </c:when>
 
             </c:choose>
+            
             <div>${proDTO.img_url}</div>
 
             <div class="row form-group">

@@ -37,7 +37,7 @@
 	</select>
 	
 	<select id="getPro" resultType="com.itwillbs.domain.ProDTO">
-		select * from PROS where email=#{email}
+        select * from PROS where email=#{email}
 	</select>
 	
 	<select id="getProi" resultType="com.itwillbs.domain.ProDTO">
@@ -140,5 +140,18 @@
 	<update id="updatePass">
 		update PROS set password=#{password} where email=#{email}
 	</update>
-
+	
+	<insert id="insertImg">
+		insert into PROFILEIMG(pro_id,img_url) values(#{id},#{img_url})
+	</insert>
+	
+	<update id="updateImg">
+		update PROFILEIMG set img_url=#{img_url} where pro_id=#{id}
+	</update>
+	
+	<select id="getProImg" resultType="com.itwillbs.domain.ProDTO">
+		select p.*,pr.img_url from PROS p
+        left join PROFILEIMG pr on p.id=pr.pro_id
+        where email=#{email}
+	</select>
 </mapper>

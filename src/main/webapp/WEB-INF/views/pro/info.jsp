@@ -238,7 +238,7 @@
 
         <form action="/pro/updateFilePro" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto">
             <h2 class="text-black"><b>주고 프로필</b></h2>
-             <div class="profile-image"></div><br><br>
+             <div class="profile-image" onclick="location.href='<%=request.getContextPath() %>/pro/ImgUpdate'"><a><img src="${pageContext.request.contextPath}/resources/upload/"></a></div><br><br>
             <c:choose>
                 <c:when test="${ not empty sessionScope.email}">
                     <li class="item-container" style="margin-top:50px;" onclick="location.href='<%=request.getContextPath() %>/pro/settings/name'">

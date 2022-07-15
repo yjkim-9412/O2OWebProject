@@ -46,6 +46,24 @@ public class ProServiceImpl implements ProService {
 
 	
 	@Override
+	public void insertImg(ProDTO proDTO) {
+		// TODO Auto-generated method stub
+		proDAO.insertImg(proDTO);
+	}
+
+	@Override
+	public ProDTO getProImg(String email) {
+		// TODO Auto-generated method stub
+		return proDAO.getProImg(email);
+	}
+
+	@Override
+	public void updateImg(ProDTO proDTO) {
+		// TODO Auto-generated method stub
+		proDAO.updateImg(proDTO);
+	}
+
+	@Override
 	public int getAccId(int estimates_id) {
 		// TODO Auto-generated method stub
 		return proDAO.getAccId(estimates_id);

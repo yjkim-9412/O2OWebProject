@@ -42,6 +42,12 @@ public class ProDAOImpl implements ProDAO{
 	}
 
 	@Override
+	public void insertImg(ProDTO proDTO) {
+		// TODO Auto-generated method stub
+			sqlSession.insert(namespace+".insertImg",proDTO);
+	}
+
+	@Override
 	public void deletePro(ProDTO proDTO) {
 		sqlSession.selectOne(namespace+".deletePro",proDTO);
 	}
@@ -151,6 +157,18 @@ public class ProDAOImpl implements ProDAO{
 		return sqlSession.selectOne(namespace+".getAddDistrict", addistrictDTO);
 	}
 	
+	@Override
+	public ProDTO getProImg(String email) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".getProImg", email);
+	}
+
+	@Override
+	public void updateImg(ProDTO proDTO) {
+		// TODO Auto-generated method stub
+		sqlSession.selectOne(namespace+".updateImg", proDTO);
+	}
+
 	@Override
 	public ProDTO proCheck(ProDTO proDTO) {
 		System.out.println("ProDAOImpl proCheck()");
