@@ -1200,7 +1200,7 @@ ul.nav-tabs1 {
     border: none;
     color: #b5b5b5;
     padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-bottom: 1.75rem;
     outline: none;
     font-size: 15px;
 }
@@ -2017,14 +2017,14 @@ a.nav-link1 {
     <h4 class="text-left"><b>인기 서비스</b></h4>
     <div class="row">
 	    <div class="col-sm-4">
-	        <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service1.png" class="img-thumbnail"><figcaption>서비스1</figcaption></figure></a></div>
+	        <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service1.png" class="img-thumbnail"><figcaption>영어회화</figcaption></figure></a></div>
 		    
 	    </div>
 	    <div class="col-sm-4">
-		    <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service2.png" class="img-thumbnail"><figcaption>서비스2</figcaption></figure></a></div>
+		    <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service2.png" class="img-thumbnail"><figcaption>웨이트 트레이닝</figcaption></figure></a></div>
 	    </div>
 	    <div class="col-sm-4">
-		    <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service3.png" class="img-thumbnail"><figcaption>서비스3</figcaption></figure></a></div>
+		    <div class="item"><a href="#" style="text-decoration: none; color: black"><figure><img src="resources/img/service3.png" class="img-thumbnail"><figcaption>보컬 레슨</figcaption></figure></a></div>
 	    </div>
     </div>
 </div>

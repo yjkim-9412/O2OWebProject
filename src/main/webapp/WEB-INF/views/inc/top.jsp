@@ -313,10 +313,43 @@ li{
     font-size: .875rem;
     font-weight: 500;
 }
+.item23{
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 15px;
+	font-weight: 600;
+	color:#222222;
+	text-decoration: none;
+}
+.list1{
+	padding-bottom: 18px;
+	padding-left: 18px;
+}
 
 
 </style>
-
+	<%--검색창--%>
+	<script type="text/javascript">
+		$(document).on('keypress','#searchinput',function(){
+			$.ajax({
+				url:'${pageContext.request.contextPath}/pro/searchlist',
+				data:{'keyword':$('#searchinput').val()},
+				dataType:'JSON',
+				success:function(rdata){
+					$.each(rdata,function(key,value){
+						setTimeout(function(){
+							$('#__BVID__372').append("<ul data-v-8f67d2d4='' class='list1' id='searchinputul'><li data-v-8f67d2d4='' class='item23li' ><a class='item23'href='<%=request.getContextPath() %>/category/sec_category?services_id1="+value.id+"'>"+value.name+"</a></li></ul>");
+						}, 200);
+					})
+				}
+			})
+			$('#searchinput').on('keyup',function(){
+				$('#searchinputul').remove();
+			})
+		});
+	</script>
 <script type="text/javascript">
 
 	// 알림
@@ -393,10 +426,6 @@ $(document).ready(function (){
     }
 });
 
-/*$('#plz').on('blur',function (){
-	$('#searchdiv').attr('style', "display:none;");
-});*/
-
 
 </script>
 
@@ -414,7 +443,7 @@ $(document).ready(function (){
 
 
         <div class="container">
-        <a href="<%=request.getContextPath()%>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+        <a href="<%=request.getContextPath()%>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -424,7 +453,7 @@ $(document).ready(function (){
 
            <!--search바  -->
            <div class="search">
-              <input type="text" id="plz" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()" >
+              <input type="text"  placeholder="어떤 서비스가 필요하세요?" onclick="openClose()" id="searchinput">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -459,7 +488,7 @@ $(document).ready(function (){
 														class="tab-pane suggestion-contents active"
 														id="__BVID__372"
 														aria-labelledby="__BVID__372___BV_tab_button__" style="">
-														<ul data-v-8f67d2d4="" class="list">
+														<ul data-v-8f67d2d4="" class="list" id="searchinputul">
 															<li data-v-8f67d2d4="" class="item"><div
 																	data-v-8f67d2d4="" class="text-ellipsis">영어 과외</div></li>
 															<li data-v-8f67d2d4="" class="item"><div
@@ -566,7 +595,7 @@ $(document).ready(function (){
 		<c:when test="${ empty sessionScope.id }">
 			<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -576,7 +605,7 @@ $(document).ready(function (){
 
               <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()" id="searchinput">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -611,7 +640,7 @@ $(document).ready(function (){
 														class="tab-pane suggestion-contents active"
 														id="__BVID__372"
 														aria-labelledby="__BVID__372___BV_tab_button__" style="">
-														<ul data-v-8f67d2d4="" class="list">
+														<ul data-v-8f67d2d4="" class="list" id="searchinputul">
 															<li data-v-8f67d2d4="" class="item"><div
 																	data-v-8f67d2d4="" class="text-ellipsis">영어 과외</div></li>
 															<li data-v-8f67d2d4="" class="item"><div
@@ -744,7 +773,7 @@ $(document).ready(function (){
 		<c:otherwise>
 			<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
         <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
+          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
           <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -754,7 +783,7 @@ $(document).ready(function (){
 
               <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()" id="searchinput">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -789,7 +818,7 @@ $(document).ready(function (){
 														class="tab-pane suggestion-contents active"
 														id="__BVID__372"
 														aria-labelledby="__BVID__372___BV_tab_button__" style="">
-														<ul data-v-8f67d2d4="" class="list">
+														<ul data-v-8f67d2d4="" class="list" id="searchinputul">
 															<li data-v-8f67d2d4="" class="item"><div
 																	data-v-8f67d2d4="" class="text-ellipsis">영어 과외</div></li>
 															<li data-v-8f67d2d4="" class="item"><div
