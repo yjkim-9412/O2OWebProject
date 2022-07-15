@@ -29,8 +29,8 @@ public class ReviewServiceImpl implements ReviewService{
 	}
 
 	@Override
-	public List<ReviewDTO> getallReviews(PageDTO pageDTO) {
-		return reviewDAO.getallReviews(pageDTO);
+	public List<ReviewDTO> getallReviews(int pro_id) {
+		return reviewDAO.getallReviews(pro_id);
 	}
 
 	@Override
