@@ -1,11 +1,15 @@
 package com.itwillbs.domain;
 
+import java.sql.Timestamp;
+
 public class GetProEstimateDTO {
 	private int account_id;
 	private int estimates_id;
 	private int question_id;
 	private int services_id;
 	private String service_name;
+
+	private Timestamp date;
 	
 	public int getAccount_id() {
 		return account_id;
@@ -37,7 +41,12 @@ public class GetProEstimateDTO {
 	public void setService_name(String service_name) {
 		this.service_name = service_name;
 	}
-	
-	
-	
+
+	public Timestamp getDate() {
+		return date;
+	}
+
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
 }

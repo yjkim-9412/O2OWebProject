@@ -372,7 +372,7 @@ ul li {
         <div class="item">
           <div class="item-title">비밀번호</div>
 
-          <div class="item-info"> <input type="password" value="${memberDTO.password}" class="pass-style"></div>
+          <div class="item-info"> <input type="password" value="${memberDTO.password}" class="pass-style" style="cursor: pointer;"></div>
         </div>
         <div>
           <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">

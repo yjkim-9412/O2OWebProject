@@ -60,13 +60,28 @@ public class EstimatesServiceImpl implements EstimatesService{
 	}
 
 	@Override
-	public List<ProEstimatesDTO> getProEstimates2(int estimates_id) {
+	public List<ProEstimatesDTO> getProEstimates2(HashMap<String, Integer> map) {
 		
-		return estimatesDAO.getProEstimates2(estimates_id);
+		return estimatesDAO.getProEstimates2(map);
 	}
 
 	@Override
 	public ProAddrDTO getProAddr(int pro_id) {
 		return estimatesDAO.getProAddr(pro_id);
+	}
+
+	@Override
+	public void deleteEstimate(int estimate_id) {
+		estimatesDAO.deleteEstimate(estimate_id);
+	}
+
+	@Override
+	public void deleteEstimateMid(List<Integer> estimatesMid_id) {
+		estimatesDAO.deleteEstimateMid(estimatesMid_id);
+	}
+
+	@Override
+	public void proEstimateDelete(int proEstimates_id) {
+		estimatesDAO.proEstimateDelete(proEstimates_id);
 	}
 }

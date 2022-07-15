@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.*;
 import com.itwillbs.service.MemberService;
 
@@ -71,7 +72,7 @@ public class MemberController {
 		return "member/loginForm";
 	}
 	@RequestMapping(value = "/member/loginPro", method = RequestMethod.POST)
-	public String loginPro(MemberDTO memberDTO,HttpSession session) {
+	public String loginPro(MemberDTO memberDTO,HttpSession session,Model model) {
 
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
@@ -79,9 +80,11 @@ public class MemberController {
 			session.removeAttribute("email");
 			session.removeAttribute("id");
 			session.setAttribute("id",memberDTO2.getId());
+			session.setAttribute("alert",memberDTO2.getEmail());
 		}else {
 			return "member/msg";
 		}
+
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
@@ -138,6 +141,20 @@ System.out.println("#########" + code);
 		model.addAttribute("memberDTO", memberDTO);
 
 		return "mypage/delete";
+	}
+
+	@RequestMapping(value = "/mypage/deletePro", method = RequestMethod.GET)
+	public String deletePro(HttpSession session, MemberDTO memberDTO) {
+
+		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
+		if(memberDTO2 != null) {
+			memberService.deleteMember(memberDTO2);
+			session.invalidate();
+		}else {
+			return "member/msg";
+		}
+
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/mypage/settings/name", method = RequestMethod.GET)
@@ -224,6 +241,22 @@ System.out.println("#########" + code);
 		}
 	}
 
+	@RequestMapping(value = "/member/dupcheck", method = RequestMethod.GET)
+	public ResponseEntity<String> dupcheck(HttpServletRequest request) {
+		ResponseEntity<String> entitiy=null;
+		String result="";
+		
+		String email=request.getParameter("email");
+		MemberDTO memberDTO= memberService.getMemberE(email);
+		
+		if(memberDTO!=null) {
+			result="emaildup";
+		}else {
+			result="emailok";
+		}
 
+		entitiy=new ResponseEntity<String>(result,HttpStatus.OK);
+		return entitiy;
+	}
 }
 

@@ -346,7 +346,15 @@ margin: 0px 0px 0px 12px;
 
 </style>
 
-
+  <script type="text/javaScript">
+    function deleteProEstimate(proEstimates_id){
+      if (!confirm("정말로 취소하시겠습니까?")) {
+        return;
+      } else {
+        location.href="<%=request.getContextPath() %>/requests/proEstimate-delete?proEstimates_id="+proEstimates_id;
+      }
+    }
+  </script>
 
 
   

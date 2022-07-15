@@ -5,9 +5,6 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 
-
-@Getter
-@Setter
 public class ProDTO {
     private int id;
     private int services_id;

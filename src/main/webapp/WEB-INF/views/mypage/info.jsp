@@ -395,7 +395,6 @@ ul li {
             			<span class="name-length">${memberDTO.name}</span> 고객님
             		</div>
             		<div class="user-id">
-            			<img alt="kakao" src="https://assets.cdn.soomgo.com/icons/icon-mypage-kakaotalk-signin.svg">
             			<span class="id-length">${memberDTO.email }</span>
             		</div>
             	</div>
@@ -415,7 +414,7 @@ ul li {
 					<a href="<%=request.getContextPath() %>/requests/sentsent" style="text-decoration: none; " class="sub-menu">받은 견적</a>
               		</li>
                     <li class="sub-menu sub-menu-container underline">
-                        <a href="#" style="text-decoration: none; " class="sub-menu">내 채팅방 목록 보기</a>
+                        <a href="<%=request.getContextPath() %>/chat/rooms" style="text-decoration: none; " class="sub-menu">내 채팅방 목록 보기</a>
                     </li>
               	</ul>
             </div>

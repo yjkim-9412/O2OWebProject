@@ -20,7 +20,7 @@
 <!-- 파비콘 변경 -->
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
+
 <!--   구글폰트(버튼) -->
 
   <title>MaRoo</title>
@@ -32,8 +32,8 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme.css">
- 
- 
+
+
 <!-- 부트스트랩  -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -42,7 +42,7 @@
   position: relative;
   width: 300px;
   left: 5px;
-  
+
 }
 
 input {
@@ -61,7 +61,7 @@ input:focus{
   top: 10px;
   right: 7px;
   margin: 0;
-  
+
 }
 #logo1{
 	 width: 140px;
@@ -102,22 +102,138 @@ input:focus{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  
+
 }
 
 .button-55:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
-  
+
 }
 
 }
 .button-55:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  
+
 }
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+/*알림*/
+.alarmbtn{
+	border: 0;
+	background: none;
+	padding-bottom: 20px;
+	margin-left: 10px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	align-content: space-around;
+	flex-wrap: nowrap;
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	position: relative;
+}
+li{
+	list-style: none;
+}
+.alarmdiv1{
+	position: absolute;
+	right: -87px;
+	top: 37px;
+	width: 21.875rem;
+	height: 43.875rem;
+	background: #fff;
+	border: 0.0625rem solid #f2f2f2;
+	border-radius: 8px;
+	box-shadow: 0 1.125rem 2.5rem -0.75rem rgb(50 50 50 / 30%);
+	margin-bottom: 1rem;
+	overflow: visible;
+	display: none;
+
+}
+.alarmdiv1::before{
+	content: "";
+	position: absolute;
+	top: -0.5625rem;
+	right: 5.625rem;
+	width: 1.125rem;
+	height: 0.625rem;
+	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCI+PGcgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOS4wNSAxbDcuODUgOC42SDEuMnoiLz48cGF0aCBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xIDlsOC04IDggOCIvPjwvZz48L3N2Zz4=) no-repeat;
+}
+.alarmdiv2{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}
+
+.alarmheader{
+	padding: 1.5rem 1.5rem 0.5rem
+}
+.alarmh3{
+	font-weight: 500;
+	line-height: 2rem;
+	font-size: 1.125rem;
+	margin: 0;
+	color: #323232;
+	text-align: left;
+}
+.btnclose{
+	display: none;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+.btnclose img{
+	vertical-align: top;
+}
+.alarmbody{
+	height: 100%;
+	overflow: auto;
+}
+.alarmbody2{
+	padding: 1.5rem;
+	overflow-y: auto;
+}
+.alarmul{
+	margin: 0;
+}
+.loding-icon{
+	width: 100%;
+}
+.alarmp1{
+	font-size: .875rem;
+	line-height: 1.3125rem;
+	font-weight: 400;
+	letter-spacing: -.0125rem;
+}
+.alarmp2{
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	display: block;
+	font-weight: bold;
+	color: #323232;
+}
+.row-nogutter{
+	height: 1.25rem;
+	margin-right: 0;
+	margin-left: 0;
+}
+.morebtn{
+	height: 100%;
+	color: #00c7ae;
+	font-size: .875rem;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-weight: 400;
+}
+#alarmli{
+	position: relative;
+}
+/*알림끝*/
 /* 검색창 */
 .search-suggestion[data-v-8f67d2d4] {
     position: absolute;
@@ -199,24 +315,83 @@ input:focus{
 }
 
 
-</style> 
- 
+</style>
+
 <script type="text/javascript">
 
+	// 알림
+	function openCloseToc() {
+		if (document.getElementById('alarmdiv').style.display === 'block') {
+			document.getElementById('alarmdiv').style.display = 'none';
 
-function openCloseToc() {
-	  if (document.getElementById('searchdiv').style.display === 'block') {
-	    document.getElementById('searchdiv').style.display = 'none';
+		} else {
+			document.getElementById('alarmdiv').style.display = 'block';
 
-	  } else {
-	    document.getElementById('searchdiv').style.display = 'block';
-
-	  }
+		}
 	}
-function closebtn(){
-	document.getElementById('searchdiv').style.display = 'none';
-}
+	//검색창
+	function openClose() {
+		if (document.getElementById('searchdiv').style.display === 'block') {
+			document.getElementById('searchdiv').style.display = 'none';
 
+		} else {
+			document.getElementById('searchdiv').style.display = 'block';
+
+		}
+	}
+
+	function closebtn(){
+		document.getElementById('searchdiv').style.display = 'none';
+	}
+
+$(document).ready(function (){
+
+    connectStomp();
+    function connectStomp (){
+        StompStatus = true;
+        var sock = new SockJS("/stompTest");
+        var client = Stomp.over(sock);
+        socket = client;
+        client.connect({}, function () {
+			console.log("top STOMP 연결 완료");
+            if (!<%=session.getAttribute("id")%>) {
+                socket.subscribe('/topic/inc/top/${sessionScope.email}', function (event) {
+                    console.log("프로 로그인");
+                    const content = JSON.parse(event.body);
+                    var sender = content.sender_name;
+                    var session_name = content.session_name;
+                    var receiver = content.receiver_name;
+                    let $socketAlert = $('div#socketAlert');
+                    $socketAlert.css('display', 'block');
+                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
+                    setTimeout(function () {
+                        $socketAlert.css('display', 'none');
+                    }, 6000);
+
+                });
+            }else {
+                socket.subscribe('/topic/inc/top/${sessionScope.alert}', function (event) {
+                    console.log("회원 로그인");
+                    const content = JSON.parse(event.body);
+                    var sender = content.sender_name;
+                    var session_name = content.session_name;
+                    var receiver = content.receiver_name;
+                    let $socketAlert = $('div#socketAlert');
+                    $socketAlert.css('display', 'block');
+                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='location.hr'>");
+                    setTimeout(function () {
+                        $socketAlert.css('display', 'none');
+                    }, 6000);
+
+                });
+            }
+
+
+
+        });
+
+    }
+});
 
 /*$('#plz').on('blur',function (){
 	$('#searchdiv').attr('style', "display:none;");
@@ -225,44 +400,19 @@ function closebtn(){
 
 </script>
 
+
 </head>
-<body>
-<script>
-    $(document).ready(function connectStomp (){
-        StompStatus = true;
-        var sock = new SockJS("/stompTest");
-        var cilent = Stomp.over(sock);
-        cilent.connect({}, function (){
-            if (${sessionScope.email}){
-            socket.subscribe('/topic/inc/top/'+'${sessionScope.email}',function (event){
-                const content =  JSON.parse(event.body);
-                var sender = content.sender;
-                var session_name = content.session_name;
-                var receiver = content.receiver_name;
+<div id="socketAlert" class="alert alert-success" role="alert" style="display: none"></div>
 
-
-                let $socketAlert =$('div#socketAlert');
-                $socketAlert.css('display','block');
-                $socketAlert.html(sender+"님이 메세지를 보냈습니다! <a href=/chat/room/"+session_name+">이동하기</a>");
-                setTimeout(function (){
-                    $socketAlert.css('display','none');
-                },3000);
-            });
-            }
-
-        });
-
-    });
-</script>
 <header>
 <c:catch>
 <c:choose>
-<c:when test="${ empty sessionScope.id }">
+<c:when test="${ empty sessionScope }">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-    <div id="socketAlert" class="alert alert-success" role="alert" style="display: none">
 
-    </div>
+
+
         <div class="container">
         <a href="<%=request.getContextPath()%>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
@@ -271,10 +421,10 @@ function closebtn(){
         </button>
 
         <div class="navbar-collapse collapse" id="navbarContent">
-           
+
            <!--search바  -->
            <div class="search">
-              <input type="text" id="plz" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()" >
+              <input type="text" id="plz" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()" >
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -390,7 +540,7 @@ function closebtn(){
 
 
 								<ul class="navbar-nav ml-auto">
-            
+
             <li class="nav-item">
               <a class="nav-link" href="<%=request.getContextPath() %>/pro/mainCategory">주고가입</a>
             </li>
@@ -426,7 +576,7 @@ function closebtn(){
 
               <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -601,10 +751,10 @@ function closebtn(){
           </button>
 
           <div class="navbar-collapse collapse" id="navbarContent">
-             
+
               <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -717,7 +867,7 @@ function closebtn(){
 								</div>
 								 </div>
 <!-- 검색창끝 -->
-              
+
             <ul class="navbar-nav ml-auto">
 
 

@@ -19,5 +19,9 @@ public interface ReviewDAO {
 		
 		public double getAllreviewavg();
 		
-		public int getAllreviewcount(); 
+		public int getAllreviewcount();
+
+		public List<ReviewDTO> getpronameservice();
+
+
 }

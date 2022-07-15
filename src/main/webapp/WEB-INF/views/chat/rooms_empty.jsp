@@ -10,9 +10,6 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -138,7 +135,12 @@
                var session_name = 'session_name'+index;
                var userEmail = 'userEmail'+index;
                var currentUser = 'currentUser'+index;
-               var receiver_name = 'receiver_name'+index;
+
+               var param = {"receiver_email":document.getElementById(receiver_email).value,
+                   "session_name":document.getElementById(session_name).value,
+                   "userEmail":document.getElementById(userEmail).value,
+                   "currentUser":document.getElementById(currentUser).value
+               }
                $.ajax({
                    url:'${pageContext.request.contextPath}/chat/delete',
                    data: {'receiver_email':document.getElementById(receiver_email).value,
@@ -148,9 +150,6 @@
                    },
                    dataType:'text',
                    success:function(){
-                       socket.send('/chat/deleteRoom', {}, JSON.stringify({session_name:document.getElementById(session_name).value, sender:'${userEmail}' ,sender_name:'${userName}',
-                           message: "msg",
-                           receiver: document.getElementById(receiver_email).value, receiver_name:document.getElementById(receiver_name).value}));
                        window.location.reload();
 
 
@@ -201,52 +200,27 @@
     <div data-v-e47086a0="" class="container no-chat1"><!---->
         <div data-v-e47086a0="" class="row1">
             <div class="container">
-
                 <div>
-                    현재유저 : ${currentUser}
-                    <ul>
-                        <c:forEach var="GetChatRoomDTO" items="${chatList}" varStatus="status">
-                            <c:if test="${currentUser eq 'account'}">
-                                <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
-                                <li>
-                                    <form method="POST" action="<%=request.getContextPath() %>/chat/room/${session_name}">
-                                        <input type="hidden" id="receiver_email${status.index}" name="receiver_email" value="${GetChatRoomDTO.pro_email}">
-                                        <input type="hidden" id="session_name${status.index}" name="session_name" value="${GetChatRoomDTO.session_name}">
-                                        <input type="hidden" id="userEmail${status.index}" name="userEmail" value="${userEmail}">
-                                        <input type="hidden" id="currentUser${status.index}" name="currentUser" value="${currentUser}">
-                                        <input type="hidden" id="receiver_name${status.index}" name="receiver_name" value="${GetChatRoomDTO.pro_name}">
+                    <table>
+                        <tr><td>
+                            <div class="container" style="width: 1000px;">
+                                <article style="text-align: center; margin-top: 50px; margin-bottom: 100px;">
+                                    <i><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj4KICAgIDxkZWZzPgogICAgICAgIDxsaW5lYXJHcmFkaWVudCBpZD0icHJlZml4X19hIiB4MT0iMCUiIHgyPSIxMDAlIiB5MT0iNTAlIiB5Mj0iNTAlIj4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwQzdBRSIvPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0Q0M4RTUiLz4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPC9kZWZzPgogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8Y2lyY2xlIGN4PSI0MCIgY3k9IjQwIiByPSI0MCIgZmlsbD0idXJsKCNwcmVmaXhfX2EpIiBmaWxsLW9wYWNpdHk9Ii41Ii8+CiAgICAgICAgPHBhdGggZD0iTTE2IDY0TDY0IDY0IDY0IDE2IDE2IDE2eiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzIiBkPSJNNDAgMjJjNC4wOCAwIDcuNDQ2IDMuMDU0IDcuOTM4IDdINTJjMS42NTcgMCAzIDEuMzQzIDMgM3YyM2MwIDEuNjU3LTEuMzQzIDMtMyAzSDI4Yy0xLjY1NyAwLTMtMS4zNDMtMy0zVjMyYzAtMS42NTcgMS4zNDMtMyAzLTNoNC4wNjJjLjQ5Mi0zLjk0NiAzLjg1OC03IDcuOTM4LTd6Ii8+CiAgICAgICAgPGNpcmNsZSBjeD0iMzkuOTUiIGN5PSIyOC43NSIgcj0iMS43NSIgZmlsbD0iI0ZGRiIvPgogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0zMiAzOEw0OCAzOE0zMiA0NEw0OCA0NE0zMiA1MEw0MSA1MCIvPgogICAgPC9nPgo8L3N2Zz4K"></i>
+                                    <h3 style="margin: 12px 0px 8px; font-size: 18px; font-weight: 700;"> 받은 견적이 없습니다</h3>
+                                    <p style="margin: 10px; font-size: 14px; color: #b5b5b5">
+                                        <%--              요청서를 작성하고<br>--%>
+                                        <%--              주고의 견적을 받아보세요.--%>
+                                    </p>
+                                </article>
+                            </div>
+                        </td></tr>
+                    </table>
 
-                                            ${GetChatRoomDTO.pro_name}님과의 채팅<br>
-                                        <input type="submit" value="대화하기">
-                                        <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
-                                    </form>
-
-                                </li>
-
-                            </c:if>
-                            <c:if test="${currentUser eq 'pro'}">
-                                <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
-                                <li>
-                                    <form action="<%=request.getContextPath() %>/chat/room/${session_name}" method="POST">
-                                        <input type="hidden" id="receiver_email${status.index}" name="receiver_email" value="${GetChatRoomDTO.account_email}">
-                                        <input type="hidden" id="session_name${status.index}" name="session_name" value="${GetChatRoomDTO.session_name}">
-                                        <input type="hidden" id="userEmail${status.index}" name="userEmail" value="${userEmail}">
-                                        <input type="hidden" id="currentUser${status.index}" name="currentUser" value="${currentUser}">
-                                        <input type="hidden" id="receiver_name${status.index}" name="receiver_name" value="${GetChatRoomDTO.account_email}">
-                                            ${GetChatRoomDTO.account_name}님과의 채팅<br>
-                                        <input type="submit" value="대화하기">
-                                        <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
-                                    </form>
-                                </li>
-                            </c:if>
-                        </c:forEach>
-
-                    </ul>
                 </div>
 
             </div>
 
-            </article>
+
         </div><!----></div>
 </div>
 

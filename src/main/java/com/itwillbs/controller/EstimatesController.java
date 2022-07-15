@@ -70,7 +70,7 @@ public class EstimatesController {
 
 		List<ProAddrDTO> proAddrList = new ArrayList<>();
 
-		List<ProEstimatesDTO> proEstimatesDTO = estimatesService.getProEstimates2(estimates_id);
+		List<ProEstimatesDTO> proEstimatesDTO = estimatesService.getProEstimates2(map);
 
 		if(proEstimatesDTO.size() != 0) {
 
@@ -115,9 +115,7 @@ public class EstimatesController {
 			date.add(sdf.format((estimatesService.getEstimatesMid(estimatesId.get(i)).get(0).getDate())));
 		}
 
-		System.out.println(estimatesId);
 		System.out.println("이것은 날짜 " + date);
-		model.addAttribute("estimatesId", estimatesId);
 		model.addAttribute("getProEstimateDTO", getProEstimateDTO);
 		model.addAttribute("date",date);
 		
@@ -125,8 +123,34 @@ public class EstimatesController {
 	}
 
 	@RequestMapping(value = "/requests/sent_error", method = RequestMethod.GET)
-	public String login() {
+	public String sent_error() {
 
 		return "requests/sent_error";
 	}
+
+	@RequestMapping(value = "/requests/estimate-delete", method = RequestMethod.GET)
+	public String estimateDelete(@RequestParam("estimate_id") int estimate_id ) {
+		System.out.println("요청서 아이디 : " + estimate_id);
+		estimatesService.deleteEstimate(estimate_id);
+
+		List<EstimatesMidDTO> estimatesMidDTOs = estimatesService.getEstimatesMid(estimate_id);
+		List<Integer> estimatesMid_id = new ArrayList<>();
+		for(int i = 0; i < estimatesMidDTOs.size(); i++) {
+			estimatesMid_id.add(estimatesMidDTOs.get(i).getId());
+		}
+		System.out.println("estimatesMid_id : " + estimatesMid_id);
+		estimatesService.deleteEstimateMid(estimatesMid_id);
+
+		return "redirect:/requests/sentsent";
+	}
+
+	@RequestMapping(value = "/requests/proEstimate-delete", method = RequestMethod.GET)
+	public String proEstimateDelete(@RequestParam("proEstimates_id") int proEstimates_id ) {
+		System.out.println(proEstimates_id);
+		estimatesService.proEstimateDelete(proEstimates_id);
+
+		return "redirect:/requests/sentsent";
+	}
+
+
 }

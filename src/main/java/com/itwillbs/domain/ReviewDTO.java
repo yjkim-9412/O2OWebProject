@@ -15,10 +15,27 @@ public class ReviewDTO {
 	private String name;
 	private Double avg;
 	private int count;
-	private Double avg2;
-	
-	
-	
+
+	private String proname;
+
+	private String service;
+
+	public String getService() {
+		return service;
+	}
+
+	public void setService(String service) {
+		this.service = service;
+	}
+
+	public void setProname(String proname) {
+		this.proname = proname;
+	}
+
+	public String getProname() {
+		return proname;
+	}
+
 	public Double getAvg() {
 		return avg;
 	}

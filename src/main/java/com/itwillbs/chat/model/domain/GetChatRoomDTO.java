@@ -16,6 +16,7 @@ public class GetChatRoomDTO {
     private String receiver_name;
     private String  account_name;
     private String  pro_name;
+    private String currentUser;
 
     public String getSession_name() {
         return session_name;
@@ -87,5 +88,13 @@ public class GetChatRoomDTO {
 
     public void setPro_name(String pro_name) {
         this.pro_name = pro_name;
+    }
+
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
     }
 }

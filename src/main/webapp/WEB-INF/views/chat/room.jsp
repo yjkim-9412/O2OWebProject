@@ -39,6 +39,7 @@
             <!-- 동적 생성 -->
         </ul>
     </div>
+
     <div class="input-div">
         <textarea></textarea>
     </div>

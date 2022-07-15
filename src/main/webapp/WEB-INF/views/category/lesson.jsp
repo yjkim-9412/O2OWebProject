@@ -500,11 +500,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=21'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=9'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/0215f0ab-61fe-4273-8a1b-6d73d71ad38c.png');">
+                                    <div class="card-img" style="background-image: url('http://sire-korea.com/web/product/big/201612/69_shop1_457878.jpg');">
                                 	</div>
-                                    <div class="card-title">일본어</div>
+                                    <div class="card-title">드럼</div>
                                 </div>
                             </div>
                         </div>
@@ -517,11 +517,11 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=22'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=3'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
-                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/featured_service_a6739eb4-8785-4a16-a1f5-4b727416d0c8.png');">
+                                    <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/a44f592e-4ad5-4071-a192-4ebd01a83eae.png');">
                                 	</div>
-                                    <div class="card-title">중국어</div>
+                                    <div class="card-title">요가</div>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,7 @@
 package com.itwillbs.chat.controller;
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
+import com.itwillbs.chat.model.domain.DeleteChatDTO;
 import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
@@ -13,12 +14,11 @@ import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -67,13 +67,27 @@ public class ChatRoomController {
         return "redirect:/chat/room/" + session_name;
     }
 
-    @RequestMapping(value = "/chat/room/{session_name}")
+    @RequestMapping(value = "/chat/room/{session_name}",method = RequestMethod.POST)
     public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request,HttpSession session){
         GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
         List<ChatMessageDTO> messageList = chatService.getChatMessage(session_name);
+        if (getChatRoomDTO.getAccount_email().equals("trash@trash.com")){
+            model.addAttribute("user_name",getChatRoomDTO.getPro_name());
+            model.addAttribute("receiver","trash@trash.com");
+            model.addAttribute("chatSession",session_name);
+            model.addAttribute("messageList", messageList);
+
+            return "chat/room";
+        } else if (getChatRoomDTO.getPro_email().equals("trashrpro@trash.com")) {
+            model.addAttribute("user_name",getChatRoomDTO.getAccount_name());
+            model.addAttribute("receiver","trashrpro@trash.com");
+            model.addAttribute("messageList", messageList);
+        }
         System.out.println("intoChat:->>>>>>>>>");
 
         String userEmail = request.getParameter("userEmail");
+        System.out.println("세션 : " + session_name);
+        System.out.println("userEmail : "+userEmail);
         if (userEmail == null){
             int id = (Integer)session.getAttribute("id");
 
@@ -119,6 +133,9 @@ public class ChatRoomController {
     @RequestMapping(value = "/chat/rooms")
     public String GetRoomList(HttpSession session, Model model){
         List<GetChatRoomDTO> chatList = chatService.getChatList(session);
+        if (chatList == null){
+            return "redirect:/chat/rooms_empty";
+        }
         model.addAttribute("chatList",chatList);
         Integer account = (Integer)session.getAttribute("id");
         String pro = (String)session.getAttribute("email");
@@ -141,6 +158,23 @@ public class ChatRoomController {
             return "redirect:/member/msg";
         }
         return "chat/rooms";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/chat/delete",method = RequestMethod.GET)
+    public void deleteChat(DeleteChatDTO deleteChatDTO){
+        GetChatRoomDTO getChatRoomDTO = new GetChatRoomDTO();
+
+            getChatRoomDTO.setAccount_email(deleteChatDTO.getUserEmail());
+            getChatRoomDTO.setSession_name(deleteChatDTO.getSession_name());
+        if (deleteChatDTO.getCurrentUser().equals("account")) {
+            chatService.deleteChatAccount(getChatRoomDTO);
+        }else if (deleteChatDTO.getCurrentUser().equals("pro")){
+            chatService.deleteChatPro(getChatRoomDTO);
+        }else {
+            System.out.println("잘못된 접근");
+        }
+
     }
 
 

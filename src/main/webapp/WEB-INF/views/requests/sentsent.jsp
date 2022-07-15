@@ -130,7 +130,7 @@ table {
 }
 
 table td {
-  width: 500px;
+  width: 350px;
   height: 200px;
   padding: 5px -9px;
 }
@@ -262,7 +262,16 @@ table td {
 width: 100%; bottom:0;
 }
 </style>
-  
+
+    <script type="text/javaScript">
+    function deleteEstimate(estimate_id){
+        if (!confirm("정말로 취소하시겠습니까?")) {
+            return;
+        } else {
+            location.href="<%=request.getContextPath() %>/requests/estimate-delete?estimate_id="+estimate_id;
+        }
+    }
+    </script>
 
   
 </head>
@@ -365,8 +374,8 @@ width: 100%; bottom:0;
 		<div class="request-card-header">${getProEstimateDTO.get(i).get(0).service_name }</div>
 		<div class="request-card-body">
 
-			<div style="height: 70px;">${date.get(i)}</div>
-            <button type="button" class="btn-cancle">취소하기</button>
+            <div style="height: 70px;">${date.get(i)}</div>
+            <button type="button" class="btn-cancle" onclick="deleteEstimate(${getProEstimateDTO.get(i).get(0).estimates_id });">취소하기</button>
             <input type="submit" class="btn-update" value="자세히 보기">
 		</div>
 		  <input type="hidden" name="estimates_id" value="${getProEstimateDTO.get(i).get(0).estimates_id }">
