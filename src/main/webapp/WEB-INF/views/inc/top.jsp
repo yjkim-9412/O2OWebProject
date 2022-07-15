@@ -118,6 +118,122 @@ input:focus{
 }
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+/*알림*/
+.alarmbtn{
+	border: 0;
+	background: none;
+	padding-bottom: 20px;
+	margin-left: 10px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	align-content: space-around;
+	flex-wrap: nowrap;
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	position: relative;
+}
+li{
+	list-style: none;
+}
+.alarmdiv1{
+	position: absolute;
+	right: -87px;
+	top: 37px;
+	width: 21.875rem;
+	height: 43.875rem;
+	background: #fff;
+	border: 0.0625rem solid #f2f2f2;
+	border-radius: 8px;
+	box-shadow: 0 1.125rem 2.5rem -0.75rem rgb(50 50 50 / 30%);
+	margin-bottom: 1rem;
+	overflow: visible;
+	display: none;
+
+}
+.alarmdiv1::before{
+	content: "";
+	position: absolute;
+	top: -0.5625rem;
+	right: 5.625rem;
+	width: 1.125rem;
+	height: 0.625rem;
+	background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMCI+PGcgZmlsbD0iI0ZGRiIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNOS4wNSAxbDcuODUgOC42SDEuMnoiLz48cGF0aCBzdHJva2U9IiNGMkYyRjIiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0xIDlsOC04IDggOCIvPjwvZz48L3N2Zz4=) no-repeat;
+}
+.alarmdiv2{
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+}
+
+.alarmheader{
+	padding: 1.5rem 1.5rem 0.5rem
+}
+.alarmh3{
+	font-weight: 500;
+	line-height: 2rem;
+	font-size: 1.125rem;
+	margin: 0;
+	color: #323232;
+	text-align: left;
+}
+.btnclose{
+	display: none;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+.btnclose img{
+	vertical-align: top;
+}
+.alarmbody{
+	height: 100%;
+	overflow: auto;
+}
+.alarmbody2{
+	padding: 1.5rem;
+	overflow-y: auto;
+}
+.alarmul{
+	margin: 0;
+}
+.loding-icon{
+	width: 100%;
+}
+.alarmp1{
+	font-size: .875rem;
+	line-height: 1.3125rem;
+	font-weight: 400;
+	letter-spacing: -.0125rem;
+}
+.alarmp2{
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	display: block;
+	font-weight: bold;
+	color: #323232;
+}
+.row-nogutter{
+	height: 1.25rem;
+	margin-right: 0;
+	margin-left: 0;
+}
+.morebtn{
+	height: 100%;
+	color: #00c7ae;
+	font-size: .875rem;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-weight: 400;
+}
+#alarmli{
+	position: relative;
+}
+/*알림끝*/
 /* 검색창 */
 .search-suggestion[data-v-8f67d2d4] {
     position: absolute;
@@ -203,18 +319,31 @@ input:focus{
 
 <script type="text/javascript">
 
-function openCloseToc() {
-	  if (document.getElementById('searchdiv').style.display === 'block') {
-	    document.getElementById('searchdiv').style.display = 'none';
+	// 알림
+	function openCloseToc() {
+		if (document.getElementById('alarmdiv').style.display === 'block') {
+			document.getElementById('alarmdiv').style.display = 'none';
 
-	  } else {
-	    document.getElementById('searchdiv').style.display = 'block';
+		} else {
+			document.getElementById('alarmdiv').style.display = 'block';
 
-	  }
+		}
 	}
-function closebtn(){
-	document.getElementById('searchdiv').style.display = 'none';
-}
+	//검색창
+	function openClose() {
+		if (document.getElementById('searchdiv').style.display === 'block') {
+			document.getElementById('searchdiv').style.display = 'none';
+
+		} else {
+			document.getElementById('searchdiv').style.display = 'block';
+
+		}
+	}
+
+	function closebtn(){
+		document.getElementById('searchdiv').style.display = 'none';
+	}
+
 $(document).ready(function (){
 
     connectStomp();
@@ -295,7 +424,7 @@ $(document).ready(function (){
 
            <!--search바  -->
            <div class="search">
-              <input type="text" id="plz" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()" >
+              <input type="text" id="plz" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()" >
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -447,7 +576,7 @@ $(document).ready(function (){
 
               <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
@@ -625,7 +754,7 @@ $(document).ready(function (){
 
               <!--search바  -->
            <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
+              <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()">
               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
 
 <!--             검색창 -->
