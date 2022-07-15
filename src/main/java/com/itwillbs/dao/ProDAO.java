@@ -2,15 +2,7 @@ package com.itwillbs.dao;
 
 import java.util.List;
 
-import com.itwillbs.domain.AddistrictDTO;
-import com.itwillbs.domain.AddressDTO;
-import com.itwillbs.domain.CityDTO;
-import com.itwillbs.domain.DistrictDTO;
-import com.itwillbs.domain.GetEstimateDTO;
-import com.itwillbs.domain.GetProDTO;
-import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProDTO;
-import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.*;
 
 public interface ProDAO {
     public void insertPro(ProDTO proDTO);
@@ -33,6 +25,12 @@ public interface ProDAO {
     int getAccId(int estimates_id);
 
     public void deletePro(ProDTO proDTO);
+
+    public void updateName(GetProDTO proDTO);
+
+    public void updateEmail(GetProDTO proDTO);
+
+    public void updatePass(GetProDTO proDTO);
 }
 
 

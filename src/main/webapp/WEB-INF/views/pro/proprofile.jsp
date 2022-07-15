@@ -154,7 +154,7 @@ input[type=button] {
 }
 
 .allbox{
-	margin-left:50em;
+	margin-left:40em;
 }
 /*푸터*/
 /*  푸터  */

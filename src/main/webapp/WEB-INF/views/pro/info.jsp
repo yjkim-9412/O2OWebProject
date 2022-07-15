@@ -16,6 +16,19 @@
             background-color: #fafafa;
         }
 
+        .home__avatar {
+            width: 15rem;
+            height: 15rem;
+            min-width: 4.375rem;
+            border-radius: 70%;
+            overflow: hidden;
+            border: 0.0625rem solid #f2f2f2;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
 
 
 
@@ -103,7 +116,7 @@
 
         }
 
-        }
+
         .button-55:focus {
             box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 
@@ -178,6 +191,11 @@
             font-weight: bold;
         }
 
+        .item-titleRed{
+            color: #BD081C;
+            font-weight: bold;
+        }
+
         .item-info {
             padding-top: 0.25rem;
 
@@ -217,59 +235,89 @@
 <div class="page-section" style="padding-top: 0px">
     <div class="container">
 
-            <h2 class="text-black"><b>주고 프로필</b></h2>
-            <div class="profile-image"></div><br><br>
-
-        <div><a href="/pro/ImgUpdate">${proDTO.img_url}</a></div>
-
-            <br><br>
 
         <form action="/pro/updateFilePro" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto">
+            <h2 class="text-black"><b>주고 프로필</b></h2>
+           <%-- <div class="profile-image"></div><br><br>--%>
+            <img src="../resources/img/person/jangwon.jpg" class="home__avatar">
 
-            <li class="item-container" style="margin-top:50px;" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/name'">
-                <div class="item">
-                    <div class="item-title">이름</div>
-                    <div class="item-info">${proDTO.name}</div>
-                </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
-            </li>
+            <c:choose>
+                <c:when test="${ not empty sessionScope.email}">
+                    <li class="item-container" style="margin-top:50px;" onclick="location.href='<%=request.getContextPath() %>/pro/settings/name'">
+                        <div class="item">
+                            <div class="item-title">이름</div>
+                            <div class="item-info">${proDTO.name}</div>
+                        </div>
+                        <div>
+                            <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                        </div>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="item-container" style="margin-top:50px;">
+                        <div class="item">
+                            <div class="item-title">이름</div>
+                            <div class="item-info">${proDTO.name}</div>
+                        </div>
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/email'">
-                <div class="item">
-                    <div class="item-title">이메일</div>
-                    <div class="item-info">${proDTO.email}</div>
-                </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
-            </li>
+                    </li>
+                </c:otherwise>
+            </c:choose>
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/password'">
+            <c:choose>
+                <c:when test="${ not empty sessionScope.email}">
+                    <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/settings/email'">
+                        <div class="item">
+                            <div class="item-title">이메일</div>
+                            <div class="item-info">${proDTO.email}</div>
+                        </div>
+                        <div>
+                            <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                        </div>
+                    </li>
+                </c:when>
+                <c:otherwise>
+
+                    <li class="item-container">
+                        <div class="item">
+                            <div class="item-title">이메일</div>
+                            <div class="item-info">${proDTO.email}</div>
+                        </div>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+
+
+            <c:if test="${not empty sessionScope.email}">
+                <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/settings/pass'">
+                    <div class="item">
+                        <div class="item-title">비밀번호</div>
+                    </div>
+                    <div>
+                        <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                    </div>
+                </li>
+            </c:if>
+
+            <li class="item-container">
                 <div class="item">
                     <div class="item-title">자기소개</div>
 
                     <div class="item-info">안녕하세요 준비된 주고 ${proDTO.name}입니다.</div>
                 </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
             </li>
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/password'">
+            <li class="item-container">
                 <div class="item">
                     <div class="item-title">제공 서비스</div>
 
                     <div class="item-info">${proDTO.service_name} </div>
 
                 </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
+
             </li>
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/password'">
+            <li class="item-container">
                 <div class="item">
                     <div class="item-title">
 
@@ -280,12 +328,10 @@
                         오전 9시~ 오후 6시
                     </div>
                 </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
+
             </li>
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/password'">
+            <li class="item-container">
                 <div class="item">
                     <div class="item-title">활동 지역</div>
 
@@ -294,34 +340,26 @@
                         ${proDTO.city_name}  ${proDTO.district_name } ${proDTO.addistrict_name}
                     </div>
                 </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
+
             </li>
 
 
 
 
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/password'">
+            <li class="item-container">
                 <div class="item">
                     <div class="item-title">경력</div>
                     <div class="item-info">${proDTO.career}년</div>
                 </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                </div>
             </li>
 
 
 
-            <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/mypage/settings/password'">
+            <li class="item-container">
                 <div class="item">
                     <div class="item-title">직원수</div>
                     <div class="item-info"><img width="25" height="20"  src="../resources/img/icon/9.png"> &nbsp;${proDTO.employee_number}명</div>
-                </div>
-                <div>
-                    <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
                 </div>
             </li>
 
@@ -349,7 +387,7 @@
 
                 <li class="item-container" style="margin-top:50px; height: 50px;" onclick="location.href='<%=request.getContextPath() %>/pro/delete'">
                     <div class="item">
-                        <div class="item-title">주고 탈퇴</div>
+                        <div class="item-titleRed">주고 탈퇴</div>
                     </div>
                     <div>
                         <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">

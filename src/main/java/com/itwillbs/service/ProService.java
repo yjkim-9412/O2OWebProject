@@ -2,12 +2,7 @@ package com.itwillbs.service;
 
 import java.util.List;
 
-import com.itwillbs.domain.AddressDTO;
-import com.itwillbs.domain.GetEstimateDTO;
-import com.itwillbs.domain.GetProDTO;
-import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProDTO;
-import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.*;
 
 public interface ProService {
 
@@ -29,4 +24,10 @@ public interface ProService {
     int getAccId(int estimates_id);
 
     public void deletePro(ProDTO proDTO);
+
+    public void updateName(GetProDTO proDTO);
+
+    public void updateEmail(GetProDTO proDTO);
+
+    public void updatePass(GetProDTO proDTO);
 }

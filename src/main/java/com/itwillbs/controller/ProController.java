@@ -4,12 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.itwillbs.domain.AddressDTO;
-import com.itwillbs.domain.GetEstimateDTO;
-import com.itwillbs.domain.GetProDTO;
-import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProDTO;
-import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.*;
 import com.itwillbs.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -382,9 +377,9 @@ public class ProController {
 	}
 		
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	 public String info(Model m,HttpSession session, String num) {
+	 public String info(Model m,HttpSession session, @RequestParam(value="num",required = false) String num) {
 	    	System.out.println("ProController info()");
-			int id=Integer.parseInt(num);
+			int  id=Integer.parseInt(num);
             System.out.println(id);
 
 
@@ -404,6 +399,22 @@ public class ProController {
 
 
 	}
+
+
+	@RequestMapping(value = "/pro/info2", method = RequestMethod.GET)
+	public String info(Model m,HttpSession session) {
+		System.out.println("ProController info()");
+
+
+		String email = session.getAttribute("email").toString();
+		GetProDTO proDTO = proService.getProemail(email);
+		m.addAttribute("proDTO", proDTO);
+
+
+		return "pro/info";
+	}
+
+
 	
 	@RequestMapping(value = "/pro/estimates", method = RequestMethod.GET)
 	 public String estimate(HttpSession session,Model model,HttpServletRequest request) {
@@ -504,51 +515,6 @@ public class ProController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/pro/fwritePro", method = RequestMethod.POST)
-	public String fwritePro(HttpServletRequest request, MultipartFile file) throws Exception{
-
-
-
-
-//		BoardDTO boardDTO=new BoardDTO();
-//		boardDTO.setName(request.getParameter("name"));
-//		boardDTO.setPass(request.getParameter("pass"));
-//		boardDTO.setSubject(request.getParameter("subject"));
-//		boardDTO.setContent(request.getParameter("content"));
-
-
-		// 파일이름 => 랜덤문자_파일이름
-		UUID uuid=UUID.randomUUID();
-		String fileName=uuid.toString()+"_"+file.getOriginalFilename();
-		// 업로드 파일을 => resources/upload 폴더 복사
-		File uploadFile=new File(uploadPath,fileName);
-		FileCopyUtils.copy(file.getBytes(), uploadFile);
-
-//		boardDTO.setFile(fileName);
-//
-//		//디비 insert
-//
-//		boardService.insertBoard(boardDTO);
-
-		return "redirect:/pro/info";
-	}
-
-
-	@RequestMapping(value = "/pro/updatePro", method = RequestMethod.POST)
-	public String update(HttpSession session,Model model,HttpServletRequest request, MultipartFile file) throws IOException {
-
-		 String email=session.getAttribute("email").toString();
-		 GetProDTO proDTO=proService.getProemail(email);
-
-		UUID uuid=UUID.randomUUID();
-		String fileName=uuid.toString()+"_"+file.getOriginalFilename();
-		// 업로드 파일을 => resources/upload 폴더 복사
-		File uploadFile=new File(uploadPath,fileName);
-		FileCopyUtils.copy(file.getBytes(), uploadFile);
-		 return "redirect:/pro/info";
-
-	}
-
 
 	@RequestMapping(value="/pro/delete",method = RequestMethod.GET)
 	public String delete(HttpSession session,Model model){
@@ -576,15 +542,71 @@ public class ProController {
 		return "redirect:/";
 	}
 
-	@RequestMapping(value = "/pro/ImgUpdate", method = RequestMethod.GET)
-	public String ImgUpdate(HttpSession session,Model m) {
 
-		String email = session.getAttribute("email").toString();
-		GetProDTO proDTO = proService.getProemail(email);
-		m.addAttribute("proDTO",proDTO);
-		return "pro/ImgUpdate";
+	@RequestMapping(value = "/pro/settings/name", method = RequestMethod.GET)
+	public String name(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/name";
 	}
 
+	@RequestMapping(value = "/pro/settings/name-update", method = RequestMethod.POST)
+	public String updateName(@RequestParam("name") String name, GetProDTO proDTO) {
+
+		proDTO.setName(name);
+		System.out.println("업데이트 이름 : " + proDTO.getName());
+		proService.updateName(proDTO);
+		return "redirect:/pro/info2";
+	}
+
+	@RequestMapping(value = "/pro/settings/email", method = RequestMethod.GET)
+	public String email(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/email";
+	}
+
+	@RequestMapping(value = "/pro/settings/email-update", method = RequestMethod.POST)
+	public String updateEmail(@RequestParam("email") String email, GetProDTO proDTO) {
+
+		proDTO.setName(email);
+		System.out.println("업데이트 이름 : " + proDTO.getEmail());
+		proService.updateEmail(proDTO);
+		return "redirect:/pro/info2";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/pass", method = RequestMethod.GET)
+	public String pass(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/pass";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/pass-update", method = RequestMethod.POST)
+	public String updatePass(@RequestParam("password") String password, GetProDTO proDTO) {
+
+		proDTO.setPassword(password);
+		System.out.println("업데이트 이름 : " + proDTO.getPassword());
+		proService.updatePass(proDTO);
+		return "redirect:/pro/info2";
+	}
 
 
 }

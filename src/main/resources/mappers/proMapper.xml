@@ -125,10 +125,16 @@
 		DELETE from PROS WHERE password=#{password}
 	</delete>
 
-	<!--<update id="updateImg" parameterType="string">
+	<update id="updateName">
+		update PROS set name=#{name} where email=#{email}
+	</update>
 
-		update PROFILEIMG SET img_url=" "  WHERE img_url=#{img_url}
+	<update id="updateEmail">
+		update PROS set email=#{email} where email=#{email}
+	</update>
 
-	</update>-->
+	<update id="updatePass">
+		update PROS set password=#{password} where email=#{email}
+	</update>
 
 </mapper>
