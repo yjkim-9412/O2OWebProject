@@ -395,7 +395,6 @@ ul li {
             			<span class="name-length">${memberDTO.name}</span> 고객님
             		</div>
             		<div class="user-id">
-            			<img alt="kakao" src="https://assets.cdn.soomgo.com/icons/icon-mypage-kakaotalk-signin.svg">
             			<span class="id-length">${memberDTO.email }</span>
             		</div>
             	</div>

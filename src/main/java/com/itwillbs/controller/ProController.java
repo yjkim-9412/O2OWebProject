@@ -3,7 +3,6 @@ package com.itwillbs.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import com.google.gson.Gson;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetEstimateDTO;
 import com.itwillbs.domain.GetProDTO;
@@ -443,12 +442,12 @@ public class ProController {
 	@RequestMapping(value = "/pro/loginPro", method = RequestMethod.POST)
 	public String loginPro(ProDTO proDTO,HttpSession session) {
 		System.out.println("ProController loginPro()");
-
+		
 		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
 			session.removeAttribute("email");
 			session.removeAttribute("id");
-			session.setAttribute("email",proDTO.getEmail());
+			session.setAttribute("email",proDTO2.getEmail());
 		}else {
 			return "member/msg";
 		}
@@ -488,7 +487,7 @@ public class ProController {
 
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/pro/searchlist", method = RequestMethod.GET)
 	public ResponseEntity<List<ServiceDTO>> searchlist(String keyword) {
 		ResponseEntity<List<ServiceDTO>> entitiy=null;
@@ -496,9 +495,9 @@ public class ProController {
 			List<ServiceDTO> serviceDTO = proService.getSearchList(keyword);
 			entitiy=new ResponseEntity<List<ServiceDTO>>(serviceDTO,HttpStatus.OK);
 		}
-		
+
 		return entitiy;
 	}
-	
+
 
 }

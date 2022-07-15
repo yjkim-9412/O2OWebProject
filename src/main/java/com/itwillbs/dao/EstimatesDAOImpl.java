@@ -63,9 +63,9 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 	}
 
 	@Override
-	public List<ProEstimatesDTO> getProEstimates2(int estimates_id) {
+	public List<ProEstimatesDTO> getProEstimates2(HashMap<String, Integer> map) {
 		
-		return sqlSession.selectList(namespace + ".getProEstimates2", estimates_id);
+		return sqlSession.selectList(namespace + ".getProEstimates2", map);
 	}
 
 	@Override
@@ -81,5 +81,10 @@ public class EstimatesDAOImpl implements EstimatesDAO{
 	@Override
 	public void deleteEstimateMid(List<Integer> estimatesMid_id) {
 		sqlSession.delete(namespace + ".deleteEstimateMid", estimatesMid_id);
+	}
+
+	@Override
+	public void proEstimateDelete(int proEstimates_id) {
+		sqlSession.update(namespace + ".proEstimateDelete", proEstimates_id);
 	}
 }

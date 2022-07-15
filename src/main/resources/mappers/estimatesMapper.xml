@@ -5,11 +5,11 @@
   <mapper namespace="com.itwillbs.estimates.EstimatesMapper">
   		
   	<select id="getEstimatesId" resultType="Integer">
-  		select id from ESTIMATES where account_id = #{account_id}
+  		select id from ESTIMATES where account_id = #{account_id} order by id desc
   	</select>
   	
   	<select id="getEstimatesMid" resultType="com.itwillbs.domain.EstimatesMidDTO">
-  		select * from ESTIMATESMID where estimates_id = #{estimates_id} order by date desc
+  		select * from ESTIMATESMID where estimates_id = #{estimates_id}
   	</select>
   	
   	<select id="getQuestion" resultType="com.itwillbs.domain.QuestionDTO">
@@ -62,7 +62,7 @@
   	<select id="getProEstimates2" resultType="com.itwillbs.domain.ProEstimatesDTO">
 		select pe.id proestimates_id, pe.estimates_id, pe.pro_id, p.name pro_name, p.email pro_email, pe.price, pe.selected, pe.account_id, pe.content
 		from PROESTIMATES pe left join PROS p on pe.pro_id = p.id
-		where estimates_id = #{estimates_id}
+		where estimates_id = #{estimatesId} and account_id = #{account_id}
   	</select>
 
 	<select id="getProAddr" resultType="com.itwillbs.domain.ProAddrDTO">
@@ -73,9 +73,9 @@
 		where p.id = #{pro_id}
 	</select>
 
-	<delete id="deleteEstimate">
-		delete from ESTIMATES where id=#{estimate_id}
-	</delete>
+	<update id="deleteEstimate">
+		update ESTIMATES set account_id = 4 where id=#{estimate_id}
+	</update>
 
 	<delete id="deleteEstimateMid" parameterType="java.util.List">
 		delete from ESTIMATESMID
@@ -83,4 +83,8 @@
 		           <foreach collection="list" item="item" separator=" , ">#{item}</foreach>
 		                  )
 	</delete>
+
+	<update id="proEstimateDelete">
+		update PROESTIMATES set account_id = 4 where id = #{proEstimates_id}
+	</update>
   </mapper>
