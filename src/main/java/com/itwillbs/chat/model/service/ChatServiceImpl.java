@@ -71,6 +71,6 @@ public class ChatServiceImpl implements ChatService{
 
     @Override
     public void deleteChatPro(GetChatRoomDTO getChatRoomDTO) {
-
+        chatRepository.deleteChatPro(getChatRoomDTO);
     }
 }

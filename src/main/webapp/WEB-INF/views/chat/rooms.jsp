@@ -130,14 +130,6 @@
                 }
 </style>
 <script>
-    isStomp = true;
-    var sock = new SockJS("/stompTest"); // endpoint
-    var client = Stomp.over(sock);
-    socket = client;
-    client.connect({},function (){
-        console.log("웹소켓 연결완료");
-
-    });
 
        function deleteChat(index){
            if (confirm("대화방을 나가시겠습니까?")){
@@ -217,14 +209,15 @@
                             <c:if test="${currentUser eq 'account'}">
                                 <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
                                 <li>
-                                    <form method="post" id="form${status.index}">
-                                        <input type="hidden" id="receiver_email${status.index}"  value="${GetChatRoomDTO.pro_email}">
-                                        <input type="hidden" id="session_name${status.index}"  value="${GetChatRoomDTO.session_name}">
-                                        <input type="hidden" id="userEmail${status.index}" value="${userEmail}">
-                                        <input type="hidden" id="currentUser${status.index}" value="${currentUser}">
-                                        <input type="hidden" id="receiver_name${status.index}" value="${GetChatRoomDTO.pro_name}">
+                                    <form method="POST" action="<%=request.getContextPath() %>/chat/room/${session_name}">
+                                        <input type="hidden" id="receiver_email${status.index}" name="receiver_email" value="${GetChatRoomDTO.pro_email}">
+                                        <input type="hidden" id="session_name${status.index}" name="session_name" value="${GetChatRoomDTO.session_name}">
+                                        <input type="hidden" id="userEmail${status.index}" name="userEmail" value="${userEmail}">
+                                        <input type="hidden" id="currentUser${status.index}" name="currentUser" value="${currentUser}">
+                                        <input type="hidden" id="receiver_name${status.index}" name="receiver_name" value="${GetChatRoomDTO.pro_name}">
+
                                             ${GetChatRoomDTO.pro_name}님과의 채팅<br>
-                                        <input type="submit" value="대화하기" onclick=" form.action='<%=request.getContextPath() %>/chat/room/${session_name}';">
+                                        <input type="submit" value="대화하기">
                                         <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
                                     </form>
 
@@ -234,14 +227,14 @@
                             <c:if test="${currentUser eq 'pro'}">
                                 <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
                                 <li>
-                                    <form action="<%=request.getContextPath() %>/chat/room/${session_name}" method="post">
-                                        <input type="hidden" id="receiver_email${status.index}"  value="${GetChatRoomDTO.account_email}">
-                                        <input type="hidden" id="session_name${status.index}"  value="${GetChatRoomDTO.session_name}">
-                                        <input type="hidden" id="userEmail${status.index}" value="${userEmail}">
-                                        <input type="hidden" id="currentUser${status.index}" value="${currentUser}">
-                                        <input type="hidden" id="receiver_name${status.index}" value="${GetChatRoomDTO.account_email}">
+                                    <form action="<%=request.getContextPath() %>/chat/room/${session_name}" method="POST">
+                                        <input type="hidden" id="receiver_email${status.index}" name="receiver_email" value="${GetChatRoomDTO.account_email}">
+                                        <input type="hidden" id="session_name${status.index}" name="session_name" value="${GetChatRoomDTO.session_name}">
+                                        <input type="hidden" id="userEmail${status.index}" name="userEmail" value="${userEmail}">
+                                        <input type="hidden" id="currentUser${status.index}" name="currentUser" value="${currentUser}">
+                                        <input type="hidden" id="receiver_name${status.index}" name="receiver_name" value="${GetChatRoomDTO.account_email}">
                                             ${GetChatRoomDTO.account_name}님과의 채팅<br>
-                                        <input type="submit" value="대화하기" onclick=" form.action='<%=request.getContextPath() %>/chat/room/${session_name}';">
+                                        <input type="submit" value="대화하기">
                                         <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
                                     </form>
                                 </li>

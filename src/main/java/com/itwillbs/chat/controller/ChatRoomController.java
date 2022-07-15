@@ -67,19 +67,27 @@ public class ChatRoomController {
         return "redirect:/chat/room/" + session_name;
     }
 
-    @RequestMapping(value = "/chat/room/{session_name}")
+    @RequestMapping(value = "/chat/room/{session_name}",method = RequestMethod.POST)
     public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request,HttpSession session){
         GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
-        System.out.println("나가기 확인"+getChatRoomDTO.getAccount_email());
-        System.out.println("나가기 프로"+ getChatRoomDTO.getPro_email());
         List<ChatMessageDTO> messageList = chatService.getChatMessage(session_name);
-        if (getChatRoomDTO.getPro_email().equals("trashrpro@trash.com") ||
-                getChatRoomDTO.getAccount_email().equals("trash@trash.com")){
+        if (getChatRoomDTO.getAccount_email().equals("trash@trash.com")){
+            model.addAttribute("user_name",getChatRoomDTO.getPro_name());
+            model.addAttribute("receiver","trash@trash.com");
+            model.addAttribute("chatSession",session_name);
+            model.addAttribute("messageList", messageList);
+
             return "chat/room";
+        } else if (getChatRoomDTO.getPro_email().equals("trashrpro@trash.com")) {
+            model.addAttribute("user_name",getChatRoomDTO.getAccount_name());
+            model.addAttribute("receiver","trashrpro@trash.com");
+            model.addAttribute("messageList", messageList);
         }
         System.out.println("intoChat:->>>>>>>>>");
 
         String userEmail = request.getParameter("userEmail");
+        System.out.println("세션 : " + session_name);
+        System.out.println("userEmail : "+userEmail);
         if (userEmail == null){
             int id = (Integer)session.getAttribute("id");
 
