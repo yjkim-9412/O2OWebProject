@@ -15,8 +15,9 @@
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <!-- 파비콘 변경 -->
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -381,7 +382,7 @@ $(document).ready(function (){
 
     connectStomp();
     function connectStomp (){
-        StompStatus = true;
+
         var sock = new SockJS("/stompTest");
         var client = Stomp.over(sock);
         socket = client;
@@ -393,10 +394,20 @@ $(document).ready(function (){
                     const content = JSON.parse(event.body);
                     var sender = content.sender_name;
                     var session_name = content.session_name;
-                    var receiver = content.receiver_name;
+                    var receiver = content.receiver;
                     let $socketAlert = $('div#socketAlert');
+					var postChat = document.postChat;
+
+					var currentUser = document.getElementsByName("currentUser");
+					$('#currentUser').val('pro');
+					$('#userEmail').val(receiver);
+					currentUser.value = "pro";
+					postChat.method = "post";
+					postChat.action = "${pageContext.request.contextPath}/chat/room/"+session_name;
+					console.log("session : " +session_name);
+					console.log("userEmail : " +receiver);
                     $socketAlert.css('display', 'block');
-                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
+					$('p#alertChat').html(sender + "님이 메세지를 보냈습니다!");
                     setTimeout(function () {
                         $socketAlert.css('display', 'none');
                     }, 6000);
@@ -408,10 +419,19 @@ $(document).ready(function (){
                     const content = JSON.parse(event.body);
                     var sender = content.sender_name;
                     var session_name = content.session_name;
-                    var receiver = content.receiver_name;
+                    var receiver = content.receiver_email;
+
                     let $socketAlert = $('div#socketAlert');
+					var postChat = document.postChat;
+					var currentUser = document.getElementsByName("currentUser");
+					document.userEmail.value = receiver;
+					currentUser.value = "account"
+					postChat.method = "post";
+					postChat.action = "${pageContext.request.contextPath}/chat/room/"+session_name;
                     $socketAlert.css('display', 'block');
-                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='location.hr'>");
+					postChat.text(sender + "님이 메세지를 보냈습니다!");
+
+
                     setTimeout(function () {
                         $socketAlert.css('display', 'none');
                     }, 6000);
@@ -431,7 +451,14 @@ $(document).ready(function (){
 
 
 </head>
-<div id="socketAlert" class="alert alert-success" role="alert" style="display: none"></div>
+<div id="socketAlert" class="alert alert-success" role="alert" style="display: none">
+	<form method="post" id="postChat" name="postChat" action="/chat/room/">
+		<p id="alertChat"></p>
+		<input type="hidden" value="" id="currentUser" name="currentUser">
+		<input type="hidden" value="" id="userEmail" name="userEmail">
+	<input type="submit" value="이동하기!">
+	</form>
+</div>
 
 <header>
 <c:catch>

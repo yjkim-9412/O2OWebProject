@@ -81,6 +81,7 @@ public class ChatRoomController {
         } else if (getChatRoomDTO.getPro_email().equals("trashrpro@trash.com")) {
             model.addAttribute("user_name",getChatRoomDTO.getAccount_name());
             model.addAttribute("receiver","trashrpro@trash.com");
+            model.addAttribute("chatSession",session_name);
             model.addAttribute("messageList", messageList);
         }
         System.out.println("intoChat:->>>>>>>>>");
@@ -133,7 +134,7 @@ public class ChatRoomController {
     @RequestMapping(value = "/chat/rooms")
     public String GetRoomList(HttpSession session, Model model){
         List<GetChatRoomDTO> chatList = chatService.getChatList(session);
-        if (chatList == null){
+        if (chatList.isEmpty()){
             return "redirect:/chat/rooms_empty";
         }
         model.addAttribute("chatList",chatList);
@@ -159,6 +160,7 @@ public class ChatRoomController {
         }
         return "chat/rooms";
     }
+
 
     @ResponseBody
     @RequestMapping(value = "/chat/delete",method = RequestMethod.GET)
