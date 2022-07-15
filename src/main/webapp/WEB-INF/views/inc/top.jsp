@@ -398,10 +398,8 @@ $(document).ready(function (){
                     let $socketAlert = $('div#socketAlert');
 					var postChat = document.postChat;
 
-					var currentUser = document.getElementsByName("currentUser");
 					$('#currentUser').val('pro');
 					$('#userEmail').val(receiver);
-					currentUser.value = "pro";
 					postChat.method = "post";
 					postChat.action = "${pageContext.request.contextPath}/chat/room/"+session_name;
 					console.log("session : " +session_name);
@@ -423,13 +421,14 @@ $(document).ready(function (){
 
                     let $socketAlert = $('div#socketAlert');
 					var postChat = document.postChat;
-					var currentUser = document.getElementsByName("currentUser");
-					document.userEmail.value = receiver;
-					currentUser.value = "account"
+					$('#currentUser').val('account');
+					$('#userEmail').val(receiver);
 					postChat.method = "post";
 					postChat.action = "${pageContext.request.contextPath}/chat/room/"+session_name;
-                    $socketAlert.css('display', 'block');
-					postChat.text(sender + "님이 메세지를 보냈습니다!");
+					console.log("session : " +session_name);
+					console.log("userEmail : " +receiver);
+					$socketAlert.css('display', 'block');
+					$('p#alertChat').html(sender + "님이 메세지를 보냈습니다!");
 
 
                     setTimeout(function () {
