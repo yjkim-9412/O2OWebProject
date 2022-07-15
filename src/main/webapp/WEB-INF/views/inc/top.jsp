@@ -257,7 +257,7 @@ function closebtn(){
 <header>
 <c:catch>
 <c:choose>
-<c:when test="${ empty sessionScope.id }">
+<c:when test="${ empty sessionScope }">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
     <div id="socketAlert" class="alert alert-success" role="alert" style="display: none">

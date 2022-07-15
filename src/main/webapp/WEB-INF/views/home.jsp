@@ -1287,6 +1287,16 @@ a.nav-link1 {
     font-size: .75rem;
     font-weight: 500;
 }
+/*인기숨은고수*/
+.col3 {
+    flex: auto;
+    width: 45%;
+}
+.our-team{
+    float: left;
+    padding-left: 160px;
+    padding-top: 55px;
+}
 </style>
 
 
@@ -1984,9 +1994,10 @@ a.nav-link1 {
  <div class="container">
       <h4 class="text-left"><b>인기 주고</b></h4>	
   <div class="row">
-      <c:forEach  begin="1" end="3" var="reviewDTO3" items="${reviewDTO3}" >
 
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+    <div class="col3">
+        <c:forEach  begin="1" end="4" var="reviewDTO3" items="${reviewDTO3}" >
       <div class="our-team">
         <div class="picture">
           <img class="img-fluid" src="https://picsum.photos/130/130?image=1027" onclick="location.href='pro/info'">
@@ -2004,11 +2015,12 @@ a.nav-link1 {
 
             </div>
             </div>
+        </c:forEach>
             </div>
         </div>
       </div>
 
-</c:forEach>
+
 <!-- 인기 숨은고수 끝 -->
 
   
