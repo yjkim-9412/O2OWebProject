@@ -24,7 +24,7 @@ public interface EstimatesService {
 	public List<GetProEstimateDTO> getProEstimates(Map<String, Integer> map);
 
 	// estimates_id에 해당하는 PROESTIMATES 테이블 모든 컬럼을 가지고 오는 메서드
-	public List<ProEstimatesDTO> getProEstimates2(int estimates_id);
+	public List<ProEstimatesDTO> getProEstimates2(HashMap<String, Integer> map);
 
 	// pro의 주소정보를 출력하는 메서드
 	public ProAddrDTO getProAddr(int pro_id);
@@ -32,4 +32,6 @@ public interface EstimatesService {
 	public void deleteEstimate(int estimate_id);
 
 	public void deleteEstimateMid(List<Integer> estimatesMid_id);
+
+	public void proEstimateDelete(int proEstimates_id);
 }

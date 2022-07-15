@@ -457,7 +457,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=45'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=45'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                 	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/f173d21e-0f55-466f-93a7-e0f0c7fdf3b4.jpg');">
                                 	</div>
@@ -474,7 +474,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=40'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=40'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/f40e6be6-9e8a-4212-8aee-0a1924003873.jpg');">
                                 	</div>
@@ -491,7 +491,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mc?services_id1=39'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=39'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/f986ec71-c39c-4c4b-96a6-5db5d96ed6b4.png');">
                                 	</div>
@@ -508,7 +508,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mc?services_id1=42'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=42'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/e7c1f58f-53fe-48f8-8457-540ec16eb4fc.png');">
                                 	</div>
@@ -525,7 +525,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/party?services_id1=49'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=49'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/3a0a78bd-d0d4-4186-9010-2ec6e8115cdf.jpg');">
                                 	</div>
@@ -542,7 +542,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/video?services_id1=41'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=41'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/06ee7cd0-ffc2-49fd-89d0-43f98e99be9d.png');">
                                 	</div>
@@ -567,11 +567,11 @@ li a {
         <div class="col-lg-3 py-3" style="width: 450px;">
           <ul id="categories">
             <li><h4><b>파티, 행사계획</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=45" class="cmenu">개인 행사</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=46" class="cmenu">기업 행사</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=47" class="cmenu">지역 행사</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=48" class="cmenu">홍보 행사</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/party?services_id1=49" class="cmenu">강연/간담회</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=45" class="cmenu">개인 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=46" class="cmenu">기업 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=47" class="cmenu">지역 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=48" class="cmenu">홍보 행사</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=49" class="cmenu">강연/간담회</a></li>
           </ul>
           
          
@@ -579,11 +579,11 @@ li a {
         <div class="col-lg-3 py-3" style="width: 470px;">
           <ul id="categories">
           	 <li><h4><b>행사MC</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=39" class="cmenu">돌잔치</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=40" class="cmenu">환갑/칠순잔치</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=41" class="cmenu">동창회</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=42" class="cmenu">야유회/워크샵</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mc?services_id1=43" class="cmenu">송년회/신년</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=39" class="cmenu">돌잔치</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=40" class="cmenu">환갑/칠순잔치</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=41" class="cmenu">동창회</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=42" class="cmenu">야유회/워크샵</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=43" class="cmenu">송년회/신년</a></li>
    		</ul>
         </div>
         <div class="col-lg-3 py-3" style="width: 400px;">

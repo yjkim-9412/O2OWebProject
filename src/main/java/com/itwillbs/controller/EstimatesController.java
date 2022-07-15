@@ -70,7 +70,7 @@ public class EstimatesController {
 
 		List<ProAddrDTO> proAddrList = new ArrayList<>();
 
-		List<ProEstimatesDTO> proEstimatesDTO = estimatesService.getProEstimates2(estimates_id);
+		List<ProEstimatesDTO> proEstimatesDTO = estimatesService.getProEstimates2(map);
 
 		if(proEstimatesDTO.size() != 0) {
 
@@ -116,7 +116,6 @@ public class EstimatesController {
 		}
 
 		System.out.println("이것은 날짜 " + date);
-		model.addAttribute("estimatesId", estimatesId);
 		model.addAttribute("getProEstimateDTO", getProEstimateDTO);
 		model.addAttribute("date",date);
 		
@@ -144,5 +143,14 @@ public class EstimatesController {
 
 		return "redirect:/requests/sentsent";
 	}
+
+	@RequestMapping(value = "/requests/proEstimate-delete", method = RequestMethod.GET)
+	public String proEstimateDelete(@RequestParam("proEstimates_id") int proEstimates_id ) {
+		System.out.println(proEstimates_id);
+		estimatesService.proEstimateDelete(proEstimates_id);
+
+		return "redirect:/requests/sentsent";
+	}
+
 
 }
