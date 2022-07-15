@@ -120,14 +120,7 @@ $(document).ready(function(){
 		
 		
 		
-		if($('#id').val()==""){
-			$('#iddiv').html("아이디를 입력해주세요.");
-			$('#iddiv').css("color","red");
-			$('#id').focus();
-			return false;
-		} else  {
-			$('#iddiv').html("");
-		}
+
 		
 		if($('#email').val()==""){
 			
@@ -174,11 +167,6 @@ $(document).ready(function(){
 <form action="<%=request.getContextPath() %>/member/insertPro" id="insert" method="post">
 <div class="insert-group">
 
-<div class="form-group">
-<label> 아이디 </label> <br>
- <input type="text" name="id" id="id" class="form-control" placeholder=""><br>
- <div id="iddiv"> </div>
- </div>
  
  <div class="form-group">
 <label> 이메일  </label> <br>

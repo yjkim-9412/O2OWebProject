@@ -25,4 +25,9 @@ public interface EstimatesDAO{
 	public List<ProEstimatesDTO> getProEstimates2(int estimates_id);
 
 	public ProAddrDTO getProAddr(int pro_id);
+
+	public void deleteEstimate(int estimate_id);
+
+	public void deleteEstimateMid(List<Integer> estimatesMid_id);
+
 }

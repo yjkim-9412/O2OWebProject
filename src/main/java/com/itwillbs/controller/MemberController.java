@@ -71,7 +71,7 @@ public class MemberController {
 		return "member/loginForm";
 	}
 	@RequestMapping(value = "/member/loginPro", method = RequestMethod.POST)
-	public String loginPro(MemberDTO memberDTO,HttpSession session) {
+	public String loginPro(MemberDTO memberDTO,HttpSession session,Model model) {
 
 		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
 		if(memberDTO2 != null) {
@@ -79,9 +79,11 @@ public class MemberController {
 			session.removeAttribute("email");
 			session.removeAttribute("id");
 			session.setAttribute("id",memberDTO2.getId());
+			session.setAttribute("alert",memberDTO2.getEmail());
 		}else {
 			return "member/msg";
 		}
+
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/member/main", method = RequestMethod.GET)
@@ -138,6 +140,20 @@ System.out.println("#########" + code);
 		model.addAttribute("memberDTO", memberDTO);
 
 		return "mypage/delete";
+	}
+
+	@RequestMapping(value = "/mypage/deletePro", method = RequestMethod.GET)
+	public String deletePro(HttpSession session, MemberDTO memberDTO) {
+
+		MemberDTO memberDTO2 = memberService.userCheck(memberDTO);
+		if(memberDTO2 != null) {
+			memberService.deleteMember(memberDTO2);
+			session.invalidate();
+		}else {
+			return "member/msg";
+		}
+
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/mypage/settings/name", method = RequestMethod.GET)

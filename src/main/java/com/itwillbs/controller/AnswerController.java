@@ -24,7 +24,13 @@ public class AnswerController {
 	
 	@Inject
 	private AnswerService answerService;
-	
+
+	@RequestMapping(value = "/requests/result", method = RequestMethod.GET)
+	public String result() {
+
+		return "requests/result";
+	}
+
 	@RequestMapping(value = "/category/result5", method = RequestMethod.GET)
 	public String result5(HttpSession session, HttpServletRequest request) {
 
@@ -106,7 +112,7 @@ public class AnswerController {
 			map.put("estimates_id", estimates_id);
 			answerService.updateEstimates(map);
 
-			return "category/result";
+			return "redirect:/requests/result";
 		}else {
 			return "category/msg";
 		}
@@ -193,7 +199,7 @@ public class AnswerController {
 			map.put("estimates_id", estimates_id);
 			answerService.updateEstimates(map);
 
-			return "category/result";
+			return "redirect:/requests/result";
 		}else {
 			return "category/msg";
 		}
@@ -280,7 +286,7 @@ public class AnswerController {
 			map.put("estimates_id", estimates_id);
 			answerService.updateEstimates(map);
 
-			return "category/result";
+			return "redirect:/requests/result";
 		}else {
 			return "category/msg";
 		}
@@ -364,7 +370,7 @@ public class AnswerController {
 			map.put("estimates_id", estimates_id);
 			answerService.updateEstimates(map);
 
-			return "category/result";
+			return "redirect:/requests/result";
 		}else {
 			return "category/msg";
 		}

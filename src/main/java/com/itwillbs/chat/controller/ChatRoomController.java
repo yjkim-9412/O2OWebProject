@@ -1,6 +1,7 @@
 package com.itwillbs.chat.controller;
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
+import com.itwillbs.chat.model.domain.DeleteChatDTO;
 import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.model.service.ChatEnterService;
 import com.itwillbs.chat.model.service.ChatService;
@@ -13,12 +14,11 @@ import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -119,6 +119,9 @@ public class ChatRoomController {
     @RequestMapping(value = "/chat/rooms")
     public String GetRoomList(HttpSession session, Model model){
         List<GetChatRoomDTO> chatList = chatService.getChatList(session);
+        if (chatList == null){
+            return "redirect:/chat/rooms_empty";
+        }
         model.addAttribute("chatList",chatList);
         Integer account = (Integer)session.getAttribute("id");
         String pro = (String)session.getAttribute("email");
@@ -141,6 +144,19 @@ public class ChatRoomController {
             return "redirect:/member/msg";
         }
         return "chat/rooms";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/chat/delete",method = RequestMethod.GET)
+    public String deleteChat(DeleteChatDTO deleteChatDTO){
+
+        String result = "";
+        System.out.println("되냐??"+deleteChatDTO.getCurrentUser());
+        System.out.println(deleteChatDTO.getUserEmail());
+        System.out.println(deleteChatDTO.getSession_name());
+        System.out.println(deleteChatDTO.getReceiver_email());
+
+        return result;
     }
 
 

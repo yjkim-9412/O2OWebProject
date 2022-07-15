@@ -457,7 +457,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/delivery?services_id1=56'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=56'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                 	<div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/9fa94311-8dd9-4f2e-b3fc-eeb849296452.png');">
                                 	</div>
@@ -474,7 +474,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/delivery?services_id1=57'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=57'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/9eab528d-9384-4d78-baa2-808acdcb5be5.png');">
                                 	</div>
@@ -491,7 +491,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=16'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=16'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://newsroom-prd-data.s3.ap-northeast-2.amazonaws.com/wp-content/uploads/2018/02/%ED%97%AC%EC%8A%A4-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8_5.jpg');">
                                 	</div>
@@ -508,7 +508,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=17'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=17'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/featured_service_46016a56-34ed-4a23-a6e1-8ac02391763d.jpg');">
                                 	</div>
@@ -525,7 +525,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=18'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=18'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/a44f592e-4ad5-4071-a192-4ebd01a83eae.png');">
                                 	</div>
@@ -542,7 +542,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=6'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=6'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/pd/v2/7/9/2/3/6/8/aXerF/2281792368_B.jpg');">
                                 	</div>
@@ -567,8 +567,8 @@ li a {
         <div class="col-lg-3 py-3" style="width: 600px; margin-left: 100px;">
           <ul id="categories">
             <li><h4><b>반찬/도시락 배달</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/delivery?services_id1=56" class="cmenu">반찬 배달</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/delivery?services_id1=57" class="cmenu">도시락 배달</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=56" class="cmenu">반찬 배달</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=57" class="cmenu">도시락 배달</a></li>
           </ul>
           
          
@@ -576,11 +576,11 @@ li a {
         <div class="col-lg-3 py-3" style="width: 300px; margin-left: 300px;">
           <ul id="categories">
           	 <li><h4><b>운동</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=6" class="cmenu">PT</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=16" class="cmenu">헬스</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=17" class="cmenu">크로스핏</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=18" class="cmenu">요가</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/exercise?services_id1=19" class="cmenu">필라테스</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=6" class="cmenu">PT</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=16" class="cmenu">헬스</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=17" class="cmenu">크로스핏</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=18" class="cmenu">요가</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=19" class="cmenu">필라테스</a></li>
    		</ul>
         </div>
       </div>
