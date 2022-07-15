@@ -13,6 +13,7 @@
 .reviewlist{
 	width: 100%;
     display: inline-block;
+	padding-left: 29px;
 }
 
 h2{
@@ -87,6 +88,8 @@ h2{
     color: #323232;
     margin-right: 0.375rem;
     display: inline-block;
+	position: relative;
+	top: 4px;
 }
 .ulstar2{
 	display: inline-block;
@@ -117,6 +120,8 @@ li{
     word-break: keep-all;
     padding-top: 17px;
     padding-left: 10px;
+	position: relative;
+	bottom: 10px;
 }
 .commentbox{
 	padding: 0.25rem 0 0;
@@ -147,12 +152,12 @@ input[type=button] {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+	width: 9em;
 }
-.allbox{
-	width:100px;
-
-
-
+.reviewbtndiv{
+	padding-left: 15em;
+	position: relative;
+	top: 49px;
 }
 
 .allbox{
@@ -225,25 +230,28 @@ function openChild() {
 
 </head>
 <body>
-<c:choose>
-	<c:when test="${ empty sessionScope }">
-		<input type="hidden" value="리뷰쓰기">
-	</c:when>
-	<c:otherwise>
-<input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
-	</c:otherwise>
-</c:choose>
-<!-- 출력부분 -->
 <header>
-<jsp:include page="../inc/top.jsp"></jsp:include>
+	<jsp:include page="../inc/top.jsp"></jsp:include>
 </header>
+
+<!-- 출력부분 -->
+
 <div class="allbox">
 
 <div>
 <h2>리뷰</h2>
+	<div class="reviewbtndiv">
+	<c:choose>
+		<c:when test="${ empty sessionScope }">
+			<input type="hidden" value="리뷰쓰기">
+		</c:when>
+		<c:otherwise>
+			<input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
+		</c:otherwise>
+	</c:choose>
+	</div>
 <div class="reviewlist">
 <div class="avg">${avg}</div>
-
 <div class="ratingul">
 <ul class="ulstar">
 	<c:forEach  begin="1" end="${roundavg}">
