@@ -22,6 +22,7 @@ public interface ProService {
     GetProDTO getProid(int id);
     GetProDTO getProemail(String email);
     public ProDTO proCheck(ProDTO proDTO);
+
     GetEstimateDTO getEstimate(int services_id);
     int getEstimateCount();
     List<GetEstimateDTO> getEstimateList(PageDTO pageDTO);
@@ -30,4 +31,12 @@ public interface ProService {
     void insertProEstimate(ProEstimateDTO proEstimateDTO);
     int getAccId(int estimates_id);
     List<ServiceDTO> getSearchList(String keyword);
+
+    public void deletePro(ProDTO proDTO);
+
+    public void updateName(GetProDTO proDTO);
+
+    public void updateEmail(GetProDTO proDTO);
+
+    public void updatePass(GetProDTO proDTO);
 }

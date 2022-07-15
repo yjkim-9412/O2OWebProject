@@ -11,7 +11,25 @@ public class ProEstimatesDTO {
 	private int price;
 	private int selected;
 	private int account_id;
-	private String content;
+
+	private String content,service_name,phone;
+
+	public String getService_name() {
+		return service_name;
+	}
+
+	public void setService_name(String service_name) {
+		this.service_name = service_name;
+	}
+
+	public String getPro_name() {
+		return pro_name;
+	}
+
+	public void setPro_name(String pro_name) {this.pro_name = pro_name;}
+	public String getPhone() {return phone;}
+	public void setPhone(String phone) {this.phone = phone;}
+	
 
 	public int getEstimates_id() {
 		return estimates_id;
@@ -58,13 +76,7 @@ public class ProEstimatesDTO {
 		this.proEstimates_id = proEstimates_id;
 	}
 
-	public String getPro_name() {
-		return pro_name;
-	}
 
-	public void setPro_name(String pro_name) {
-		this.pro_name = pro_name;
-	}
 
 	public String getPro_email() {
 		return pro_email;

@@ -52,6 +52,26 @@ public class ProServiceImpl implements ProService {
 	}
 
 	@Override
+	public void deletePro(ProDTO proDTO) {
+		proDAO.deletePro(proDTO);
+	}
+
+	@Override
+	public void updateName(GetProDTO proDTO) {
+		proDAO.updateName(proDTO);
+	}
+
+	@Override
+	public void updateEmail(GetProDTO proDTO) {
+		proDAO.updateEmail(proDTO);
+	}
+
+	@Override
+	public void updatePass(GetProDTO proDTO) {
+		proDAO.updatePass(proDTO);
+	}
+
+	@Override
     public void insertPro(ProDTO proDTO) {
 		proDTO.setAddress_id(getMaxAddrId());
 		System.out.println(proDTO.getAddress_id());

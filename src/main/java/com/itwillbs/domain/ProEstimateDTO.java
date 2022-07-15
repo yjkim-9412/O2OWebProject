@@ -2,9 +2,10 @@ package com.itwillbs.domain;
 
 public class ProEstimateDTO {
 private int estimates_id,pro_id,account_id;
-private String content;
 
-public String getContent() {
+	private String content;
+
+	public String getContent() {
 	return content;
 }
 

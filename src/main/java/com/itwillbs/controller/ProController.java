@@ -376,15 +376,44 @@ public class ProController {
 	}
 		
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	 public String info(Model m,HttpSession session) {
+	 public String info(Model m,HttpSession session, @RequestParam(value="num",required = false) String num) {
 	    	System.out.println("ProController info()");
-	    	String email = session.getAttribute("email").toString();
-			
-			GetProDTO proDTO = proService.getProemail(email);
-			m.addAttribute("proDTO", proDTO);
+			int  id=Integer.parseInt(num);
+            System.out.println(id);
 
-	        return "pro/info";
-	    }
+
+			if(id!=0){
+				System.out.println("집가고싶다");
+
+				GetProDTO proDTO=proService.getProid(id);
+				m.addAttribute("proDTO", proDTO);
+			}else{
+				System.out.println("안뜸");
+				String email = session.getAttribute("email").toString();
+				GetProDTO proDTO = proService.getProemail(email);
+				m.addAttribute("proDTO",proDTO);
+
+			}
+		return "pro/info";
+
+
+	}
+
+
+	@RequestMapping(value = "/pro/info2", method = RequestMethod.GET)
+	public String info(Model m,HttpSession session) {
+		System.out.println("ProController info()");
+
+
+		String email = session.getAttribute("email").toString();
+		GetProDTO proDTO = proService.getProemail(email);
+		m.addAttribute("proDTO", proDTO);
+
+
+		return "pro/info";
+	}
+
+
 	
 	@RequestMapping(value = "/pro/estimates", method = RequestMethod.GET)
 	 public String estimate(HttpSession session,Model model,HttpServletRequest request) {
@@ -497,6 +526,102 @@ public class ProController {
 		}
 
 		return entitiy;
+	}
+
+
+
+
+	@RequestMapping(value="/pro/delete",method = RequestMethod.GET)
+	public String delete(HttpSession session,Model model){
+
+		String email = session.getAttribute("email").toString();
+
+		ProDTO proDTO = proService.getPro(email);
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/delete";
+	}
+
+	@RequestMapping(value = "/pro/deletePro", method = RequestMethod.POST)
+	public String deletePro(ProDTO proDTO, HttpSession session) {
+
+		ProDTO proDTO2=proService.proCheck(proDTO);
+
+		if(proDTO!=null) {
+			proService.deletePro(proDTO);
+			session.invalidate();
+		}
+		else{
+			return "pro/msg";
+		}
+
+		return "redirect:/";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/name", method = RequestMethod.GET)
+	public String name(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/name";
+	}
+
+	@RequestMapping(value = "/pro/settings/name-update", method = RequestMethod.POST)
+	public String updateName(@RequestParam("name") String name, GetProDTO proDTO) {
+
+		proDTO.setName(name);
+		System.out.println("업데이트 이름 : " + proDTO.getName());
+		proService.updateName(proDTO);
+		return "redirect:/pro/info2";
+	}
+
+	@RequestMapping(value = "/pro/settings/email", method = RequestMethod.GET)
+	public String email(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/email";
+	}
+
+	@RequestMapping(value = "/pro/settings/email-update", method = RequestMethod.POST)
+	public String updateEmail(@RequestParam("email") String email, GetProDTO proDTO) {
+
+		proDTO.setName(email);
+		System.out.println("업데이트 이름 : " + proDTO.getEmail());
+		proService.updateEmail(proDTO);
+		return "redirect:/pro/info2";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/pass", method = RequestMethod.GET)
+	public String pass(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/pass";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/pass-update", method = RequestMethod.POST)
+	public String updatePass(@RequestParam("password") String password, GetProDTO proDTO) {
+
+		proDTO.setPassword(password);
+		System.out.println("업데이트 이름 : " + proDTO.getPassword());
+		proService.updatePass(proDTO);
+		return "redirect:/pro/info2";
 	}
 
 
