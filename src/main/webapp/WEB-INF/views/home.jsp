@@ -1199,7 +1199,7 @@ ul.nav-tabs1 {
     border: none;
     color: #b5b5b5;
     padding-top: 0.75rem;
-    padding-bottom: 1.75rem;
+    padding-bottom: 0.75rem;
     outline: none;
     font-size: 15px;
 }
@@ -1287,13 +1287,8 @@ a.nav-link1 {
 	padding-bottom: 18px;
     padding-left: 18px;
 }
-
 /* 검색창끝 */
 </style>
-
-
-
- 
 <script type="text/javascript">
  $(document).on('keypress','#searchinput',function(){
 	 $.ajax({
@@ -1313,6 +1308,13 @@ a.nav-link1 {
 	 })
  }); 
 </script>
+
+ 
+ 
+ 
+ 
+ 
+ 
 </head>
 <script>
 
@@ -1390,12 +1392,6 @@ a.nav-link1 {
         <div class="navbar-collapse collapse" id="navbarContent">
 
             <!--search바  -->
-<!--                       <div class="search"> -->
-<!--               <input type="text" placeholder="어떤 서비스가 필요하세요?" id="searchinput"> -->
-<!--               <div id="searchlistinput"><ul id="searchul"><li>검색리스트</li></ul></div> -->
-<!--               <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png"> -->
-<!--             </div> -->
-            
             <div class="search">
                 <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openClose()" id="searchinput">
                 <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
@@ -1508,8 +1504,7 @@ a.nav-link1 {
                         <div data-v-8f67d2d4="" id="closebtn" onclick="closebtn()">닫기</div>
                     </div>
                 </div>
-           <!--search바  -->
- 
+            </div>
             <!-- 검색창끝 -->
             
           <ul class="navbar-nav ml-auto">
