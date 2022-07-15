@@ -604,6 +604,7 @@ td{
 	width:410px;
 	height: 240px;
 }
+
 .classes-sub-box--wide {
 	width:410px;
 	height: 240px;
@@ -1288,6 +1289,38 @@ a.nav-link1 {
     padding-left: 18px;
 }
 /* 검색창끝 */
+
+/*인기고수리뷰*/
+.reviewjoogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.25rem;
+}
+.joogostar{
+    display: block;
+    border-style: none;
+    width: 14px;
+}
+.joogoavg{
+    font-size: .875rem;
+    font-weight: 700;
+    margin: 0 0.125rem;
+}
+.joogocount{
+    font-size: .75rem;
+    font-weight: 500;
+}
+/*인기숨은고수*/
+.col3 {
+    flex: auto;
+    width: 45%;
+}
+.our-team{
+    float: left;
+    padding-left: 160px;
+    padding-top: 55px;
+}
 </style>
 <script type="text/javascript">
  $(document).on('keypress','#searchinput',function(){
@@ -2002,52 +2035,33 @@ a.nav-link1 {
  <div class="container">
       <h4 class="text-left"><b>인기 주고</b></h4>	
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+
+    <div class="col3">
+        <c:forEach  begin="1" end="4" var="reviewDTO3" items="${reviewDTO3}" >
       <div class="our-team">
         <div class="picture">
           <img class="img-fluid" src="https://picsum.photos/130/130?image=1027" onclick="location.href='pro/info'">
         </div>
+
         <div class="team-content">
-          <h3 class="name">Michele Miller</h3>
-          <h4 class="title">레슨/보컬</h4>
+          <h3 class="name">${reviewDTO3.proname}</h3>
+
+            <h4 class="title">${reviewDTO3.service}</h4>
+
+            <for class="reviewjoogo">
+                <img data-v-5aab2176="" class="joogostar" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Im03LjQ5NiAxLjU5NiAxLjQwNyAyLjc0MiAzLjE0NS40NGMuOTEuMTI3IDEuMjc1IDEuMjA0LjYxNSAxLjgyMmwtMi4yNzYgMi4xMzQuNTM4IDMuMDE1Yy4xNTUuODcyLS43OTcgMS41MzgtMS42MTIgMS4xMjZMNi41IDExLjQ1MmwtMi44MTMgMS40MjNjLS44MTUuNDEyLTEuNzY3LS4yNTQtMS42MTItMS4xMjZsLjUzOC0zLjAxNUwuMzM3IDYuNmMtLjY2LS42MTgtLjI5Ni0xLjY5NS42MTUtMS44MjJsMy4xNDUtLjQ0IDEuNDA3LTIuNzQyQzUuOTEyLjggNy4wODguOCA3LjQ5NiAxLjU5NiIgZmlsbD0iI0ZGQ0UyMSIgZmlsbC1ydWxlPSJldmVub2RkIi8+Cjwvc3ZnPgo=">
+                <span data-v-5aab2176="" class="joogoavg" >${roundavg1}</span>
+                <span data-v-5aab2176="" class="joogocount">(${count1})</span>
+
+            </div>
+            </div>
+        </c:forEach>
+            </div>
         </div>
       </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="our-team">
-        <div class="picture">
-          <img class="img-fluid" src="https://picsum.photos/130/130?image=839">
-        </div>
-        <div class="team-content">
-          <h3 class="name">Patricia Knott</h3>
-          <h4 class="title">청소/이사</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="our-team">
-        <div class="picture">
-          <img class="img-fluid" src="https://picsum.photos/130/130?image=856">
-        </div>
-        <div class="team-content">
-          <h3 class="name">Justin Ramos</h3>
-          <h4 class="title">건강/헬스</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-      <div class="our-team">
-        <div class="picture">
-          <img class="img-fluid" src="https://picsum.photos/130/130?image=836">
-        </div>
-        <div class="team-content">
-          <h3 class="name">Mary Huntley</h3>
-          <h4 class="title">차량/수리</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+
 <!-- 인기 숨은고수 끝 -->
 
   

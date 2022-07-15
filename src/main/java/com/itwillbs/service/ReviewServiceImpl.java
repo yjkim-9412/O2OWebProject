@@ -57,6 +57,11 @@ public class ReviewServiceImpl implements ReviewService{
 	public int getAllreviewcount() {
 		return reviewDAO.getAllreviewcount();
 	}
-	
-	
+
+
+
+	@Override
+	public List<ReviewDTO> getpronameservice() {
+		return reviewDAO.getpronameservice();
+	}
 }
