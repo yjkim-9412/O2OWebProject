@@ -20,7 +20,7 @@
 <!-- 파비콘 변경 -->
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
+
 <!--   구글폰트(버튼) -->
 
   <title>MaRoo</title>
@@ -32,8 +32,8 @@
   <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/theme.css">
- 
- 
+
+
 <!-- 부트스트랩  -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -42,7 +42,7 @@
   position: relative;
   width: 300px;
   left: 5px;
-  
+
 }
 
 input {
@@ -61,7 +61,7 @@ input:focus{
   top: 10px;
   right: 7px;
   margin: 0;
-  
+
 }
 #logo1{
 	 width: 140px;
@@ -102,19 +102,19 @@ input:focus{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  
+
 }
 
 .button-55:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
-  
+
 }
 
 }
 .button-55:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  
+
 }
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
@@ -199,10 +199,9 @@ input:focus{
 }
 
 
-</style> 
- 
-<script type="text/javascript">
+</style>
 
+<script type="text/javascript">
 
 function openCloseToc() {
 	  if (document.getElementById('searchdiv').style.display === 'block') {
@@ -216,7 +215,54 @@ function openCloseToc() {
 function closebtn(){
 	document.getElementById('searchdiv').style.display = 'none';
 }
+$(document).ready(function (){
 
+    connectStomp();
+    function connectStomp (){
+        StompStatus = true;
+        var sock = new SockJS("/stompTest");
+        var client = Stomp.over(sock);
+        socket = client;
+        client.connect({}, function () {
+			console.log("top STOMP 연결 완료");
+            if (!<%=session.getAttribute("id")%>) {
+                socket.subscribe('/topic/inc/top/${sessionScope.email}', function (event) {
+                    console.log("프로 로그인");
+                    const content = JSON.parse(event.body);
+                    var sender = content.sender_name;
+                    var session_name = content.session_name;
+                    var receiver = content.receiver_name;
+                    let $socketAlert = $('div#socketAlert');
+                    $socketAlert.css('display', 'block');
+                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
+                    setTimeout(function () {
+                        $socketAlert.css('display', 'none');
+                    }, 6000);
+
+                });
+            }else {
+                socket.subscribe('/topic/inc/top/${sessionScope.alert}', function (event) {
+                    console.log("회원 로그인");
+                    const content = JSON.parse(event.body);
+                    var sender = content.sender_name;
+                    var session_name = content.session_name;
+                    var receiver = content.receiver_name;
+                    let $socketAlert = $('div#socketAlert');
+                    $socketAlert.css('display', 'block');
+                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='location.hr'>");
+                    setTimeout(function () {
+                        $socketAlert.css('display', 'none');
+                    }, 6000);
+
+                });
+            }
+
+
+
+        });
+
+    }
+});
 
 /*$('#plz').on('blur',function (){
 	$('#searchdiv').attr('style', "display:none;");
@@ -225,44 +271,19 @@ function closebtn(){
 
 </script>
 
+
 </head>
-<body>
-<script>
-    $(document).ready(function connectStomp (){
-        StompStatus = true;
-        var sock = new SockJS("/stompTest");
-        var cilent = Stomp.over(sock);
-        cilent.connect({}, function (){
-            if (${sessionScope.email}){
-            socket.subscribe('/topic/inc/top/'+'${sessionScope.email}',function (event){
-                const content =  JSON.parse(event.body);
-                var sender = content.sender;
-                var session_name = content.session_name;
-                var receiver = content.receiver_name;
+<div id="socketAlert" class="alert alert-success" role="alert" style="display: none"></div>
 
-
-                let $socketAlert =$('div#socketAlert');
-                $socketAlert.css('display','block');
-                $socketAlert.html(sender+"님이 메세지를 보냈습니다! <a href=/chat/room/"+session_name+">이동하기</a>");
-                setTimeout(function (){
-                    $socketAlert.css('display','none');
-                },3000);
-            });
-            }
-
-        });
-
-    });
-</script>
 <header>
 <c:catch>
 <c:choose>
 <c:when test="${ empty sessionScope.id }">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-    <div id="socketAlert" class="alert alert-success" role="alert" style="display: none">
 
-    </div>
+
+
         <div class="container">
         <a href="<%=request.getContextPath()%>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
 
@@ -271,7 +292,7 @@ function closebtn(){
         </button>
 
         <div class="navbar-collapse collapse" id="navbarContent">
-           
+
            <!--search바  -->
            <div class="search">
               <input type="text" id="plz" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()" >
@@ -390,7 +411,7 @@ function closebtn(){
 
 
 								<ul class="navbar-nav ml-auto">
-            
+
             <li class="nav-item">
               <a class="nav-link" href="<%=request.getContextPath() %>/pro/mainCategory">주고가입</a>
             </li>
@@ -601,7 +622,7 @@ function closebtn(){
           </button>
 
           <div class="navbar-collapse collapse" id="navbarContent">
-             
+
               <!--search바  -->
            <div class="search">
               <input type="text" placeholder="어떤 서비스가 필요하세요?" onclick="openCloseToc()">
@@ -717,7 +738,7 @@ function closebtn(){
 								</div>
 								 </div>
 <!-- 검색창끝 -->
-              
+
             <ul class="navbar-nav ml-auto">
 
 

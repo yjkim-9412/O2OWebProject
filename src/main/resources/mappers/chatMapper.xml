@@ -38,6 +38,16 @@
 	<insert id="saveChat">
 		insert into MESSAGE(message,session_name,sender,sender_name,receiver,receiver_name) values (#{message},#{session_name},#{sender},#{sender_name},#{receiver},#{receiver_name})
 	</insert>
+	<update id="deleteChatAccount">
+		update CHATROOMENTER set account_email = "trash@trash.com"where session_name = #{session_name}
+	</update>
+	<update id="deleteChatPro">
+		update CHATROOMENTER set pro_email = "trashrpro@trash.com" where session_name = #{session_name}
+	</update>
+	<delete id="checkDeleteRoom">
+		delete FROM CHATROOMENTER  where account_email = "trash@trash.com" and pro_email = "trashrpro@trash.com";
+	</delete>
+
 
 
 
