@@ -70,7 +70,13 @@ public class ChatRoomController {
     @RequestMapping(value = "/chat/room/{session_name}")
     public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request,HttpSession session){
         GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
+        System.out.println("나가기 확인"+getChatRoomDTO.getAccount_email());
+        System.out.println("나가기 프로"+ getChatRoomDTO.getPro_email());
         List<ChatMessageDTO> messageList = chatService.getChatMessage(session_name);
+        if (getChatRoomDTO.getPro_email().equals("trashrpro@trash.com") ||
+                getChatRoomDTO.getAccount_email().equals("trash@trash.com")){
+            return "chat/room";
+        }
         System.out.println("intoChat:->>>>>>>>>");
 
         String userEmail = request.getParameter("userEmail");
@@ -148,15 +154,19 @@ public class ChatRoomController {
 
     @ResponseBody
     @RequestMapping(value = "/chat/delete",method = RequestMethod.GET)
-    public String deleteChat(DeleteChatDTO deleteChatDTO){
+    public void deleteChat(DeleteChatDTO deleteChatDTO){
+        GetChatRoomDTO getChatRoomDTO = new GetChatRoomDTO();
 
-        String result = "";
-        System.out.println("되냐??"+deleteChatDTO.getCurrentUser());
-        System.out.println(deleteChatDTO.getUserEmail());
-        System.out.println(deleteChatDTO.getSession_name());
-        System.out.println(deleteChatDTO.getReceiver_email());
+            getChatRoomDTO.setAccount_email(deleteChatDTO.getUserEmail());
+            getChatRoomDTO.setSession_name(deleteChatDTO.getSession_name());
+        if (deleteChatDTO.getCurrentUser().equals("account")) {
+            chatService.deleteChatAccount(getChatRoomDTO);
+        }else if (deleteChatDTO.getCurrentUser().equals("pro")){
+            chatService.deleteChatPro(getChatRoomDTO);
+        }else {
+            System.out.println("잘못된 접근");
+        }
 
-        return result;
     }
 
 

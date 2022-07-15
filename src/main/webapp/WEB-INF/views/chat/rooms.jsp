@@ -10,6 +10,9 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -127,6 +130,14 @@
                 }
 </style>
 <script>
+    isStomp = true;
+    var sock = new SockJS("/stompTest"); // endpoint
+    var client = Stomp.over(sock);
+    socket = client;
+    client.connect({},function (){
+        console.log("웹소켓 연결완료");
+
+    });
 
        function deleteChat(index){
            if (confirm("대화방을 나가시겠습니까?")){
@@ -135,12 +146,7 @@
                var session_name = 'session_name'+index;
                var userEmail = 'userEmail'+index;
                var currentUser = 'currentUser'+index;
-
-               var param = {"receiver_email":document.getElementById(receiver_email).value,
-                   "session_name":document.getElementById(session_name).value,
-                   "userEmail":document.getElementById(userEmail).value,
-                   "currentUser":document.getElementById(currentUser).value
-               }
+               var receiver_name = 'receiver_name'+index;
                $.ajax({
                    url:'${pageContext.request.contextPath}/chat/delete',
                    data: {'receiver_email':document.getElementById(receiver_email).value,
@@ -150,6 +156,9 @@
                    },
                    dataType:'text',
                    success:function(){
+                       socket.send('/chat/deleteRoom', {}, JSON.stringify({session_name:document.getElementById(session_name).value, sender:'${userEmail}' ,sender_name:'${userName}',
+                           message: "msg",
+                           receiver: document.getElementById(receiver_email).value, receiver_name:document.getElementById(receiver_name).value}));
                        window.location.reload();
 
 
@@ -213,6 +222,7 @@
                                         <input type="hidden" id="session_name${status.index}"  value="${GetChatRoomDTO.session_name}">
                                         <input type="hidden" id="userEmail${status.index}" value="${userEmail}">
                                         <input type="hidden" id="currentUser${status.index}" value="${currentUser}">
+                                        <input type="hidden" id="receiver_name${status.index}" value="${GetChatRoomDTO.pro_name}">
                                             ${GetChatRoomDTO.pro_name}님과의 채팅<br>
                                         <input type="submit" value="대화하기" onclick=" form.action='<%=request.getContextPath() %>/chat/room/${session_name}';">
                                         <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
@@ -225,14 +235,14 @@
                                 <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
                                 <li>
                                     <form action="<%=request.getContextPath() %>/chat/room/${session_name}" method="post">
-                                        <input type="hidden" name="receiver_email" value="${GetChatRoomDTO.account_email}">
-                                        <input type="hidden" name="session_name" value="${GetChatRoomDTO.session_name}">
-                                        <input type="hidden" name="userEmail" value="${userEmail}">
-                                        <input type="hidden" name="currentUser" value="${currentUser}">
+                                        <input type="hidden" id="receiver_email${status.index}"  value="${GetChatRoomDTO.account_email}">
+                                        <input type="hidden" id="session_name${status.index}"  value="${GetChatRoomDTO.session_name}">
+                                        <input type="hidden" id="userEmail${status.index}" value="${userEmail}">
+                                        <input type="hidden" id="currentUser${status.index}" value="${currentUser}">
+                                        <input type="hidden" id="receiver_name${status.index}" value="${GetChatRoomDTO.account_email}">
                                             ${GetChatRoomDTO.account_name}님과의 채팅<br>
-                                        <input type="submit" value="대화하기">
-                                        <input type="button" value="채팅방 나가기" onclick="return deleteChat(this.form);">
-                                        <input type="hidden" name="delete" value="${GetChatRoomDTO.account_email}">
+                                        <input type="submit" value="대화하기" onclick=" form.action='<%=request.getContextPath() %>/chat/room/${session_name}';">
+                                        <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
                                     </form>
                                 </li>
                             </c:if>

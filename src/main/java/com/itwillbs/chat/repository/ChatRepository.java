@@ -1,6 +1,8 @@
 package com.itwillbs.chat.repository;
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
+import com.itwillbs.chat.model.domain.DeleteChatDTO;
+import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import javax.inject.Inject;
@@ -22,6 +24,17 @@ public class ChatRepository {
 
         return sqlSession.selectList(namespace+".getChatMessage",session_name);
     }
+    public void deleteChatAccount(GetChatRoomDTO getChatRoomDTO){
+        sqlSession.update(namespace+".deleteChatAccount",getChatRoomDTO);
+        sqlSession.delete(namespace+".checkDeleteRoom");
+
+    }
+    public void deleteChatPro(GetChatRoomDTO getChatRoomDTO){
+        sqlSession.update(namespace+".deleteChatPro",getChatRoomDTO);
+        sqlSession.delete(namespace+".checkDeleteRoom");
+
+    }
+
 
 
 

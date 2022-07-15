@@ -2,6 +2,7 @@ package com.itwillbs.chat.model.service;
 
 
 import com.itwillbs.chat.model.domain.ChatMessageDTO;
+import com.itwillbs.chat.model.domain.DeleteChatDTO;
 import com.itwillbs.chat.model.domain.GetChatRoomDTO;
 import com.itwillbs.chat.repository.ChatRepository;
 import com.itwillbs.chat.repository.ChatRoomEnterRepository;
@@ -61,5 +62,15 @@ public class ChatServiceImpl implements ChatService{
         }
 
         return null;
+    }
+
+    @Override
+    public void deleteChatAccount(GetChatRoomDTO getChatRoomDTO) {
+        chatRepository.deleteChatAccount(getChatRoomDTO);
+    }
+
+    @Override
+    public void deleteChatPro(GetChatRoomDTO getChatRoomDTO) {
+
     }
 }
