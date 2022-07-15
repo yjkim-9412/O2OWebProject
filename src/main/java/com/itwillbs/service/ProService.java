@@ -22,6 +22,7 @@ public interface ProService {
     GetProDTO getProid(int id);
     GetProDTO getProemail(String email);
     public ProDTO proCheck(ProDTO proDTO);
+
     GetEstimateDTO getEstimate(int services_id);
     int getEstimateCount();
     List<GetEstimateDTO> getEstimateList(PageDTO pageDTO);

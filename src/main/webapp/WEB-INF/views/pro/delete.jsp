@@ -247,7 +247,7 @@
 
 <div class="page-section" style="padding-top: 0px">
     <div class="container">
-        <form action="<%=request.getContextPath() %>/pro/deletePro" method="get" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="delete">
+        <form action="<%=request.getContextPath() %>/pro/deletePro" method="post" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="delete">
             <h2 class="text-black"><b>주고 탈퇴</b></h2>
             <div class="input-group">
                 <div class="col-md-12"  style="margin-top:50px; margin-bottom:30px; background-color:#F2F2F2; border-radius: 0.5rem; width: 605px; height: 48px; font-size: 14px;">

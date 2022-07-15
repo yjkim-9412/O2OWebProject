@@ -8,7 +8,34 @@ import java.sql.Timestamp;
 
 public class GetProDTO {
 	private int id,career,employee_number;
-	private String name,email,phone,password,city_name,district_name,addistrict_name,maincat_name,seccat_name,service_name,img_url;
+	private String name;
+	private String email;
+	private String phone;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getImg_url() {
+		return img_url;
+	}
+
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
+	}
+
+	private String password;
+	private String city_name;
+	private String district_name;
+	private String addistrict_name;
+	private String maincat_name;
+	private String seccat_name;
+	private String service_name;
+	private String img_url;
 	private double x_axis,y_axis;
 	private Timestamp date;
 	private Boolean identify,business,certificate;

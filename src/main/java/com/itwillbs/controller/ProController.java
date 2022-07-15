@@ -534,7 +534,7 @@ public class ProController {
 	@RequestMapping(value="/pro/delete",method = RequestMethod.GET)
 	public String delete(HttpSession session,Model model){
 
-		String email = (String)session.getAttribute("email");
+		String email = session.getAttribute("email").toString();
 
 		ProDTO proDTO = proService.getPro(email);
 		model.addAttribute("proDTO", proDTO);
@@ -542,13 +542,13 @@ public class ProController {
 		return "pro/delete";
 	}
 
-	@RequestMapping(value = "/pro/deletePro", method = RequestMethod.GET)
+	@RequestMapping(value = "/pro/deletePro", method = RequestMethod.POST)
 	public String deletePro(ProDTO proDTO, HttpSession session) {
 
 		ProDTO proDTO2=proService.proCheck(proDTO);
 
-		if(proDTO2!=null) {
-			proService.deletePro(proDTO2);
+		if(proDTO!=null) {
+			proService.deletePro(proDTO);
 			session.invalidate();
 		}
 		else{
