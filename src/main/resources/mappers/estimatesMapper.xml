@@ -73,9 +73,9 @@
 		where p.id = #{pro_id}
 	</select>
 
-	<delete id="deleteEstimate">
-		delete from ESTIMATES where id=#{estimate_id}
-	</delete>
+	<update id="deleteEstimate">
+		update ESTIMATES set account_id = 4 where id=#{estimate_id}
+	</update>
 
 	<delete id="deleteEstimateMid" parameterType="java.util.List">
 		delete from ESTIMATESMID
