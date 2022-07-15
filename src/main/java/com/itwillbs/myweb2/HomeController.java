@@ -31,18 +31,33 @@ import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
 	    public String Maroo(Model model) {
 			List<ReviewDTO> reviewDTO =reviewService.getratingfive();
 			Collections.shuffle(reviewDTO);
-		
+
+			List<ReviewDTO> reviewDTO3=reviewService.getpronameservice();
+
 		double avg2=reviewService.getAllreviewavg();
 		double roundavg2=Math.round(avg2);
 		int count2=reviewService.getAllreviewcount();
-		
-		
-			
-	
+
+		ReviewDTO reviewDTO2=new ReviewDTO();
+		reviewDTO2.setPro_id(1);
+
+		int count1=reviewService.getReviewCount(reviewDTO2.getPro_id());
+		double avg1=reviewService.getreviewavg(reviewDTO2.getPro_id());
+		double roundavg1=Math.round(avg1);
+
+
+
+
 			model.addAttribute("reviewDTO", reviewDTO);
 			model.addAttribute("count2", count2);
 			model.addAttribute("roundavg2", roundavg2);
-			
+			model.addAttribute("reviewDTO3",reviewDTO3);
+
+			model.addAttribute("count1",count1);
+			model.addAttribute("roundavg1",roundavg1);
+
+
+
 	        return "home";
 	        
 	    }
