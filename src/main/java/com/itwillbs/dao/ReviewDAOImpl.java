@@ -55,9 +55,13 @@ public class ReviewDAOImpl implements ReviewDAO{
 
 	@Override
 	public int getAllreviewcount() {
+
 		return sqlSession.selectOne(namespace+".getAllreviewcount");
 	}
-	
-	
-	
+
+	@Override
+	public List<ReviewDTO> getpronameservice() {
+		ReviewDTO reviewDTO = new ReviewDTO();
+		return sqlSession.selectList(namespace+".getpronameservice",reviewDTO);
+	}
 }
