@@ -149,6 +149,59 @@ input[type=button] {
 	cursor: pointer;
 }
 .allbox{
+	width:100px;
+
+
+
+}
+
+.allbox{
+	margin-left:40em;
+}
+/*푸터*/
+/*  푸터  */
+.callnumber{
+	padding-bottom: 0.1875rem;
+	font-size: 1.25rem;
+	font-weight: 500;
+	font-stretch: normal;
+	color: #FFCD4A;
+}
+.callnumberdown{
+	margin: 0;
+	font-size: .875rem;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #737373;
+}
+#footermenu1{
+	margin: 0;
+	font-size: .875rem;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #737373;
+	position: absolute;
+	bottom: 46px;
+	display: grid;
+}
+#footermenu2{
+	margin: 0;
+	font-size: .875rem;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #737373;
+	display: grid;
+
+
+}
+#footermenu3{
+	margin: 0;
+	font-size: .875rem;
+	line-height: normal;
+	letter-spacing: normal;
+	color: #737373;
+	display: grid;
+	bottom: 4px;
 
 }
 </style>
@@ -181,7 +234,11 @@ function openChild() {
 	</c:otherwise>
 </c:choose>
 <!-- 출력부분 -->
+<header>
+<jsp:include page="../inc/top.jsp"></jsp:include>
+</header>
 <div class="allbox">
+
 <div>
 <h2>리뷰</h2>
 <div class="reviewlist">
@@ -231,13 +288,66 @@ function openChild() {
 </c:if>
 
 <c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-	<a href="${pageContext.request.contextPath}/pro/list?pageNum=${i }">${i }</a>
+	<a href="${pageContext.request.contextPath}/pro/list?pageNum=${i}">${i }</a>
 </c:forEach>
 
 <c:if test="${pageDTO.endPage < pageDTO.pageCount }">
 <a href="${pageContext.request.contextPath}/pro/list?pageNum=${pageDTO.startPage+pageDTO.pageBlock }">Next</a>
 </c:if>
-	</div>
 
+</div>
+<!-- 푸터 -->
+
+<footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-lg-3 py-3">
+
+				<div class="callnumber">1600-8282</div>
+				<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
+				<div class="social-media-button">
+					<a href="#"><span class="mai-logo-facebook-f"></span></a>
+					<a href="#"><span class="mai-logo-twitter"></span></a>
+					<a href="#"><span class="mai-logo-google-plus-g"></span></a>
+					<a href="#"><span class="mai-logo-instagram"></span></a>
+					<a href="#"><span class="mai-logo-youtube"></span></a>
+				</div>
+			</div>
+			<div class="col-lg-3 py-3">
+				<h5>Company</h5>
+				<ul class="footer-menu" id="footermenu1">
+					<li><b>마루소개</b></li>
+					<li>마루메인</li>
+					<li>Prime</li>
+					<li>엔터프라이즈</li>
+					<li>프리랜서 클럽</li>
+				</ul>
+
+
+			</div>
+			<div class="col-lg-3 py-3">
+				<ul class="footer-menu" id="footermenu2">
+					<li><b>고객안내</b></li>
+					<li>이용안내</li>
+					<li>안전정책</li>
+					<li>예상금액</li>
+					<li>고수찾기</li>
+					<li>마루보증</li>
+				</ul>
+			</div>
+			<div class="col-lg-3 py-3">
+				<ul class="footer-menu" id="footermenu3">
+					<li><b>주고안내</b></li>
+					<li>이용안내</li>
+					<li>주고가이드</li>
+					<li>주고가입</li>
+					<li>주고센터</li>
+				</ul>
+			</div>
+		</div>
+
+		<p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
+	</div>
+</footer>
 </body>
 </html>

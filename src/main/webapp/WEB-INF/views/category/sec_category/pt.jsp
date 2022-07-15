@@ -102,7 +102,7 @@ input:focus{
 #img1 {
   position : absolute;
   width: 17px;
-  top: 10px;
+  top: 17px;
   right: 7px;
   margin: 0;
   
