@@ -49,8 +49,13 @@ public class AnswerController {
 			int question_id = 0, answer_id = 0;
 
 			for (int i = 0; i <= 4; i++) {
+				if(request.getParameterValues("ans" + i) == null) {
+					continue;
+				}
 				String[] ans = request.getParameterValues("ans" + i);
+
 				String[] ques = request.getParameterValues("ques" + i);
+
 				question_id = Integer.parseInt(ques[0]);
 				String content = ans[0];
 
@@ -73,6 +78,10 @@ public class AnswerController {
 			}
 
 			String jibunAddress = request.getParameter("jibunAddress");
+		if(jibunAddress.length() > 5) {
+			System.out.println("여긴 주소 널값 아닐때");
+			System.out.println("데이터 타입 : " + jibunAddress.getClass().getName());
+
 			String[] address = jibunAddress.split(" ");
 
 			String city = address[0];
@@ -113,6 +122,11 @@ public class AnswerController {
 			answerService.updateEstimates(map);
 
 			return "redirect:/requests/result";
+		}else {
+			// 주소값이 null 일 때
+			return "redirect:/requests/result";
+		}
+
 		}else {
 			return "category/msg";
 		}
@@ -136,8 +150,13 @@ public class AnswerController {
 			int question_id = 0, answer_id = 0;
 
 			for (int i = 0; i <= 3; i++) {
+				if(request.getParameterValues("ans" + i) == null) {
+					continue;
+				}
 				String[] ans = request.getParameterValues("ans" + i);
+
 				String[] ques = request.getParameterValues("ques" + i);
+
 				question_id = Integer.parseInt(ques[0]);
 				String content = ans[0];
 
@@ -160,46 +179,55 @@ public class AnswerController {
 			}
 
 			String jibunAddress = request.getParameter("jibunAddress");
-			String[] address = jibunAddress.split(" ");
+			if(jibunAddress.length() > 5) {
+				System.out.println("여긴 주소 널값 아닐때");
+				System.out.println("데이터 타입 : " + jibunAddress.getClass().getName());
 
-			String city = address[0];
-			String district = address[1];
-			String addistrict = address[2];
+				String[] address = jibunAddress.split(" ");
 
-			CityDTO cityDTO = answerService.getCityId(city);
-			int city_id = cityDTO.getId();
+				String city = address[0];
+				String district = address[1];
+				String addistrict = address[2];
 
-			DistrictDTO districtDTO = new DistrictDTO();
-			districtDTO.setCity_id(city_id);
-			districtDTO.setDistrict(district);
+				CityDTO cityDTO = answerService.getCityId(city);
+				int city_id = cityDTO.getId();
 
-			DistrictDTO districtDTO2 = answerService.getDistrictsId(districtDTO);
-			int district_id = districtDTO2.getId();
+				DistrictDTO districtDTO = new DistrictDTO();
+				districtDTO.setCity_id(city_id);
+				districtDTO.setDistrict(district);
 
-			AddistrictDTO addistrictDTO = new AddistrictDTO();
-			addistrictDTO.setDistrict_id(district_id);
-			addistrictDTO.setAddistrict(addistrict);
+				DistrictDTO districtDTO2 = answerService.getDistrictsId(districtDTO);
+				int district_id = districtDTO2.getId();
 
-			AddistrictDTO addistrictDTO2 = answerService.getAddistrictId(addistrictDTO);
-			int addistrict_id = addistrictDTO2.getId();
+				AddistrictDTO addistrictDTO = new AddistrictDTO();
+				addistrictDTO.setDistrict_id(district_id);
+				addistrictDTO.setAddistrict(addistrict);
 
-			String addressdetail = (String) request.getParameter("addressdetail");
-			AddressDTO addressDTO = new AddressDTO();
-			addressDTO.setCity_id(city_id);
-			addressDTO.setDistrict_id(district_id);
-			addressDTO.setAddistrict_id(addistrict_id);
-			addressDTO.setAddressdetail(addressdetail);
-			answerService.insertAddress(addressDTO);
+				AddistrictDTO addistrictDTO2 = answerService.getAddistrictId(addistrictDTO);
+				int addistrict_id = addistrictDTO2.getId();
 
-			int maxAddrId = answerService.getMaxAddrId();
+				String addressdetail = (String) request.getParameter("addressdetail");
+				AddressDTO addressDTO = new AddressDTO();
+				addressDTO.setCity_id(city_id);
+				addressDTO.setDistrict_id(district_id);
+				addressDTO.setAddistrict_id(addistrict_id);
+				addressDTO.setAddressdetail(addressdetail);
+				answerService.insertAddress(addressDTO);
 
-			HashMap<String, Integer> map = new HashMap<>();
-			map.put("maxAddrId", maxAddrId);
-			map.put("account_id", account_id);
-			map.put("estimates_id", estimates_id);
-			answerService.updateEstimates(map);
+				int maxAddrId = answerService.getMaxAddrId();
 
-			return "redirect:/requests/result";
+				HashMap<String, Integer> map = new HashMap<>();
+				map.put("maxAddrId", maxAddrId);
+				map.put("account_id", account_id);
+				map.put("estimates_id", estimates_id);
+				answerService.updateEstimates(map);
+
+				return "redirect:/requests/result";
+			}else {
+				// 주소값이 null 일 때
+				return "redirect:/requests/result";
+			}
+
 		}else {
 			return "category/msg";
 		}
@@ -223,8 +251,13 @@ public class AnswerController {
 			int question_id = 0, answer_id = 0;
 
 			for (int i = 0; i <= 2; i++) {
+				if(request.getParameterValues("ans" + i) == null) {
+					continue;
+				}
 				String[] ans = request.getParameterValues("ans" + i);
+
 				String[] ques = request.getParameterValues("ques" + i);
+
 				question_id = Integer.parseInt(ques[0]);
 				String content = ans[0];
 
@@ -247,46 +280,55 @@ public class AnswerController {
 			}
 
 			String jibunAddress = request.getParameter("jibunAddress");
-			String[] address = jibunAddress.split(" ");
+			if(jibunAddress.length() > 5) {
+				System.out.println("여긴 주소 널값 아닐때");
+				System.out.println("데이터 타입 : " + jibunAddress.getClass().getName());
 
-			String city = address[0];
-			String district = address[1];
-			String addistrict = address[2];
+				String[] address = jibunAddress.split(" ");
 
-			CityDTO cityDTO = answerService.getCityId(city);
-			int city_id = cityDTO.getId();
+				String city = address[0];
+				String district = address[1];
+				String addistrict = address[2];
 
-			DistrictDTO districtDTO = new DistrictDTO();
-			districtDTO.setCity_id(city_id);
-			districtDTO.setDistrict(district);
+				CityDTO cityDTO = answerService.getCityId(city);
+				int city_id = cityDTO.getId();
 
-			DistrictDTO districtDTO2 = answerService.getDistrictsId(districtDTO);
-			int district_id = districtDTO2.getId();
+				DistrictDTO districtDTO = new DistrictDTO();
+				districtDTO.setCity_id(city_id);
+				districtDTO.setDistrict(district);
 
-			AddistrictDTO addistrictDTO = new AddistrictDTO();
-			addistrictDTO.setDistrict_id(district_id);
-			addistrictDTO.setAddistrict(addistrict);
+				DistrictDTO districtDTO2 = answerService.getDistrictsId(districtDTO);
+				int district_id = districtDTO2.getId();
 
-			AddistrictDTO addistrictDTO2 = answerService.getAddistrictId(addistrictDTO);
-			int addistrict_id = addistrictDTO2.getId();
+				AddistrictDTO addistrictDTO = new AddistrictDTO();
+				addistrictDTO.setDistrict_id(district_id);
+				addistrictDTO.setAddistrict(addistrict);
 
-			String addressdetail = (String) request.getParameter("addressdetail");
-			AddressDTO addressDTO = new AddressDTO();
-			addressDTO.setCity_id(city_id);
-			addressDTO.setDistrict_id(district_id);
-			addressDTO.setAddistrict_id(addistrict_id);
-			addressDTO.setAddressdetail(addressdetail);
-			answerService.insertAddress(addressDTO);
+				AddistrictDTO addistrictDTO2 = answerService.getAddistrictId(addistrictDTO);
+				int addistrict_id = addistrictDTO2.getId();
 
-			int maxAddrId = answerService.getMaxAddrId();
+				String addressdetail = (String) request.getParameter("addressdetail");
+				AddressDTO addressDTO = new AddressDTO();
+				addressDTO.setCity_id(city_id);
+				addressDTO.setDistrict_id(district_id);
+				addressDTO.setAddistrict_id(addistrict_id);
+				addressDTO.setAddressdetail(addressdetail);
+				answerService.insertAddress(addressDTO);
 
-			HashMap<String, Integer> map = new HashMap<>();
-			map.put("maxAddrId", maxAddrId);
-			map.put("account_id", account_id);
-			map.put("estimates_id", estimates_id);
-			answerService.updateEstimates(map);
+				int maxAddrId = answerService.getMaxAddrId();
 
-			return "redirect:/requests/result";
+				HashMap<String, Integer> map = new HashMap<>();
+				map.put("maxAddrId", maxAddrId);
+				map.put("account_id", account_id);
+				map.put("estimates_id", estimates_id);
+				answerService.updateEstimates(map);
+
+				return "redirect:/requests/result";
+			}else {
+				// 주소값이 null 일 때
+				return "redirect:/requests/result";
+			}
+
 		}else {
 			return "category/msg";
 		}
@@ -309,8 +351,10 @@ public class AnswerController {
 			EstimatesMidDTO estimatesMidDTO = new EstimatesMidDTO();
 			int question_id = 0, answer_id = 0;
 
-			String[] ans = request.getParameterValues("ans0");
-			String[] ques = request.getParameterValues("ques0");
+			String[] ans = request.getParameterValues("ans");
+
+			String[] ques = request.getParameterValues("ques");
+
 			question_id = Integer.parseInt(ques[0]);
 			String content = ans[0];
 
@@ -331,46 +375,56 @@ public class AnswerController {
 			answerService.insertEstimatesMid(estimatesMidDTO);
 
 			String jibunAddress = request.getParameter("jibunAddress");
-			String[] address = jibunAddress.split(" ");
 
-			String city = address[0];
-			String district = address[1];
-			String addistrict = address[2];
+			if(jibunAddress.length() > 5) {
+				System.out.println("여긴 주소 널값 아닐때");
+				System.out.println("데이터 타입 : " + jibunAddress.getClass().getName());
 
-			CityDTO cityDTO = answerService.getCityId(city);
-			int city_id = cityDTO.getId();
+				String[] address = jibunAddress.split(" ");
 
-			DistrictDTO districtDTO = new DistrictDTO();
-			districtDTO.setCity_id(city_id);
-			districtDTO.setDistrict(district);
+				String city = address[0];
+				String district = address[1];
+				String addistrict = address[2];
 
-			DistrictDTO districtDTO2 = answerService.getDistrictsId(districtDTO);
-			int district_id = districtDTO2.getId();
+				CityDTO cityDTO = answerService.getCityId(city);
+				int city_id = cityDTO.getId();
 
-			AddistrictDTO addistrictDTO = new AddistrictDTO();
-			addistrictDTO.setDistrict_id(district_id);
-			addistrictDTO.setAddistrict(addistrict);
+				DistrictDTO districtDTO = new DistrictDTO();
+				districtDTO.setCity_id(city_id);
+				districtDTO.setDistrict(district);
 
-			AddistrictDTO addistrictDTO2 = answerService.getAddistrictId(addistrictDTO);
-			int addistrict_id = addistrictDTO2.getId();
+				DistrictDTO districtDTO2 = answerService.getDistrictsId(districtDTO);
+				int district_id = districtDTO2.getId();
 
-			String addressdetail = (String) request.getParameter("addressdetail");
-			AddressDTO addressDTO = new AddressDTO();
-			addressDTO.setCity_id(city_id);
-			addressDTO.setDistrict_id(district_id);
-			addressDTO.setAddistrict_id(addistrict_id);
-			addressDTO.setAddressdetail(addressdetail);
-			answerService.insertAddress(addressDTO);
+				AddistrictDTO addistrictDTO = new AddistrictDTO();
+				addistrictDTO.setDistrict_id(district_id);
+				addistrictDTO.setAddistrict(addistrict);
 
-			int maxAddrId = answerService.getMaxAddrId();
+				AddistrictDTO addistrictDTO2 = answerService.getAddistrictId(addistrictDTO);
+				int addistrict_id = addistrictDTO2.getId();
 
-			HashMap<String, Integer> map = new HashMap<>();
-			map.put("maxAddrId", maxAddrId);
-			map.put("account_id", account_id);
-			map.put("estimates_id", estimates_id);
-			answerService.updateEstimates(map);
+				String addressdetail = (String) request.getParameter("addressdetail");
+				AddressDTO addressDTO = new AddressDTO();
+				addressDTO.setCity_id(city_id);
+				addressDTO.setDistrict_id(district_id);
+				addressDTO.setAddistrict_id(addistrict_id);
+				addressDTO.setAddressdetail(addressdetail);
+				answerService.insertAddress(addressDTO);
 
-			return "redirect:/requests/result";
+				int maxAddrId = answerService.getMaxAddrId();
+
+				HashMap<String, Integer> map = new HashMap<>();
+				map.put("maxAddrId", maxAddrId);
+				map.put("account_id", account_id);
+				map.put("estimates_id", estimates_id);
+				answerService.updateEstimates(map);
+
+				return "redirect:/requests/result";
+			}else {
+				// 주소값이 null 일 때
+				return "redirect:/requests/result";
+			}
+
 		}else {
 			return "category/msg";
 		}

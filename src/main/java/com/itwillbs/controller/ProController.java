@@ -442,7 +442,7 @@ public class ProController {
 		
 		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
-			session.setAttribute("email",proDTO.getEmail());
+			session.setAttribute("email",proDTO2.getEmail());
 		}else {
 			return "member/msg";
 		}
