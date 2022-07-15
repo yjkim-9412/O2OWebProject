@@ -34,6 +34,14 @@ public interface ProDAO {
     void insertProEstimate(ProEstimateDTO proEstimateDTO);
     int getAccId(int estimates_id);
     List<ServiceDTO> getSearchList(String keyword);
+
+    public void deletePro(ProDTO proDTO);
+
+    public void updateName(GetProDTO proDTO);
+
+    public void updateEmail(GetProDTO proDTO);
+
+    public void updatePass(GetProDTO proDTO);
 }
 
 

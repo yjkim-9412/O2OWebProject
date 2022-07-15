@@ -357,7 +357,7 @@ margin: 0px 0px 0px 12px;
   </script>
 
 
-  
+
 </head>
 <body>
 
@@ -489,7 +489,7 @@ margin: 0px 0px 0px 12px;
 <table>
 <c:forEach var="i" begin="0" end="${proEstimatesDTO.size() - 1}" step="1">
 <tr><td>
-		<div class="display-item">
+		<div class="display-item" onclick="location.href='<%=request.getContextPath() %>/pro/info?num=${proEstimate.pro_id}'">
 			<div class="business-card">
 				<div class="profile">
 					<div class="profile-image"></div>
@@ -517,9 +517,6 @@ margin: 0px 0px 0px 12px;
 
 
 </div>
-
-
-
 
 <!--   푸터 -->
 

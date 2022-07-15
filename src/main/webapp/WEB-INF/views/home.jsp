@@ -1726,7 +1726,7 @@ a.nav-link1 {
 </li>
 <!-- 알림끝 -->
               <li class="nav-item active">
-                <a class="nav-link" href="<%=request.getContextPath() %>/pro/info">마이페이지</a>
+                <a class="nav-link" href="<%=request.getContextPath() %>/pro/info?num=0">마이페이지</a>
               </li>
               <li class="nav-item">
                 <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/pro/logout'">로그아웃</button>
