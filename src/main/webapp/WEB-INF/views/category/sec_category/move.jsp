@@ -675,54 +675,7 @@ select.form-control {
   <!-- 푸터 -->
 
   <footer class="page-footer bg-image" style="background-image: url(<%=request.getContextPath() %>/resources/img/footer1.jpg);">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-lg-3 py-3">
-          
-          <div class="callnumber">1600-8282</div>
-			<p class="callnumberdown">평일 10:00 ~ 18:00 (점심시간 13:00 ~ 14:00 제외)</p>
-          <div class="social-media-button">
-            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#"><span class="mai-logo-twitter"></span></a>
-            <a href="#"><span class="mai-logo-google-plus-g"></span></a>
-            <a href="#"><span class="mai-logo-instagram"></span></a>
-            <a href="#"><span class="mai-logo-youtube"></span></a>
-          </div>
-        </div>
-        <div class="col-lg-3 py-3">
-          <h5>Company</h5>
-          <ul class="footer-menu" id="footermenu1">
-            <li><b>마루소개</b></li>
-            <li>마루메인</li>
-            <li>Prime</li>
-            <li>엔터프라이즈</li>
-            <li>프리랜서 클럽</li>
-          </ul>
-          
-         
-        </div>
-        <div class="col-lg-3 py-3">
-          <ul class="footer-menu" id="footermenu2">
-          	<li><b>고객안내</b></li>
-            <li>이용안내</li>
-            <li>안전정책</li>
-            <li>예상금액</li>
-            <li>고수찾기</li>
-            <li>마루보증</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 py-3">
-           <ul class="footer-menu" id="footermenu3">
-          	<li><b>주고안내</b></li>
-            <li>이용안내</li>
-            <li>주고가이드</li>
-            <li>주고가입</li>
-            <li>주고센터</li>
-            </ul>
-        </div>
-      </div>
-      <p class="text-center" id="copyright">(주)마루ㅣ부산시 동천로 109 삼한골든게이트 7층ㅣ대표: 1조ㅣ개인정보관리책임자: 1조ㅣ사업자등록번호:678-12-78901</p>
-    </div>
+      <jsp:include page="../../inc/bottom.jsp"/>
   </footer>
 
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-3.1.1.min.js"></script>
