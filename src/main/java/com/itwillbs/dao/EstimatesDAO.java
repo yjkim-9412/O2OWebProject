@@ -22,12 +22,14 @@ public interface EstimatesDAO{
 	
 	public List<GetProEstimateDTO> getProEstimates(Map<String, Integer> map);
 	
-	public List<ProEstimatesDTO> getProEstimates2(int estimates_id);
+	public List<ProEstimatesDTO> getProEstimates2(HashMap<String, Integer> map);
 
 	public ProAddrDTO getProAddr(int pro_id);
 
 	public void deleteEstimate(int estimate_id);
 
 	public void deleteEstimateMid(List<Integer> estimatesMid_id);
+
+	public void proEstimateDelete(int proEstimates_id);
 
 }
