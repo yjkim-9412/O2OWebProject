@@ -1,6 +1,7 @@
 package com.itwillbs.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.GetEstimateDTO;
@@ -8,6 +9,7 @@ import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.ServiceDTO;
 
 public interface ProService {
 
@@ -27,4 +29,5 @@ public interface ProService {
     int getPageSize();
     void insertProEstimate(ProEstimateDTO proEstimateDTO);
     int getAccId(int estimates_id);
+    List<ServiceDTO> getSearchList(String keyword);
 }

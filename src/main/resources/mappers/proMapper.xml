@@ -120,5 +120,8 @@
 		group by e.account_id
 	</select>
 
-
+	<select id="getSearchList" resultType="com.itwillbs.domain.ServiceDTO">
+		select id,name from SERVICES
+		where name LIKE CONCAT('%',#{keyword},'%')
+	</select>
 </mapper>

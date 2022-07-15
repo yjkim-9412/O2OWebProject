@@ -44,6 +44,7 @@ public class QuestionController {
 		return "category/cleaning";
 	}
 
+
 	@RequestMapping(value = "/category/sec_category", method = RequestMethod.GET)
 	public String sec_category(Integer services_id1, Model model) {
 		int services_id = services_id1.intValue();

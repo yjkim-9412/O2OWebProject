@@ -15,7 +15,7 @@
 <input type="text" readonly="readonly" value="${proDTO.service_name }"><br>
 <input type="text" readonly="readonly" value="${proDTO.city_name }  ${proDTO.district_name } ${proDTO.addistrict_name }"><br>
 <textarea rows="10" cols="10" name="content" style="height:70px;width: 200px"></textarea><br>
-<a href="${pageContext.request.contextPath}/pro/info">상세보기</a>
+<a href="${pageContext.request.contextPath}/pro/info/mail=${sessionScope.email }" >상세보기</a>
 <input type="submit" value="견적서 보내기">
 </form>
 </body>

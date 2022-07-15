@@ -1,6 +1,6 @@
 O2OWebProject.iml
 
-.settings
+.settings/*
 .idea
 .class
 .project

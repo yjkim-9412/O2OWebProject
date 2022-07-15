@@ -8,7 +8,6 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
-
 public class ProDTO {
     private int id;
     private int services_id;
@@ -24,6 +23,90 @@ public class ProDTO {
     private String phone;
     private String email;
     private Timestamp date;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getServices_id() {
+		return services_id;
+	}
+	public void setServices_id(int services_id) {
+		this.services_id = services_id;
+	}
+	public int getAddress_id() {
+		return address_id;
+	}
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
+	}
+	public int getGender_id() {
+		return gender_id;
+	}
+	public void setGender_id(int gender_id) {
+		this.gender_id = gender_id;
+	}
+	public int getCareer() {
+		return career;
+	}
+	public void setCareer(int career) {
+		this.career = career;
+	}
+	public int getEmployee_number() {
+		return employee_number;
+	}
+	public void setEmployee_number(int employee_number) {
+		this.employee_number = employee_number;
+	}
+	public Boolean getIdentify() {
+		return identify;
+	}
+	public void setIdentify(Boolean identify) {
+		this.identify = identify;
+	}
+	public Boolean getBusiness() {
+		return business;
+	}
+	public void setBusiness(Boolean business) {
+		this.business = business;
+	}
+	public Boolean getCertificate() {
+		return certificate;
+	}
+	public void setCertificate(Boolean certificate) {
+		this.certificate = certificate;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
 
 
 
