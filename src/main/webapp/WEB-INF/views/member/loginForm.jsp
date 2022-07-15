@@ -32,7 +32,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="../inc/top.jsp"></jsp:include>
+<jsp:include page="../inc/top.jsp"/>
 <div id="loginFormWrap">
 <div id="acc">
 <form action="<%=request.getContextPath() %>/member/loginPro" method="post">
@@ -50,10 +50,10 @@
 이메일  <input type="email" name="email"> <br>
 비밀번호  <input type="password" name="password"><br>
 <input type="submit" value="로그인"><br>
-<input type="button" value="받고 로그인 전환" onclick="usePro()" id="changeBtn">
+<input type="button" value="받고 로그인 전환" onclick="useAcc()" id="changeBtn">
 </form>
 </div>
 </div>
-<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<jsp:include page="../inc/bottom.jsp"/>
 </body>
 </html>
