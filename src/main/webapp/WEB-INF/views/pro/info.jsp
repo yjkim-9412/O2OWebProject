@@ -262,29 +262,14 @@
                 </c:otherwise>
             </c:choose>
 
-            <c:choose>
-                <c:when test="${ not empty sessionScope.email}">
-                    <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/settings/email'">
-                        <div class="item">
-                            <div class="item-title">이메일</div>
-                            <div class="item-info">${proDTO.email}</div>
-                        </div>
-                        <div>
-                            <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
-                        </div>
-                    </li>
-                </c:when>
-                <c:otherwise>
 
                     <li class="item-container">
                         <div class="item">
                             <div class="item-title">이메일</div>
                             <div class="item-info">${proDTO.email}</div>
                         </div>
-                    </li>
-                </c:otherwise>
-            </c:choose>
 
+                    </li>
 
             <c:if test="${not empty sessionScope.email}">
                 <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/settings/pass'">
