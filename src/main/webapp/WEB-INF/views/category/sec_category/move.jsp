@@ -34,9 +34,9 @@
   
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
+
 <style type="text/css">
-  
+
 /*  푸터  */
 .callnumber{
     padding-bottom: 0.1875rem;
@@ -67,7 +67,7 @@
     line-height: normal;
     letter-spacing: normal;
     color: #737373;
-    
+
 }
 #footermenu3{
 	margin: 0;
@@ -75,16 +75,16 @@
     line-height: normal;
     letter-spacing: normal;
     color: #737373;
-    
-}  
-  
-  
+
+}
+
+
 /* nav */
 .search {
   position: relative;
   width: 300px;
   left: 5px;
-  
+
 }
 
 input {
@@ -98,22 +98,22 @@ input {
 input:focus{
 	outline:1px solid #FEEBB6;
 }
-  
+
 #img1 {
   position : absolute;
   width: 17px;
   top: 10px;
   right: 7px;
   margin: 0;
-  
-}  
+
+}
 
 /* 마루 사이즈 */
 header img {
   width: 150px;
   margin-bottom: 5px;
 }
-  
+
 /* 버튼 */
 
 .button-55 {
@@ -145,20 +145,20 @@ header img {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  
+
 }
 
 .button-55:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
-  
+
 }
 
 }
 .button-55:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  
-}  
+
+}
 
 /* wizard form */
 body {
@@ -392,7 +392,7 @@ body {
   }
 }
 
-h5 {
+.ques-content {
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 70px;
@@ -432,58 +432,11 @@ select.form-control {
 </style>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
-        //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-        function sample4_execDaumPostcode() {
+        function kakaopost() {
             new daum.Postcode({
                 oncomplete: function(data) {
-                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                    var roadAddr = data.roadAddress; // 도로명 주소 변수
-                    var extraRoadAddr = ''; // 참고 항목 변수
-
-                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                        extraRoadAddr += data.bname;
-                    }
-                    // 건물명이 있고, 공동주택일 경우 추가한다.
-                    if(data.buildingName !== '' && data.apartment === 'Y'){
-                        extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                    if(extraRoadAddr !== ''){
-                        extraRoadAddr = ' (' + extraRoadAddr + ')';
-                    }
-
-                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                    document.getElementById('sample4_postcode').value = data.zonecode;
-                    document.getElementById("sample4_roadAddress").value = roadAddr;
-                    document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
-
-                    // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                    if(roadAddr !== ''){
-                        document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-                    } else {
-                        document.getElementById("sample4_extraAddress").value = '';
-                    }
-
-                    var guideTextBox = document.getElementById("guide");
-                    // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                    if(data.autoRoadAddress) {
-                        var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                        guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                        guideTextBox.style.display = 'block';
-
-                    } else if(data.autoJibunAddress) {
-                        var expJibunAddr = data.autoJibunAddress;
-                        guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                        guideTextBox.style.display = 'block';
-                    } else {
-                        guideTextBox.innerHTML = '';
-                        guideTextBox.style.display = 'none';
-                    }
+                    document.querySelector("#roadAddress").value = data.roadAddress;
+                    document.querySelector("#jibunAddress").value = data.jibunAddress
                 }
             }).open();
         }
@@ -496,73 +449,9 @@ select.form-control {
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
-  
+
   <header>
-      <c:catch>
-          <c:choose>
-              <c:when test="${ empty sessionScope.id }">
-
-                  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-                      <div class="container">
-                          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-                          <div class="navbar-collapse collapse" id="navbarContent">
-
-                              <!--search바  -->
-                              <div class="search">
-                                  <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                                  <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-                              </div>
-
-                              <ul class="navbar-nav ml-auto">
-
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="about.html">고수찾기</a>
-                                  </li>
-                                  <li class="nav-item active">
-                                      <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
-                                  </li>
-                              </ul>
-                  </nav>
-              </c:when>
-              <c:otherwise>
-                  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-                      <div class="container">
-                          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-                          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
-                          </button>
-
-                          <div class="navbar-collapse collapse" id="navbarContent">
-
-                              <!--search바  -->
-                              <div class="search">
-                                  <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                                  <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-                              </div>
-
-                              <ul class="navbar-nav ml-auto">
-
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="about.html">고수찾기</a>
-                                  </li>
-                                  <li class="nav-item active">
-                                      <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
-                                  </li>
-                              </ul>
-                          </div>
-
-                      </div>
-                  </nav>
-              </c:otherwise>
-          </c:choose>
-      </c:catch>
+      <jsp:include page="../../inc/top.jsp"/>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -589,7 +478,7 @@ select.form-control {
             
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
-              <h5>${questions.get(0).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(0).ques_contents }</h5>
             <input type="hidden" name="ans1" value="${questions_id[0] }">
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
@@ -604,7 +493,7 @@ select.form-control {
         
         <!-- 문항2 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(1).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(1).ques_contents }</h5>
               <input type="hidden" name="ans2" value="${questions_id[1] }">
                <c:forEach var="answers" items="${answers.get(1) }">
    				<div class="form-group">
@@ -620,7 +509,7 @@ select.form-control {
         
         <!-- 문항3 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(2).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(2).ques_contents }</h5>
               <input type="hidden" name="ans3" value="${questions_id[2] }">
                <c:forEach var="answers" items="${answers.get(2) }">
    				<div class="form-group">
@@ -636,7 +525,7 @@ select.form-control {
         
         <!-- 문항4 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(3).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(3).ques_contents }</h5>
               <input type="hidden" name="ans4" value="${questions_id[3] }">
                <c:forEach var="answers" items="${answers.get(3) }">
    				<div class="form-group">
@@ -652,7 +541,7 @@ select.form-control {
         
    		<!-- 문항5 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(4).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(4).ques_contents }</h5>
    				<div class="form-group" style="border: none;">
                 <div style="width: 100%;">
                 <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="etc">

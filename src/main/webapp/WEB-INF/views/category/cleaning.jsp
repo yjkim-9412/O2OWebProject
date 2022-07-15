@@ -249,7 +249,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/aircon?services_id1=71'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=71'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                 	<div class="card-img" style="background-image: url('https://static.cdn.soomgo.com/upload/service/featured_service_65311471-18f1-4f66-86b9-a6e7298cfcce.jpg');">
                                 	</div>
@@ -266,7 +266,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mold?services_id1=76'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=76'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('	https://dmmj3ljielax6.cloudfront.net/upload/service/65e4e1e8-5727-4479-b5d1-1f70a69ec446.png');">
                                 	</div>
@@ -283,7 +283,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/mold?services_id1=77'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=77'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/9ae39f56-4786-4d98-b03a-06540f927899.png');">
                                 	</div>
@@ -300,7 +300,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/move?services_id1=79'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=79'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/71c1ef33-506c-44de-9663-04cbf241fddd.png');">
                                 	</div>
@@ -317,7 +317,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/move?services_id1=80'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=80'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://dmmj3ljielax6.cloudfront.net/upload/service/17b263cc-cc39-4c1e-bf52-22b41c15b39f.jpg');">
                                 	</div>
@@ -334,7 +334,7 @@ li a {
                 <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                     <div class="mainflip">
                         <div class="frontside">
-                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category/bed?services_id1=87'">
+                            <div class="card" style=" cursor: pointer;" onclick="location.href='<%=request.getContextPath() %>/category/sec_category?services_id1=87'">
                                 <div class="card-body" style="box-shadow: 1px 1px 2px gray;">
                                     <div class="card-img" style="background-image: url('https://static.cdn.soomgo.com/upload/service/22b8a2b3-3644-4c9e-814c-ba7284d71ef6.png');">
                                 	</div>
@@ -359,8 +359,8 @@ li a {
         <div class="col-lg-3 py-3" style="width: 330px;">
           <ul id="categories">
             <li><h4><b>에어컨</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/aircon?services_id1=71" class="cmenu">가정용</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/aircon?services_id1=72" class="cmenu">업소용</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=71" class="cmenu">가정용</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=72" class="cmenu">업소용</a></li>
           </ul>
           
          
@@ -368,27 +368,27 @@ li a {
         <div class="col-lg-3 py-3" style="width: 330px;">
           <ul id="categories">
           	 <li><h4><b>곰팡이</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mold?services_id1=73" class="cmenu">방</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mold?services_id1=74" class="cmenu">거실</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mold?services_id1=75" class="cmenu">베란다/다용도실</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mold?services_id1=76" class="cmenu">화장실/욕실</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mold?services_id1=77" class="cmenu">가구</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/mold?services_id1=78" class="cmenu">의류</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=73" class="cmenu">방</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=74" class="cmenu">거실</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=75" class="cmenu">베란다/다용도실</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=76" class="cmenu">화장실/욕실</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=77" class="cmenu">가구</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=78" class="cmenu">의류</a></li>
    		</ul>
         </div>
         <div class="col-lg-3 py-3" style="width: 330px;">
            <ul id="categories">
           	 <li><h4><b>이사/입주</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/move?services_id1=79" class="cmenu">이사청소</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/move?services_id1=80" class="cmenu">입주청소</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/move?services_id1=81" class="cmenu">리모델링 후 청소</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=79" class="cmenu">이사청소</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=80" class="cmenu">입주청소</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=81" class="cmenu">리모델링 후 청소</a></li>
             </ul>
         </div>
         <div class="col-lg-3 py-3" style="width: 330px;">
           <ul id="categories">
           	 <li><h4><b>침대/메트리스</b></h4></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/bed?services_id1=87" class="cmenu">건식 클리닝</a></li>
-            <li><a href="<%=request.getContextPath() %>/category/sec_category/bed?services_id1=88" class="cmenu">습식 클리닝</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=87" class="cmenu">건식 클리닝</a></li>
+            <li><a href="<%=request.getContextPath() %>/category/sec_category?services_id1=88" class="cmenu">습식 클리닝</a></li>
    		</ul>
         </div>
       </div>

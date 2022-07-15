@@ -299,79 +299,7 @@ ul li {
   <div class="back-to-top"></div>
   
   <header>
-<c:catch>
-<c:choose>
-<c:when test="${ empty sessionScope.id }">
-
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
-        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse" id="navbarContent">
-           
-           <!--search바  -->
-           <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?">
-              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-            </div>
-            
-          <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
-            <li class="nav-item active">
-              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
-            </li>
-            <li class="nav-item">
-              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
-</c:when>
-<c:otherwise>
-    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-        <div class="container">
-          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="navbar-collapse collapse" id="navbarContent">
-             
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-              
-            <ul class="navbar-nav ml-auto">
-              
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
-              <li class="nav-item active">
-                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
-              </li>
-              <li class="nav-item">
-                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-</c:otherwise>
-</c:choose>
-</c:catch>
+      <jsp:include page="../inc/top.jsp"/>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -384,10 +312,10 @@ ul li {
           <form action="#" class="contact-form py-5 px-lg-5" style="width: 700px; margin: auto;" id="info">
             <h2 class="text-black"><b>마이페이지</b></h2>
             <div class="row form-group"  style="margin-top: 50px; margin-bottom: 50px;">
-            <a href="<%=request.getContextPath() %>/mypage/account-info" style="text-decoration: none; height: 30px; margin-bottom: 60px;">
+            <a href="${pageContext.request.contextPath}/mypage/account-info" style="text-decoration: none; height: 30px; margin-bottom: 60px;">
             	<div class="thumb">
             		<div class="user-profile">
-            			<img alt="profile" src="https://dmmj3ljielax6.cloudfront.net/upload/profile-default/soomgo_70.jpg?h=320&w=320">
+            			<img alt="profile" src="<%=request.getContextPath()%>/resources/upload/${img}">
             		</div>
             	</div>
             	<div class="user-info">

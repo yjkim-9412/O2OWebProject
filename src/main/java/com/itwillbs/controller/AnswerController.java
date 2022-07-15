@@ -351,9 +351,9 @@ public class AnswerController {
 			EstimatesMidDTO estimatesMidDTO = new EstimatesMidDTO();
 			int question_id = 0, answer_id = 0;
 
-			String[] ans = request.getParameterValues("ans");
+			String[] ans = request.getParameterValues("ans0");
 
-			String[] ques = request.getParameterValues("ques");
+			String[] ques = request.getParameterValues("ques0");
 
 			question_id = Integer.parseInt(ques[0]);
 			String content = ans[0];
@@ -422,6 +422,7 @@ public class AnswerController {
 				return "redirect:/requests/result";
 			}else {
 				// 주소값이 null 일 때
+				System.out.println("주소 널값");
 				return "redirect:/requests/result";
 			}
 

@@ -34,58 +34,8 @@
   
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
-<style type="text/css">
-  
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-}
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}  
-  
-  
-/* nav */
-.search {
-  position: relative;
-  width: 300px;
-  left: 5px;
-  
-}
+
+<style>
 
 input {
   width: 100%;
@@ -98,67 +48,17 @@ input {
 input:focus{
 	outline:1px solid #FEEBB6;
 }
-  
-#img1 {
-  position : absolute;
-  width: 17px;
-  top: 10px;
-  right: 7px;
-  margin: 0;
-  
-}  
+
+.inputt {
+    margin: 5px;
+}
 
 /* 마루 사이즈 */
 header img {
   width: 150px;
   margin-bottom: 5px;
 }
-  
-/* 버튼 */
 
-.button-55 {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #FFCD4A;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: .75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
-
-.button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-  
-}
-
-}
-.button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  
-}  
 
 /* wizard form */
 body {
@@ -260,19 +160,6 @@ body {
   margin-left: 0px;
 }
 
-.submit22 {
-  background-color: #FFCD4A;
-  color: #ffffff;
-  display: inline-block;
-  min-width: 100px;
-  min-width: 120px;
-  padding: 10px;
-  text-align: center;
-  margin: 40px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
 .form-wizard .form-wizard-next-btn:hover, .form-wizard .form-wizard-next-btn:focus, .form-wizard .form-wizard-previous-btn:hover, .form-wizard .form-wizard-previous-btn:focus, .form-wizard .form-wizard-submit:hover, .form-wizard .form-wizard-submit:focus {
   color: #ffffff;
   opacity: 0.6;
@@ -327,13 +214,13 @@ body {
 }
 .form-wizard .form-wizard-steps {
   margin: 30px 0;
-  
+
 }
 .form-wizard .form-wizard-steps li {
   width: 14%;			/*숫자 사이 간격 조절*/
   float: left;
   position: relative;
-  
+
 }
 .form-wizard .form-wizard-steps li::after {
   content: "";
@@ -341,7 +228,7 @@ body {
   left: 0;
   position: absolute;
   right: 0;
-  
+
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
@@ -407,7 +294,7 @@ body {
   }
 }
 
-h5 {
+.ques-content {
 	text-align: center;
 	margin-top: 20px;
 	margin-bottom: 70px;
@@ -420,14 +307,6 @@ h5 {
 
 .title {
 	margin: 50px;
-}
-
-.sub-title {
-	margin-top: 20px;
-	margin-bottom: 100px;
-	font-size: 20px;
-	font-weight: bold;
-	text-align: center;
 }
 
 a {
@@ -464,81 +343,9 @@ select.form-control {
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
-  
+
   <header>
-    <c:catch>
-<c:choose>
-<c:when test="${ empty sessionScope.id }">
-
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
-        <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse" id="navbarContent">
-           
-           <!--search바  -->
-           <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?">
-              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-            </div>
-            
-          <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
-            <li class="nav-item active">
-              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
-            </li>
-            <li class="nav-item">
-              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
-</c:when>
-<c:otherwise>
-    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-        <div class="container">
-          <a href="<%=request.getContextPath() %>" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="navbar-collapse collapse" id="navbarContent">
-             
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-              
-            <ul class="navbar-nav ml-auto">
-              
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
-              <li class="nav-item active">
-                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
-              </li>
-              <li class="nav-item">
-                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-</c:otherwise>
-</c:choose>
-</c:catch>
+      <jsp:include page="../../inc/top.jsp"/>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -565,7 +372,7 @@ select.form-control {
             
             <!-- 문항1 -->
             <fieldset class="wizard-fieldset show">
-              <h5>${questions.get(0).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(0).ques_contents }</h5>
             <input type="hidden" name="ques0" value="${questions.get(0).ques_id }">
    			<c:forEach var="answers" items="${answers.get(0) }">
    				<div class="form-group">
@@ -580,7 +387,7 @@ select.form-control {
         
         <!-- 문항2 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(1).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(1).ques_contents }</h5>
               <input type="hidden" name="ques1" value="${questions.get(1).ques_id }">
                <c:forEach var="answers" items="${answers.get(1) }">
    				<div class="form-group">
@@ -596,18 +403,18 @@ select.form-control {
         
         <!-- 문항3 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(2).ques_contents }</h5>
-            <input type="button" onclick="kakaopost()" value="우편번호 찾기" style="width: 200px;"><br>
-            <input type="text" name="roadAddress" id="roadAddress" size="7" placeholder="도로명 주소">
-            <input type="text" name="jibunAddress" id="jibunAddress" size="70" placeholder="지번 주소">
-            <input type="text" id="sample4_detailAddress" placeholder="상세주소" name = "addressdetail">
+              <h5 class="ques-content">${questions.get(2).ques_contents }</h5>
+            <input type="button" onclick="kakaopost()" value="우편번호 찾기" style="width: 200px; margin-left: 5px;"><br>
+            <input class="inputt" type="text" name="roadAddress" id="roadAddress" size="7" placeholder="도로명 주소">
+            <input class="inputt" type="text" name="jibunAddress" id="jibunAddress" size="70" placeholder="지번 주소">
+            <input class="inputt" type="text" id="sample4_detailAddress" placeholder="상세주소" name = "addressdetail">
                 <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                 <a href="javascript:;" class="form-wizard-previous-btn float-left">Prev</a>
         </fieldset>
         
         <!-- 문항4 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(3).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(3).ques_contents }</h5>
               <input type="hidden" name="ques2" value="${questions.get(3).ques_id }">
                <c:forEach var="answers" items="${answers.get(3) }">
    				<div class="form-group">
@@ -623,7 +430,7 @@ select.form-control {
         
         <!-- 문항5 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(4).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(4).ques_contents }</h5>
    			  <input type="hidden" name="ques3" value="${questions.get(4).ques_id }">
    			  <c:forEach var="answers" items="${answers.get(4) }">
    				<div class="form-group">
@@ -640,7 +447,7 @@ select.form-control {
         
         <!-- 문항6 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(5).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(5).ques_contents }</h5>
    				<div class="form-group" style="border: none;">
                 <div style="width: 100%;">
                 <input type="text" placeholder="자유롭게 남겨주세요." style="height: 50px; font-size: 16px;" name="wish">
@@ -652,7 +459,7 @@ select.form-control {
         
         <!-- 문항7 -->
        	<fieldset class="wizard-fieldset">
-              <h5>${questions.get(6).ques_contents }</h5>
+              <h5 class="ques-content">${questions.get(6).ques_contents }</h5>
    			  <input type="hidden" name="ques4" value="${questions.get(6).ques_id }">
    			  <c:forEach var="answers" items="${answers.get(6) }">
    				<div class="form-group">

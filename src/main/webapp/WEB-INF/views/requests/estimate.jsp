@@ -36,21 +36,11 @@
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   
-<style type="text/css">
+<style>
   
 li {
 	list-style: none;
 }  
-  
-
-  
-/* nav */
-.search {
-  position: relative;
-  width: 300px;
-  left: 5px;
-  
-}
 
 input {
   width: 100%;
@@ -62,67 +52,14 @@ input {
 input:focus{
 	outline:1px solid #FFCD4A;
 }
-  
-#img1 {
-  position : absolute;
-  width: 17px;
-  top: 10px;
-  right: 7px;
-  margin: 0;
-  
-}  
+
 
 /* 마루 사이즈 */
 header img {
   width: 150px;
   margin-bottom: 5px;
 }
-  
-/* 버튼 */
 
-.button-55 {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #FFCD4A;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: .75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
-
-.button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-  
-}
-
-}
-.button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  
-} 
 
  
 table {
@@ -138,10 +75,6 @@ table td {
 /*   padding-bottom: 299px; */
 }
 
-
-.cell_padding {
-	padding : 3em 1em;
-}
 
 .service{
 	background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/service/73756793-16d5-4884-977b-0fceb355e571.jpg");
@@ -188,15 +121,6 @@ body{
 	margin:auto;
 }
 
-.display{	
-	display:flex;
-	flex-wrap:wrap;
-	justify-content:space-around;
-	.display-item{		
-		flex-grow:1;
-		padding:15px;
-	}
-}
 
 .business-card, .flippable-business-card{
 	width:600px;
@@ -265,47 +189,6 @@ h2{
 }
 
 
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-}
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}  
- 
 .page-footer {
 width: 100%; bottom:0;
 } 
@@ -368,79 +251,7 @@ margin: 0px 0px 0px 12px;
   <div class="back-to-top"></div>
   
   <header>
-    <c:catch>
-<c:choose>
-<c:when test="${ empty sessionScope.id }">
-
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
-        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="navbar-collapse collapse" id="navbarContent">
-           
-           <!--search바  -->
-           <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?">
-              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-            </div>
-            
-          <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
-            <li class="nav-item active">
-              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
-            </li>
-            <li class="nav-item">
-              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
-</c:when>
-<c:otherwise>
-    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-        <div class="container">
-          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="navbar-collapse collapse" id="navbarContent">
-             
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-              
-            <ul class="navbar-nav ml-auto">
-              
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
-              <li class="nav-item active">
-                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
-              </li>
-              <li class="nav-item">
-                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-</c:otherwise>
-</c:choose>
-</c:catch>
+    <jsp:include page="../inc/top.jsp"/>
   </header>
 
   <input type="hidden" name="id" value="${sessionScope.id }">
@@ -453,7 +264,7 @@ margin: 0px 0px 0px 12px;
       <div class="section-title h1" style="font-weight: 500;">${service_name}</div>
       <div style="color: white; font-weight: 300; margin-bottom: 30px">${date}</div>
       <form class="form-inline" onsubmit="openModal()" id="myForm">
-        <button type="submit" class="btn btn-primary btn chat" style="margin-left: 0px; width: 220px;">내 요청서 보기</button>
+        <button type="submit" class="btn btn-primary btn chat" style="margin-left: 0px; width: 220px; background-color:#FFCD4A; ">내 요청서 보기</button>
       </form>
     </div>
 

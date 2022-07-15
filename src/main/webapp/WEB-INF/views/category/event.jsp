@@ -34,368 +34,160 @@
   
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  
-  <style type="text/css">
-  
-/* nav */
-.search {
-  position: relative;
-  width: 300px;
-  left: 5px;
-  
-}
 
-input {
-  width: 100%;
-  border: 1px solid #bbb;
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 12px;
-}
-input:focus{
-	outline:1px solid #FFCD4A;
-}
-  
-#img1 {
-  position : absolute;
-  width: 17px;
-  top: 10px;
-  right: 7px;
-  margin: 0;
-  
-}  
+    <style>
 
-/* 마루 사이즈 */
-header img {
-  width: 150px;
-  margin-bottom: 5px;
-}
-  
-/* 버튼 */
+        input {
+            width: 100%;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+        input:focus{
+            outline:1px solid #FFCD4A;
+        }
 
-.button-55 {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #FFCD4A;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  padding: .75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
-}
+        /* 세부 카테고리 */
+        /* FontAwesome for working BootSnippet :> */
 
-.button-55:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-  
-}
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        #team {
+            /*     background: #eee !important; */
+        }
 
-}
-.button-55:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-  
-}  
-  
-.cancle {
-background-color: white; 
-border-color: #F2F2F2; 
-color: #FFCD4A; 
-width: 142px; 
-height: 48px;
-padding: 11px 12px;
-}
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
 
-.update {
-background-color: #FFCD4A; 
-border-color: transparent; 
-color: white; 
-width: 142px; 
-height: 48px;
-padding: 11px 12px;
-margin: 0px 0px 0px 12px;
-font-weight: bold;
-}
+        #team .card {
+            border: none;
+        }
 
-/*  푸터  */
-.callnumber{
-    padding-bottom: 0.1875rem;
-    font-size: 1.25rem;
-    font-weight: 500;
-    font-stretch: normal;
-    color: #FFCD4A;
- }
-.callnumberdown{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-}
-#footermenu1{
-    margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    position: absolute;
-    bottom:49px;
-}
-#footermenu2{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
-#footermenu3{
-	margin: 0;
-    font-size: .875rem;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #737373;
-    
-}
+        .frontside {
+            position: relative;
+            -webkit-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            z-index: 2;
+            margin-bottom: 30px;
+        }
 
-/* 세부 카테고리 */
-/* FontAwesome for working BootSnippet :> */
+        .frontside {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transition: 1s;
+            -moz-transform-style: preserve-3d;
+            -o-transition: 1s;
+            -o-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+        }
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-#team {
-/*     background: #eee !important; */
-}
+        /* 아이콘 카테고리 section */
+        #row1{
+            background-color: rgb(250, 250, 252);
+            border-radius: 1em;
+        }
 
-section .section-title {
-    text-align: center;
-    color: #007b5e;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border-radius: 0.25rem;
 
-#team .card {
-    border: none;
-}
+        }
 
-.frontside {
-    position: relative;
-    -webkit-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    z-index: 2;
-    margin-bottom: 30px;
-}
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 0.0625rem;
+            padding: 0px 0px;
+            width: 90%;
+            border-radius: 0.25rem;
+        }
 
-.frontside,
-.backside {
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: 1s;
-    -webkit-transform-style: preserve-3d;
-    -moz-transition: 1s;
-    -moz-transform-style: preserve-3d;
-    -o-transition: 1s;
-    -o-transform-style: preserve-3d;
-    -ms-transition: 1s;
-    -ms-transform-style: preserve-3d;
-    transition: 1s;
-    transform-style: preserve-3d;
-}
+        .service{
+            background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/requestForm/2e7ae59f-2550-426a-8a00-09ccf55efda6.png");
+            background-size: cover;
+            background-position: 50% 50%;
+            position: relative;
+            height: 20rem;
+            z-index: 1;
+        }
 
-/* 아이콘 카테고리 section */
-#row1{
-	background-color: rgb(250, 250, 252);
-	border-radius: 1em;
-}
+        .contents {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            max-width: 43.75rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border-radius: 0.25rem;
-    
-}
+        .card-title {
+            font-size: 16px;
+            margin: 16px;
+            text-align: center;
+        }
 
-.card-body {
-    flex: 1 1 auto;
-    min-height: 0.0625rem;
-    padding: 0px 0px;
-    width: 90%;
-    border-radius: 0.25rem;
-}
+        .card-img {
+            background-size: cover;
+            background-position: 50% 50%;
+            height: 9.375rem;
+        }
 
-.icontext{
-	color: black;
-	font-weight: bold;
- }
- 
-.service{
-	background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/cat-bg/5298b12c-8293-41b7-9ede-bb9ff9936372.jpg");
-    background-size: cover;
-    background-position: 50% 50%;
-    position: relative;
-    height: 20rem;
-    z-index: 1;
-} 
+        ul li {
+            list-style: none;
+            padding-bottom: 10px;
+        }
 
-.contents {
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    max-width: 43.75rem;
-    text-align: center;
-    padding: 0 1rem;
-}
+        li a {
+            text-decoration: none;
+        }
 
-.card-title {
-	font-size: 16px;
-	margin: 16px;
-	text-align: center;
-}
+        .frontside {
+            font-weight: 700;
+        }
 
-.card-img {
-    background-size: cover;
-    background-position: 50% 50%;
-    height: 9.375rem;
-}
+        .cmenu {
+            text-decoration: none;
+            color: #898798;
 
-ul li {
-	list-style: none;
-	padding-bottom: 10px;
-}
+        }
 
-li a {
-	text-decoration: none;
-}
+        .cmenu:hover {
+            text-decoration: none;
+            color: #898798;
+        }
 
-.href {
-	text-decoration: none;
-	color: inherit;
-}
+    </style>
 
-.categories {
-	font-size: 18px;
-}
 
-.frontside {
-	font-weight: 700;
-}
 
-.cmenu {
-	text-decoration: none;
-	color: #898798;
-	
-}
-
-.cmenu:hover {
-	text-decoration: none;
-	color: #898798;
-}
-</style>
-  
-  
-  
 </head>
 <body>
 
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  
-  <header>
-    <c:catch>
-<c:choose>
-<c:when test="${ empty sessionScope.id }">
+<!-- Back to top button -->
+<div class="back-to-top"></div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-      <div class="container">
-        <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-        <div class="navbar-collapse collapse" id="navbarContent">
-           
-           <!--search바  -->
-           <div class="search">
-              <input type="text" placeholder="어떤 서비스가 필요하세요?">
-              <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-            </div>
-            
-          <ul class="navbar-nav ml-auto">
-            
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">고수찾기</a>
-            </li>  
-            <li class="nav-item active">
-              <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
-            </li>
-            <li class="nav-item">
-              <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
-            </li>
-          </ul>
-    </nav>
-</c:when>
-<c:otherwise>
-    	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-        <div class="container">
-          <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-          <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="navbar-collapse collapse" id="navbarContent">
-             
-             <!--search바  -->
-             <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-              
-            <ul class="navbar-nav ml-auto">
-              
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">고수찾기</a>
-              </li>  
-              <li class="nav-item active">
-                <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
-              </li>
-              <li class="nav-item">
-                <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-</c:otherwise>
-</c:choose>
-</c:catch>
-  </header>
+<header>
+    <jsp:include page="../inc/top.jsp"/>
+</header>
   
 <div class="service">
 	<div class="contents section-title h1" style="color: white; font-weight: bold;">이벤트</div>

@@ -35,158 +35,160 @@
   <!-- 부트스트랩  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <style>
+    <style>
 
-/* 세부 카테고리 */
-/* FontAwesome for working BootSnippet :> */
+        input {
+            width: 100%;
+            border: 1px solid #bbb;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+        input:focus{
+            outline:1px solid #FFCD4A;
+        }
 
-@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-#team {
-/*     background: #eee !important; */
-}
+        /* 세부 카테고리 */
+        /* FontAwesome for working BootSnippet :> */
 
-section .section-title {
-    text-align: center;
-    color: #007b5e;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
+        @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+        #team {
+            /*     background: #eee !important; */
+        }
 
-#team .card {
-    border: none;
-}
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
 
-.frontside {
-    position: relative;
-    -webkit-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
-    z-index: 2;
-    margin-bottom: 30px;
-}
+        #team .card {
+            border: none;
+        }
 
-.frontside,
-.backside {
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition: 1s;
-    -webkit-transform-style: preserve-3d;
-    -moz-transition: 1s;
-    -moz-transform-style: preserve-3d;
-    -o-transition: 1s;
-    -o-transform-style: preserve-3d;
-    -ms-transition: 1s;
-    -ms-transform-style: preserve-3d;
-    transition: 1s;
-    transform-style: preserve-3d;
-}
+        .frontside {
+            position: relative;
+            -webkit-transform: rotateY(0deg);
+            -ms-transform: rotateY(0deg);
+            z-index: 2;
+            margin-bottom: 30px;
+        }
 
-/* 아이콘 카테고리 section */
-#row1{
-	background-color: rgb(250, 250, 252);
-	border-radius: 1em;
-}
+        .frontside {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: 1s;
+            -webkit-transform-style: preserve-3d;
+            -moz-transition: 1s;
+            -moz-transform-style: preserve-3d;
+            -o-transition: 1s;
+            -o-transform-style: preserve-3d;
+            -ms-transition: 1s;
+            -ms-transform-style: preserve-3d;
+            transition: 1s;
+            transform-style: preserve-3d;
+        }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border-radius: 0.25rem;
-    
-}
+        /* 아이콘 카테고리 section */
+        #row1{
+            background-color: rgb(250, 250, 252);
+            border-radius: 1em;
+        }
 
-.card-body {
-    flex: 1 1 auto;
-    min-height: 0.0625rem;
-    padding: 0px 0px;
-    width: 90%;
-    border-radius: 0.25rem;
-}
- 
-.service{
-	background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/requestForm/26a5e44f-64cd-41a9-aba0-c2717d139795.png");
-    background-size: cover;
-    background-position: 50% 50%;
-    position: relative;
-    height: 20rem;
-    z-index: 1;
-} 
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border-radius: 0.25rem;
 
-.contents {
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-    max-width: 43.75rem;
-    text-align: center;
-    padding: 0 1rem;
-}
+        }
 
-.card-title {
-	font-size: 16px;
-	margin: 16px;
-	text-align: center;
-}
+        .card-body {
+            flex: 1 1 auto;
+            min-height: 0.0625rem;
+            padding: 0px 0px;
+            width: 90%;
+            border-radius: 0.25rem;
+        }
 
-.card-img {
-    background-size: cover;
-    background-position: 50% 50%;
-    height: 9.375rem;
-}
+        .service{
+            background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/requestForm/2e7ae59f-2550-426a-8a00-09ccf55efda6.png");
+            background-size: cover;
+            background-position: 50% 50%;
+            position: relative;
+            height: 20rem;
+            z-index: 1;
+        }
 
-ul li {
-	list-style: none;
-	padding-bottom: 10px;
-}
+        .contents {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            max-width: 43.75rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
 
-li a {
-	text-decoration: none;
-}
+        .card-title {
+            font-size: 16px;
+            margin: 16px;
+            text-align: center;
+        }
 
-.href {
-	text-decoration: none;
-	color: inherit;
-}
+        .card-img {
+            background-size: cover;
+            background-position: 50% 50%;
+            height: 9.375rem;
+            width: 100%;
+        }
 
-.categories {
-	font-size: 18px;
-}
+        ul li {
+            list-style: none;
+            padding-bottom: 10px;
+        }
 
-.frontside {
-	font-weight: 700;
-}
+        li a {
+            text-decoration: none;
+        }
 
-.cmenu {
-	text-decoration: none;
-	color: #898798;
-	
-}
+        .frontside {
+            font-weight: 700;
+        }
 
-.cmenu:hover {
-	text-decoration: none;
-	color: #898798;
-}
+        .cmenu {
+            text-decoration: none;
+            color: #898798;
 
-</style>
-  
-  
-  
+        }
+
+        .cmenu:hover {
+            text-decoration: none;
+            color: #898798;
+        }
+
+    </style>
+
+
+
 </head>
 <body>
 
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
-  
-  <header>
-      <jsp:include page="../inc/top.jsp"/>
-  </header>
+<!-- Back to top button -->
+<div class="back-to-top"></div>
+
+<header>
+    <jsp:include page="../inc/top.jsp"/>
+</header>
   
 <div class="service">
 	<div class="contents section-title h1" style="color: white; font-weight: bold;">레슨</div>

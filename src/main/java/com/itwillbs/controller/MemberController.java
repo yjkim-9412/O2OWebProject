@@ -1,8 +1,11 @@
 
 package com.itwillbs.controller;
 
+import java.io.File;
 import java.util.HashMap;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,12 +15,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwillbs.domain.*;
 import com.itwillbs.service.MemberService;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Controller
@@ -26,7 +31,9 @@ public class MemberController {
 	//MemberService memberService=new MemberServiceImpl()객체생성
 	@Inject
 	private MemberService memberService;
-	
+
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 
 	// top bottom 확인용
 	@RequestMapping(value = "/inc/top", method = RequestMethod.GET)
@@ -113,21 +120,27 @@ System.out.println("#########" + code);
 	@RequestMapping(value = "/mypage/info", method = RequestMethod.GET)
 	public String info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
-		
-		
+
 		MemberDTO memberDTO = memberService.getMember(id);
+
+		String img = memberService.getImg(id);
+		System.out.println("이미지 파일 : " + img);
+
 		model.addAttribute("memberDTO", memberDTO);
-		
+		model.addAttribute("img", img);
+
 		return "mypage/info";
 	}
 	
 	@RequestMapping(value = "/mypage/account-info", method = RequestMethod.GET)
 	public String account_info(HttpSession session,Model model) {
 		int id = (Integer)session.getAttribute("id");
-		
+
+		String img = memberService.getImg(id);
 		
 		MemberDTO memberDTO = memberService.getMember(id);
 		model.addAttribute("memberDTO", memberDTO);
+		model.addAttribute("img", img);
 		
 		return "mypage/account-info";
 	}
@@ -176,6 +189,34 @@ System.out.println("#########" + code);
 		memberService.updateName(memberDTO);
 
 		return "redirect:/mypage/account-info";
+	}
+
+	@RequestMapping(value = "/mypage/settings/profile", method = RequestMethod.GET)
+	public String profile() {
+
+		return "mypage/settings/profile";
+
+	}
+
+	@RequestMapping(value = "/mypage/settings/profile-update", method = RequestMethod.POST)
+	public String updateProfile(HttpSession session, MultipartFile file) throws Exception {
+		int id = (Integer)session.getAttribute("id");
+
+		ProfileImgDTO profileImgDTO = new ProfileImgDTO();
+
+		profileImgDTO.setAccount_id(id);
+
+		UUID uuid = UUID.randomUUID();
+		String fileName = uuid.toString()+"_"+file.getOriginalFilename();
+		File uploadFile = new File(uploadPath, fileName);
+		FileCopyUtils.copy(file.getBytes(), uploadFile);
+
+		profileImgDTO.setImg_url(fileName);
+
+		memberService.insertImg(profileImgDTO);
+
+		return "redirect:/mypage/account-info";
+
 	}
 
 	@RequestMapping(value="/member/kakaologin", method=RequestMethod.GET)

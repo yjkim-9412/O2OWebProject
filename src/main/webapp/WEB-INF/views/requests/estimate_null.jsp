@@ -42,16 +42,6 @@
       list-style: none;
     }
 
-
-
-    /* nav */
-    .search {
-      position: relative;
-      width: 300px;
-      left: 5px;
-
-    }
-
     input {
       width: 100%;
       border: 1px solid #bbb;
@@ -63,67 +53,12 @@
       outline:1px solid #FFCD4A;
     }
 
-    #img1 {
-      position : absolute;
-      width: 17px;
-      top: 10px;
-      right: 7px;
-      margin: 0;
-
-    }
 
     /* 마루 사이즈 */
     header img {
       width: 150px;
       margin-bottom: 5px;
     }
-
-    /* 버튼 */
-
-    .button-55 {
-      align-self: center;
-      background-color: #fff;
-      background-image: none;
-      background-position: 0 90%;
-      background-repeat: repeat no-repeat;
-      background-size: 4px 3px;
-      border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-      border-style: solid;
-      border-width: 2px;
-      box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-      box-sizing: border-box;
-      color: #FFCD4A;
-      cursor: pointer;
-      display: inline-block;
-      font-family: Neucha, sans-serif;
-      font-size: 1rem;
-      line-height: 23px;
-      outline: none;
-      padding: .75rem;
-      text-decoration: none;
-      transition: all 235ms ease-in-out;
-      border-bottom-left-radius: 15px 255px;
-      border-bottom-right-radius: 225px 15px;
-      border-top-left-radius: 255px 15px;
-      border-top-right-radius: 15px 225px;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-
-    }
-
-    .button-55:hover {
-      box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-      transform: translate3d(0, 2px, 0);
-
-    }
-
-    }
-    .button-55:focus {
-      box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-
-    }
-
 
     table {
       border-spacing: 80px;
@@ -136,11 +71,6 @@
       height: 200px;
       /*   padding: 5px -9px; */
       /*   padding-bottom: 299px; */
-    }
-
-
-    .cell_padding {
-      padding : 3em 1em;
     }
 
     .service{
@@ -188,135 +118,12 @@
       margin:auto;
     }
 
-    .display{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:space-around;
-    .display-item{
-      flex-grow:1;
-      padding:15px;
-    }
-    }
-
-    .business-card, .flippable-business-card{
-      width:600px;
-      height:235px;
-      max-width:100%;
-      border-radius:4px;
-      margin:0 auto;
-    }
-
-    .business-card{
-      display:flex;
-      flex-direction:column;
-      background-color: white;
-      color:rgba(0,0,0,.8);
-      box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-    }
-
-    .info{
-      display:flex;
-      flex-grow:1;
-    }
-
-    .info-bio{
-      display:flex;
-      flex-grow:1;
-      flex-basis:50%;
-      flex-direction:column;
-      justify-content:space-around;
-      padding:15px;
-      text-align:center;
-    }
-
-    .info-contact{
-      padding: 20px 25px;
-      display:flex;
-      flex-shrink:1;
-      flex-direction:column;
-      justify-content:space-around;
-    }
-
-    .profile{
-      display:flex;
-      flex-basis:150px;
-      width:100%;
-      padding:25px 25px 0px 25px;
-    }
-
-    .profile-title{
-      padding-left:15px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-around;
-    }
-
     h2{
       font-size:1.4em;
     }
 
-    .profile-image{
-      background-image: url(https://images.unsplash.com/photo-1507120878965-54b2d3939100?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=57f3676a7820564424855d5e5c6b09e7);
-      background-position:center;
-      background-size:cover;
-      width:120px;
-      height:120px;
-      border-radius:100%;
-    }
-
-
-    /*  푸터  */
-    .callnumber{
-      padding-bottom: 0.1875rem;
-      font-size: 1.25rem;
-      font-weight: 500;
-      font-stretch: normal;
-      color: #FFCD4A;
-    }
-    .callnumberdown{
-      margin: 0;
-      font-size: .875rem;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #737373;
-    }
-    #footermenu1{
-      margin: 0;
-      font-size: .875rem;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #737373;
-      position: absolute;
-      bottom:49px;
-    }
-    #footermenu2{
-      margin: 0;
-      font-size: .875rem;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #737373;
-
-    }
-    #footermenu3{
-      margin: 0;
-      font-size: .875rem;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #737373;
-
-    }
-
     .page-footer {
       width: 100%; bottom:0;
-    }
-
-    .cancle {
-      background-color: white;
-      border-color: #FFCD4A;
-      color: #FFCD4A;
-      width: 142px;
-      height: 48px;
-      padding: 11px 12px;
     }
 
     .chat {
@@ -360,79 +167,7 @@
 <div class="back-to-top"></div>
 
 <header>
-  <c:catch>
-    <c:choose>
-      <c:when test="${ empty sessionScope.id }">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-          <div class="container">
-            <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="navbar-collapse collapse" id="navbarContent">
-
-              <!--search바  -->
-              <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-
-              <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">고수찾기</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="<%=request.getContextPath() %>/member/login">로그인</a>
-                </li>
-                <li class="nav-item">
-                  <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/insert'">회원가입</button>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </nav>
-      </c:when>
-      <c:otherwise>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
-          <div class="container">
-            <a href="<%=request.getContextPath() %>/" class="navbar-brand"><img id="logo1" src="<%=request.getContextPath() %>/resources/img/logo1.jpg" ></a>
-
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="navbar-collapse collapse" id="navbarContent">
-
-              <!--search바  -->
-              <div class="search">
-                <input type="text" placeholder="어떤 서비스가 필요하세요?">
-                <img id="img1" src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png">
-              </div>
-
-              <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">고수찾기</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="<%=request.getContextPath() %>/mypage/info">마이페이지</a>
-                </li>
-                <li class="nav-item">
-                  <button class="button-55" role="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'">로그아웃</button>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </nav>
-      </c:otherwise>
-    </c:choose>
-  </c:catch>
+  <jsp:include page="../inc/top.jsp"/>
 </header>
 
 <input type="hidden" name="id" value="${sessionScope.id }">
