@@ -72,7 +72,8 @@
 	</select>
 	
 	<select id="getEstimate" resultType="com.itwillbs.domain.GetEstimateDTO">
-		select e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont,p.id pro_id,p.address_id,ac.id account_id,ac.name account_name
+		select e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont,p.id pro_id,p.address_id,ac.id account_id,ac.name account_name,
+		       ac.email account_email
 		from ESTIMATESMID e
 		left join QUESTIONS q on q.id=e.question_id
 		left join ANSWERS a on a.id=e.answer_id

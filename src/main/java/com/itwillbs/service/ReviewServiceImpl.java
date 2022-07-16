@@ -23,7 +23,7 @@ public class ReviewServiceImpl implements ReviewService{
 	@Override
 
 	public void insertReviews(ReviewDTO reviewDTO) {
-		System.out.println("ReviewServiceImpl insertReview()");
+
 
 		reviewDAO.insertReviews(reviewDTO);
 	}

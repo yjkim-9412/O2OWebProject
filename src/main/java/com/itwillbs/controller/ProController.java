@@ -389,6 +389,11 @@ public class ProController {
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
 	 public String info(Model m,HttpSession session, @RequestParam(value="num",required = false) String num) {
 	    	System.out.println("ProController info()");
+			try {
+				int  id=Integer.parseInt(num);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 			int  id=Integer.parseInt(num);
             System.out.println(id);
 
@@ -416,7 +421,7 @@ public class ProController {
 		System.out.println("ProController info()");
 
 
-		String email = session.getAttribute("email").toString();
+		String email = (String)session.getAttribute("email");
 		GetProDTO proDTO = proService.getProemail(email);
 		m.addAttribute("proDTO", proDTO);
 
@@ -445,13 +450,16 @@ public class ProController {
 			
 			List<GetEstimateDTO> estimateDTO=proService.getEstimateList(pageDTO);
 			Map<Integer,String> hashmap=new HashMap<Integer, String>();
-			
+
+			int account_idChat= 0;
 			for(int i=0;i<estimateDTO.size();i++) {
 				if(estimateDTO.get(i).getAccount_id()!=0) {
+
 					hashmap.put(estimateDTO.get(i).getEstimates_id(), estimateDTO.get(i).getAccount_name());
+					System.out.println(estimateDTO.get(i).getAccount_email());
 				}
 			}
-						
+
 			int currentPage=Integer.parseInt(pageDTO.getPageNum());
 			int count=proService.getEstimateCount();
 			int pageBlock=10;

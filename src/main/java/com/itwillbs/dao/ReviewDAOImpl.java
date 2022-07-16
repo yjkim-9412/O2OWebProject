@@ -21,27 +21,24 @@ public class ReviewDAOImpl implements ReviewDAO{
 	
 	@Override
 	public void insertReviews(ReviewDTO reviewDTO) {
-		System.out.println("ReviewDAOImpl insertReviews()");
+
 		sqlSession.insert(namespace+".insertReviews", reviewDTO);
 		
 	}
 
 	@Override
 	public List<ReviewDTO> getallReviews(int pro_id) {
-		System.out.println("reviewDAOImpl getallReviews()");
 
 		return sqlSession.selectList(namespace+".getallReviews", pro_id);
 	}
 
 	@Override
 	public int getReviewCount(int pro_id) {
-		System.out.println("reviewDAOImpl getReviewCount()");
 		return sqlSession.selectOne(namespace+".getReviewCount", pro_id);
 	}
 
 	@Override
 	public double getreviewavg(int pro_id) {
-		System.out.println("reviewDAOImpl getreviewavg()");
 		return sqlSession.selectOne(namespace+".getreviewavg", pro_id);
 	}
 

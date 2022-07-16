@@ -49,7 +49,6 @@ public class ReviewController {
 			List<ReviewDTO> reviewList=reviewService.getallReviews(pro_id);
 			if (reviewList != null) {
 				for (ReviewDTO reviewDTO1 : reviewList) {
-					System.out.println(reviewDTO1.getPro_id());
 				}
 			}
 			reviewDTO.setPro_id(pro_id);

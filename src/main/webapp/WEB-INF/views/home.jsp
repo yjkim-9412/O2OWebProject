@@ -2041,7 +2041,7 @@ a.nav-link1 {
         <c:forEach  begin="0" end="4" var="reviewDTO3" items="${reviewDTO3}" >
       <div class="our-team">
         <div class="picture">
-          <img class="img-fluid" src="resources/img/joogo.jpg" onclick="location.href='pro/info'">
+          <img class="img-fluid" src="resources/img/joogo.jpg" onclick="location.href='pro/info?num=${reviewDTO3.pro_id}'">
         </div>
 
         <div class="team-content">

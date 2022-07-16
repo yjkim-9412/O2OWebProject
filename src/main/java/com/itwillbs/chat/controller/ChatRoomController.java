@@ -14,8 +14,6 @@ import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -48,10 +46,11 @@ public class ChatRoomController {
     //채팅방 생성
     @RequestMapping(value = "/chat/newChat",method = RequestMethod.GET)
     public String createChat(@RequestParam("user_email") String pro_email ,HttpSession session,HttpServletRequest request){
-        int account_id =  (Integer)session.getAttribute("id");
-        if(account_id == 0){
+        Integer account =  (Integer)session.getAttribute("id");
+        if(account == null){
             return "redirect:/member/msg";
         }
+        int account_id = account;
         MemberDTO memberDTO = memberService.getMember(account_id);
         String account_email = memberDTO.getEmail();
         ProDTO proDTO = proService.getPro(pro_email);
@@ -67,7 +66,7 @@ public class ChatRoomController {
         return "redirect:/chat/room/" + session_name;
     }
 
-    @RequestMapping(value = "/chat/room/{session_name}",method = RequestMethod.POST)
+    @RequestMapping(value = "/chat/room/{session_name}")
     public String intoChat(@PathVariable("session_name") String session_name, Model model, HttpServletRequest request,HttpSession session){
         GetChatRoomDTO getChatRoomDTO = chatRoomEnterRepository.findBySession_name(session_name);
         List<ChatMessageDTO> messageList = chatService.getChatMessage(session_name);

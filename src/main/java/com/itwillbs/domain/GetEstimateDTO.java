@@ -2,7 +2,7 @@ package com.itwillbs.domain;
 
 public class GetEstimateDTO {
 private int estimates_id,question_id,answer_id,services_id,pro_id,address_id,account_id;
-private  String account_name; 
+private  String account_name,account_email;
 public String getAccount_name() {
 	return account_name;
 }
@@ -64,4 +64,12 @@ public String getAnswer_cont() {
 public void setAnswer_cont(String answer_cont) {
 	this.answer_cont = answer_cont;
 }
+
+	public String getAccount_email() {
+		return account_email;
+	}
+
+	public void setAccount_email(String account_email) {
+		this.account_email = account_email;
+	}
 }
