@@ -9,7 +9,7 @@ public interface ReviewService {
 	
 	public void insertReviews(ReviewDTO reviewDTO);
 
-	public List<ReviewDTO> getallReviews( PageDTO pageDTO);
+	public List<ReviewDTO> getallReviews(int pro_id);
 
 	public int getReviewCount(int pro_id);
 

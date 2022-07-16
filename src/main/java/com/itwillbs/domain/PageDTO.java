@@ -5,7 +5,7 @@ package com.itwillbs.domain;
 
 public class PageDTO {
 	private String pageNum;
-	private int pageSize, currentPage, startRow, endRow, pageBlock, startPage, endPage, count, pageCount,services_id,pro_id;
+	private int pageSize, currentPage, startRow, endRow, pageBlock, startPage, endPage, count, pageCount,services_id;
 	public String getPageNum() {
 		return pageNum;
 	}
@@ -72,12 +72,7 @@ public class PageDTO {
 	public void setServices_id(int services_id) {
 		this.services_id = services_id;
 	}
-	public int getPro_id() {
-		return pro_id;
-	}
-	public void setPro_id(int pro_id) {
-		this.pro_id = pro_id;
-	}
+
 
 	
 }
