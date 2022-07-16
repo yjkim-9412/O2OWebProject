@@ -39,4 +39,9 @@ public interface ProService {
     public void updateEmail(GetProDTO proDTO);
 
     public void updatePass(GetProDTO proDTO);
+
+    void insertImg(ProDTO proDTO);
+    ProDTO getProImg(String email);
+    void updateImg(ProDTO proDTO);
 }
+

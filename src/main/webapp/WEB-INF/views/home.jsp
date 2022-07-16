@@ -1328,9 +1328,9 @@ a.nav-link1 {
 		 url:'${pageContext.request.contextPath}/pro/searchlist',
 		 data:{'keyword':$('#searchinput').val()},
 		 dataType:'JSON',
-		 success:function(rdata){			 
+		 success:function(rdata){
 			 $.each(rdata,function(key,value){
-				 setTimeout(function(){ 
+				 setTimeout(function(){
 					$('#__BVID__372').append("<ul data-v-8f67d2d4='' class='list1' id='searchinputul'><li data-v-8f67d2d4='' class='item23li' ><a class='item23'href='<%=request.getContextPath() %>/category/sec_category?services_id1="+value.id+"'>"+value.name+"</a></li></ul>");
 				 }, 200);
 			 })
@@ -1339,7 +1339,7 @@ a.nav-link1 {
 	 $('#searchinput').on('keyup',function(){
 		 $('#searchinputul').remove();
 	 })
- }); 
+ });
 </script>
 
  
@@ -1539,7 +1539,7 @@ a.nav-link1 {
                 </div>
             </div>
             <!-- 검색창끝 -->
-            
+
           <ul class="navbar-nav ml-auto">
             
             <li class="nav-item">
@@ -1685,7 +1685,7 @@ a.nav-link1 {
                   </div>
               </div>
               <!-- 검색창끝 -->
-              
+
             <ul class="navbar-nav ml-auto">
 
 
@@ -1863,7 +1863,7 @@ a.nav-link1 {
                   </div>
               </div>
               <!-- 검색창끝 -->
-              
+
             <ul class="navbar-nav ml-auto">
 
 

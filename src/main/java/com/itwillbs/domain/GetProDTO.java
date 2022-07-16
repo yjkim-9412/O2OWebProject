@@ -20,6 +20,19 @@ public class GetProDTO {
 		this.password = password;
 	}
 
+	private String password;
+	private String city_name;
+	private String district_name;
+	private String addistrict_name;
+	private String maincat_name;
+	private String seccat_name;
+	private String service_name;
+	private double x_axis,y_axis;
+	private Timestamp date;
+	private Boolean identify,business,certificate;
+
+	private String introduce;
+
 	public String getImg_url() {
 		return img_url;
 	}
@@ -28,17 +41,30 @@ public class GetProDTO {
 		this.img_url = img_url;
 	}
 
-	private String password;
-	private String city_name;
-	private String district_name;
-	private String addistrict_name;
-	private String maincat_name;
-	private String seccat_name;
-	private String service_name;
 	private String img_url;
-	private double x_axis,y_axis;
-	private Timestamp date;
-	private Boolean identify,business,certificate;
+
+	public String getIntroduce() {
+		return introduce;
+	}
+
+	public void setIntroduce(String introduce) {
+		this.introduce = introduce;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	private String description;
+
+	@Override
+	protected void finalize() throws Throwable {
+		super.finalize();
+	}
 
 	public int getId() {
 		return id;

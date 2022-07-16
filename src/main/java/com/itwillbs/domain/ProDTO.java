@@ -19,6 +19,17 @@ public class ProDTO {
     private String name;
     private String phone;
     private String email;
+
+	public String getImg_url() {
+		return img_url;
+	}
+
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
+	}
+
+	private String img_url;
+
     private Timestamp date;
 	public int getId() {
 		return id;
