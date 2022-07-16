@@ -20,6 +20,26 @@ public class ReviewDTO {
 
 	private String service;
 
+	private int count1;
+
+	private double avg1;
+
+	public int getCount1() {
+		return count1;
+	}
+
+	public void setCount1(int count1) {
+		this.count1 = count1;
+	}
+
+	public double getAvg1() {
+		return avg1;
+	}
+
+	public void setAvg1(double avg1) {
+		this.avg1 = avg1;
+	}
+
 	public String getService() {
 		return service;
 	}
