@@ -378,6 +378,11 @@ public class ProController {
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
 	 public String info(Model m,HttpSession session, @RequestParam(value="num",required = false) String num) {
 	    	System.out.println("ProController info()");
+			try {
+				int  id=Integer.parseInt(num);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 			int  id=Integer.parseInt(num);
             System.out.println(id);
 
@@ -405,7 +410,7 @@ public class ProController {
 		System.out.println("ProController info()");
 
 
-		String email = session.getAttribute("email").toString();
+		String email = (String)session.getAttribute("email");
 		GetProDTO proDTO = proService.getProemail(email);
 		m.addAttribute("proDTO", proDTO);
 

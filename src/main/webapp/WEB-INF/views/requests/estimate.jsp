@@ -489,10 +489,10 @@ margin: 0px 0px 0px 12px;
 <table>
 <c:forEach var="i" begin="0" end="${proEstimatesDTO.size() - 1}" step="1">
 <tr><td>
-		<div class="display-item" onclick="location.href='<%=request.getContextPath() %>/pro/info?num=${proEstimatesDTO.pro_id}'">
+		<div class="display-item" >
 			<div class="business-card">
 				<div class="profile">
-					<div class="profile-image"></div>
+					<div class="profile-image" onclick="location.href='<%=request.getContextPath() %>/pro/info?num=${proEstimates.pro_id}'"></div>
 					<div class="profile-title">
 						<h4>${proEstimatesDTO.get(i).pro_name}</h4>
                         <span>${proEstimatesDTO.get(i).pro_email}</span>
