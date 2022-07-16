@@ -276,9 +276,9 @@
                         <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
                     </div>
                 </li>
-                <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/settings/pass'">
+                <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/chat/rooms'">
                     <div class="item">
-                        <div class="item-title">비밀번호</div>
+                        <div class="item-title">채팅 목록 가기</div>
                     </div>
                     <div>
                         <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
