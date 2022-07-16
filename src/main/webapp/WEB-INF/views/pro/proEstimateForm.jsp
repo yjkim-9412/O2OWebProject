@@ -5,8 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <script>
+        $(document).submit()
+    </script>
 </head>
 <body>
+<header>
+    <jsp:include page="../inc/top.jsp"/>
+</header>
 <form action="<%=request.getContextPath() %>/pro/proEstimatePro" method="get">
 <input type="hidden" name="estimates_id" value="${estimateDTO.estimates_id}">
 <input type="hidden" name="pro_id" value="${estimateDTO.pro_id }">
@@ -18,5 +24,8 @@
 <a href="${pageContext.request.contextPath}/pro/info/mail=${sessionScope.email }" >상세보기</a>
 <input type="submit" value="견적서 보내기">
 </form>
+<footer>
+    <jsp:include page="../inc/bottom.jsp"/>
+</footer>
 </body>
 </html>
