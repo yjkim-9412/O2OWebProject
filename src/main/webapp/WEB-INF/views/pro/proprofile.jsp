@@ -148,12 +148,7 @@ input[type=button] {
 	border-radius: 4px;
 	cursor: pointer;
 }
-.allbox{
-	width:100px;
 
-
-
-}
 
 .allbox{
 	margin-left:40em;
@@ -225,22 +220,25 @@ function openChild() {
 
 </head>
 <body>
-<c:choose>
-	<c:when test="${ empty sessionScope }">
-		<input type="hidden" value="리뷰쓰기">
-	</c:when>
-	<c:otherwise>
-<input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
-	</c:otherwise>
-</c:choose>
+
 <!-- 출력부분 -->
 <header>
 <jsp:include page="../inc/top.jsp"></jsp:include>
+
 </header>
 <div class="allbox">
 
 <div>
 <h2>리뷰</h2>
+
+	<c:choose>
+		<c:when test="${ empty sessionScope }">
+			<input type="hidden" value="리뷰쓰기">
+		</c:when>
+		<c:otherwise>
+			<input type="button" value = "리뷰쓰기" onclick="openChild()"><br>
+		</c:otherwise>
+	</c:choose>
 <div class="reviewlist">
 <div class="avg">${avg}</div>
 

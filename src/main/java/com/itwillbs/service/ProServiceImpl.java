@@ -72,6 +72,22 @@ public class ProServiceImpl implements ProService {
 	}
 
 	@Override
+	public void insertImg(ProDTO proDTO) {
+		proDAO.insertImg(proDTO);
+	}
+
+	@Override
+	public ProDTO getProImg(String email) {
+		return proDAO.getProImg(email);
+	}
+
+	@Override
+	public void updateImg(ProDTO proDTO) {
+		proDAO.updateImg(proDTO);
+
+	}
+
+	@Override
     public void insertPro(ProDTO proDTO) {
 		proDTO.setAddress_id(getMaxAddrId());
 		System.out.println(proDTO.getAddress_id());

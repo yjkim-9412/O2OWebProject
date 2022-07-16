@@ -62,6 +62,21 @@ public class ProDAOImpl implements ProDAO{
 	}
 
 	@Override
+	public void insertImg(ProDTO proDTO) {
+		sqlSession.insert(namespace+".insertImg",proDTO);
+	}
+
+	@Override
+	public ProDTO getProImg(String email) {
+		return sqlSession.selectOne(namespace+".getProImg", email);
+	}
+
+	@Override
+	public void updateImg(ProDTO proDTO) {
+		sqlSession.selectOne(namespace+".updateImg", proDTO);
+	}
+
+	@Override
 	public void insertProEstimate(ProEstimateDTO proEstimateDTO) {
 		// TODO Auto-generated method stub
 		sqlSession.insert(namespace+".insertProEstimate",proEstimateDTO);
