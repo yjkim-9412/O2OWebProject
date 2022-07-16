@@ -257,12 +257,9 @@
                             <div class="item-title">이름</div>
                             <div class="item-info">${proDTO.name}</div>
                         </div>
-
                     </li>
                 </c:otherwise>
             </c:choose>
-
-
                     <li class="item-container">
                         <div class="item">
                             <div class="item-title">이메일</div>
@@ -270,8 +267,15 @@
                         </div>
 
                     </li>
-
             <c:if test="${not empty sessionScope.email}">
+                <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/settings/pass'">
+                    <div class="item">
+                        <div class="item-title">비밀번호</div>
+                    </div>
+                    <div>
+                        <img alt="arrow" src="https://assets.cdn.soomgo.com/icons/icon-mypage-list-arrow.svg">
+                    </div>
+                </li>
                 <li class="item-container" onclick="location.href='<%=request.getContextPath() %>/pro/settings/pass'">
                     <div class="item">
                         <div class="item-title">비밀번호</div>

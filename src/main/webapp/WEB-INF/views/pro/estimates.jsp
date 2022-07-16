@@ -24,10 +24,12 @@ margin-bottom: 10px;
 	margin-top: 10px;
 }
 </style>
+
 <title>jsp5/list.jsp</title>
+
 </head>
 <body>
-<jsp:include page="../inc/top.jsp"></jsp:include>
+<jsp:include page="../inc/top.jsp"/>
 <h1 id="listid">견적서 리스트</h1>
 <c:forEach var="hashmap" items="${hashmap }" varStatus="status">
 <div id="wrapdiv" style="display: inline;float: left;">
@@ -36,11 +38,13 @@ margin-bottom: 10px;
 <div style="text-align: center;font-size: x-large;font-weight: bolder;">요청 회원 : ${hashmap.value }</div>
 <c:forEach var="estimateDTO" items="${estimateDTO}" varStatus="statusest">
 <c:if test="${estimateDTO.estimates_id eq hash}">
-<div style="font-size: large; font-weight: bold;">질문내용 : ${estimateDTO.question_cont }</div>
+<div style="font-size: large; font-weight: bold;">질문내용 : ${estimateDTO.question_cont } </div>
+<input type="hidden" id="account_email" value="${estimateDTO.account_email}">
 <div>답변내용 : ${estimateDTO.answer_cont }</div>
+
 </c:if>
 </c:forEach>
-<input type="button" value="견적보내기" onclick="location.href='<%=request.getContextPath() %>/pro/proEstimateForm?num=${hashmap.key}&name=${hashmap.value }'">
+<input type="button" value="견적보내기" id="sendEstimates" onclick="location.href='<%=request.getContextPath() %>/pro/proEstimateForm?num=${hashmap.key}&name=${hashmap.value }'">
 </legend>
 </div>
 </c:forEach>

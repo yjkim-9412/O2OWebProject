@@ -434,13 +434,16 @@ public class ProController {
 			
 			List<GetEstimateDTO> estimateDTO=proService.getEstimateList(pageDTO);
 			Map<Integer,String> hashmap=new HashMap<Integer, String>();
-			
+
+			int account_idChat= 0;
 			for(int i=0;i<estimateDTO.size();i++) {
 				if(estimateDTO.get(i).getAccount_id()!=0) {
+
 					hashmap.put(estimateDTO.get(i).getEstimates_id(), estimateDTO.get(i).getAccount_name());
+					System.out.println(estimateDTO.get(i).getAccount_email());
 				}
 			}
-						
+
 			int currentPage=Integer.parseInt(pageDTO.getPageNum());
 			int count=proService.getEstimateCount();
 			int pageBlock=10;

@@ -203,7 +203,6 @@
             <div class="container">
 
                 <div>
-                    현재유저 : ${currentUser}
                     <ul>
                         <c:forEach var="GetChatRoomDTO" items="${chatList}" varStatus="status">
                             <c:if test="${currentUser eq 'account'}">
@@ -220,9 +219,7 @@
                                         <input type="submit" value="대화하기">
                                         <input type="button" value="채팅 나가기" onclick="deleteChat(${status.index})"/>
                                     </form>
-
                                 </li>
-
                             </c:if>
                             <c:if test="${currentUser eq 'pro'}">
                                 <c:set var="session_name" value="${GetChatRoomDTO.session_name}"/>
