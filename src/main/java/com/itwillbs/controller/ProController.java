@@ -641,7 +641,7 @@ public class ProController {
 		FileCopyUtils.copy(file.getBytes(), uploadFile);
 		proDTO.setImg_url(fileName);
 
-		if(proDTO2==null) {
+		if(proDTO2.getImg_url()==null) {
 			proService.insertImg(proDTO);
 		}else {
 			proService.updateImg(proDTO);
