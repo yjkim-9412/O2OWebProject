@@ -1,5 +1,6 @@
 package com.itwillbs.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +11,8 @@ import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
-import com.itwillbs.service.ProService;
-import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
+import com.itwillbs.domain.ServiceDTO;
+import com.itwillbs.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,28 +21,30 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.io.File;
+import java.util.*;
 
 import javax.inject.Inject;
 import javax.mail.internet.MimeMessage;
 
 @Controller
 public class ProController {
+	@Resource(name = "uploadPath")
+	private String uploadPath;
 	@Autowired
 	private JavaMailSender mailSender;
 	
 	@Inject
 	private AddressDTO addressDTO;
 		
-	@Inject
+	@Autowired
     private ProService proService;
 
     @RequestMapping(value = "/pro/proInsert", method = RequestMethod.GET)
@@ -376,19 +379,49 @@ public class ProController {
 	}
 		
 	@RequestMapping(value = "/pro/info", method = RequestMethod.GET)
-	 public String info(Model m,HttpSession session) {
+	 public String info(Model m,HttpSession session, @RequestParam(value="num",required = false) String num) {
 	    	System.out.println("ProController info()");
-	    	String email = session.getAttribute("email").toString();
-			
-			GetProDTO proDTO = proService.getProemail(email);
-			m.addAttribute("proDTO", proDTO);
+			int  id=Integer.parseInt(num);
+            System.out.println(id);
 
-	        return "pro/info";
-	    }
+
+			if(id!=0){
+				System.out.println("집가고싶다");
+
+				GetProDTO proDTO=proService.getProid(id);
+				m.addAttribute("proDTO", proDTO);
+			}else{
+				System.out.println("안뜸");
+				String email = session.getAttribute("email").toString();
+				GetProDTO proDTO = proService.getProemail(email);
+				m.addAttribute("proDTO",proDTO);
+
+			}
+		return "pro/info";
+
+
+	}
+
+
+	@RequestMapping(value = "/pro/info2", method = RequestMethod.GET)
+	public String info(Model m,HttpSession session) {
+		System.out.println("ProController info()");
+
+
+		String email = session.getAttribute("email").toString();
+		GetProDTO proDTO = proService.getProemail(email);
+		m.addAttribute("proDTO", proDTO);
+
+
+		return "pro/info";
+	}
+
+
 	
 	@RequestMapping(value = "/pro/estimates", method = RequestMethod.GET)
 	 public String estimate(HttpSession session,Model model,HttpServletRequest request) {
 	    	System.out.println("ProController estimate()");
+	    	if(session.getAttribute("email")==null) return "redirect:/";
 
 	    	String email = session.getAttribute("email").toString();
 	    	int pageSize=proService.getPageSize();
@@ -444,7 +477,9 @@ public class ProController {
 		
 		ProDTO proDTO2 = proService.proCheck(proDTO);
 		if(proDTO2 != null) {
-			session.setAttribute("email",proDTO.getEmail());
+			session.removeAttribute("email");
+			session.removeAttribute("id");
+			session.setAttribute("email",proDTO2.getEmail());
 		}else {
 			return "member/msg";
 		}
@@ -484,4 +519,147 @@ public class ProController {
 
 		return "redirect:/";
 	}
+
+	@RequestMapping(value = "/pro/searchlist", method = RequestMethod.GET)
+	public ResponseEntity<List<ServiceDTO>> searchlist(String keyword) {
+		ResponseEntity<List<ServiceDTO>> entitiy=null;
+		if(!keyword.equals("")) {
+			List<ServiceDTO> serviceDTO = proService.getSearchList(keyword);
+			entitiy=new ResponseEntity<List<ServiceDTO>>(serviceDTO,HttpStatus.OK);
+		}
+
+		return entitiy;
+	}
+
+
+
+
+	@RequestMapping(value="/pro/delete",method = RequestMethod.GET)
+	public String delete(HttpSession session,Model model){
+
+		String email = session.getAttribute("email").toString();
+
+		ProDTO proDTO = proService.getPro(email);
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/delete";
+	}
+
+	@RequestMapping(value = "/pro/deletePro", method = RequestMethod.POST)
+	public String deletePro(ProDTO proDTO, HttpSession session) {
+
+		ProDTO proDTO2=proService.proCheck(proDTO);
+
+		if(proDTO!=null) {
+			proService.deletePro(proDTO);
+			session.invalidate();
+		}
+		else{
+			return "pro/msg";
+		}
+
+		return "redirect:/";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/name", method = RequestMethod.GET)
+	public String name(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/name";
+	}
+
+	@RequestMapping(value = "/pro/settings/name-update", method = RequestMethod.POST)
+	public String updateName(@RequestParam("name") String name, GetProDTO proDTO) {
+
+		proDTO.setName(name);
+		System.out.println("업데이트 이름 : " + proDTO.getName());
+		proService.updateName(proDTO);
+		return "redirect:/pro/info2";
+	}
+
+	@RequestMapping(value = "/pro/settings/email", method = RequestMethod.GET)
+	public String email(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/email";
+	}
+
+	@RequestMapping(value = "/pro/settings/email-update", method = RequestMethod.POST)
+	public String updateEmail(@RequestParam("email") String email, GetProDTO proDTO) {
+
+		proDTO.setName(email);
+		System.out.println("업데이트 이름 : " + proDTO.getEmail());
+		proService.updateEmail(proDTO);
+		return "redirect:/pro/info2";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/pass", method = RequestMethod.GET)
+	public String pass(HttpSession session,Model model) {
+
+		String email=session.getAttribute("email").toString();
+
+		GetProDTO proDTO=proService.getProemail(email);
+
+		model.addAttribute("proDTO", proDTO);
+
+		return "pro/settings/pass";
+	}
+
+
+	@RequestMapping(value = "/pro/settings/pass-update", method = RequestMethod.POST)
+	public String updatePass(@RequestParam("password") String password, GetProDTO proDTO) {
+
+		proDTO.setPassword(password);
+		System.out.println("업데이트 이름 : " + proDTO.getPassword());
+		proService.updatePass(proDTO);
+		return "redirect:/pro/info2";
+	}
+
+	@RequestMapping(value = "/pro/insertimg", method = RequestMethod.POST)
+	public String insertimg(HttpSession session, MultipartFile file) throws Exception{
+
+		String email=session.getAttribute("email").toString();
+		ProDTO proDTO = proService.getPro(email);
+		System.out.println(proDTO);
+		ProDTO proDTO2 = proService.getProImg(email);
+
+		UUID uuid=UUID.randomUUID();
+		String fileName=uuid.toString()+"_"+file.getOriginalFilename();
+		File uploadFile=new File(uploadPath,fileName);
+		FileCopyUtils.copy(file.getBytes(), uploadFile);
+		proDTO.setImg_url(fileName);
+
+		if(proDTO2.getImg_url()==null) {
+			proService.insertImg(proDTO);
+		}else {
+			proService.updateImg(proDTO);
+		}
+
+
+		return "redirect:/";
+	}
+
+
+	@RequestMapping(value = "/pro/ImgUpdate", method = RequestMethod.GET)
+	public String ImgUpdate(HttpSession session,Model model) {
+		String email=session.getAttribute("email").toString();
+		ProDTO proDTO = proService.getProImg(email);
+		model.addAttribute("proDTO", proDTO);
+		System.out.println(proDTO.getImg_url());
+		return "pro/ImgUpdate";
+	}
+
+
 }

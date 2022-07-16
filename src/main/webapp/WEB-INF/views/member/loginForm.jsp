@@ -14,14 +14,10 @@
     	function useAcc(){
     		document.getElementById("pro").style="display:none";
     		document.getElementById("acc").style="display:block";
-    		document.getElementById("acclogin").style="display:none";
-    		document.getElementById("prologin").style="display:block";
     	}
 		function usePro(){
 			document.getElementById("acc").style="display:none";
 			document.getElementById("pro").style="display:block";
-			document.getElementById("prologin").style="display:none";
-    		document.getElementById("acclogin").style="display:block";
     	}
     </script>
 <meta charset="UTF-8">
@@ -36,8 +32,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="../inc/top.jsp"></jsp:include>
-<div style="text-align: center;"><span onclick="useAcc()" id="acclogin" style="display:none">전환하기</span><span onclick="usePro()" id="prologin" >전환하기</span></div>
+<jsp:include page="../inc/top.jsp"/>
 <div id="loginFormWrap">
 <div id="acc">
 <form action="<%=request.getContextPath() %>/member/loginPro" method="post">
@@ -45,6 +40,7 @@
 이메일  <input type="email" name="email"> <br>
 비밀번호  <input type="password" name="password"><br>
 <input type="submit" value="로그인">
+<input type="button" value="주고 로그인 전환" onclick="usePro()" id="changeBtn">
 </form>
 </div>
 
@@ -53,10 +49,11 @@
 <h2 style="text-align: center;">주고 로그인</h2>
 이메일  <input type="email" name="email"> <br>
 비밀번호  <input type="password" name="password"><br>
-<input type="submit" value="로그인">
+<input type="submit" value="로그인"><br>
+<input type="button" value="받고 로그인 전환" onclick="useAcc()" id="changeBtn">
 </form>
 </div>
 </div>
-<jsp:include page="../inc/bottom.jsp"></jsp:include>
+<jsp:include page="../inc/bottom.jsp"/>
 </body>
 </html>

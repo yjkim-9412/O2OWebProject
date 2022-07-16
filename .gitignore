@@ -1,6 +1,6 @@
 O2OWebProject.iml
 
-.settings
+.settings/*
 .idea
 .class
 .project
@@ -16,3 +16,4 @@ doc/**/*.pdf
 /src/main/webapp/WEB-INF/config/database.properties
 
 
+/.settings/

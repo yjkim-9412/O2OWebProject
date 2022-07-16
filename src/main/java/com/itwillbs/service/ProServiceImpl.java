@@ -1,6 +1,4 @@
 package com.itwillbs.service;
-
-import com.itwillbs.dao.ProDAO;
 import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.CityDTO;
@@ -10,15 +8,21 @@ import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.ServiceDTO;
+import com.itwillbs.dao.*;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProServiceImpl implements ProService {
+	@Autowired
+	private ProDAO proDAO;
 	@Override
 	public int getPageSize() {
 		// TODO Auto-generated method stub
@@ -30,17 +34,57 @@ public class ProServiceImpl implements ProService {
 		// TODO Auto-generated method stub
 		proDAO.insertProEstimate(proEstimateDTO);
 	}
+	
+	@Override
+	public List<ServiceDTO> getSearchList(String keyword) {
+		// TODO Auto-generated method stub
+		return proDAO.getSearchList(keyword);
+	}
 
 	@Inject
 	private AddressDTO addressDTO;
-	
-	@Inject
-	private ProDAO proDAO;
+
 	
 	@Override
 	public int getAccId(int estimates_id) {
 		// TODO Auto-generated method stub
 		return proDAO.getAccId(estimates_id);
+	}
+
+	@Override
+	public void deletePro(ProDTO proDTO) {
+		proDAO.deletePro(proDTO);
+	}
+
+	@Override
+	public void updateName(GetProDTO proDTO) {
+		proDAO.updateName(proDTO);
+	}
+
+	@Override
+	public void updateEmail(GetProDTO proDTO) {
+		proDAO.updateEmail(proDTO);
+	}
+
+	@Override
+	public void updatePass(GetProDTO proDTO) {
+		proDAO.updatePass(proDTO);
+	}
+
+	@Override
+	public void insertImg(ProDTO proDTO) {
+		proDAO.insertImg(proDTO);
+	}
+
+	@Override
+	public ProDTO getProImg(String email) {
+		return proDAO.getProImg(email);
+	}
+
+	@Override
+	public void updateImg(ProDTO proDTO) {
+		proDAO.updateImg(proDTO);
+
 	}
 
 	@Override
@@ -165,5 +209,6 @@ public class ProServiceImpl implements ProService {
 		System.out.println("ProServiceImpl proCheck()");
 		return proDAO.proCheck(proDTO);
 	}
+
 	
 }

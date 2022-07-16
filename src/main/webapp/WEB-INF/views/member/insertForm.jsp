@@ -120,14 +120,7 @@ $(document).ready(function(){
 		
 		
 		
-		if($('#id').val()==""){
-			$('#iddiv').html("아이디를 입력해주세요.");
-			$('#iddiv').css("color","red");
-			$('#id').focus();
-			return false;
-		} else  {
-			$('#iddiv').html("");
-		}
+
 		
 		if($('#email').val()==""){
 			
@@ -169,21 +162,32 @@ $(document).ready(function(){
 		
 	});
 });
+$(document).ready(function(){
+	$('#dup').click(function(){
+		$.ajax({
+			url:'${pageContext.request.contextPath}/member/dupcheck',
+			data:{'email':$('#email').val()},
+			success:function(rdata){
+				if(rdata=="emaildup"){
+					rdata="이메일 중복 사용불가능";
+				}else{
+					rdata="이메일 사용가능";
+				}
+				$('#dupdiv').html(rdata);
+			}
+		});
+	});
+});
 </script>
 
 <form action="<%=request.getContextPath() %>/member/insertPro" id="insert" method="post">
 <div class="insert-group">
 
-<div class="form-group">
-<label> 아이디 </label> <br>
- <input type="text" name="id" id="id" class="form-control" placeholder=""><br>
- <div id="iddiv"> </div>
- </div>
  
  <div class="form-group">
 <label> 이메일  </label> <br>
-<input type="email" name="email" id="email" class="form-control" placeholder="이메일을 입력해주세요."> <br>
-<div id="emaildiv"> </div>
+<input type="email" name="email" id="email" class="form-control" placeholder="이메일을 입력해주세요."><input class="btn btn-primary " type="button" id="dup" value="중복체크"> <br>
+<div id="emaildiv"> </div><div id="dupdiv"></div>
 </div>
 
 <div class="form-group">

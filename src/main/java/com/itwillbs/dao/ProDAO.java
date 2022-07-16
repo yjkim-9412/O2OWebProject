@@ -1,6 +1,7 @@
 package com.itwillbs.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
@@ -11,6 +12,7 @@ import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.ServiceDTO;
 
 public interface ProDAO {
     public void insertPro(ProDTO proDTO);
@@ -31,6 +33,19 @@ public interface ProDAO {
     int getPageSize();
     void insertProEstimate(ProEstimateDTO proEstimateDTO);
     int getAccId(int estimates_id);
+    List<ServiceDTO> getSearchList(String keyword);
+
+    public void deletePro(ProDTO proDTO);
+
+    public void updateName(GetProDTO proDTO);
+
+    public void updateEmail(GetProDTO proDTO);
+
+    public void updatePass(GetProDTO proDTO);
+
+    void insertImg(ProDTO proDTO);
+    ProDTO getProImg(String email);
+    void updateImg(ProDTO proDTO);
 }
 
 

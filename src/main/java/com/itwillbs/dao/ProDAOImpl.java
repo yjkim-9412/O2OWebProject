@@ -2,7 +2,6 @@ package com.itwillbs.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
 import com.itwillbs.domain.AddistrictDTO;
 import com.itwillbs.domain.AddressDTO;
 import com.itwillbs.domain.CityDTO;
@@ -12,8 +11,10 @@ import com.itwillbs.domain.GetProDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProDTO;
 import com.itwillbs.domain.ProEstimateDTO;
+import com.itwillbs.domain.ServiceDTO;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -21,10 +22,12 @@ import javax.inject.Inject;
 public class ProDAOImpl implements ProDAO{
     
 
+	
+
 	@Inject
     private SqlSession sqlSession;
     
-    private String namespace="com.itwillbs.member.ProMapper";
+    private final String namespace="com.itwillbs.member.ProMapper";
     
 	@Override
     public void insertPro(ProDTO proDTO) {
@@ -36,6 +39,41 @@ public class ProDAOImpl implements ProDAO{
 	public int getAccId(int estimates_id) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace+".getAccId", estimates_id);
+	}
+
+	@Override
+	public void deletePro(ProDTO proDTO) {
+		sqlSession.selectOne(namespace+".deletePro",proDTO);
+	}
+
+	@Override
+	public void updateName(GetProDTO proDTO) {
+		 sqlSession.selectOne(namespace+".updateName",proDTO);
+	}
+
+	@Override
+	public void updateEmail(GetProDTO proDTO) {
+		sqlSession.selectOne(namespace+".updateEmail",proDTO);
+	}
+
+	@Override
+	public void updatePass(GetProDTO proDTO) {
+		sqlSession.selectOne(namespace+".updatePass",proDTO);
+	}
+
+	@Override
+	public void insertImg(ProDTO proDTO) {
+		sqlSession.insert(namespace+".insertImg",proDTO);
+	}
+
+	@Override
+	public ProDTO getProImg(String email) {
+		return sqlSession.selectOne(namespace+".getProImg", email);
+	}
+
+	@Override
+	public void updateImg(ProDTO proDTO) {
+		sqlSession.selectOne(namespace+".updateImg", proDTO);
 	}
 
 	@Override
@@ -133,4 +171,10 @@ public class ProDAOImpl implements ProDAO{
 		System.out.println("ProDAOImpl proCheck()");
 		return sqlSession.selectOne(namespace+".proCheck",proDTO);
 	}
+	@Override
+	public List<ServiceDTO> getSearchList(String keyword) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".getSearchList",keyword);
+	}
+
 }

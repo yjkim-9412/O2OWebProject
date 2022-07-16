@@ -1,9 +1,8 @@
 package com.itwillbs.service;
 
-import java.util.HashMap;
-
 import com.itwillbs.domain.MemberDTO;
 
+import java.util.HashMap;
 
 
 public interface MemberService {
@@ -21,6 +20,8 @@ public interface MemberService {
 	public void updatePass(MemberDTO memberDTO);
 	
 	public void deleteMember(MemberDTO memberDTO);
+	
+	
 
 //  ----------- 카카오 API ----------- 
 	public String getAccessToken (String authorize_code);

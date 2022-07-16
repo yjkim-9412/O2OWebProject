@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xmlns:beans="http://www.springframework.org/schema/beans"
+			 xmlns:context="http://www.springframework.org/schema/context"
+			 xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -20,11 +20,29 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<context:component-scan base-package="com.itwillbs.myweb2" />
 	<context:component-scan base-package="com.itwillbs.controller" />
 	<context:component-scan base-package="com.itwillbs.service" />
 	<context:component-scan base-package="com.itwillbs.dao" />
-	<context:component-scan base-package="com.itwillbs.domain" />
+	<context:component-scan base-package="com.itwillbs.domain"/>
 	
+	<interceptors>
+		<beans:bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+		<beans:property name="cacheSeconds" value="0"/>
+		<beans:property name="useExpiresHeader" value="true"/>
+		<beans:property name="useCacheControlHeader" value="true"/>
+		<beans:property name="useCacheControlNoStore" value="true"/>
+		</beans:bean>
+	</interceptors>
+	<context:component-scan base-package="com.itwillbs.domain" />
+	<context:component-scan base-package="com.itwillbs.chat.*" />
+
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"/>
+	</beans:bean>
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\\project\\O2OWebProject\\src\\main\\webapp\\resources\\upload"/>
+	</beans:bean>
+
 </beans:beans>

@@ -59,7 +59,7 @@
 	
 	<select id="getProemail" resultType="com.itwillbs.domain.GetProDTO">
 		select p.id, p.name, p.email, p.phone, p.career, p.employee_number, p.identify, p.business,p.certificate,p.date,
-				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name
+				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name,pf.introduce,pf.description,pr.img_url
 		from PROS p left join ADDRESS a on p.address_id=a.id 
 		left join CITIES c on c.id=a.cities_id 
 		left join DISTRICTS d on d.id=a.districts_id
@@ -67,6 +67,8 @@
 		left join SERVICES s on s.id=p.services_id
 		left join SECCATEGORY se on se.id=s.seccat_id
 		left join MAINCATEGORY m on m.id=se.maincat_id
+		left join PROFILES pf on pf.pro_id=p.id
+		left join PROFILEIMG pr on p.id=pr.pro_id
 		where p.email=#{email}
 	</select>
 	
@@ -118,6 +120,41 @@
 		left join ESTIMATESMID em on em.estimates_id = e.id
 		where em.estimates_id =#{estimates_id}
 		group by e.account_id
+	</select>
+
+	<select id="getSearchList" resultType="com.itwillbs.domain.ServiceDTO">
+		select id,name from SERVICES
+		where name LIKE CONCAT('%',#{keyword},'%')
+	</select>
+	<delete id="deletePro" parameterType="map">
+		DELETE from PROS WHERE password=#{password}
+	</delete>
+
+	<update id="updateName">
+		update PROS set name=#{name} where email=#{email}
+	</update>
+
+	<update id="updateEmail">
+		update PROS set email=#{email} where email=#{email}
+	</update>
+
+	<update id="updatePass">
+		update PROS set password=#{password} where email=#{email}
+	</update>
+
+
+	<insert id="insertImg">
+		insert into PROFILEIMG(pro_id,img_url) values(#{id},#{img_url})
+	</insert>
+
+	<update id="updateImg">
+		update PROFILEIMG set img_url=#{img_url} where pro_id=#{id}
+	</update>
+
+	<select id="getProImg" resultType="com.itwillbs.domain.ProDTO">
+		select p.*,pr.img_url from PROS p
+		left join PROFILEIMG pr on p.id=pr.pro_id
+		where email=#{email}
 	</select>
 
 

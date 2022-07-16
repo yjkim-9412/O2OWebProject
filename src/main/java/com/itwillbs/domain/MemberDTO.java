@@ -12,36 +12,18 @@ public class MemberDTO {
 	private String name;
 	private Timestamp date;
 	private String email;
-	private int kakao_id;
-
-
-
-
-	//추가
-//	String gender;
-//	String email;
-//	String phone;
-//	String address;
-	
-	// 멤버함수 메서드 정의 
-	// 멤버변수를 외부에서 접근할수 있게 메서드 정의 set() get() 
-	//  alt shift s => r
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getName() {
 		return name;
 	}
@@ -54,12 +36,11 @@ public class MemberDTO {
 	public void setDate(Timestamp date) {
 		this.date = date;
 	}
-	public String getEmail() {return email;}
-	public void setEmail(String email) {this.email = email;}
-	public int getKakao_id() {return kakao_id;}
-	public void setKakao_id(int kakao_id) {this.kakao_id = kakao_id;}
-	
-
-	
-	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
+

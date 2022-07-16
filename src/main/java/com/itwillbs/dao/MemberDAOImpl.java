@@ -1,11 +1,11 @@
 package com.itwillbs.dao;
 
+
 import javax.inject.Inject;
 
+import com.itwillbs.domain.MemberDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
-import com.itwillbs.domain.MemberDTO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
@@ -61,6 +61,15 @@ public class MemberDAOImpl implements MemberDAO{
 	public void deleteMember(MemberDTO memberDTO) {
 		sqlSession.delete(namespace+".deleteMember", memberDTO);
 	}
-	
 
+	@Override
+	public void updateMember(MemberDTO memberDTO) {
+
+	}
+
+	// 	----------- CHATROOM -----------
+	@Override
+	public MemberDTO getMemberE(String email) {
+		return sqlSession.selectOne(namespace+".selectMemberE",email);
+	}
 }
