@@ -214,6 +214,11 @@
             background-image: url("https://dmmj3ljielax6.cloudfront.net/upload/profile-default/soomgo_70.jpg?h=320&w=320");
         }
 
+        .pro_img{
+            margin-left:15em;
+            border-radius: 100%;
+        }
+
         .camera-icon {
             cursor: pointer;
             position: absolute;
@@ -238,7 +243,19 @@
 
         <form action="/pro/updateFilePro" class="contact-form py-5 px-lg-5" style="max-width: 700px; margin-left: auto; margin-right: auto">
             <h2 class="text-black"><b>주고 프로필</b></h2>
-             <div class="profile-image"></div><br><br>
+
+            <c:choose>
+            <c:when test="${proDTO.img_url eq null}">
+                <a href="<%=request.getContextPath() %>/pro/ImgUpdate"><img src="${pageContext.request.contextPath}/resources/img/person/default.png" width="150" height="200" class="pro_img"></a>
+            </c:when>
+
+            <c:otherwise>
+               <a href="<%=request.getContextPath() %>/pro/ImgUpdate"><img src="${pageContext.request.contextPath}/resources/upload/${proDTO.img_url}" width="150" height="200" class="pro_img"></a>
+            </c:otherwise>
+
+            </c:choose>
+          <%--  <div class="profile-image" onclick="location.href='<%=request.getContextPath() %>/pro/ImgUpdate'"><a><img src="${pageContext.request.contextPath}/resources/upload/${proDTO.img_url}"></a></div><br><br>--%>
+
             <c:choose>
                 <c:when test="${ not empty sessionScope.email}">
                     <li class="item-container" style="margin-top:50px;" onclick="location.href='<%=request.getContextPath() %>/pro/settings/name'">
@@ -290,7 +307,7 @@
                 <div class="item">
                     <div class="item-title">자기소개</div>
 
-                    <div class="item-info">안녕하세요 준비된 주고 ${proDTO.name}입니다.</div>
+                    <div class="item-info">${proDTO.introduce}</div>
                 </div>
             </li>
 
@@ -298,7 +315,7 @@
                 <div class="item">
                     <div class="item-title">제공 서비스</div>
 
-                    <div class="item-info">${proDTO.service_name} </div>
+                    <div class="item-info">${proDTO.description}</div>
 
                 </div>
 
@@ -329,11 +346,6 @@
                 </div>
 
             </li>
-
-
-
-
-
             <li class="item-container">
                 <div class="item">
                     <div class="item-title">경력</div>
@@ -346,7 +358,7 @@
             <li class="item-container">
                 <div class="item">
                     <div class="item-title">직원수</div>
-                    <div class="item-info"><img width="25" height="20"  src="../resources/img/icon/9.png"> &nbsp;${proDTO.employee_number}명</div>
+                    <div class="item-info"><img width="25" height="20"  src="../resources/img/icon/9.png"> ${proDTO.employee_number}명</div>
                 </div>
             </li>
 
