@@ -37,4 +37,12 @@
 		select * from ACCOUNTS where email=#{email}
 	</select>
 
+	<insert id="insertImg">
+		update PROFILEIMG set img_url = #{img_url} where account_id = #{account_id}
+	</insert>
+
+	<select id="getImg" resultType="java.lang.String">
+		select img_url from PROFILEIMG where account_id = #{id}
+	</select>
+
 </mapper>
