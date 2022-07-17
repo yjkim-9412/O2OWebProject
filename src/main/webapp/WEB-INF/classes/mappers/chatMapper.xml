@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.mapper.ChatMapper">
+
+	<insert id="createRoom">
+	insert into CHATROOM(Member_email, PRO_USER_email, CLASS_class_id)
+	values (#{Member_email}, #{PRO_USER_email}, #{CLASS_class_id})
+	</insert>
+
+
+	<insert id="saveRoom">
+		insert into CHATROOM(session_name) values(#{session_name})
+	</insert>
+	<insert id="saveUsers">
+		insert into CHATROOMENTER(account_email,account_name, pro_email,pro_name, session_name) values (#{account_email},#{account_name}, #{pro_email},#{pro_name},#{session_name})
+	</insert>
+	<select id="getChatMessage" resultType="com.itwillbs.chat.model.domain.ChatMessageDTO">
+		select * from MESSAGE where session_name = #{session_name}
+	</select>
+	<select id="findBySession_name" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
+		select * from CHATROOMENTER where session_name = #{session_name}
+	</select>
+
+	<select id="findByChatRoom" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
+		select * from CHATROOMENTER where session_name = #{session_name}
+	</select>
+
+	<select id="findRoomAccount_email" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
+		select * from CHATROOMENTER where account_email = #{account_email}
+	</select>
+
+	<select id="findRoomPro_email" resultType="com.itwillbs.chat.model.domain.GetChatRoomDTO">
+		select * from CHATROOMENTER where pro_email = #{pro_email}
+	</select>
+
+	<insert id="saveChat">
+		insert into MESSAGE(message,session_name,sender,sender_name,receiver,receiver_name) values (#{message},#{session_name},#{sender},#{sender_name},#{receiver},#{receiver_name})
+	</insert>
+	<update id="deleteChatAccount">
+		update CHATROOMENTER set account_email = "trash@trash.com"where session_name = #{session_name}
+	</update>
+	<update id="deleteChatPro">
+		update CHATROOMENTER set pro_email = "trashrpro@trash.com" where session_name = #{session_name}
+	</update>
+	<delete id="checkDeleteRoom">
+		delete FROM CHATROOMENTER  where account_email = "trash@trash.com" and pro_email = "trashrpro@trash.com";
+	</delete>
+
+
+
+
+
+</mapper>
