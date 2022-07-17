@@ -14,6 +14,7 @@ import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.service.ReviewService;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class ReviewController {
@@ -27,20 +28,20 @@ public class ReviewController {
     public String write() {
         return "pro/writereviews";
     }
-	
 
 
 
 
+	@ResponseBody
 	@RequestMapping(value = "/pro/insertPro", method = RequestMethod.GET)
-	public String writePro(ReviewDTO reviewDTO) {
+	public void writePro(ReviewDTO reviewDTO) {
 		System.out.println("rating : "+reviewDTO.getRating());
 		reviewService.insertReviews(reviewDTO);
-		
-		return "redirect:/pro/proprofile";
+
 	}
 
-	@RequestMapping(value = "/pro/proprofile", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/pro/proprofile",method = RequestMethod.GET)
     public String selectproprofile(HttpServletRequest request, Model model, @RequestParam(value = "num",required = false)String num){
 
 		int pro_id=Integer.parseInt(num);

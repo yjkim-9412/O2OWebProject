@@ -15,8 +15,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script	src="${pageContext.request.contextPath}/resources/js/sockjs.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/stomp.min.js"></script>
 
 <!-- 파비콘 변경 -->
 <link rel="shortcut icon" href="resources/img/favicon.ico" type="image/x-icon">
@@ -1353,55 +1353,82 @@ a.nav-link1 {
 
     $(document).ready(function (){
 
+        connectStomp();
+        function connectStomp (){
 
-    connectStomp();
-    function connectStomp (){
-        StompStatus = true;
-        var sock = new SockJS("/stompTest");
-        var client = Stomp.over(sock);
-        socket = client;
-        client.connect({}, function () {
-            if (!<%=session.getAttribute("id")%>) {
-                socket.subscribe('/topic/inc/top/${sessionScope.email}', function (event) {
-                    console.log("프로 로그인");
-                    const content = JSON.parse(event.body);
-                    var sender = content.sender_name;
-                    var session_name = content.session_name;
-                    var receiver = content.receiver_name;
-                    let $socketAlert = $('div#socketAlert');
-                    $socketAlert.css('display', 'block');
-                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
-                    setTimeout(function () {
-                        $socketAlert.css('display', 'none');
-                    }, 6000);
+            var sock = new SockJS("/stomp/worker");
+            var client = Stomp.over(sock);
+            socket = client;
+            client.connect({}, function () {
+                console.log("top STOMP 연결 완료");
+                if (!<%=session.getAttribute("id")%>) {
+                    socket.subscribe('/topic/inc/top/${sessionScope.email}', function (event) {
+                        console.log("프로 로그인");
+                        const content = JSON.parse(event.body);
+                        var sender = content.sender_name;
+                        var session_name = content.session_name;
+                        var receiver = content.receiver;
+                        let $socketAlert = $('div#socketAlert');
+                        var postChat = document.postChat;
 
-                });
-            }else {
-                socket.subscribe('/topic/inc/top/${sessionScope.alert}', function (event) {
-                    console.log("회원 로그인");
-                    const content = JSON.parse(event.body);
-                    var sender = content.sender_name;
-                    var session_name = content.session_name;
-                    var receiver = content.receiver_name;
-                    let $socketAlert = $('div#socketAlert');
-                    $socketAlert.css('display', 'block');
-                    $socketAlert.html(sender + "님이 메세지를 보냈습니다!<input type='button' id='socketMove' value='이동하기' onclick='goPost(session_name)'>");
-                    setTimeout(function () {
-                        $socketAlert.css('display', 'none');
-                    }, 6000);
+                        $('#currentUser').val('pro');
+                        $('#userEmail').val(receiver);
+                        postChat.method = "post";
+                        postChat.action = "${pageContext.request.contextPath}/chat/room/"+session_name;
+                        console.log("session : " +session_name);
+                        console.log("userEmail : " +receiver);
+                        $socketAlert.css('display', 'block');
+                        $('p#alertChat').html(sender + "님이 메세지를 보냈습니다!");
+                        setTimeout(function () {
+                            $socketAlert.css('display', 'none');
+                        }, 6000);
 
-                });
-            }
+                    });
+                }else {
+                    socket.subscribe('/topic/inc/top/${sessionScope.alert}', function (event) {
+                        console.log("회원 로그인");
+                        const content = JSON.parse(event.body);
+                        var sender = content.sender_name;
+                        var session_name = content.session_name;
+                        var receiver = content.receiver_email;
+                        let $socketAlert = $('div#socketAlert');
+                        var postChat = document.postChat;
+                        $('#currentUser').val('account');
+                        $('#userEmail').val(receiver);
+                        postChat.method = "post";
+                        postChat.action = "${pageContext.request.contextPath}/chat/room/"+session_name;
+                        console.log("session : " +session_name);
+                        console.log("userEmail : " +receiver);
+                        $socketAlert.css('display', 'block');
+                        $('p#alertChat').html(sender + "님이 메세지를 보냈습니다!");
+
+
+                        setTimeout(function () {
+                            $socketAlert.css('display', 'none');
+                        }, 6000);
+
+                    });
+                    socket.subscribe('/topic/inc/top/${sessionScope.id}', function (event) {
+                        console.log("회원 로그인");
+                        const content = JSON.parse(event.body);
+                        var sender = content.sender_name;
+                        let $socketAlert = $('div#socketAlert');
+                        $socketAlert.css('display', 'block');
+                        $('div#estimateAlert').html(sender + "님이 견적서를 보냈습니다!");
+                        setTimeout(function () {
+                            $socketAlert.css('display', 'none');
+                        }, 6000);
+
+                    });
+
+                }
 
 
 
-        });
+            });
 
-    }
+        }
     });
-    function goPost(session_name){
-
-    }
 
 </script>
 <body>

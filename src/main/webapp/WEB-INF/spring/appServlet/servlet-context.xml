@@ -42,7 +42,7 @@
 		<beans:property name="maxUploadSize" value="10485760"/>
 	</beans:bean>
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="C:\\project\\O2OWebProject\\src\\main\\webapp\\resources\\upload"/>
+		<beans:constructor-arg value="/var/lib/tomcat9/webapps/maroo/resources/upload"/>
 	</beans:bean>
 
 </beans:beans>
