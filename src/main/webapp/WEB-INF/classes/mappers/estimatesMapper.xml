@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.itwillbs.estimates.EstimatesMapper">
+  		
+  	<select id="getEstimatesId" resultType="Integer">
+  		select id from ESTIMATES where account_id = #{account_id} order by id desc
+  	</select>
+  	
+  	<select id="getEstimatesMid" resultType="com.itwillbs.domain.EstimatesMidDTO">
+  		select * from ESTIMATESMID where estimates_id = #{estimates_id}
+  	</select>
+  	
+  	<select id="getQuestion" resultType="com.itwillbs.domain.QuestionDTO">
+  		select * from QUESTIONS where id = #{que_id};
+  	</select>
+  	
+  	<select id="getAnswer" resultType="com.itwillbs.domain.AnswerDTO">
+  		select * from ANSWERS where id = #{ans_id}
+  	</select>
+  	
+  	<resultMap type="com.itwillbs.domain.ServiceDTO" id="ServiceDTO">
+  		<result column="id" property="id"/>
+  		<result column="seccat_id" property="seccat_id"/>
+  		<result column="name" property="name"/>
+  		<result column="img_url" property="img_url"/>
+  	</resultMap>
+
+  	<resultMap type="com.itwillbs.domain.QuestionDTO" id="QuestionDTO">
+		<result column="id" property="id"/>
+		<result column="services_id" property="services_id"/>
+		<result column="contents" property="contents"/>
+		<collection property="answerDTO" resultMap="AnswerDTO"/>
+	</resultMap>
+	
+	<select id="getServiceName" resultType="String" resultMap="ServiceDTO">
+		select s.name
+		from QUESTIONS q join SERVICES s
+		on (q.services_id = s.id)
+		where q.id = #{min}
+	</select>
+	
+	<select id="getEstimates" resultType="com.itwillbs.domain.GetEstimateDTO2">
+		select e.account_id, ed.estimates_id, ed.question_id, q.services_id, s.name service_name, q.contents ques_contents, ed.answer_id, a.contents ans_contents
+		from ESTIMATES e left join ESTIMATESMID ed on e.id = ed.estimates_id 
+		left join QUESTIONS q on ed.question_id = q.id
+		left join SERVICES s on q.services_id = s.id
+		left join ANSWERS a on ed.answer_id = a.id
+		where account_id = #{account_id} and estimates_id = #{estimatesId}
+	</select>
+  	
+  	<select id="getProEstimates" resultType="com.itwillbs.domain.GetProEstimateDTO">
+	  	select e.account_id , ed.estimates_id, ed.question_id, q.services_id, s.name service_name, ed.date date
+		from ESTIMATES e left join ESTIMATESMID ed on e.id = ed.estimates_id
+		left join QUESTIONS q on ed.question_id = q.id
+		left join SERVICES s on q.services_id = s.id
+		where account_id = #{account_id} and estimates_id = #{estimates_id}
+		order by ed.date desc
+  	</select>
+  	
+  	<select id="getProEstimates2" resultType="com.itwillbs.domain.ProEstimatesDTO">
+		select pe.id proestimates_id, pe.estimates_id, pe.pro_id, p.name pro_name, p.email pro_email, pe.price, pe.selected, pe.account_id, pe.content
+		from PROESTIMATES pe left join PROS p on pe.pro_id = p.id
+		where estimates_id = #{estimatesId} and account_id = #{account_id}
+  	</select>
+
+	<select id="getProAddr" resultType="com.itwillbs.domain.ProAddrDTO">
+		select p.id pro_id, p.address_id, a.cities_id, c.name city_name, a.districts_id, d.name district_name
+		from PROS p left join ADDRESS a on p.address_id = a.id
+					left join CITIES c on a.cities_id = c.id
+					left join DISTRICTS d on a.districts_id = d.id
+		where p.id = #{pro_id}
+	</select>
+
+	<update id="deleteEstimate">
+		update ESTIMATES set account_id = 4 where id=#{estimate_id}
+	</update>
+
+	<delete id="deleteEstimateMid" parameterType="java.util.List">
+		delete from ESTIMATESMID
+		       where id in(
+		           <foreach collection="list" item="item" separator=" , ">#{item}</foreach>
+		                  )
+	</delete>
+
+	<update id="proEstimateDelete">
+		update PROESTIMATES set account_id = 4 where id = #{proEstimates_id}
+	</update>
+  </mapper>
