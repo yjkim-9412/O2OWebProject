@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.member.ProMapper">
+
+	<insert id="insertPro">
+		insert into PROS(services_id,gender_id,name,password,email,phone,address_id)
+		values(#{services_id},#{gender_id},#{name},#{password},#{email},#{phone},#{address_id})
+	</insert>
+	
+	<select id="proCheck" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where password=#{password} and email=#{email} 
+	</select>
+	
+	<insert id="insertAddress">
+		insert into ADDRESS(cities_id,districts_id,addistricts_id,address_detail,x_axis,y_axis) 
+		values(#{city_id},#{district_id},#{addistrict_id},#{addressdetail},#{x_axis},#{y_axis})
+	</insert>
+	
+	<select id="getCity" resultType="com.itwillbs.domain.CityDTO">
+		select * from CITIES where name=#{city}
+	</select>
+	
+	<select id="getDistrict" resultType="com.itwillbs.domain.DistrictDTO">
+		select * from DISTRICTS where name=#{district} and city_id=#{city_id}
+	</select>
+	
+	<select id="getAddDistrict" resultType="com.itwillbs.domain.AddistrictDTO">
+		select * from ADDISTRICTS where name=#{addistrict} and district_id=#{district_id}
+		
+		
+	</select>
+	
+	<select id="getMaxAddrId" resultType="java.lang.Integer">
+		select MAX(id) from ADDRESS
+	</select>
+	
+	<select id="getPro" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where email=#{email}
+	</select>
+	
+	<select id="getProi" resultType="com.itwillbs.domain.ProDTO">
+		select * from PROS where id=#{id}
+	</select>
+	
+	<select id="getProid" resultType="com.itwillbs.domain.GetProDTO">
+		select p.id, p.name, p.email, p.phone, p.career, p.employee_number, p.identify, p.business,p.certificate,p.date,
+				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name
+		from PROS p left join ADDRESS a on p.address_id=a.id 
+		left join CITIES c on c.id=a.cities_id 
+		left join DISTRICTS d on d.id=a.districts_id
+		left join ADDISTRICTS ad on ad.id=a.addistricts_id
+		left join SERVICES s on s.id=p.services_id
+		left join SECCATEGORY se on se.id=s.seccat_id
+		left join MAINCATEGORY m on m.id=se.maincat_id
+		where p.id=#{id}
+	</select>
+	
+	<select id="getProemail" resultType="com.itwillbs.domain.GetProDTO">
+		select p.id, p.name, p.email, p.phone, p.career, p.employee_number, p.identify, p.business,p.certificate,p.date,
+				a.x_axis,a.y_axis,c.name city_name,d.name district_name,ad.name addistrict_name, m.name maincat_name,se.name seccat_name,s.name service_name,pf.introduce,pf.description,pr.img_url
+		from PROS p left join ADDRESS a on p.address_id=a.id 
+		left join CITIES c on c.id=a.cities_id 
+		left join DISTRICTS d on d.id=a.districts_id
+		left join ADDISTRICTS ad on ad.id=a.addistricts_id
+		left join SERVICES s on s.id=p.services_id
+		left join SECCATEGORY se on se.id=s.seccat_id
+		left join MAINCATEGORY m on m.id=se.maincat_id
+		left join PROFILES pf on pf.pro_id=p.id
+		left join PROFILEIMG pr on p.id=pr.pro_id
+		where p.email=#{email}
+	</select>
+	
+	<select id="getEstimate" resultType="com.itwillbs.domain.GetEstimateDTO">
+		select e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont,p.id pro_id,p.address_id,ac.id account_id,ac.name account_name,
+		       ac.email account_email
+		from ESTIMATESMID e
+		left join QUESTIONS q on q.id=e.question_id
+		left join ANSWERS a on a.id=e.answer_id
+		left join ESTIMATES es on es.id=e.estimates_id
+		left join PROS p on p.id=es.pro_id
+		left join ACCOUNTS ac on ac.id=es.account_id
+		where q.services_id=#{services_id} and ac.id is not null
+		order by estimates_id
+		limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getEstimateCount" resultType="java.lang.Integer">
+		select count(*) from
+		(select count(*), e.estimates_id,e.question_id,e.answer_id,q.services_id,q.contents question_cont,a.contents answer_cont
+		from ESTIMATESMID e
+		left join QUESTIONS q on q.id=e.question_id
+		left join ANSWERS a on a.id=e.answer_id
+		left join ESTIMATES es on es.id=e.estimates_id
+		left join ACCOUNTS ac on ac.id=es.account_id
+		where q.services_id=1 and ac.id is not null
+		group by estimates_id) cnt;
+	</select> 
+	
+	<select id="getPageSize" resultType="java.lang.Integer">
+		select count(*)
+		from ESTIMATESMID e
+		left join QUESTIONS q on q.id=e.question_id
+		left join ANSWERS a on a.id=e.answer_id
+		left join ESTIMATES es on es.id=e.estimates_id
+		left join PROS p on p.id=es.pro_id
+		left join ACCOUNTS ac on ac.id=es.account_id
+		where q.services_id=1 and ac.id is not null
+		order by estimates_id; 
+	</select>	
+	
+	<insert id="insertProEstimate">
+		insert into PROESTIMATES(estimates_id,pro_id,account_id,content)
+		values(#{estimates_id},#{pro_id},#{account_id},#{content})
+	</insert>
+	
+	<select id="getAccId" resultType="java.lang.Integer">
+		select e.account_id
+		from ESTIMATES e
+		left join ESTIMATESMID em on em.estimates_id = e.id
+		where em.estimates_id =#{estimates_id}
+		group by e.account_id
+	</select>
+
+	<select id="getSearchList" resultType="com.itwillbs.domain.ServiceDTO">
+		select id,name from SERVICES
+		where name LIKE CONCAT('%',#{keyword},'%')
+	</select>
+	<delete id="deletePro" parameterType="map">
+		DELETE from PROS WHERE password=#{password} and email=#{email}
+	</delete>
+
+	<update id="updateName">
+		update PROS set name=#{name} where email=#{email}
+	</update>
+
+	<update id="updateEmail">
+		update PROS set email=#{email} where email=#{email}
+	</update>
+
+	<update id="updatePass">
+		update PROS set password=#{password} where email=#{email}
+	</update>
+
+
+	<insert id="insertImg">
+		insert into PROFILEIMG(pro_id,img_url) values(#{id},#{img_url})
+	</insert>
+
+	<update id="updateImg">
+		update PROFILEIMG set img_url=#{img_url} where pro_id=#{id}
+	</update>
+
+	<select id="getProImg" resultType="com.itwillbs.domain.ProDTO">
+		select p.*,pr.img_url from PROS p
+		left join PROFILEIMG pr on p.id=pr.pro_id
+		where email=#{email}
+	</select>
+
+
+</mapper>

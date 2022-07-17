@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.ProfileImgDTO;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.JsonElement;
@@ -197,5 +198,16 @@ public class MemberServiceImpl implements MemberService{
 //
 //		return memberDAO.getMemberE(email);
 //	}
+
+
+	@Override
+	public void insertImg(ProfileImgDTO profileImgDTO) {
+		memberDAO.insertImg(profileImgDTO);
+	}
+
+	@Override
+	public String getImg(int id) {
+		return memberDAO.getImg(id);
+	}
 }
 

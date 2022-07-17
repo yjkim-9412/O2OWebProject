@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwillbs.member.ReviewMapper">
+
+	<insert id="insertReviews">
+	insert into REVIEWS(account_id,pro_id,comment,rating)
+	values(#{account_id},#{pro_id},#{comment},#{rating})
+	</insert>
+	
+	<select id="getallReviews" resultType="com.itwillbs.domain.ReviewDTO">
+		select r.*, a.name from REVIEWS r join ACCOUNTS a on r.account_id = a.id where r.pro_id=#{pro_id}
+	</select>
+
+	<select id="getReviewCount" resultType="java.lang.Integer">
+		select count(*) from REVIEWS where pro_id=#{pro_id}
+	</select>
+
+	<select id="getreviewavg" resultType="java.lang.Double">
+		select ROUND(AVG(rating),1 )from REVIEWS where pro_id=#{pro_id}
+	</select>
+
+	<select id="getratingfive" resultType="com.itwillbs.domain.ReviewDTO">
+		select * , a.name "name" from REVIEWS r JOIN ACCOUNTS a ON r.account_id=a.id where r.rating = 5;
+	
+	</select>
+	
+	<select id="getAllreviewavg" resultType="java.lang.Double">
+		select ROUND(AVG(rating),1 ) from REVIEWS
+	</select>
+	
+	<select id="getAllreviewcount" resultType="java.lang.Integer">
+	    select count(*) from REVIEWS
+	</select>
+
+	<select id="getpronameservice" resultType="com.itwillbs.domain.ReviewDTO">
+		select p.name "proname", pr.description "service" , r.pro_id , round(avg(r.rating),1) "avg1" , count(*) "count1" , pf.img_url from PROS p join PROFILES pr on p.id = pr.pro_id join REVIEWS r on pr.pro_id = r.pro_id join PROFILEIMG pf on pf.pro_id=p.id  group by r.pro_id having avg(r.rating) > 3;
+	</select>
+
+
+
+</mapper>
