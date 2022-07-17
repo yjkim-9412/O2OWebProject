@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="getallReviews" resultType="com.itwillbs.domain.ReviewDTO">
-		select r.*, a.name from REVIEWS r join ACCOUNTS a on r.account_id = a.id where r.pro_id=#{pro_id}
+		select r.*, a.name from REVIEWS r join ACCOUNTS a on r.account_id = a.id where r.pro_id=#{pro_id} ORDER BY date DESC
 	</select>
 
 	<select id="getReviewCount" resultType="java.lang.Integer">

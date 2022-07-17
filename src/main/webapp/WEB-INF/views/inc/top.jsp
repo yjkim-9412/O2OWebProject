@@ -16,8 +16,8 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+	<script	src="${pageContext.request.contextPath}/resources/js/sockjs.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/stomp.min.js"></script>
 <!-- 파비콘 변경 -->
 <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -383,7 +383,7 @@ $(document).ready(function (){
     connectStomp();
     function connectStomp (){
 
-        var sock = new SockJS("/stompTest");
+        var sock = new SockJS("/stomp/worker");
         var client = Stomp.over(sock);
         socket = client;
         client.connect({}, function () {
@@ -418,7 +418,6 @@ $(document).ready(function (){
                     var sender = content.sender_name;
                     var session_name = content.session_name;
                     var receiver = content.receiver_email;
-
                     let $socketAlert = $('div#socketAlert');
 					var postChat = document.postChat;
 					$('#currentUser').val('account');
@@ -436,6 +435,18 @@ $(document).ready(function (){
                     }, 6000);
 
                 });
+				socket.subscribe('/topic/inc/top/${sessionScope.id}', function (event) {
+					console.log("회원 로그인");
+					const content = JSON.parse(event.body);
+					var sender = content.sender_name;
+					let $socketAlert = $('div#socketAlert');
+					$socketAlert.css('display', 'block');
+					$('div#estimateAlert').html(sender + "님이 견적서를 보냈습니다!");
+					setTimeout(function () {
+						$socketAlert.css('display', 'none');
+					}, 6000);
+
+				});
             }
 
 
@@ -457,6 +468,9 @@ $(document).ready(function (){
 		<input type="hidden" value="" id="userEmail" name="userEmail">
 	<input type="submit" value="이동하기!">
 	</form>
+</div>
+<div id="estimateAlert" class="alert alert-success" role="alert" style="display: none">
+
 </div>
 
 <header>

@@ -8,9 +8,9 @@
     <title>WebSocket Test</title>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/stomp.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script	src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script	src="${pageContext.request.contextPath}/resources/js/sockjs.js"></script>
 <style type="text/css">
     *{ margin: 0; padding: 0; }
     .chat_wrap .header { font-size: 14px; padding: 15px 0; background: #F18C7E; color: white; text-align: center;  }
@@ -88,7 +88,7 @@
 
         function connectStomp() {
             isStomp = true;
-            var sock = new SockJS("/stompTest"); // endpoint
+            var sock = new SockJS("/stomp/worker"); // endpoint
             var client = Stomp.over(sock);
             socket = client;
             let first = true;

@@ -159,6 +159,10 @@ public class ChatRoomController {
         }
         return "chat/rooms";
     }
+    @RequestMapping("chat/rooms_empty")
+    public String moveEmpty(){
+        return "chat/rooms_empty";
+    }
 
 
     @ResponseBody

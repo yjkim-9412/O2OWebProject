@@ -49,6 +49,12 @@ public class StompChatController {
         System.out.println("알림전송!" + chatMessageDTO.getReceiver());
         messagingTemplate.convertAndSend("/topic/inc/top/"+chatMessageDTO.getReceiver(),chatMessageDTO);
     }
+
+    @MessageMapping("chat/estimate")
+    public void sendEstimatesAlert(ChatMessageDTO chatMessageDTO){
+        System.out.println("알림전송!" + chatMessageDTO.getReceiver());
+        messagingTemplate.convertAndSend("/topic/inc/top/"+chatMessageDTO.getReceiver(),chatMessageDTO);
+    }
     @MessageMapping("/chat/deleteRoom")
     public ChatMessageDTO deleteMessage(ChatMessageDTO messages) throws Exception {
         System.out.println("세션이름 :" + messages. getSession_name());
