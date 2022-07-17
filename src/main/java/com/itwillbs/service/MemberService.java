@@ -1,6 +1,7 @@
 package com.itwillbs.service;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.ProfileImgDTO;
 
 import java.util.HashMap;
 
@@ -30,5 +31,8 @@ public interface MemberService {
 // 	----------- CHATROOM -----------
 	public MemberDTO getMemberE(String email);
 
+	public void insertImg(ProfileImgDTO profileImgDTO);
+
+	public String getImg(int id);
 	
 }

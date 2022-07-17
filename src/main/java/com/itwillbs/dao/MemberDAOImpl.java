@@ -4,6 +4,7 @@ package com.itwillbs.dao;
 import javax.inject.Inject;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.ProfileImgDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -71,5 +72,15 @@ public class MemberDAOImpl implements MemberDAO{
 	@Override
 	public MemberDTO getMemberE(String email) {
 		return sqlSession.selectOne(namespace+".selectMemberE",email);
+	}
+
+	@Override
+	public void insertImg(ProfileImgDTO profileImgDTO) {
+		sqlSession.insert(namespace + ".insertImg", profileImgDTO);
+	}
+
+	@Override
+	public String getImg(int id) {
+		return sqlSession.selectOne(namespace + ".getImg", id);
 	}
 }

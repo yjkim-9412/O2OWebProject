@@ -89,6 +89,16 @@ public class QuestionController {
 			return "category/sec_category/party";
 		}else if(services_id == 39 || services_id == 40 || services_id == 41 || services_id == 42|| services_id == 43) {
 			return "category/sec_category/mc";
+		}else if(services_id == 53 || services_id == 54 || services_id == 55) {
+			return "category/sec_category/video";
+		}else if(services_id == 71 || services_id == 72) {
+			return "category/sec_category/aircon";
+		}else if(services_id == 73 || services_id == 74 || services_id == 75 ||services_id == 76 || services_id == 77 || services_id == 78) {
+			return "category/sec_category/mold";
+		}else if(services_id == 79 || services_id == 80 || services_id == 81) {
+			return "category/sec_category/move";
+		}else if(services_id == 87 || services_id == 88) {
+			return "category/sec_category/bed";
 		}
 
 		return "redirect:/";

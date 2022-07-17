@@ -22,4 +22,8 @@ public interface MemberDAO {
 
 	// 	----------- CHATROOM -----------
 		public MemberDTO getMemberE(String email);
+
+	public void insertImg(ProfileImgDTO profileImgDTO);
+
+	public String getImg(int id);
 }
