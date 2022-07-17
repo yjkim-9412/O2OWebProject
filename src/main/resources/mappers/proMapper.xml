@@ -128,7 +128,7 @@
 		where name LIKE CONCAT('%',#{keyword},'%')
 	</select>
 	<delete id="deletePro" parameterType="map">
-		DELETE from PROS WHERE password=#{password}
+		DELETE from PROS WHERE password=#{password} and email=#{email}
 	</delete>
 
 	<update id="updateName">

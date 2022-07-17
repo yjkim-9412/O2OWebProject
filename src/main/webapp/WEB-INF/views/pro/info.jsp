@@ -216,7 +216,7 @@
 
         .pro_img{
             margin-left:15em;
-            border-radius: 100%;
+            border-radius: 70%;
         }
 
         .camera-icon {
@@ -246,7 +246,8 @@
 
             <c:choose>
             <c:when test="${proDTO.img_url eq null}">
-                <a href="<%=request.getContextPath() %>/pro/ImgUpdate"><img src="${pageContext.request.contextPath}/resources/img/person/default.png" width="150" height="200" class="pro_img"></a>
+                <a href="<%=request.getContextPath() %>/pro/ImgUpdate"><img src="${pageContext.request.contextPath}/resources/img/joogo.jpg" width="150" height="200" class="pro_img"></a>
+
             </c:when>
 
             <c:otherwise>
@@ -254,7 +255,6 @@
             </c:otherwise>
 
             </c:choose>
-          <%--  <div class="profile-image" onclick="location.href='<%=request.getContextPath() %>/pro/ImgUpdate'"><a><img src="${pageContext.request.contextPath}/resources/upload/${proDTO.img_url}"></a></div><br><br>--%>
 
             <c:choose>
                 <c:when test="${ not empty sessionScope.email}">

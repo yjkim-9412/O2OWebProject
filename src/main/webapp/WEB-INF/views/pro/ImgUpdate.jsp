@@ -52,6 +52,12 @@
             width: 150px;
             margin-bottom: 5px;
         }
+
+        /* 이미지 사이즈 */
+        .pro_img{
+            margin-left:15em;
+            border-radius: 70%;
+        }
         /* 버튼 */
         .button-55 {
             align-self: center;
@@ -220,7 +226,7 @@
     <c:choose>
 
 <c:when test="${proDTO.img_url eq null}">
-    <img src="${pageContext.request.contextPath}/resources/img/person/default.png" width="150" height="200">
+    <img src="${pageContext.request.contextPath}/resources/img/joogo.jpg" width="150" height="200" class="pro_img">
 </c:when>
 
 <c:otherwise>

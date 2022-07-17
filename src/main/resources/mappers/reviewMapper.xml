@@ -35,7 +35,7 @@
 	</select>
 
 	<select id="getpronameservice" resultType="com.itwillbs.domain.ReviewDTO">
-		select p.name "proname", pr.description "service" , r.pro_id , round(avg(r.rating),1) "avg1" , count(*) "count1" from PROS p join PROFILES pr on p.id = pr.pro_id join REVIEWS r on pr.pro_id = r.pro_id group by r.pro_id having avg(r.rating) > 3;
+		select p.name "proname", pr.description "service" , r.pro_id , round(avg(r.rating),1) "avg1" , count(*) "count1" , pf.img_url from PROS p join PROFILES pr on p.id = pr.pro_id join REVIEWS r on pr.pro_id = r.pro_id join PROFILEIMG pf on pf.pro_id=p.id  group by r.pro_id having avg(r.rating) > 3;
 	</select>
 
 
