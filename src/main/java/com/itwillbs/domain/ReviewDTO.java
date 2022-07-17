@@ -16,6 +16,16 @@ public class ReviewDTO {
 	private Double avg;
 	private int count;
 
+	public String getImg_url() {
+		return img_url;
+	}
+
+	public void setImg_url(String img_url) {
+		this.img_url = img_url;
+	}
+
+	private String img_url;
+
 	private String proname;
 
 	private String service;
@@ -23,6 +33,9 @@ public class ReviewDTO {
 	private int count1;
 
 	private double avg1;
+
+	public ReviewDTO() {
+	}
 
 	public int getCount1() {
 		return count1;
