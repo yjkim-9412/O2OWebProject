@@ -57,7 +57,7 @@
 톰캣 server.xml과 sockjs를 기본 서브도메인 이름으로 변경해 보았으나 연결되지 않았음<br>
   STOMP 엔드 포인트 부분에서 404에러<br>
   <b>sockJS 수정 부분</b><br>
-  <img src="https://user-images.githubusercontent.com/100066303/179921409-ebca5e1a-42c4-4837-82ed-3d0f4f9e79cc.png"/></li>
+  <img src="https://user-images.githubusercontent.com/100066303/179921409-ebca5e1a-42c4-4837-82ed-3d0f4f9e79cc.png"/></li><br>
  <li><b>지역 매칭 문제</b><br>
   지역 매칭을 위해 데이터베이스에 기본적인 지역 정보 데이터들을 시, 구, 동 별로 테이블을 나누어 입력한 뒤<br>
 한 테이블에 해당 지역 아이들 값들을 합쳐 일치하는 횟수 기준으로 클라이언트들에게 매칭 결과를 정렬하려 했으나<br>
