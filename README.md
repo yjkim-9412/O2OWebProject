@@ -54,7 +54,7 @@
  <li>사용자들이 동시 다 벌 적으로 설문조사를 진행했을 때 입출력되는 데이터베이스를 최소화해야 함</li> 
  <li><b>채팅방 도메인 문제</b><br>
   실제로 배포했을 시 localhost ip 기준으로 웹소켓이 기능 동작하지만 서브 도메인으로 했을 시에 웹소켓 연결이 되지 않음<br>
-추가적으로 톰캣 server.xml과 sockjs를 기본 서브도메인 이름으로 변경해 보았으나 연결되지 않았음 STOMP 엔드 포인트 부분에서 404에러<br>
+톰캣 server.xml과 sockjs를 기본 서브도메인 이름으로 변경해 보았으나 연결되지 않았음 STOMP 엔드 포인트 부분에서 404에러<br>
 sockJS 수정 부분<br>
   <img src="https://user-images.githubusercontent.com/100066303/179921409-ebca5e1a-42c4-4837-82ed-3d0f4f9e79cc.png"/></li>
  <li><b>지역 매칭 문제</b><br>
